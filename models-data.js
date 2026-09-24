@@ -18,7 +18,13 @@
  *    When present, cite real numbers only, with sample size / caveat in `metricsNote`.
  * 5. `inference` describes the *shape* of a future demo (input → output) even if no
  *    demo exists yet — this is what lets the UI grow without a redesign.
- * 6. No build step needed — this file is loaded directly via <script> on both pages.
+ * 6. `cover` is the Model Lab carousel slide image. Leave it `null` to get an
+ *    auto-generated placeholder (labeled with the model's name, so it's obvious
+ *    which slot each future screenshot belongs in). Once a real MVP screenshot
+ *    exists, drop the file in `assets/model-covers/<slug>.jpg` (or .png/.webp)
+ *    and set `cover: 'assets/model-covers/<slug>.jpg'` — the carousel switches
+ *    to the real image automatically, no HTML/CSS changes needed.
+ * 7. No build step needed — this file is loaded directly via <script> on both pages.
  */
 window.MODEL_LAB = [
   {
@@ -31,6 +37,7 @@ window.MODEL_LAB = [
     task: { en: 'Image classification', es: 'Clasificación de imágenes' },
     status: 'trained',
     tags: [{ en: 'Computer Vision', es: 'Visión por Computador' }, { en: 'PyTorch', es: 'PyTorch' }, { en: 'Transfer Learning', es: 'Transfer Learning' }],
+    cover: null,
     summary: {
       en: 'Multi-architecture image classifiers trained and evaluated across two applied projects: a fruit-image benchmark and the convolutional backbone family explored for the DCE-MRI thesis (ResNet18/50, EfficientNet).',
       es: 'Clasificadores de imágenes multi-arquitectura entrenados y evaluados en dos proyectos aplicados: un benchmark de imágenes de frutas y la familia de backbones convolucionales explorada para la tesis DCE-MRI (ResNet18/50, EfficientNet).',
@@ -75,6 +82,7 @@ window.MODEL_LAB = [
     task: { en: 'Image classification (candidate backbone)', es: 'Clasificación de imágenes (backbone candidato)' },
     status: 'research',
     tags: [{ en: 'Vision Transformer', es: 'Vision Transformer' }, { en: 'PyTorch', es: 'PyTorch' }, { en: 'Medical AI', es: 'IA Médica' }],
+    cover: null,
     summary: {
       en: 'MobileViT explored as a candidate backbone in the DCE-MRI architecture comparison alongside the CNN family — evaluated, not yet selected as the final production model.',
       es: 'MobileViT explorado como backbone candidato en la comparación de arquitecturas de DCE-MRI junto con la familia CNN — evaluado, aún no seleccionado como modelo final de producción.',
@@ -118,6 +126,7 @@ window.MODEL_LAB = [
     task: { en: 'Structured-data classification', es: 'Clasificación de datos estructurados' },
     status: 'planned',
     tags: [{ en: 'Tabular', es: 'Tabular' }, { en: 'Baseline', es: 'Línea base' }],
+    cover: null,
     summary: {
       en: 'Next in the lab queue: a PyTorch MLP baseline on structured data already explored with scikit-learn classifiers (SVM, KNN, Random Forest).',
       es: 'Siguiente en la cola del laboratorio: una línea base MLP en PyTorch sobre datos estructurados ya explorados con clasificadores de scikit-learn (SVM, KNN, Random Forest).',
@@ -144,6 +153,7 @@ window.MODEL_LAB = [
     task: { en: 'Sequence modeling', es: 'Modelado de secuencias' },
     status: 'planned',
     tags: [{ en: 'Sequence', es: 'Secuencias' }, { en: 'Time Series', es: 'Series de Tiempo' }],
+    cover: null,
     summary: {
       en: 'Planned entry point into sequence modeling before moving to gated variants (LSTM, GRU).',
       es: 'Punto de entrada planeado al modelado de secuencias, antes de pasar a variantes con compuertas (LSTM, GRU).',
@@ -169,6 +179,7 @@ window.MODEL_LAB = [
     task: { en: 'Long-range sequence modeling', es: 'Modelado de secuencias de largo alcance' },
     status: 'planned',
     tags: [{ en: 'Sequence', es: 'Secuencias' }, { en: 'Gated RNN', es: 'RNN con Compuertas' }],
+    cover: null,
     summary: {
       en: 'Gated recurrent architecture planned for longer-range sequence dependencies than a vanilla RNN handles well.',
       es: 'Arquitectura recurrente con compuertas planeada para dependencias de secuencia de más largo alcance de lo que maneja bien una RNN simple.',
@@ -195,6 +206,7 @@ window.MODEL_LAB = [
     task: { en: 'Sequence modeling (lightweight)', es: 'Modelado de secuencias (ligero)' },
     status: 'planned',
     tags: [{ en: 'Sequence', es: 'Secuencias' }, { en: 'Gated RNN', es: 'RNN con Compuertas' }],
+    cover: null,
     summary: {
       en: 'Lighter gated alternative to LSTM, planned as a comparison point on the same sequence tasks.',
       es: 'Alternativa con compuertas más ligera que LSTM, planeada como punto de comparación en las mismas tareas de secuencia.',
@@ -220,6 +232,7 @@ window.MODEL_LAB = [
     task: { en: 'Reconstruction / anomaly detection', es: 'Reconstrucción / detección de anomalías' },
     status: 'planned',
     tags: [{ en: 'Unsupervised', es: 'No Supervisado' }, { en: 'Representation Learning', es: 'Aprendizaje de Representaciones' }],
+    cover: null,
     summary: {
       en: 'Planned for unsupervised representation learning and anomaly-detection experiments.',
       es: 'Planeado para aprendizaje de representaciones no supervisado y experimentos de detección de anomalías.',
@@ -246,6 +259,7 @@ window.MODEL_LAB = [
     task: { en: 'Sample generation', es: 'Generación de muestras' },
     status: 'planned',
     tags: [{ en: 'Generative', es: 'Generativo' }, { en: 'Adversarial Training', es: 'Entrenamiento Adversario' }],
+    cover: null,
     summary: {
       en: 'Planned generative-modeling entry — generator/discriminator pair trained adversarially.',
       es: 'Entrada planeada de modelado generativo — par generador/discriminador entrenado de forma adversaria.',
@@ -272,6 +286,7 @@ window.MODEL_LAB = [
     task: { en: 'Node / graph prediction', es: 'Predicción de nodo / grafo' },
     status: 'planned',
     tags: [{ en: 'Graphs', es: 'Grafos' }, { en: 'Relational Learning', es: 'Aprendizaje Relacional' }],
+    cover: null,
     summary: {
       en: 'Planned exploration of message-passing architectures for graph-structured data.',
       es: 'Exploración planeada de arquitecturas de paso de mensajes para datos estructurados como grafos.',

@@ -238,12 +238,26 @@ const CaseTabsModule = (() => {
   return { init };
 })();
 
-/** Model Lab — renders the registry list on index.html from models-data.js */
+/**
+ * Model Lab carousel — auto-advancing, filterable, data-driven from
+ * models-data.js. Placeholder covers are generated inline (labeled with
+ * the model name) until a real `cover` image is set on that model's entry.
+ */
 const ModelLabModule = (() => {
   const STATUS_KEY = {
     planned: 'statusPlanned', research: 'statusResearch', development: 'statusDevelopment',
     trained: 'statusTrained', deployed: 'statusDeployed',
   };
+  const AUTOPLAY_MS = 4200;
+
+  let track, viewport, dotsEl, filtersEl, prevBtn, nextBtn;
+  let activeFilter = 'all';
+  let current = [];
+  let autoplayTimer = null;
+  let paused = false;
+  let resumeTimer = null;
+
+  const prefersReduced = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const t = (field) => {
     if (field === null || field === undefined) return '';
@@ -252,32 +266,162 @@ const ModelLabModule = (() => {
     return field[lang] || field.en || '';
   };
 
-  const row = (model, i) => {
-    const statusLabel = I18nModule.get(`lab.${STATUS_KEY[model.status]}`) || model.status;
+  const cover = (model) => {
+    if (model.cover) {
+      return `<img src="${model.cover}" alt="${model.shortName} — ${t(model.fullName)}" loading="lazy" />`;
+    }
+    const pending = (I18nModule.get('lab.coverPending') || 'Cover pending').toUpperCase();
     return `
-      <a class="lab-row" role="listitem" href="lab.html#/${model.slug}">
-        <span class="lab-row__num">${model.order}</span>
-        <span class="lab-row__name">
-          <span class="lab-row__short">${model.shortName}</span>
-          <span class="lab-row__full">${t(model.fullName)}</span>
-        </span>
-        <span class="lab-row__meta">${t(model.type)} · ${model.framework}</span>
-        <span class="status-tag" data-status="${model.status}">${statusLabel}</span>
-        <span class="lab-row__link">${I18nModule.get('lab.viewModel') || 'View model'} <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12L12 4M6 4h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      </a>`;
+      <svg viewBox="0 0 400 300" role="img" aria-label="${model.shortName} — ${pending}">
+        <rect width="400" height="300" style="fill:var(--color-bg-sunken)"/>
+        <rect x="12" y="12" width="376" height="276" fill="none" style="stroke:var(--color-border-strong)" stroke-width="1.5" stroke-dasharray="6 6"/>
+        <text x="200" y="152" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-size="44" style="fill:var(--color-fg-faint)">${model.shortName}</text>
+        <text x="200" y="184" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="12" letter-spacing="1" style="fill:var(--color-fg-faint)">${t(model.type)}</text>
+        <text x="200" y="268" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="9.5" letter-spacing="1.5" style="fill:var(--color-fg-faint)">${pending}</text>
+      </svg>`;
   };
 
-  const render = () => {
-    const list = document.getElementById('labList');
-    if (!list || !window.MODEL_LAB) return;
-    const sorted = [...window.MODEL_LAB].sort((a, b) => a.order.localeCompare(b.order));
-    list.innerHTML = sorted.map(row).join('');
+  const card = (model) => {
+    const statusLabel = I18nModule.get(`lab.${STATUS_KEY[model.status]}`) || model.status;
+    return `
+      <article class="lab-card" role="listitem">
+        <a href="lab.html#/${model.slug}" class="lab-card__cover" tabindex="-1" aria-hidden="true">${cover(model)}</a>
+        <div class="lab-card__body">
+          <span class="lab-card__num">${model.order}</span>
+          <h3 class="lab-card__name">${model.shortName}</h3>
+          <p class="lab-card__full">${t(model.fullName)}</p>
+          <p class="lab-card__meta">${t(model.type)} · ${model.framework}</p>
+          <div class="lab-card__foot">
+            <span class="status-tag" data-status="${model.status}">${statusLabel}</span>
+            <a href="lab.html#/${model.slug}" class="lab-card__link">${I18nModule.get('lab.viewModel') || 'View model'} <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12L12 4M6 4h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </div>
+      </article>`;
+  };
+
+  const uniqueTypes = () => {
+    const seen = new Map(); // key: en label (stable id) -> localized label
+    (window.MODEL_LAB || []).forEach(m => {
+      const key = m.type.en;
+      seen.set(key, t(m.type));
+    });
+    return [...seen.entries()];
+  };
+
+  const renderFilters = () => {
+    if (!filtersEl) return;
+    const allLabel = I18nModule.get('lab.filterAll') || 'All';
+    const chips = [{ key: 'all', label: allLabel }, ...uniqueTypes().map(([key, label]) => ({ key, label }))];
+    filtersEl.innerHTML = chips.map(c => `
+      <button type="button" class="lab-filter${c.key === activeFilter ? ' is-active' : ''}" data-filter="${c.key}">${c.label}</button>
+    `).join('');
+    filtersEl.querySelectorAll('.lab-filter').forEach(btn => {
+      btn.addEventListener('click', () => {
+        activeFilter = btn.dataset.filter;
+        renderFilters();
+        renderTrack();
+      });
+    });
+  };
+
+  const renderDots = () => {
+    if (!dotsEl) return;
+    dotsEl.innerHTML = current.map((m, i) => `
+      <button type="button" class="lab-carousel__dot${i === 0 ? ' is-active' : ''}" data-index="${i}" aria-label="${m.shortName}"></button>
+    `).join('');
+    dotsEl.querySelectorAll('.lab-carousel__dot').forEach(dot => {
+      dot.addEventListener('click', () => goTo(parseInt(dot.dataset.index, 10)));
+    });
+  };
+
+  const cardStep = () => {
+    const first = track.querySelector('.lab-card');
+    if (!first) return 0;
+    const style = getComputedStyle(track);
+    const gap = parseFloat(style.columnGap || style.gap || '0');
+    return first.getBoundingClientRect().width + gap;
+  };
+
+  const updateActiveDot = () => {
+    const step = cardStep();
+    if (!step) return;
+    const idx = Math.round(viewport.scrollLeft / step);
+    dotsEl?.querySelectorAll('.lab-carousel__dot').forEach((d, i) => d.classList.toggle('is-active', i === idx));
+    if (prevBtn) prevBtn.disabled = viewport.scrollLeft < 8;
+    if (nextBtn) nextBtn.disabled = viewport.scrollLeft + viewport.clientWidth >= viewport.scrollWidth - 8;
+  };
+
+  const goTo = (index) => {
+    const step = cardStep();
+    viewport.scrollTo({ left: step * index, behavior: prefersReduced() ? 'auto' : 'smooth' });
+  };
+
+  const advance = (dir) => {
+    const step = cardStep();
+    if (!step) return;
+    const atEnd = viewport.scrollLeft + viewport.clientWidth >= viewport.scrollWidth - 8;
+    const atStart = viewport.scrollLeft < 8;
+    if (dir > 0 && atEnd) { viewport.scrollTo({ left: 0, behavior: prefersReduced() ? 'auto' : 'smooth' }); return; }
+    if (dir < 0 && atStart) { viewport.scrollTo({ left: viewport.scrollWidth, behavior: prefersReduced() ? 'auto' : 'smooth' }); return; }
+    viewport.scrollBy({ left: dir * step, behavior: prefersReduced() ? 'auto' : 'smooth' });
+  };
+
+  const renderTrack = () => {
+    if (!track || !window.MODEL_LAB) return;
+    current = window.MODEL_LAB
+      .filter(m => activeFilter === 'all' || m.type.en === activeFilter)
+      .sort((a, b) => a.order.localeCompare(b.order));
+    track.innerHTML = current.map(card).join('');
+    viewport.scrollLeft = 0;
+    renderDots();
+    requestAnimationFrame(updateActiveDot);
+  };
+
+  const stopAutoplay = () => { if (autoplayTimer) clearInterval(autoplayTimer); autoplayTimer = null; };
+
+  const startAutoplay = () => {
+    stopAutoplay();
+    if (prefersReduced()) return;
+    autoplayTimer = setInterval(() => { if (!paused) advance(1); }, AUTOPLAY_MS);
+  };
+
+  const pause = () => { paused = true; clearTimeout(resumeTimer); };
+  const resume = () => { clearTimeout(resumeTimer); resumeTimer = setTimeout(() => { paused = false; }, 1200); };
+
+  const bindInteraction = () => {
+    [viewport, prevBtn, nextBtn].forEach(el => {
+      el?.addEventListener('pointerenter', pause);
+      el?.addEventListener('pointerleave', resume);
+      el?.addEventListener('focusin', pause);
+      el?.addEventListener('focusout', resume);
+      el?.addEventListener('touchstart', pause, { passive: true });
+      el?.addEventListener('touchend', resume, { passive: true });
+    });
+    prevBtn?.addEventListener('click', () => advance(-1));
+    nextBtn?.addEventListener('click', () => advance(1));
+    viewport?.addEventListener('scroll', () => requestAnimationFrame(updateActiveDot), { passive: true });
+    viewport?.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); advance(1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); advance(-1); }
+    });
   };
 
   const init = () => {
-    if (!document.getElementById('labList')) return;
-    render();
-    document.addEventListener('langchange', render);
+    track = document.getElementById('labTrack');
+    viewport = document.getElementById('labViewport');
+    dotsEl = document.getElementById('labDots');
+    filtersEl = document.getElementById('labFilters');
+    prevBtn = document.getElementById('labPrev');
+    nextBtn = document.getElementById('labNext');
+    if (!track || !viewport) return;
+
+    renderFilters();
+    renderTrack();
+    bindInteraction();
+    startAutoplay();
+
+    document.addEventListener('langchange', () => { renderFilters(); renderTrack(); });
+    window.addEventListener('resize', () => requestAnimationFrame(updateActiveDot));
   };
 
   return { init };

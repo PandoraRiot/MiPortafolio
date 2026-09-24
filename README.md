@@ -111,9 +111,10 @@ this redesign.
 ## Model Lab — how to add a model
 
 Everything lives in **`models-data.js`** as one array, `window.MODEL_LAB`.
-Both `index.html` (`#labList`) and `lab.html` (`#labRoot`, via
-`location.hash`) render entirely from this file — adding a model never
-touches HTML or CSS.
+`index.html` renders it as an **auto-advancing, filterable carousel**
+(`ModelLabModule` in `main.js`), and `lab.html` (`#labRoot`, via
+`location.hash`) renders the detail page — adding a model never touches
+HTML or CSS.
 
 1. Copy an existing object in `models-data.js` and fill in every field, in
    **both** languages (`{ en, es }`) for any text field.
@@ -130,7 +131,30 @@ touches HTML or CSS.
 5. `inference` (`{ input: {en,es}, output: {en,es} }`) describes the *shape*
    of a future demo even before one exists — this is what lets the detail
    page render a "planned inference" panel without a redesign later.
-6. `order` controls sort position in the list (zero-padded string, e.g. `'10'`).
+6. `order` controls sort position in the carousel (zero-padded string, e.g. `'10'`).
+7. `cover`: leave `null` for an auto-generated placeholder slide (labeled
+   with the model's name and type, so it's obvious which slot each future
+   screenshot belongs in). Once you have a real image, drop it at
+   `assets/model-covers/<slug>.jpg` (create that folder — it doesn't exist
+   yet) and set `cover: 'assets/model-covers/<slug>.jpg'`. The carousel
+   switches to it automatically.
+
+### Carousel filters
+
+The filter chips above the carousel (`#labFilters`) are **not** hardcoded —
+they're generated from the distinct `type` values across `MODEL_LAB`. Adding
+a model with a new `type` (e.g. `{ en: 'Reinforcement Learning', es: '...' }`)
+automatically adds a new filter chip; no other change needed. Filtering
+rebuilds the carousel track and resets scroll position.
+
+### Carousel behavior
+
+- Auto-advances every ~4.2s, pauses on hover/focus/touch, and skips autoplay
+  entirely under `prefers-reduced-motion: reduce` (manual prev/next/dots and
+  arrow-key navigation still work).
+- Implemented with native scroll-snap + `scrollBy`/`scrollTo` — no carousel
+  library. If this ever needs more (e.g. real drag/swipe physics), that's a
+  reasonable place to introduce one; not before.
 
 ## Connecting a real inference API later
 

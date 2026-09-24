@@ -386,7 +386,20 @@
           <p class="section__desc lab-intro" data-i18n="lab.desc">A growing registry of architectures — from classic feed-forward networks to graph learning — each with its own status, honestly reported. Nothing here is marked trained or deployed unless a real artifact backs it.</p>
         </div>
 
-        <div class="lab-list reveal" id="labList" role="list" aria-label="Model registry"></div>
+        <div class="lab-filters reveal" id="labFilters" role="group" aria-label="Filter models by type"></div>
+
+        <div class="lab-carousel reveal" id="labCarousel">
+          <button type="button" class="lab-carousel__nav lab-carousel__nav--prev" id="labPrev" data-i18n-aria="lab.prev" aria-label="Previous model">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 3L5 8l5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="lab-carousel__viewport" id="labViewport">
+            <div class="lab-carousel__track" id="labTrack" role="list" aria-label="Model registry"></div>
+          </div>
+          <button type="button" class="lab-carousel__nav lab-carousel__nav--next" id="labNext" data-i18n-aria="lab.next" aria-label="Next model">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="lab-carousel__dots" id="labDots" role="group" aria-label="Model slides"></div>
       </div>
     </section>
 
