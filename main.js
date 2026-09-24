@@ -496,7 +496,7 @@ const ModelLabModule = (() => {
       <svg viewBox="0 0 400 300" role="img" aria-label="${model.shortName} — ${pending}">
         <rect width="400" height="300" style="fill:var(--color-bg-alt)"/>
         <rect x="12" y="12" width="376" height="276" fill="none" style="stroke:var(--color-border-hover)" stroke-width="1.5" stroke-dasharray="6 6"/>
-        <text x="200" y="152" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="42" style="fill:var(--color-text-faint)">${model.shortName}</text>
+        <text x="200" y="152" text-anchor="middle" font-family="'Space Mono', monospace" font-weight="700" font-size="38" style="fill:var(--color-text-faint)">${model.shortName}</text>
         <text x="200" y="184" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="12" letter-spacing="1" style="fill:var(--color-text-faint)">${t(model.type)}</text>
         <text x="200" y="268" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9.5" letter-spacing="1.5" style="fill:var(--color-text-faint)">${pending}</text>
       </svg>`;

@@ -6,18 +6,30 @@ Live: https://pandorariot.github.io/MiPortafolio/
 
 ---
 
-## Status (2026-09-24)
+## Status (2026-09-24) — "Terminal Mono"
 
-This site briefly went through a full editorial redesign (new palette, new
-typography, consolidated sections, case studies instead of project cards).
-**That redesign was reverted at the user's explicit request** — she wanted
-the original navy/glass-card design back, section by section, exactly as it
-was. What's live now is the **original design**, with one real addition on
-top: the **Model Lab** (see below), restyled to match the original visual
-language instead of introducing a second design system.
+This site has gone through several visual directions in one session:
 
-If you're looking for the editorial-redesign version for reference, it's in
-git history (commit `61d0abf`..`8e7ffd2`, before this revert).
+1. Original — navy/indigo, glass cards, glow, Plus Jakarta Sans + Inter.
+2. An editorial redesign (ivory/charcoal, Fraunces serif, consolidated
+   sections) — reverted at explicit request, section structure and all.
+3. The original navy/indigo look, restored exactly, with the Model Lab
+   grafted on top.
+4. **Current**: navy/indigo dropped too, once it was pointed out that its
+   accent color (`#6366f1`) is literally cataloged as *"AI Purple"* in the
+   design-intelligence skill's own "AI-Native UI" style entry — i.e. not a
+   matter of taste, a documented generic-AI-tool color. Re-themed to
+   **"Terminal Mono"**: near-black / warm-paper backgrounds, one accent
+   (burnt orange `#ff5a1f` dark / `#d64518` light), **zero border-radius**,
+   no glow, no gradients, no backdrop blur — Space Mono for display text,
+   JetBrains Mono for everything else. No sans-serif anywhere.
+
+Section structure, all content, and the Model Lab are unchanged through all
+of this — only the design-token layer (`:root` / `[data-theme="light"]` in
+`styles.css`) and the two Google Font imports changed. Earlier visual
+directions are recoverable from git history if ever needed (commit
+`61d0abf`..`8e7ffd2` = editorial redesign; `e58557e`..`854f0cc` = restored
+navy/indigo).
 
 ## Files
 
