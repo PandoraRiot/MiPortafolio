@@ -50,8 +50,8 @@ window.I18N = {
     },
     mindset: {
       label: 'Engineering Identity',
-      title: 'Systemic thinking. Real engineering.',
-      desc: 'Self-taught mindset, applied research, and end-to-end product building — from backend foundations to ML pipelines in production.',
+      title: 'From problem to system. From model to solution.',
+      desc: 'Software Engineer focused on ML, Deep Learning and Computer Vision. I build end-to-end solutions integrating data, models, backend, APIs and infrastructure, with a strong interest in applied research and reproducible AI systems.',
       card1Title: 'End-to-end builder',
       card1Desc: 'I connect data, models, APIs, and infrastructure into complete systems — not isolated notebooks.',
       card2Title: 'Backend + ML hybrid',
@@ -479,8 +479,8 @@ window.I18N = {
     },
     mindset: {
       label: 'Identidad de Ingeniería',
-      title: 'Pensamiento sistémico. Ingeniería real.',
-      desc: 'Perfil autodidacta, investigación aplicada y construcción de productos end-to-end — desde backend hasta pipelines ML en producción.',
+      title: 'Del problema al sistema. Del modelo a la solución.',
+      desc: 'Ingeniera de Software enfocada en ML, Deep Learning y Computer Vision. Construyo soluciones end-to-end integrando datos, modelos, backend, APIs e infraestructura, con especial interés en investigación aplicada y sistemas de IA reproducibles.',
       card1Title: 'Constructora end-to-end',
       card1Desc: 'Conecto datos, modelos, APIs e infraestructura en sistemas completos — no notebooks aislados.',
       card2Title: 'Híbrido Backend + ML',
