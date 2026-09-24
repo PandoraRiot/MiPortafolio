@@ -231,6 +231,7 @@ window.I18N = {
       dataDesc: 'PostgreSQL, SQL Server, and Supabase for application data and ML feature management.',
       mlopsTitle: 'MLOps & DevOps',
       mlopsDesc: 'Git, GitHub Actions, CI/CD, experiment tracking, and deployment automation.',
+      evidence: 'Evidence',
     },
     stack: {
       label: 'Tech Stack',
@@ -586,6 +587,7 @@ window.I18N = {
       dataDesc: 'PostgreSQL, SQL Server y Supabase para datos de aplicación y features ML.',
       mlopsTitle: 'MLOps & DevOps',
       mlopsDesc: 'Git, GitHub Actions, CI/CD, tracking de experimentos y automatización de despliegue.',
+      evidence: 'Evidencia',
     },
     stack: {
       label: 'Stack Tecnológico',

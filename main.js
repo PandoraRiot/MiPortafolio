@@ -768,8 +768,8 @@ const MediaModalModule = (() => {
     current = { title, render: renderFn };
     lastTrigger = trigger || document.activeElement;
     dialog.classList.toggle('media-modal--wide', wide);
+    if (!dialog.open) dialog.showModal();   // open first so render() can measure the body
     render();
-    if (!dialog.open) dialog.showModal();
     document.documentElement.classList.add('modal-open');
   };
 
@@ -944,6 +944,80 @@ const PipelineModule = (() => {
   return { init };
 })();
 
+/**
+ * Architecture diagrams (data/diagrams.js) rendered as inline SVG in the
+ * shared modal. Horizontal flow on wide screens, vertical on phones.
+ * Any element with data-diagram="<key>" opens one.
+ */
+const DiagramModule = (() => {
+  const esc = (s) => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const tr = (f) => (f ? (f[I18nModule.getLang()] || f.en || '') : '');
+
+  const svg = (d, vertical) => {
+    const n = d.nodes.length;
+    const W = vertical ? 240 : 168, H = vertical ? 62 : 76, GAP = vertical ? 42 : 58;
+    const padX = 28, padTop = d.group ? 46 : 24, padBottom = d.group ? 30 : 24;
+    const width  = vertical ? W + padX * 2 : padX * 2 + n * W + (n - 1) * GAP;
+    const height = vertical ? padTop + n * H + (n - 1) * GAP + padBottom : padTop + H + padBottom;
+    const pos = (i) => vertical ? { x: padX, y: padTop + i * (H + GAP) } : { x: padX + i * (W + GAP), y: padTop };
+
+    let out = `<svg class="diagram__svg" viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(tr(d.title))}">
+      <defs><marker id="dgArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0 0 L10 5 L0 10 z" class="diagram__arrowhead"/></marker></defs>`;
+
+    if (d.group) {
+      const a = pos(d.group.from), b = pos(d.group.to), m = 14;
+      const gx = a.x - m, gy = a.y - m - 12, gw = (b.x + W) - a.x + m * 2, gh = (b.y + H) - a.y + m * 2 + 12;
+      out += `<rect class="diagram__group" x="${gx}" y="${gy}" width="${gw}" height="${gh}" rx="14"/>
+        <text class="diagram__group-label" x="${gx + 12}" y="${gy + 16}">${esc(tr(d.group.label))}</text>`;
+    }
+
+    for (let i = 0; i < n - 1; i++) {
+      const a = pos(i), b = pos(i + 1);
+      const [x1, y1, x2, y2] = vertical
+        ? [a.x + W / 2, a.y + H + 4, b.x + W / 2, b.y - 6]
+        : [a.x + W + 4, a.y + H / 2, b.x - 6, b.y + H / 2];
+      out += `<line class="diagram__edge" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" marker-end="url(#dgArrow)"/>
+        <line class="diagram__flow" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"/>`;
+    }
+
+    d.nodes.forEach((node, i) => {
+      const { x, y } = pos(i);
+      out += `<g class="diagram__node diagram__node--${node.kind}">
+        <rect x="${x}" y="${y}" width="${W}" height="${H}" rx="12"/>
+        <text class="diagram__label" x="${x + W / 2}" y="${y + H / 2 - 3}" text-anchor="middle">${esc(tr(node.label))}</text>
+        <text class="diagram__sub" x="${x + W / 2}" y="${y + H / 2 + 15}" text-anchor="middle">${esc(tr(node.sub))}</text>
+      </g>`;
+    });
+    return out + '</svg>';
+  };
+
+  const open = (key, trigger) => {
+    const d = (window.PORTFOLIO_DIAGRAMS || {})[key];
+    if (!d) return;
+    MediaModalModule.open({
+      title: () => tr(d.title),
+      trigger,
+      wide: true,
+      render: (body) => {
+        const vertical = body.clientWidth < 620 || window.innerWidth < 680;
+        body.innerHTML = `<figure class="diagram">${svg(d, vertical)}<figcaption class="diagram__note">${esc(tr(d.note))}</figcaption></figure>`;
+      },
+    });
+  };
+
+  const init = () => {
+    document.addEventListener('click', (e) => {
+      const trigger = e.target.closest('[data-diagram]');
+      if (!trigger || !MediaModalModule.isReady()) return;
+      e.preventDefault();
+      open(trigger.dataset.diagram, trigger);
+    });
+  };
+
+  return { init };
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
   I18nModule.init();
   ThemeModule.init();
@@ -957,6 +1031,7 @@ document.addEventListener('DOMContentLoaded', () => {
   GitHubModule.init();
   MediaModalModule.init();
   VideoModule.init();
+  DiagramModule.init();
   PipelineModule.init();
   SmoothScrollModule.init();
   FooterYearModule.init();

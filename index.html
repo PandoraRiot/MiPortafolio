@@ -420,7 +420,7 @@
 
           <article class="project-card reveal reveal--delay-1" data-category="mlops backend">
             <div class="project-card__top">
-              <span class="project-card__icon"><i class="ph ph-docker-logo"></i></span>
+              <span class="project-card__icon"><i class="ph ph-shipping-container"></i></span>
               <span class="project-card__status" data-i18n="projects.p2Status">MLOps</span>
             </div>
             <h3 class="project-card__title" data-i18n="projects.p2Title">Containerized ML Thesis Pipeline</h3>
@@ -661,6 +661,11 @@
                 <span>Lambda</span>
                 <span>Cloud-native</span>
               </div>
+              <div class="evidence">
+                <span class="evidence__label" data-i18n="cloud.evidence">Evidence</span>
+                <button type="button" class="evidence__btn" data-video="evidence-aws" data-video-title="cloud.awsTitle"><i class="ph ph-play-circle" aria-hidden="true"></i><span data-i18n="modal.watchDemo">Watch video</span></button>
+                <button type="button" class="evidence__btn" data-diagram="aws"><i class="ph ph-tree-structure" aria-hidden="true"></i><span data-i18n="modal.architecture">Architecture</span></button>
+              </div>
             </article>
 
             <article class="cloud-card reveal reveal--delay-1">
@@ -674,11 +679,16 @@
                 <span>ETL</span>
                 <span>Batch processing</span>
               </div>
+              <div class="evidence">
+                <span class="evidence__label" data-i18n="cloud.evidence">Evidence</span>
+                <button type="button" class="evidence__btn" data-video="evidence-spark" data-video-title="cloud.sparkTitle"><i class="ph ph-play-circle" aria-hidden="true"></i><span data-i18n="modal.watchDemo">Watch video</span></button>
+                <button type="button" class="evidence__btn" data-diagram="spark"><i class="ph ph-tree-structure" aria-hidden="true"></i><span data-i18n="modal.architecture">Architecture</span></button>
+              </div>
             </article>
 
             <article class="cloud-card reveal reveal--delay-2">
               <div class="cloud-card__header">
-                <i class="ph ph-docker-logo"></i>
+                <i class="ph ph-shipping-container"></i>
                 <h3 data-i18n="cloud.dockerTitle">Containerization</h3>
               </div>
               <p data-i18n="cloud.dockerDesc">Docker-based ML pipeline packaging with reproducible environments and CI/CD readiness.</p>
@@ -687,11 +697,16 @@
                 <span>Compose</span>
                 <span>Images</span>
               </div>
+              <div class="evidence">
+                <span class="evidence__label" data-i18n="cloud.evidence">Evidence</span>
+                <button type="button" class="evidence__btn" data-video="evidence-docker" data-video-title="cloud.dockerTitle"><i class="ph ph-play-circle" aria-hidden="true"></i><span data-i18n="modal.watchDemo">Watch video</span></button>
+                <button type="button" class="evidence__btn" data-diagram="docker"><i class="ph ph-tree-structure" aria-hidden="true"></i><span data-i18n="modal.architecture">Architecture</span></button>
+              </div>
             </article>
 
             <article class="cloud-card reveal reveal--delay-3">
               <div class="cloud-card__header">
-                <i class="ph ph-kubernetes-logo"></i>
+                <i class="ph ph-steering-wheel"></i>
                 <h3 data-i18n="cloud.k8sTitle">Kubernetes</h3>
               </div>
               <p data-i18n="cloud.k8sDesc">Container orchestration for scalable model serving, auto-scaling, and production workloads.</p>
@@ -918,7 +933,7 @@
 
         <div class="stack__grid stack__grid--wide">
           <div class="stack__group reveal">
-            <h3><i class="ph ph-server"></i> <span data-i18n="stack.backend">Backend Engineering</span></h3>
+            <h3><i class="ph ph-hard-drives"></i> <span data-i18n="stack.backend">Backend Engineering</span></h3>
             <div class="stack__items">
               <span class="stack__item">Java</span>
               <span class="stack__item">Spring Boot</span>
@@ -1133,6 +1148,7 @@
   <script src="i18n.js"></script>
   <script src="models-data.js"></script>
   <script src="data/videos.js"></script>
+  <script src="data/diagrams.js"></script>
   <script src="data/thesis-architecture.js"></script>
   <script src="main.js"></script>
 </body>
