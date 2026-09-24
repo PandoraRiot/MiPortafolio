@@ -3031,3 +3031,31 @@ html.modal-open { overflow: hidden; }
 }
 .portrait__name { color: var(--color-heading); }
 
+
+/* ─── HERO · architecture card centred under the hero ────────
+   Pulled out of the right column (where it sat below the portrait,
+   off-centre and taller than one screen) into its own full-width row,
+   centred, with the four layers laid out left → right. The portrait
+   is untouched. On narrow screens the layers go back to a column. */
+@media (min-width: 901px) {
+  .hero__container {
+    grid-template-areas:
+      "content portrait"
+      "diagram diagram";
+  }
+  .hero__diagram { justify-self: center; width: min(100%, 1040px); }
+  .hero__diagram .arch-diagram__body {
+    flex-direction: row;
+    align-items: stretch;
+    padding: var(--space-lg);
+  }
+  .hero__diagram .arch-node { flex: 1 1 0; min-width: 0; justify-content: center; }
+  .hero__diagram .arch-flow {
+    flex: none;
+    align-self: center;
+    width: 24px;
+    height: 2px;
+    margin-inline: 0;
+    background: linear-gradient(to right, var(--color-accent), var(--color-cyan));
+  }
+}
