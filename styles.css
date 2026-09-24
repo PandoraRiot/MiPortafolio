@@ -727,25 +727,31 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   animation: pulse 2s infinite;
 }
 
-/* About-me card — reuses .arch-diagram's window chrome/shell */
+/* About-me card — reuses .arch-diagram's window chrome/shell.
+   Photo is a full-width horizontal banner (object-fit:cover, so any
+   replacement photo reflows correctly regardless of its own crop). */
 .about-card__body {
   display: flex;
-  gap: var(--space-lg);
-  padding: var(--space-lg);
-  align-items: center;
+  flex-direction: column;
+  min-width: 0;
 }
 
 .about-card__photo {
-  width: 104px;
-  height: 130px;
+  display: block;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--color-border);
-  flex: none;
+  object-position: center 30%;
+  border-bottom: 1px solid var(--color-border);
 }
 
-.about-card__text { min-width: 0; flex: 1; }
-.about-card__body { min-width: 0; }
+.about-card__text {
+  min-width: 0;
+  padding: var(--space-lg);
+}
+
 .about-card { min-width: 0; }
 .hero__arch { min-width: 0; }
 
@@ -770,10 +776,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   color: var(--color-text-muted);
 }
 
-@media (max-width: 480px) {
-  .about-card__body { flex-direction: column; align-items: flex-start; }
-  .about-card__photo { width: 88px; height: 110px; }
-}
 
 @media (max-width: 900px) {
   .hero__container { grid-template-columns: 1fr; }
