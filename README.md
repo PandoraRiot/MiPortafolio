@@ -38,10 +38,15 @@ i18n.js             EN/ES strings — original content plus a `lab` namespace
                     for the Model Lab UI
 models-data.js      The Model Lab registry (see below) — bilingual per field
 favicon.svg         Monogram favicon (indigo on navy, matches the site)
+data/videos.js      ALL YouTube links (one key per data-video="…" trigger)
+data/diagrams.js    Sanitized architecture diagrams for the evidence blocks
+data/thesis-architecture.js  Thesis explorer data (unfrozen layers from the repo)
+docs/CAMBIOS-portfolio-v2.md  Change report + pending TODO(Alexa) items
+docs/private/       Local CV copy — git-ignored, never published
 ```
 
 No `package.json`, no bundler. `<script>` tags load in order:
-`i18n.js` → `models-data.js` → `main.js`.
+`i18n.js` → `models-data.js` → `data/*.js` → `main.js`.
 
 ## Model Lab
 
