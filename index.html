@@ -113,7 +113,7 @@
           </div>
         </div>
 
-        <div class="hero__arch reveal reveal--delay-2">
+        <div class="hero__diagram reveal reveal--delay-2">
           <div class="arch-diagram" aria-hidden="true">
             <div class="arch-diagram__header">
               <span class="arch-diagram__dot arch-diagram__dot--red"></span>
@@ -150,30 +150,21 @@
               <span class="status-pill status-pill--live"><span></span> <span data-i18n="hero.archStatus">production-ready</span></span>
             </div>
           </div>
-
-          <div class="arch-diagram about-card reveal reveal--delay-3">
-            <div class="arch-diagram__header">
-              <span class="arch-diagram__dot arch-diagram__dot--red"></span>
-              <span class="arch-diagram__dot arch-diagram__dot--yellow"></span>
-              <span class="arch-diagram__dot arch-diagram__dot--green"></span>
-              <span class="arch-diagram__title">about.md</span>
-            </div>
-            <div class="about-card__body">
-              <img
-                src="assets/img/profile.jpg"
-                alt="Alexandra García"
-                class="about-card__photo"
-                width="900" height="506"
-                loading="lazy"
-              />
-              <div class="about-card__text">
-                <h3 class="about-card__name">Alexandra García</h3>
-                <p class="about-card__role" data-i18n="hero.aboutRole">AI Systems Engineer</p>
-                <p class="about-card__bio" data-i18n="hero.aboutBio">Self-taught first, then formal: from a Software Development Technology diploma into a dual degree in Software Engineering, with an AI diploma finishing alongside it. I care about the parts of AI most portfolios skip — reproducibility, honest evaluation, and what happens after the notebook.</p>
-              </div>
-            </div>
-          </div>
         </div>
+
+        <figure class="portrait reveal reveal--delay-3">
+          <img
+            src="assets/img/profile.jpg"
+            alt="Erika Alexandra García"
+            class="portrait__img"
+            width="600" height="800"
+            loading="lazy"
+          />
+          <figcaption class="portrait__caption">
+            <span class="portrait__name">Erika Alexandra García</span>
+            <span class="portrait__role">Software Engineer · ML / AI</span>
+          </figcaption>
+        </figure>
       </div>
     </section>
 
@@ -205,32 +196,45 @@
     <!-- MINDSET -->
     <section class="mindset section" id="mindset">
       <div class="container">
-        <div class="section__header section__header--center reveal">
-          <span class="section__label" data-i18n="mindset.label">Engineering Identity</span>
-          <h2 class="section__title" data-i18n="mindset.title">Systemic thinking. Real engineering.</h2>
-          <p class="section__desc section__desc--center" data-i18n="mindset.desc">Self-taught mindset, applied research, and end-to-end product building — from backend foundations to ML pipelines in production.</p>
-        </div>
-        <div class="mindset__grid">
-          <article class="mindset-card reveal">
-            <div class="mindset-card__icon"><i class="ph ph-stack"></i></div>
-            <h3 data-i18n="mindset.card1Title">End-to-end builder</h3>
-            <p data-i18n="mindset.card1Desc">I connect data, models, APIs, and infrastructure into complete systems — not isolated notebooks.</p>
-          </article>
-          <article class="mindset-card reveal reveal--delay-1">
-            <div class="mindset-card__icon"><i class="ph ph-git-branch"></i></div>
-            <h3 data-i18n="mindset.card2Title">Backend + ML hybrid</h3>
-            <p data-i18n="mindset.card2Desc">Java/Spring Boot and Python/FastAPI to expose models as scalable services with modular architecture.</p>
-          </article>
-          <article class="mindset-card reveal reveal--delay-2">
-            <div class="mindset-card__icon"><i class="ph ph-microscope"></i></div>
-            <h3 data-i18n="mindset.card3Title">Applied research</h3>
-            <p data-i18n="mindset.card3Desc">Healthcare AI with DCE-MRI, reproducible experiments, and engineering rigor in every pipeline.</p>
-          </article>
-          <article class="mindset-card reveal reveal--delay-3">
-            <div class="mindset-card__icon"><i class="ph ph-lightning"></i></div>
-            <h3 data-i18n="mindset.card4Title">Autodidact engineer</h3>
-            <p data-i18n="mindset.card4Desc">Continuous learning through projects, technical content, cloud labs, and hands-on infrastructure work.</p>
-          </article>
+        <div class="mindset__layout">
+          <div class="mindset__content">
+            <div class="section__header reveal">
+              <span class="section__label" data-i18n="mindset.label">Engineering Identity</span>
+              <h2 class="section__title" data-i18n="mindset.title">Systemic thinking. Real engineering.</h2>
+              <p class="section__desc" data-i18n="mindset.desc">Self-taught mindset, applied research, and end-to-end product building — from backend foundations to ML pipelines in production.</p>
+            </div>
+            <div class="mindset__grid">
+              <article class="mindset-card reveal">
+                <div class="mindset-card__icon"><i class="ph ph-stack"></i></div>
+                <h3 data-i18n="mindset.card1Title">End-to-end builder</h3>
+                <p data-i18n="mindset.card1Desc">I connect data, models, APIs, and infrastructure into complete systems — not isolated notebooks.</p>
+              </article>
+              <article class="mindset-card reveal reveal--delay-1">
+                <div class="mindset-card__icon"><i class="ph ph-git-branch"></i></div>
+                <h3 data-i18n="mindset.card2Title">Backend + ML hybrid</h3>
+                <p data-i18n="mindset.card2Desc">Java/Spring Boot and Python/FastAPI to expose models as scalable services with modular architecture.</p>
+              </article>
+              <article class="mindset-card reveal reveal--delay-2">
+                <div class="mindset-card__icon"><i class="ph ph-microscope"></i></div>
+                <h3 data-i18n="mindset.card3Title">Applied research</h3>
+                <p data-i18n="mindset.card3Desc">Healthcare AI with DCE-MRI, reproducible experiments, and engineering rigor in every pipeline.</p>
+              </article>
+              <article class="mindset-card reveal reveal--delay-3">
+                <div class="mindset-card__icon"><i class="ph ph-lightning"></i></div>
+                <h3 data-i18n="mindset.card4Title">Autodidact engineer</h3>
+                <p data-i18n="mindset.card4Desc">Continuous learning through projects, technical content, cloud labs, and hands-on infrastructure work.</p>
+              </article>
+            </div>
+          </div>
+
+          <figure class="mindset__photo reveal reveal--delay-2">
+            <img
+              src="assets/img/identity.jpg"
+              alt="Erika Alexandra García"
+              width="700" height="700"
+              loading="lazy"
+            />
+          </figure>
         </div>
       </div>
     </section>

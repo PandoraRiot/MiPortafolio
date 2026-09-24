@@ -2,3 +2,6 @@
 *.log
 .env
 .env.*
+
+# CV y material privado — nunca se publica
+docs/private/

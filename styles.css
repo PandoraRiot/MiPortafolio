@@ -564,10 +564,17 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-3xl);
-  align-items: center;
+  grid-template-areas:
+    "content portrait"
+    "content diagram";
+  gap: var(--space-3xl) var(--space-3xl);
+  align-items: start;
   padding-block: var(--space-4xl);
 }
+
+.hero__content { grid-area: content; align-self: center; min-width: 0; }
+.hero__diagram { grid-area: diagram; min-width: 0; }
+.portrait      { grid-area: portrait; }
 
 .hero__badge {
   display: inline-flex;
@@ -727,59 +734,64 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   animation: pulse 2s infinite;
 }
 
-/* About-me card — reuses .arch-diagram's window chrome/shell.
-   Photo is a full-width horizontal banner (object-fit:cover, so any
-   replacement photo reflows correctly regardless of its own crop). */
-.about-card__body {
-  display: flex;
-  flex-direction: column;
+.hero__arch { min-width: 0; }
+
+/* Editorial portrait — deliberately NOT a window/card. A photo, a thin
+   hairline border, a soft neutral shadow for lift, an offset caption.
+   Narrower than the arch-diagram above it and pushed right, for the
+   "ligera asimetría" the photo needs instead of matching the grid. */
+.portrait {
   min-width: 0;
+  max-width: 300px;
+  margin-left: auto;
 }
 
-.about-card__photo {
+.portrait__img {
   display: block;
   width: 100%;
   min-width: 0;
   max-width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 3 / 4;
   object-fit: cover;
-  object-position: center 30%;
-  border-bottom: 1px solid var(--color-border);
+  object-position: center 18%;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  box-shadow: 0 32px 56px -20px rgba(0, 0, 0, 0.55);
 }
 
-.about-card__text {
-  min-width: 0;
-  padding: var(--space-lg);
+.portrait__caption {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: var(--space-md);
+  padding-left: 2px;
 }
 
-.about-card { min-width: 0; }
-.hero__arch { min-width: 0; }
-
-.about-card__name {
+.portrait__name {
   font-family: var(--font-display);
-  font-size: var(--text-md);
   font-weight: 700;
+  font-size: var(--text-sm);
   color: var(--color-white);
-  margin-bottom: 2px;
+  letter-spacing: 0.01em;
 }
 
-.about-card__role {
+.portrait__role {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  color: var(--color-accent-light);
-  margin-bottom: var(--space-sm);
-}
-
-.about-card__bio {
-  font-size: 0.8125rem;
-  line-height: 1.6;
-  color: var(--color-text-muted);
+  color: var(--color-text-faint);
 }
 
 
 @media (max-width: 900px) {
-  .hero__container { grid-template-columns: 1fr; }
-  .hero__arch { order: -1; max-width: 420px; margin-inline: auto; }
+  .hero__container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "content"
+      "portrait"
+      "diagram";
+  }
+  .portrait { max-width: 360px; margin-inline: auto; }
+  .hero__diagram { max-width: 420px; margin-inline: auto; }
 }
 
 /* ─── METRICS ────────────────────────────────────────────── */
@@ -1731,9 +1743,38 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border-block: 1px solid var(--color-border);
 }
 
+/* Text column + editorial photo, offset down and right — a visual
+   interruption, not a card in the grid. */
+.mindset__layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: var(--space-2xl);
+  align-items: start;
+}
+
+.mindset__content { min-width: 0; }
+
+.mindset__photo {
+  min-width: 0;
+  margin-top: var(--space-3xl);
+}
+
+.mindset__photo img {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center 25%;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  box-shadow: 0 32px 56px -20px rgba(0, 0, 0, 0.55);
+}
+
 .mindset__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--space-lg);
 }
 
@@ -1774,7 +1815,15 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   line-height: 1.65;
 }
 
-@media (max-width: 1024px) { .mindset__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 860px) {
+  .mindset__layout {
+    grid-template-columns: 1fr;
+  }
+  .mindset__photo {
+    margin-top: var(--space-xl);
+    max-width: 380px;
+  }
+}
 @media (max-width: 560px)  { .mindset__grid { grid-template-columns: 1fr; } }
 
 /* ─── EDUCATION ──────────────────────────────────────────── */
