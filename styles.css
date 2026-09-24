@@ -2226,14 +2226,27 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding: 0.25rem 0.1rem 1rem;
 }
 
+/* Card width is derived from the viewport's own width (container query
+   units) so a whole number of cards always fits — 3 / 2 / 1 — instead of
+   the last one being sliced at the edge. */
+.projects-carousel .lab-carousel__viewport { container-type: inline-size; }
+.projects-carousel .lab-carousel__viewport.is-drifting { scroll-snap-type: none; }
+
 .projects-carousel .project-card {
-  flex: 0 0 clamp(300px, 30vw, 360px);
+  flex: 0 0 calc(100cqw - 0.2rem);
   scroll-snap-align: start;
+}
+
+@container (min-width: 600px) {
+  .projects-carousel .project-card { flex-basis: calc((100cqw - 0.2rem - var(--space-lg)) / 2); }
+}
+
+@container (min-width: 960px) {
+  .projects-carousel .project-card { flex-basis: calc((100cqw - 0.2rem - 2 * var(--space-lg)) / 3); }
 }
 
 @media (max-width: 640px) {
   .projects-carousel .lab-carousel__nav { display: none; }
-  .projects-carousel .project-card { flex-basis: 82vw; }
 }
 
 /* ============================================================

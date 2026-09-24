@@ -238,15 +238,25 @@ const ProjectFilterModule = (() => {
 })();
 
 /**
- * Projects carousel — same auto-advance/pause/nav/dots mechanics as the
- * Model Lab carousel, applied to the existing static .project-card markup.
+ * Projects carousel — same pause/nav/dots mechanics as the Model Lab
+ * carousel, applied to the existing static .project-card markup. Autoplay
+ * is a slow continuous drift (not a jump every few seconds): it holds at
+ * the end, rewinds to the start, and pauses on hover/focus/touch or when
+ * the carousel is off-screen.
  * Rebuilds its dots/position whenever ProjectFilterModule changes which
  * cards are visible (listens for 'projectsfilterchange').
  */
 const ProjectCarouselModule = (() => {
-  const AUTOPLAY_MS = 5000;
+  const DRIFT_PX_PER_S = 18;
+  const END_HOLD_MS = 2500;
+  const REWIND_MS = 1500;
   let viewport, track, dotsEl, prevBtn, nextBtn;
-  let autoplayTimer = null;
+  let rafId = null;
+  let lastTs = 0;
+  let pos = 0;
+  let holdUntil = 0;
+  let rewindPending = false;
+  let inView = false;
   let paused = false;
   let resumeTimer = null;
 
@@ -300,22 +310,50 @@ const ProjectCarouselModule = (() => {
 
   const refresh = () => {
     viewport.scrollLeft = 0;
+    pos = 0;
+    rewindPending = false;
     renderDots();
     requestAnimationFrame(updateActiveDot);
   };
 
-  const stopAutoplay = () => { if (autoplayTimer) clearInterval(autoplayTimer); autoplayTimer = null; };
+  // scrollLeft is kept as a float in `pos` because browsers round it, which
+  // would stall a sub-pixel-per-frame drift.
+  const tick = (ts) => {
+    rafId = requestAnimationFrame(tick);
+    const dt = lastTs ? Math.min(ts - lastTs, 100) : 0;
+    lastTs = ts;
+    if (paused || !inView || document.hidden || ts < holdUntil) { pos = viewport.scrollLeft; return; }
+    const max = viewport.scrollWidth - viewport.clientWidth;
+    if (max <= 0) return;
+    // Something else moved it (dot click, filter, resize) — follow it.
+    if (Math.abs(viewport.scrollLeft - pos) > 2) pos = viewport.scrollLeft;
+    if (rewindPending) {
+      rewindPending = false;
+      viewport.scrollTo({ left: 0, behavior: 'smooth' });
+      holdUntil = ts + REWIND_MS;
+      return;
+    }
+    if (pos >= max - 1) { rewindPending = true; holdUntil = ts + END_HOLD_MS; return; }
+    pos = Math.min(max, pos + (DRIFT_PX_PER_S * dt) / 1000);
+    viewport.scrollLeft = pos;
+  };
+
   const startAutoplay = () => {
-    stopAutoplay();
-    if (prefersReduced()) return;
-    autoplayTimer = setInterval(() => { if (!paused) advance(1); }, AUTOPLAY_MS);
+    if (prefersReduced() || rafId) return;
+    viewport.classList.add('is-drifting');
+    rafId = requestAnimationFrame(tick);
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(([entry]) => { inView = entry.isIntersecting; }, { threshold: 0.3 }).observe(viewport);
+    } else {
+      inView = true;
+    }
   };
 
   const pause = () => { paused = true; clearTimeout(resumeTimer); };
   const resume = () => { clearTimeout(resumeTimer); resumeTimer = setTimeout(() => { paused = false; }, 1200); };
 
   const bindInteraction = () => {
-    [viewport, prevBtn, nextBtn].forEach(el => {
+    [viewport, prevBtn, nextBtn, dotsEl].forEach(el => {
       el?.addEventListener('pointerenter', pause);
       el?.addEventListener('pointerleave', resume);
       el?.addEventListener('focusin', pause);
@@ -339,6 +377,10 @@ const ProjectCarouselModule = (() => {
     prevBtn = document.getElementById('projPrev');
     nextBtn = document.getElementById('projNext');
     if (!viewport || !track) return;
+
+    // Cards scrolled in horizontally never cross the vertical reveal
+    // observer, so they would stay invisible — the carousel itself reveals.
+    track.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
 
     refresh();
     bindInteraction();
