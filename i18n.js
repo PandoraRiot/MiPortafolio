@@ -46,7 +46,7 @@ window.I18N = {
       label2: 'Academic programs completed',
       label3: 'System layers engineered',
       sub3: 'Data · ML · API · Infra',
-      label4: 'Homologated credits (SW Eng.)',
+      label4: 'Credits completed (Technology + SW Eng.)',
     },
     mindset: {
       label: 'Engineering Identity',
@@ -475,7 +475,7 @@ window.I18N = {
       label2: 'Programas académicos',
       label3: 'Capas del sistema',
       sub3: 'Datos · ML · API · Infra',
-      label4: 'Créditos homologados (Ing. Software)',
+      label4: 'Créditos aprobados (Tecnología + Ing. Software)',
     },
     mindset: {
       label: 'Identidad de Ingeniería',
