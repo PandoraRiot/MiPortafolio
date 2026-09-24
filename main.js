@@ -232,7 +232,7 @@ const CounterModule = (() => {
 })();
 
 const ProjectFilterModule = (() => {
-  const filters = document.querySelectorAll('.projects__filter');
+  const filters = document.querySelectorAll('#projects .projects__filter');
   const cards   = document.querySelectorAll('.project-card');
 
   const filter = (category) => {
@@ -1266,12 +1266,129 @@ const CvModule = (() => {
   return { init };
 })();
 
+/**
+ * Experience — professional experience, research and selected technical
+ * work, rendered from data/experience.js. Filters are plain toggle buttons
+ * (aria-pressed); groups/tiers with nothing left after filtering are hidden.
+ * Video buttons reuse the shared [data-video] modal via delegation.
+ */
+const ExperienceModule = (() => {
+  let filtersEl, groupsEl, evolutionEl;
+  let active = 'all';
+
+  const tr = (f) => (f ? (typeof f === 'string' ? f : (f[I18nModule.getLang()] || f.en || '')) : '');
+  const esc = (v) => String(v).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const matches = (item) => active === 'all' || item.cats.includes(active);
+
+  const card = (item, ui, kind) => {
+    const links = [];
+    if (item.repo) {
+      links.push(`<a class="xp-card__link" href="${esc(item.repo)}" target="_blank" rel="noopener noreferrer"><i class="ph ph-github-logo" aria-hidden="true"></i> ${esc(tr(ui.repo))}</a>`);
+    } else if (item.private) {
+      links.push(`<span class="xp-card__link xp-card__link--muted"><i class="ph ph-lock-simple" aria-hidden="true"></i> ${esc(tr(ui.privateRepo))}</span>`);
+    }
+    if (item.caseStudy) {
+      links.push(`<a class="xp-card__link" href="${esc(item.caseStudy)}"><i class="ph ph-arrow-right" aria-hidden="true"></i> ${esc(tr(ui.caseStudy))}</a>`);
+    }
+    if (item.video) {
+      links.push(`<button type="button" class="xp-card__link xp-card__link--btn" data-video="${esc(item.video)}" data-video-title="${esc(item.videoTitle || '')}"><i class="ph ph-play-circle" aria-hidden="true"></i> ${esc(tr(ui.video))}</button>`);
+    }
+    const wide = kind !== 'technical';
+    return `
+      <article class="xp-card xp-card--${kind}" data-id="${esc(item.id)}">
+        ${wide ? '<div class="xp-card__main">' : ''}
+        <div class="xp-card__head">
+          <span class="xp-card__type">${esc(tr(item.type))}</span>
+          ${item.status ? `<span class="xp-card__status">${esc(tr(item.status))}</span>` : ''}
+          ${item.date ? `<time class="xp-card__date">${esc(tr(item.date))}</time>` : ''}
+        </div>
+        <h4 class="xp-card__title">${esc(tr(item.title))}</h4>
+        ${item.context ? `<p class="xp-card__context">${esc(tr(item.context))}</p>` : ''}
+        <p class="xp-card__desc">${esc(tr(item.desc))}</p>
+        ${wide && links.length ? `<div class="xp-card__links">${links.join('')}</div>` : ''}
+        ${wide ? '</div><div class="xp-card__side">' : ''}
+        <div class="xp-card__block">
+          <h5 class="xp-card__block-title">${esc(tr(kind === 'professional' ? ui.contributions : ui.highlights))}</h5>
+          <ul class="xp-card__points">${item.points.map(p => `<li>${esc(tr(p))}</li>`).join('')}</ul>
+        </div>
+        <div class="xp-card__block">
+          <h5 class="xp-card__block-title">${esc(tr(ui.tech))}</h5>
+          <div class="xp-card__tech">${item.tech.map(t => `<span>${esc(tr(t))}</span>`).join('')}</div>
+        </div>
+        ${wide ? '</div>' : (links.length ? `<div class="xp-card__links">${links.join('')}</div>` : '')}
+      </article>`;
+  };
+
+  const render = () => {
+    const data = window.EXPERIENCE;
+    if (!data || !groupsEl) return;
+    const ui = data.ui;
+
+    if (evolutionEl) {
+      evolutionEl.innerHTML = `
+        <p class="xp__evolution-title">${esc(tr(ui.evolutionTitle))} <span>· ${esc(tr(ui.evolutionNote))}</span></p>
+        <ol class="xp__evolution-list">${ui.evolution.map(s => `<li>${esc(tr(s))}</li>`).join('')}</ol>`;
+    }
+
+    if (filtersEl) {
+      filtersEl.setAttribute('aria-label', tr(ui.filtersLabel));
+      filtersEl.innerHTML = ui.filters.map(f => `
+        <button type="button" class="projects__filter${f.key === active ? ' is-active' : ''}" data-filter="${f.key}" aria-pressed="${f.key === active}">${esc(tr(f))}</button>`).join('');
+    }
+
+    let shown = 0;
+    groupsEl.innerHTML = data.groups.map(g => {
+      const tiers = g.tiers || [{ items: g.items }];
+      const tierHtml = tiers.map(t => {
+        const items = t.items.filter(matches);
+        if (!items.length) return '';
+        shown += items.length;
+        const kind = g.kind || g.id;
+        return `
+          <div class="xp__tier">
+            ${t.title ? `<p class="xp__tier-title">${esc(tr(t.title))}</p>` : ''}
+            <div class="xp__list xp__list--${kind}">${items.map(i => card(i, ui, kind)).join('')}</div>
+          </div>`;
+      }).join('');
+      if (!tierHtml) return '';
+      return `
+        <section class="xp__group xp__group--${g.id}" aria-labelledby="xp-${g.id}">
+          <div class="xp__group-head">
+            <h3 class="xp__group-title" id="xp-${g.id}">${esc(tr(g.title))}</h3>
+            <p class="xp__group-sub">${esc(tr(g.sub))}</p>
+          </div>
+          ${tierHtml}
+        </section>`;
+    }).join('') || '';
+    if (!shown) groupsEl.innerHTML = `<p class="xp__empty">${esc(tr(ui.empty))}</p>`;
+  };
+
+  const init = () => {
+    filtersEl = document.getElementById('xpFilters');
+    groupsEl = document.getElementById('xpGroups');
+    evolutionEl = document.getElementById('xpEvolution');
+    if (!groupsEl) return;
+    filtersEl?.addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-filter]');
+      if (!btn) return;
+      active = btn.dataset.filter;
+      render();
+      filtersEl.querySelector(`[data-filter="${active}"]`)?.focus();
+    });
+    render();
+    document.addEventListener('langchange', render);
+  };
+
+  return { init };
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
   I18nModule.init();
   ThemeModule.init();
   NavModule.init();
   RevealModule.init();
   CounterModule.init();
+  ExperienceModule.init();
   ProjectFilterModule.init();
   ProjectCarouselModule.init();
   ModelLabModule.init();

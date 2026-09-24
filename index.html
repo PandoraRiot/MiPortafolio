@@ -24,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
   <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js" defer></script>
-  <link rel="stylesheet" href="styles.css?v=20260924e" />
+  <link rel="stylesheet" href="styles.css?v=20260924k" />
 </head>
 <body>
 
@@ -38,11 +38,12 @@
       </a>
 
       <nav class="nav__links" id="navLinks" aria-label="Main navigation">
+        <a href="#experience" class="nav__link" data-i18n="nav.experience">Experience</a>
         <a href="#systems" class="nav__link" data-i18n="nav.systems">Systems</a>
         <a href="#projects" class="nav__link" data-i18n="nav.projects">Projects</a>
         <a href="#lab" class="nav__link" data-i18n="nav.lab">Model Lab</a>
         <a href="#education" class="nav__link" data-i18n="nav.education">Education</a>
-        <a href="#llm" class="nav__link" data-i18n="nav.llm">LLM Engineering</a>
+        <a href="#llm" class="nav__link" data-i18n="nav.llm">LLM</a>
         <a href="#research" class="nav__link" data-i18n="nav.research">Research</a>
         <a href="#contact" class="nav__cta btn btn--primary btn--sm" data-i18n="nav.contact">Contact</a>
       </nav>
@@ -166,7 +167,7 @@
             src="assets/img/profile.jpg"
             alt="Erika Alexandra García"
             class="portrait__img"
-            width="600" height="800"
+            width="800" height="1132"
             loading="lazy"
           />
           <figcaption class="portrait__caption">
@@ -182,7 +183,7 @@
       <div class="container">
         <div class="metrics__grid">
           <div class="metric-card reveal">
-            <span class="metric-card__value" data-count="8" data-suffix="+">8+</span>
+            <span class="metric-card__value" data-count="9" data-suffix="+">9+</span>
             <span class="metric-card__label" data-i18n="metrics.label1">Years building with code</span>
           </div>
           <div class="metric-card reveal reveal--delay-1">
@@ -195,8 +196,8 @@
             <small class="metric-card__sub" data-i18n="metrics.sub3">Data · ML · API · Infra</small>
           </div>
           <div class="metric-card reveal reveal--delay-3">
-            <span class="metric-card__value" data-count="177" data-suffix="">177</span>
-            <span class="metric-card__label" data-i18n="metrics.label4">Credits completed (Technology + SW Eng.)</span>
+            <span class="metric-card__value" data-count="4" data-suffix="+">4+</span>
+            <span class="metric-card__label" data-i18n="metrics.label4">Years of training in Data &amp; AI</span>
           </div>
         </div>
       </div>
@@ -210,7 +211,7 @@
         </div>
         <div class="about__body reveal reveal--delay-1">
           <p class="about__lead" data-i18n-html="about.p1">I'm a Software Engineer focused on Machine Learning, Deep Learning and Computer Vision.</p>
-          <p data-i18n-html="about.p2">My background combines software development, artificial intelligence and systems architecture. My work today centers on building reproducible ML solutions — from data processing and model training to evaluation, integration and deployment.</p>
+          <p data-i18n-html="about.p2">My trajectory evolved from software development, backend systems and infrastructure to Data Science, Machine Learning, Computer Vision and AI Systems. My work today centers on building reproducible ML solutions — from data processing and model training to evaluation, integration and deployment.</p>
           <p data-i18n-html="about.p3">My main line of work is <strong>Computer Vision applied to healthcare</strong>. My thesis studies breast-lesion classification on DCE-MRI images, comparing Deep Learning architectures and using patient-level evaluation, cross-validation and interpretability techniques.</p>
           <p data-i18n-html="about.p4">I also build AI systems, APIs and applications focused on automation, MLOps and intelligent agents.</p>
           <p data-i18n-html="about.p5">My career goal is to keep growing as an <strong>ML Engineer / Computer Vision Engineer</strong>, combining software engineering with applied research in artificial intelligence.</p>
@@ -265,6 +266,20 @@
     </section>
 
     <!-- SYSTEMS PHILOSOPHY -->
+    <!-- EXPERIENCE — rendered from data/experience.js by ExperienceModule -->
+    <section class="experience section" id="experience">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__label" data-i18n="experience.label">Track record</span>
+          <h2 class="section__title" data-i18n="experience.title">Experience</h2>
+          <p class="section__desc" data-i18n="experience.desc">Professional experience and applied engineering work across software, data and artificial intelligence.</p>
+        </div>
+        <div class="xp__evolution" id="xpEvolution"></div>
+        <div class="xp__filters" id="xpFilters" role="group"></div>
+        <div class="xp__groups" id="xpGroups"></div>
+      </div>
+    </section>
+
     <section class="systems section" id="systems">
       <div class="container">
         <div class="section__header section__header--center reveal">
@@ -887,6 +902,17 @@
           <p class="section__desc" data-i18n="education.desc">A progressive path from software development foundations to AI systems engineering.</p>
         </div>
 
+        <div class="edu-dims reveal">
+          <h3 class="edu-dims__title" data-i18n="education.dimsTitle">Four dimensions of my training</h3>
+          <ol class="edu-dims__list">
+            <li class="edu-dim"><span class="edu-dim__num" aria-hidden="true">01</span><h4 class="edu-dim__title" data-i18n="education.dim1Title">Software Engineering</h4><div class="edu-dim__tags" data-i18n-tags="education.dim1Tags"></div></li>
+            <li class="edu-dim"><span class="edu-dim__num" aria-hidden="true">02</span><h4 class="edu-dim__title" data-i18n="education.dim2Title">Mathematical &amp; Computational Foundations</h4><div class="edu-dim__tags" data-i18n-tags="education.dim2Tags"></div></li>
+            <li class="edu-dim"><span class="edu-dim__num" aria-hidden="true">03</span><h4 class="edu-dim__title" data-i18n="education.dim3Title">Data &amp; Machine Learning</h4><div class="edu-dim__tags" data-i18n-tags="education.dim3Tags"></div></li>
+            <li class="edu-dim"><span class="edu-dim__num" aria-hidden="true">04</span><h4 class="edu-dim__title" data-i18n="education.dim4Title">Applied AI</h4><div class="edu-dim__tags" data-i18n-tags="education.dim4Tags"></div></li>
+          </ol>
+          <p class="edu-dims__note" data-i18n="education.dimsNote">Data Science and Machine Learning are part of the university curriculum — not only external courses.</p>
+        </div>
+
         <div class="education__grid">
           <article class="edu-card edu-card--featured reveal">
             <div class="edu-card__top">
@@ -1202,17 +1228,23 @@
         </div>
 
         <div class="timeline">
-          <article class="timeline__item reveal is-upcoming"><div class="timeline__marker"></div><div class="timeline__content"><div class="timeline__meta"><time class="timeline__date" data-i18n="timeline.t1Date">Dec 2026</time><span class="timeline__badge timeline__badge--upcoming" data-i18n="timeline.upcoming">Upcoming</span></div><h3 data-i18n="timeline.t1Title">Graduation · Software Engineering</h3><p data-i18n="timeline.t1Desc">Expected graduation — Institución Universitaria Pascual Bravo.</p><div class="timeline__tags"><span>Software Engineering</span><span>Pascual Bravo</span></div></div></article>
-          <article class="timeline__item reveal reveal--delay-1 is-live"><div class="timeline__marker"></div><div class="timeline__content"><div class="timeline__meta"><time class="timeline__date" data-i18n="timeline.t2Date">Sep 21 — Nov 2, 2026</time><span class="timeline__badge"><span class="live-dot" aria-hidden="true"></span><span data-i18n="timeline.live">In progress</span></span></div><h3 data-i18n="timeline.t2Title">Specialization in Process Automation · Nodo</h3><p data-i18n="timeline.t2Desc">In progress.</p><div class="timeline__tags"><span>Automation</span><span>Nodo</span></div></div></article>
-          <article class="timeline__item reveal reveal--delay-2 is-live"><div class="timeline__marker"></div><div class="timeline__content"><div class="timeline__meta"><time class="timeline__date" data-i18n="timeline.t3Date">Sep 2026 — Present</time><span class="timeline__badge"><span class="live-dot" aria-hidden="true"></span><span data-i18n="timeline.live">In progress</span></span></div><h3 data-i18n="timeline.t3Title">Scientific article · DCE-MRI thesis</h3><p data-i18n="timeline.t3Desc">Converting the approved thesis into a scientific article for publication.</p><div class="timeline__tags"><span>Research</span><span>DCE-MRI</span></div></div></article>
-          <article class="timeline__item reveal"><div class="timeline__marker"></div><div class="timeline__content"><div class="timeline__meta"><time class="timeline__date" data-i18n="timeline.t4Date">Oct 2025 — Sep 2026</time></div><h3 data-i18n="timeline.t4Title">Thesis approved · DCE-MRI Deep Learning</h3><p data-i18n="timeline.t4Desc">Breast-lesion classification on DCE-MRI. Completed, approved and evaluated in September 2026.</p><div class="timeline__tags"><span>PyTorch</span><span>MobileViT-S</span><span>Grad-CAM</span></div></div></article>
-          <article class="timeline__item reveal reveal--delay-1"><div class="timeline__marker"></div><div class="timeline__content"><div class="timeline__meta"><time class="timeline__date" data-i18n="timeline.t5Date">2026 · G3 cohort</time></div><h3 data-i18n="timeline.t5Title">Certification · Digital Transformation with AI and Automation</h3><p data-i18n="timeline.t5Desc">Nodo + Accenture scholarship.</p><div class="timeline__tags"><span>AI</span><span>Automation</span><span>Accenture</span></div></div></article>
-          <article class="timeline__item reveal reveal--delay-2 is-live"><div class="timeline__marker"></div><div class="timeline__content"><div class="timeline__meta"><time class="timeline__date" data-i18n="timeline.t6Date">Mar 2026 — Present</time><span class="timeline__badge"><span class="live-dot" aria-hidden="true"></span><span data-i18n="timeline.live">In progress</span></span></div><h3 data-i18n="timeline.t6Title">AI Systems & Automation Engineer · Independent projects</h3><p data-i18n="timeline.t6Desc">JARVIS, Umbrella AI, SaberPro-RAG.</p><div class="timeline__tags"><span>FastAPI</span><span>React</span><span>LLMs</span><span>Docker</span></div></div></article>
-          <article class="timeline__item reveal"><div class="timeline__marker"></div><div class="timeline__content"><div class="timeline__meta"><time class="timeline__date" data-i18n="timeline.t7Date">Feb 2026 — Apr 2026</time></div><h3 data-i18n="timeline.t7Title">AI Diploma · UdeA + Talento Tech</h3><p data-i18n="timeline.t7Desc">Deep Learning, CNNs, Computer Vision.</p><div class="timeline__tags"><span>CNN</span><span>PyTorch</span><span>CV</span></div></div></article>
-          <article class="timeline__item reveal reveal--delay-1"><div class="timeline__marker"></div><div class="timeline__content"><div class="timeline__meta"><time class="timeline__date" data-i18n="timeline.t8Date">Oct — Dec 2024</time></div><h3 data-i18n="timeline.t8Title">Cloud Architecture · ESUMER</h3><p data-i18n="timeline.t8Desc">AWS, cloud-native infrastructure.</p><div class="timeline__tags"><span>AWS</span><span>Cloud</span></div></div></article>
-          <article class="timeline__item reveal reveal--delay-2"><div class="timeline__marker"></div><div class="timeline__content"><div class="timeline__meta"><time class="timeline__date" data-i18n="timeline.t9Date">Jun 2023 — Sep 2024</time></div><h3 data-i18n="timeline.t9Title">Junior Full Stack Developer — Backend · Servisoft S.A.</h3><p data-i18n="timeline.t9Desc">Java backend for public-sector clients.</p><div class="timeline__tags"><span>Java</span><span>REST</span><span>SOAP</span><span>Oracle</span></div></div></article>
-          <article class="timeline__item reveal"><div class="timeline__marker"></div><div class="timeline__content"><div class="timeline__meta"><time class="timeline__date" data-i18n="timeline.t10Date">Aug — Oct 2022</time></div><h3 data-i18n="timeline.t10Title">Data Science · ESAP</h3><p data-i18n="timeline.t10Desc">Statistics, ML fundamentals, visualization.</p><div class="timeline__tags"><span>Pandas</span><span>ML</span></div></div></article>
-          <article class="timeline__item reveal reveal--delay-1"><div class="timeline__marker"></div><div class="timeline__content"><div class="timeline__meta"><time class="timeline__date" data-i18n="timeline.t11Date">Aug 2017 — Jan 2022</time></div><h3 data-i18n="timeline.t11Title">Software Development Technology</h3><p data-i18n="timeline.t11Desc">Backend, C#, SQL Server, MATLAB, IoT, security.</p><div class="timeline__tags"><span>C#</span><span>SQL Server</span><span>IoT</span></div></div></article>
+          <article class="timeline__item reveal"><div class="timeline__marker"></div><div class="timeline__content"><div class="timeline__meta"><time class="timeline__date" data-i18n="timeline.m1Date">Aug 2017</time></div><h3 data-i18n="timeline.m1Title">Start of Software Development Technology · Pascual Bravo</h3><p data-i18n="timeline.m1Desc">Technical training begins: programming, algorithms, data structures, databases and mathematics.</p><div class="timeline__tags" data-i18n-tags="timeline.m1Tags"></div></div></article>
+          <article class="timeline__item reveal reveal--delay-1"><div class="timeline__marker"></div><div class="timeline__content"><div class="timeline__meta"><time class="timeline__date" data-i18n="timeline.m2Date">Jun — Nov 2021</time></div><h3 data-i18n="timeline.m2Title">Software Development Intern · MV-TEL SAS</h3><p data-i18n="timeline.m2Desc">Full development cycle of a mobile app, corporate website and automated testing with Selenium in a Scrum team.</p><div class="timeline__tags" data-i18n-tags="timeline.m2Tags"></div></div></article>
+          <article class="timeline__item reveal reveal--delay-2"><div class="timeline__marker"></div><div class="timeline__content"><div class="timeline__meta"><time class="timeline__date" data-i18n="timeline.m3Date">Jan 2022</time></div><h3 data-i18n="timeline.m3Title">Software Development Technology completed · Pascual Bravo</h3><p data-i18n="timeline.m3Desc">Technical foundation: backend, C#, SQL Server, web, neural networks in MATLAB, IoT, network security and Scrum.</p><div class="timeline__tags" data-i18n-tags="timeline.m3Tags"></div></div></article>
+          <article class="timeline__item reveal"><div class="timeline__marker"></div><div class="timeline__content"><div class="timeline__meta"><time class="timeline__date" data-i18n="timeline.m4Date">Aug — Oct 2022</time></div><h3 data-i18n="timeline.m4Title">Data Science Diploma · ESAP</h3><p data-i18n="timeline.m4Desc">Data analysis, statistics, machine-learning fundamentals and visualization with Python (380 h).</p><div class="timeline__tags" data-i18n-tags="timeline.m4Tags"></div></div></article>
+          <article class="timeline__item reveal reveal--delay-1"><div class="timeline__marker"></div><div class="timeline__content"><div class="timeline__meta"><time class="timeline__date" data-i18n="timeline.m5Date">Jun 2023 — Sep 2024</time></div><h3 data-i18n="timeline.m5Title">Full Stack / Backend Developer · Servisoft S.A.</h3><p data-i18n="timeline.m5Desc">Java backend for institutional and public-sector clients: REST and SOAP APIs, MSSQL, Oracle and MongoDB, legacy-system maintenance.</p><div class="timeline__tags" data-i18n-tags="timeline.m5Tags"></div></div></article>
+          <article class="timeline__item reveal reveal--delay-2"><div class="timeline__marker"></div><div class="timeline__content"><div class="timeline__meta"><time class="timeline__date" data-i18n="timeline.m6Date">Oct — Dec 2024</time></div><h3 data-i18n="timeline.m6Title">Cloud Architecture Diploma · ESUMER</h3><p data-i18n="timeline.m6Desc">AWS, cloud computing, architecture, deployment and cloud infrastructure (232 h).</p><div class="timeline__tags" data-i18n-tags="timeline.m6Tags"></div></div></article>
+          <article class="timeline__item reveal"><div class="timeline__marker"></div><div class="timeline__content"><div class="timeline__meta"><time class="timeline__date" data-i18n="timeline.m7Date">Feb 2025</time></div><h3 data-i18n="timeline.m7Title">Continuation into Software Engineering · Pascual Bravo</h3><p data-i18n="timeline.m7Desc">Propaedeutic cycle from the Technology degree: software architecture, testing and quality, mathematics, data science and machine learning.</p><div class="timeline__tags" data-i18n-tags="timeline.m7Tags"></div></div></article>
+          <article class="timeline__item reveal reveal--delay-1"><div class="timeline__marker"></div><div class="timeline__content"><div class="timeline__meta"><time class="timeline__date" data-i18n="timeline.m8Date">Jul — Oct 2025</time></div><h3 data-i18n="timeline.m8Title">Webmaster · Institutional web development (contractor)</h3><p data-i18n="timeline.m8Desc">Institutional web platforms, WordPress and Moodle administration, responsive design and support for digital-transformation initiatives.</p><div class="timeline__tags" data-i18n-tags="timeline.m8Tags"></div></div></article>
+          <article class="timeline__item reveal reveal--delay-2"><div class="timeline__marker"></div><div class="timeline__content"><div class="timeline__meta"><time class="timeline__date" data-i18n="timeline.m9Date">Sep 2025 — Jun 2026</time></div><h3 data-i18n="timeline.m9Title">AI & Computer Vision Researcher · Undergraduate thesis</h3><p data-i18n="timeline.m9Desc">Breast-lesion classification on DCE-MRI with ResNet50, EfficientNet-B3 and MobileViT-S (PyTorch), 5-fold cross-validation, patient-level evaluation and Grad-CAM.</p><div class="timeline__tags" data-i18n-tags="timeline.m9Tags"></div></div></article>
+          <article class="timeline__item reveal"><div class="timeline__marker"></div><div class="timeline__content"><div class="timeline__meta"><time class="timeline__date" data-i18n="timeline.m10Date">Feb — Jul 2026</time></div><h3 data-i18n="timeline.m10Title">CognIA Research Seedbed · Data Scientist / ML Engineer</h3><p data-i18n="timeline.m10Desc">Predictive models to classify breast tumours on the Breast Cancer Wisconsin Diagnostic dataset: logistic regression, decision trees, Random Forest, SVM and KNN with cross-validation.</p><div class="timeline__tags" data-i18n-tags="timeline.m10Tags"></div></div></article>
+          <article class="timeline__item reveal reveal--delay-1"><div class="timeline__marker"></div><div class="timeline__content"><div class="timeline__meta"><time class="timeline__date" data-i18n="timeline.m11Date">Feb — Apr 2026</time></div><h3 data-i18n="timeline.m11Title">AI Diploma · UdeA + Talento Tech</h3><p data-i18n="timeline.m11Desc">Deep learning, CNNs, computer vision, image classification and ML model benchmarking (280 h).</p><div class="timeline__tags" data-i18n-tags="timeline.m11Tags"></div></div></article>
+          <article class="timeline__item reveal reveal--delay-2"><div class="timeline__marker"></div><div class="timeline__content"><div class="timeline__meta"><time class="timeline__date" data-i18n="timeline.m12Date">2026 · G3 cohort</time></div><h3 data-i18n="timeline.m12Title">Certification · Digital Transformation with AI and Automation</h3><p data-i18n="timeline.m12Desc">Nodo + Accenture scholarship — AI and automation applied to digital transformation.</p><div class="timeline__tags" data-i18n-tags="timeline.m12Tags"></div></div></article>
+          <article class="timeline__item reveal"><div class="timeline__marker"></div><div class="timeline__content"><div class="timeline__meta"><time class="timeline__date" data-i18n="timeline.m13Date">Sep 2026</time></div><h3 data-i18n="timeline.m13Title">DCE-MRI thesis completed and approved</h3><p data-i18n="timeline.m13Desc">Completed, approved and evaluated in September 2026. Final ResNet50 model: AUC 0.951 and clinical recall 0.909.</p><div class="timeline__tags" data-i18n-tags="timeline.m13Tags"></div></div></article>
+          <article class="timeline__item reveal reveal--delay-1 is-live"><div class="timeline__marker"></div><div class="timeline__content"><div class="timeline__meta"><time class="timeline__date" data-i18n="timeline.m14Date">Sep 2026 — Present</time><span class="timeline__badge"><span class="live-dot" aria-hidden="true"></span><span data-i18n="timeline.live">In progress</span></span></div><h3 data-i18n="timeline.m14Title">Scientific article from the thesis</h3><p data-i18n="timeline.m14Desc">Turning the approved thesis into a scientific article for publication.</p><div class="timeline__tags" data-i18n-tags="timeline.m14Tags"></div></div></article>
+          <article class="timeline__item reveal reveal--delay-2 is-live"><div class="timeline__marker"></div><div class="timeline__content"><div class="timeline__meta"><time class="timeline__date" data-i18n="timeline.m15Date">Sep 21 — Nov 2, 2026</time><span class="timeline__badge"><span class="live-dot" aria-hidden="true"></span><span data-i18n="timeline.live">In progress</span></span></div><h3 data-i18n="timeline.m15Title">Specialization in Process Automation · Nodo</h3><p data-i18n="timeline.m15Desc">Currently enrolled (36 h): workflow automation with n8n, Zapier and Make, LLM integrations, chatbots and REST APIs.</p><div class="timeline__tags" data-i18n-tags="timeline.m15Tags"></div></div></article>
+          <article class="timeline__item reveal is-live"><div class="timeline__marker"></div><div class="timeline__content"><div class="timeline__meta"><time class="timeline__date" data-i18n="timeline.m16Date">2026 — Present</time><span class="timeline__badge"><span class="live-dot" aria-hidden="true"></span><span data-i18n="timeline.live">In progress</span></span></div><h3 data-i18n="timeline.m16Title">AI Systems & Automation · Independent technical work</h3><p data-i18n="timeline.m16Desc">JARVIS (personal AI assistant), Umbrella AI (multi-agent LLM system) and SaberPro-RAG. Independent projects, not employment.</p><div class="timeline__tags" data-i18n-tags="timeline.m16Tags"></div></div></article>
+          <article class="timeline__item reveal reveal--delay-1 is-upcoming"><div class="timeline__marker"></div><div class="timeline__content"><div class="timeline__meta"><time class="timeline__date" data-i18n="timeline.m17Date">Dec 2026</time><span class="timeline__badge timeline__badge--upcoming" data-i18n="timeline.upcoming">Upcoming</span></div><h3 data-i18n="timeline.m17Title">Graduation · Software Engineering</h3><p data-i18n="timeline.m17Desc">Expected graduation — Institución Universitaria Pascual Bravo. Completes the Software Development Technology → Software Engineering cycle.</p><div class="timeline__tags" data-i18n-tags="timeline.m17Tags"></div></div></article>
         </div>
       </div>
     </section>
@@ -1339,12 +1371,13 @@
     </div>
   </dialog>
 
-  <script src="i18n.js?v=20260924e"></script>
-  <script src="models-data.js?v=20260924e"></script>
-  <script src="data/cv.js?v=20260924e"></script>
-  <script src="data/videos.js?v=20260924e"></script>
-  <script src="data/diagrams.js?v=20260924e"></script>
-  <script src="data/thesis-architecture.js?v=20260924e"></script>
-  <script src="main.js?v=20260924e"></script>
+  <script src="i18n.js?v=20260924k"></script>
+  <script src="models-data.js?v=20260924k"></script>
+  <script src="data/cv.js?v=20260924k"></script>
+  <script src="data/videos.js?v=20260924k"></script>
+  <script src="data/diagrams.js?v=20260924k"></script>
+  <script src="data/thesis-architecture.js?v=20260924k"></script>
+  <script src="data/experience.js?v=20260924k"></script>
+  <script src="main.js?v=20260924k"></script>
 </body>
 </html>
