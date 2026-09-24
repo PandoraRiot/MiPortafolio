@@ -20,6 +20,27 @@ const I18nModule = (() => {
     return val;
   };
 
+  // Fixed-text chips/tags without their own key: the English text in the
+  // HTML is looked up in window.I18N_TERMS[lang]. The original text is kept
+  // in data-term-src so switching back to EN restores it.
+  const applyTerms = () => {
+    const terms = window.I18N_TERMS?.[currentLang] || {};
+    const all = window.I18N_TERMS?.es || {};
+    document.querySelectorAll('body span, body button, body small, body li').forEach(el => {
+      if (el.closest('[data-i18n], [data-i18n-html], [data-i18n-tags]')) return;
+      const node = [...el.childNodes].reverse().find(n => n.nodeType === 3 && n.textContent.trim());
+      if (!node) return;
+      if (el.dataset.termSrc === undefined) {
+        const text = node.textContent.trim();
+        if (!(text in all)) return;
+        el.dataset.termSrc = text;
+      }
+      const src = el.dataset.termSrc;
+      const lead = node.textContent.match(/^\s*/)[0];
+      node.textContent = lead + (terms[src] || src);
+    });
+  };
+
   const apply = () => {
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const val = get(el.dataset.i18n);
@@ -47,6 +68,8 @@ const I18nModule = (() => {
         el.innerHTML = val.split(',').map(t => `<span>${t.trim()}</span>`).join('');
       }
     });
+
+    applyTerms();
 
     const title = get('meta.title');
     const desc  = get('meta.description');
@@ -411,9 +434,9 @@ const GitHubModule = (() => {
   // Shown only when the API and the cache both fail. Public, original repos.
   const FALLBACK = [
     { name: 'MRI_BreastCancer_Classification', language: 'Jupyter Notebook', description: { en: 'DCE-MRI breast-lesion classification — thesis experiments (ResNet50, EfficientNet-B3, MobileViT-S).', es: 'Clasificación de lesiones mamarias en DCE-MRI — experimentos de la tesis (ResNet50, EfficientNet-B3, MobileViT-S).' } },
-    { name: 'fintech_NovaAI', language: 'Python', description: { en: 'Fintech solution that segments users by banking activity (DATAHACKA 2026, Pascual Bravo).', es: 'Solución fintech que segmenta usuarios por movimientos bancarios (DATAHACKA 2026, Pascual Bravo).' } },
+    { name: 'fintech_NovaAI', language: 'Python', description: { en: 'Fintech solution that segments users by banking activity (DATAHACKA 2026, Pascual Bravo).', es: 'Solución de tecnología financiera que segmenta usuarios por movimientos bancarios (DATAHACKA 2026, Pascual Bravo).' } },
     { name: 'Clasificaciondefrutas.udea.novateam', language: 'Jupyter Notebook', description: { en: 'CNN fruit classification — AI Diploma, UdeA + Talento Tech.', es: 'Clasificación de frutas con CNN — Diplomado IA, UdeA + Talento Tech.' } },
-    { name: 'Nova_Ecommerce', language: 'Java', description: { en: 'E-commerce with Spring Boot, MySQL and React.', es: 'E-commerce con Spring Boot, MySQL y React.' } },
+    { name: 'Nova_Ecommerce', language: 'Java', description: { en: 'E-commerce with Spring Boot, MySQL and React.', es: 'Comercio electrónico con Spring Boot, MySQL y React.' } },
   ];
 
   let data = null;     // { user, repos, source: 'live' | 'cache' | 'fallback' }
@@ -1179,7 +1202,7 @@ const ThesisArchModule = (() => {
               <button type="button" class="tarch__block tarch__block--${effective(b)} tarch__block--${b.kind}${b.id === sel.id ? ' is-selected' : ''}" data-block="${b.id}" aria-pressed="${b.id === sel.id}">
                 <span class="tarch__block-top"><i class="ph ${ICON[b.kind] || 'ph-cube'}" aria-hidden="true"></i>${effective(b) === 'frozen' ? '<i class="ph ph-lock-simple tarch__lock" aria-hidden="true"></i>' : '<i class="ph ph-lightning tarch__lock" aria-hidden="true"></i>'}</span>
                 <span class="tarch__block-name">${b.label}</span>
-                <span class="tarch__block-shape">${b.shape}</span>
+                <span class="tarch__block-shape">${typeof b.shape === "object" ? tr(b.shape) : b.shape}</span>
                 <span class="visually-hidden">${stateText(b)}</span>
               </button>
             </li>`).join('')}
