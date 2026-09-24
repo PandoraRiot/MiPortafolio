@@ -32,7 +32,7 @@ window.I18N = {
       archProd: 'Production',
       archStatus: 'production-ready',
       aboutRole: 'AI Systems Engineer',
-      aboutBio: 'Self-taught first, then formal: I went from a technical program in systems to a Technology degree in Software Development, and then on to Software Engineering (dual degree), completing an AI diploma alongside it. I care about the parts of AI most portfolios skip — reproducibility, honest evaluation, and what happens after the notebook.',
+      aboutBio: 'Self-taught first, then formal: I started with a technical program in systems, moved on to a Technology degree in Software Development and reached Software Engineering (dual degree), while completing an AI diploma. I focus on the parts of AI most portfolios skip: reproducibility, honest evaluation and what happens after the notebook.',
     },
     metrics: {
       label1: 'Years building with code',
@@ -454,7 +454,7 @@ window.I18N = {
       archProd: 'Producción',
       archStatus: 'listo para producción',
       aboutRole: 'AI Systems Engineer',
-      aboutBio: 'Autodidacta primero, formal después: pasé de estudiar una técnica en sistemas a la Tecnología en Desarrollo de Software y luego a Ingeniería de Software (doble titulación), completando en paralelo un diplomado en IA. Me importan las partes de la IA que la mayoría de portafolios se saltan — reproducibilidad, evaluación honesta, y lo que pasa después del notebook.',
+      aboutBio: 'Autodidacta primero, formal después: empecé con una técnica en sistemas, seguí con la Tecnología en Desarrollo de Software y llegué a Ingeniería de Software (doble titulación), mientras completaba un diplomado en IA. Me enfoco en las partes de la IA que la mayoría de portafolios omite: reproducibilidad, evaluación honesta y lo que pasa después del notebook.',
     },
     metrics: {
       label1: 'Años construyendo con código',
