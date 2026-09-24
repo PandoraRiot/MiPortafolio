@@ -1018,6 +1018,100 @@ const DiagramModule = (() => {
   return { init };
 })();
 
+/**
+ * Thesis architecture explorer (data/thesis-architecture.js). Opened from
+ * the thesis card's "Explore architecture" button, in the shared modal.
+ * Shows each model as a flow of blocks, a data pulse travelling through
+ * them, and which blocks train in each fine-tuning phase — taken from the
+ * repo's freeze_backbone() / unfreeze_top_layers(), not invented.
+ */
+const ThesisArchModule = (() => {
+  const ICON = { conv: 'ph-squares-four', transformer: 'ph-graph', head: 'ph-target' };
+  let state = { model: 0, phase: 2, block: null };
+
+  const tr = (f) => (f ? (f[I18nModule.getLang()] || f.en || '') : '');
+  const T = (k) => I18nModule.get(`arch.${k}`) || '';
+
+  const effective = (b) => (b.state === 'unfrozen' ? (state.phase === 2 ? 'unfrozen' : 'frozen') : b.state);
+
+  const stateText = (b) => ({
+    frozen: T('stateFrozen'),
+    unfrozen: T('stateUnfrozen'),
+    head: T('stateHead'),
+  }[b.state]);
+
+  const render = (body) => {
+    const data = window.THESIS_ARCH;
+    if (!data) return;
+    const m = data.models[state.model];
+    const sel = m.blocks.find(b => b.id === state.block) || m.blocks.find(b => b.state === 'unfrozen') || m.blocks[0];
+    state.block = sel.id;
+
+    body.innerHTML = `
+      <div class="tarch">
+        <div class="tarch__controls">
+          <div class="tarch__seg" role="group" aria-label="${T('modelLabel')}">
+            ${data.models.map((mm, i) => `<button type="button" class="tarch__seg-btn${i === state.model ? ' is-active' : ''}" data-model="${i}" aria-pressed="${i === state.model}">${mm.name}</button>`).join('')}
+          </div>
+          <div class="tarch__seg" role="group" aria-label="${T('phaseLabel')}">
+            ${[1, 2].map(p => `<button type="button" class="tarch__seg-btn${p === state.phase ? ' is-active' : ''}" data-phase="${p}" aria-pressed="${p === state.phase}">${T('phase' + p)}</button>`).join('')}
+          </div>
+        </div>
+
+        <p class="tarch__meta"><strong>${m.name}</strong> · ${tr(m.family)} · ${T('input')}: ${tr(data.input)} · ${m.inputSize}</p>
+
+        <ol class="tarch__flow" aria-label="${m.name}">
+          ${m.blocks.map((b, i) => `
+            <li class="tarch__item" style="--i:${i}">
+              <button type="button" class="tarch__block tarch__block--${effective(b)} tarch__block--${b.kind}${b.id === sel.id ? ' is-selected' : ''}" data-block="${b.id}" aria-pressed="${b.id === sel.id}">
+                <span class="tarch__block-top"><i class="ph ${ICON[b.kind] || 'ph-cube'}" aria-hidden="true"></i>${effective(b) === 'frozen' ? '<i class="ph ph-lock-simple tarch__lock" aria-hidden="true"></i>' : '<i class="ph ph-lightning tarch__lock" aria-hidden="true"></i>'}</span>
+                <span class="tarch__block-name">${b.label}</span>
+                <span class="tarch__block-shape">${b.shape}</span>
+                <span class="visually-hidden">${stateText(b)}</span>
+              </button>
+            </li>`).join('')}
+        </ol>
+
+        <div class="tarch__detail" aria-live="polite">
+          <p class="tarch__detail-head"><code>${sel.label}</code><span class="tarch__pill tarch__pill--${sel.state}">${stateText(sel)}</span>${sel.params !== '—' ? `<span class="tarch__params">${sel.params} ${T('params')}</span>` : ''}</p>
+          <p>${tr(sel.detail)}</p>
+        </div>
+
+        <div class="tarch__legend">
+          <span><i class="tarch__swatch tarch__swatch--frozen"></i>${T('legendFrozen')}</span>
+          <span><i class="tarch__swatch tarch__swatch--unfrozen"></i>${T('legendUnfrozen')}</span>
+          <span><i class="tarch__swatch tarch__swatch--head"></i>${T('legendHead')}</span>
+          <span><i class="ph ph-graph" aria-hidden="true"></i>${T('legendTransformer')}</span>
+        </div>
+
+        <p class="tarch__phase">${tr(data.training['phase' + state.phase])}</p>
+        <p class="tarch__note">${tr(data.training.note)} <a href="https://github.com/PandoraRiot/MRI_BreastCancer_Classification" target="_blank" rel="noopener noreferrer">${T('source')} <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></p>
+      </div>`;
+
+    body.querySelectorAll('[data-model]').forEach(btn => btn.addEventListener('click', () => { state.model = +btn.dataset.model; state.block = null; rerender(body, '[data-model="' + btn.dataset.model + '"]'); }));
+    body.querySelectorAll('[data-phase]').forEach(btn => btn.addEventListener('click', () => { state.phase = +btn.dataset.phase; rerender(body, '[data-phase="' + btn.dataset.phase + '"]'); }));
+    body.querySelectorAll('[data-block]').forEach(btn => btn.addEventListener('click', () => { state.block = btn.dataset.block; rerender(body, '[data-block="' + btn.dataset.block + '"]'); }));
+  };
+
+  // Re-render and keep keyboard focus on the control that was used
+  const rerender = (body, focusSel) => { render(body); body.querySelector(focusSel)?.focus(); };
+
+  const open = (trigger) => {
+    MediaModalModule.open({ title: () => T('title'), trigger, wide: true, render });
+  };
+
+  const init = () => {
+    document.addEventListener('click', (e) => {
+      const trigger = e.target.closest('[data-arch-explorer]');
+      if (!trigger || !MediaModalModule.isReady()) return;
+      e.preventDefault();
+      open(trigger);
+    });
+  };
+
+  return { init };
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
   I18nModule.init();
   ThemeModule.init();
@@ -1032,6 +1126,7 @@ document.addEventListener('DOMContentLoaded', () => {
   MediaModalModule.init();
   VideoModule.init();
   DiagramModule.init();
+  ThesisArchModule.init();
   PipelineModule.init();
   SmoothScrollModule.init();
   FooterYearModule.init();

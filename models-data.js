@@ -63,7 +63,7 @@ window.MODEL_LAB = [
       en: 'Fruit-benchmark metrics were coursework-internal (accuracy/overfitting curves, not published). Thesis-side CNN backbone results are reported under the DCE-MRI case study, not duplicated here.',
       es: 'Las métricas del benchmark de frutas fueron internas al curso (curvas de accuracy/overfitting, no publicadas). Los resultados de los backbones CNN de la tesis se reportan en el caso de estudio DCE-MRI, no se duplican aquí.',
     },
-    repo: 'https://github.com/PandoraRiot/breast-cancer-dce-mri-classification',
+    repo: 'https://github.com/PandoraRiot/MRI_BreastCancer_Classification',
     repoLabel: { en: 'DCE-MRI backbone experiments', es: 'Experimentos de backbones DCE-MRI' },
     demo: null,
     inference: {
@@ -107,7 +107,7 @@ window.MODEL_LAB = [
       en: 'Still in the comparison stage — no consolidated result is being published until the architecture selection is finalized.',
       es: 'Todavía en etapa de comparación — no se publica un resultado consolidado hasta finalizar la selección de arquitectura.',
     },
-    repo: 'https://github.com/PandoraRiot/breast-cancer-dce-mri-classification',
+    repo: 'https://github.com/PandoraRiot/MRI_BreastCancer_Classification',
     repoLabel: { en: 'DCE-MRI backbone experiments', es: 'Experimentos de backbones DCE-MRI' },
     demo: null,
     inference: {

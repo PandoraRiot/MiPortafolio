@@ -372,6 +372,7 @@
           <button class="projects__filter" data-filter="dl" role="tab" aria-selected="false" data-i18n="projects.filterDL">Deep Learning</button>
           <button class="projects__filter" data-filter="backend" role="tab" aria-selected="false" data-i18n="projects.filterBackend">Backend</button>
           <button class="projects__filter" data-filter="agents" role="tab" aria-selected="false" data-i18n="projects.filterAgents">AI Agents</button>
+          <button class="projects__filter" data-filter="web" role="tab" aria-selected="false" data-i18n="projects.filterWeb">Web Development</button>
         </div>
 
         <div class="projects-carousel reveal" id="projectsCarousel">
@@ -382,16 +383,18 @@
         <div class="projects__grid" id="projectsGrid">
 
           <article class="project-card reveal" data-category="dl mlops">
+            <!-- TODO(Alexa): add the article link / DOI here once it is submitted or published. -->
             <div class="project-card__top">
               <span class="project-card__icon"><i class="ph ph-heartbeat"></i></span>
-              <span class="project-card__status" data-i18n="projects.p1Status">Thesis · Production</span>
+              <span class="project-card__status project-card__status--done" data-i18n="projects.thesisStatus">Thesis · Approved</span>
             </div>
-            <h3 class="project-card__title" data-i18n="projects.p1Title">Breast Cancer DCE-MRI Classification System</h3>
-            <p class="project-card__desc" data-i18n="projects.p1Desc">
-              Full Deep Learning pipeline for medical image classification using Dynamic Contrast-Enhanced MRI.
-              Modular architecture with Docker containerization for reproducible deployment.
-            </p>
+            <h3 class="project-card__title" data-i18n="projects.thesisTitle">Breast Cancer DCE-MRI Classification System</h3>
+            <p class="project-card__desc" data-i18n="projects.thesisDesc">Deep learning for benign vs. malignant breast-lesion classification on DCE-MRI. Approved in Sep 2026; now being turned into a scientific article.</p>
             <div class="project-card__metrics">
+              <div class="project-metric">
+                <span class="project-metric__val">3</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricModels">Models</span>
+              </div>
               <div class="project-metric">
                 <span class="project-metric__val">PyTorch</span>
                 <span class="project-metric__lbl" data-i18n="projects.metricFramework">Framework</span>
@@ -400,70 +403,37 @@
                 <span class="project-metric__val">Docker</span>
                 <span class="project-metric__lbl" data-i18n="projects.metricDeploy">Deploy</span>
               </div>
-              <div class="project-metric">
-                <span class="project-metric__val">Modular</span>
-                <span class="project-metric__lbl" data-i18n="projects.metricArch">Architecture</span>
-              </div>
             </div>
-            <div class="project-card__tags">
-              <span class="tag">PyTorch</span>
-              <span class="tag">DCE-MRI</span>
-              <span class="tag">Docker</span>
-              <span class="tag">Healthcare</span>
+            <div class="project-card__tags"><span class="tag">PyTorch</span><span class="tag">DCE-MRI</span><span class="tag">MobileViT-S</span><span class="tag">Grad-CAM</span><span class="tag">Docker</span><span class="tag">MLOps</span></div>
+            <div class="project-card__features">
+              <h4 data-i18n="projects.featuresTitle">Key features</h4>
+              <ul>
+                <li data-i18n="projects.thesisF1">ResNet50, EfficientNet-B3 and MobileViT-S (hybrid CNN-Transformer) with transfer learning and two-phase fine-tuning</li>
+                <li data-i18n="projects.thesisF2">K-Fold, focal loss and patient-level clinical evaluation; Grad-CAM explainability</li>
+                <li data-i18n="projects.thesisF3">Containerized, reproducible pipeline: model + REST API + runtime in Docker</li>
+              </ul>
             </div>
             <div class="project-card__footer">
-              <a href="https://github.com/PandoraRiot/breast-cancer-dce-mri-classification" class="project-card__link" target="_blank" rel="noopener noreferrer">
-                <i class="ph ph-github-logo"></i> <span data-i18n="projects.p1Link">View repository</span>
+              <a href="https://github.com/PandoraRiot/MRI_BreastCancer_Classification" class="project-card__link" target="_blank" rel="noopener noreferrer">
+                <i class="ph ph-github-logo"></i> <span data-i18n="projects.viewRepo">View repository</span>
               </a>
+              <button type="button" class="project-card__action" data-video="project-thesis" data-video-title="projects.thesisTitle">
+                <i class="ph ph-play-circle" aria-hidden="true"></i> <span data-i18n="projects.videoBtn">Video</span>
+              </button>
+              <button type="button" class="project-card__action project-card__action--accent" data-arch-explorer>
+                <i class="ph ph-tree-structure" aria-hidden="true"></i> <span data-i18n="projects.archBtn">Explore architecture</span>
+              </button>
             </div>
           </article>
 
-          <article class="project-card reveal reveal--delay-1" data-category="mlops backend">
+          <article class="project-card reveal reveal--delay-1" data-category="agents backend">
+            <!-- TODO(Alexa): complete the feature list (add projects.umbrellaF6… in i18n.js + an <li> here) with more confirmed features. -->
             <div class="project-card__top">
-              <span class="project-card__icon"><i class="ph ph-shipping-container"></i></span>
-              <span class="project-card__status" data-i18n="projects.p2Status">MLOps</span>
+              <span class="project-card__icon"><i class="ph ph-umbrella"></i></span>
+              <span class="project-card__status" data-i18n="projects.umbrellaStatus">In development</span>
             </div>
-            <h3 class="project-card__title" data-i18n="projects.p2Title">Containerized ML Thesis Pipeline</h3>
-            <p class="project-card__desc" data-i18n="projects.p2Desc">
-              End-to-end containerized infrastructure integrating ML model, REST API, and runtime environment.
-              Designed for reproducibility and cloud deployment readiness.
-            </p>
-            <div class="project-card__metrics">
-              <div class="project-metric">
-                <span class="project-metric__val">Docker</span>
-                <span class="project-metric__lbl" data-i18n="projects.metricContainer">Container</span>
-              </div>
-              <div class="project-metric">
-                <span class="project-metric__val">REST</span>
-                <span class="project-metric__lbl" data-i18n="projects.metricAPI">API</span>
-              </div>
-              <div class="project-metric">
-                <span class="project-metric__val">E2E</span>
-                <span class="project-metric__lbl" data-i18n="projects.metricPipeline">Pipeline</span>
-              </div>
-            </div>
-            <div class="project-card__tags">
-              <span class="tag">Docker</span>
-              <span class="tag">MLOps</span>
-              <span class="tag">API</span>
-            </div>
-            <div class="project-card__footer">
-              <span class="project-card__link project-card__link--muted">
-                <i class="ph ph-graduation-cap"></i> <span data-i18n="projects.p2Link">Thesis project</span>
-              </span>
-            </div>
-          </article>
-
-          <article class="project-card reveal reveal--delay-2" data-category="agents backend">
-            <div class="project-card__top">
-              <span class="project-card__icon"><i class="ph ph-robot"></i></span>
-              <span class="project-card__status" data-i18n="projects.p3Status">In development</span>
-            </div>
-            <h3 class="project-card__title" data-i18n="projects.p3Title">Career Ops — AI Agent System</h3>
-            <p class="project-card__desc" data-i18n="projects.p3Desc">
-              Intelligent career pipeline with LLM-powered agents for job analysis, ML/AI role scoring,
-              and automated opportunity prioritization. Flask backend with AI dashboards.
-            </p>
+            <h3 class="project-card__title" data-i18n="projects.umbrellaTitle">Umbrella AI — Multi-Agent LLM System</h3>
+            <p class="project-card__desc" data-i18n="projects.umbrellaDesc">LLM-powered multi-agent system for the job search: analyses offers, scores ML/AI roles and prioritises opportunities automatically. Private repository — shown through description and video only.</p>
             <div class="project-card__metrics">
               <div class="project-metric">
                 <span class="project-metric__val">LLMs</span>
@@ -478,16 +448,164 @@
                 <span class="project-metric__lbl" data-i18n="projects.metricPattern">Pattern</span>
               </div>
             </div>
-            <div class="project-card__tags">
-              <span class="tag">AI Agents</span>
-              <span class="tag">LLMs</span>
-              <span class="tag">Flask</span>
-              <span class="tag">RAG</span>
+            <div class="project-card__tags"><span class="tag">AI Agents</span><span class="tag">LLMs</span><span class="tag">Flask</span><span class="tag">RAG</span></div>
+            <div class="project-card__features">
+              <h4 data-i18n="projects.featuresTitle">Key features</h4>
+              <ul>
+                <li data-i18n="projects.umbrellaF1">Job-offer analysis</li>
+                <li data-i18n="projects.umbrellaF2">ML/AI role scoring</li>
+                <li data-i18n="projects.umbrellaF3">Automatic opportunity prioritisation</li>
+                <li data-i18n="projects.umbrellaF4">RAG pattern</li>
+                <li data-i18n="projects.umbrellaF5">Flask dashboards</li>
+              </ul>
             </div>
             <div class="project-card__footer">
               <span class="project-card__link project-card__link--muted">
-                <i class="ph ph-briefcase"></i> <span data-i18n="projects.p3Link">Private repository</span>
+                <i class="ph ph-lock-key"></i> <span data-i18n="projects.privateRepo">Private repository</span>
               </span>
+              <button type="button" class="project-card__action" data-video="project-umbrella" data-video-title="projects.umbrellaTitle">
+                <i class="ph ph-play-circle" aria-hidden="true"></i> <span data-i18n="projects.clipsBtn">Short videos</span>
+              </button>
+            </div>
+          </article>
+
+          <article class="project-card reveal reveal--delay-2" data-category="agents backend">
+            <!-- TODO(Alexa): github.com/PandoraRiot/SaberPro-RAG is public but still empty — link it once code is pushed, and confirm the exact status (projects.saberStatus). -->
+            <div class="project-card__top">
+              <span class="project-card__icon"><i class="ph ph-exam"></i></span>
+              <span class="project-card__status" data-i18n="projects.saberStatus">RAG · EdTech</span>
+            </div>
+            <h3 class="project-card__title" data-i18n="projects.saberTitle">SaberPro-RAG — Exam Prep Assistant</h3>
+            <p class="project-card__desc" data-i18n="projects.saberDesc">RAG system covering the five official modules of Colombia’s Saber Pro exam, with a learning engine on top. Documented with ADRs.</p>
+            <div class="project-card__metrics">
+              <div class="project-metric">
+                <span class="project-metric__val">RAG</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricPattern">Pattern</span>
+              </div>
+              <div class="project-metric">
+                <span class="project-metric__val">FastAPI</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricBackend">Backend</span>
+              </div>
+              <div class="project-metric">
+                <span class="project-metric__val">React</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricFrontend">Frontend</span>
+              </div>
+            </div>
+            <div class="project-card__tags"><span class="tag">FastAPI</span><span class="tag">Qdrant</span><span class="tag">Docker</span><span class="tag">sentence-transformers</span><span class="tag">Ollama / Mistral</span><span class="tag">SQLite</span><span class="tag">React</span></div>
+            <div class="project-card__features">
+              <h4 data-i18n="projects.featuresTitle">Key features</h4>
+              <ul>
+                <li data-i18n="projects.saberF1">Retrieval over the 5 official Saber Pro modules (Qdrant in Docker + sentence-transformers)</li>
+                <li data-i18n="projects.saberF2">Local LLM answers with Ollama / Mistral</li>
+                <li data-i18n="projects.saberF3">Learning engine: flashcards, quizzes and weakness detection</li>
+                <li data-i18n="projects.saberF4">Architecture decisions documented as ADRs</li>
+              </ul>
+            </div>
+            <div class="project-card__footer">
+              <span class="project-card__link project-card__link--muted">
+                <i class="ph ph-hourglass"></i> <span data-i18n="projects.repoSoon">Repository in preparation</span>
+              </span>
+              <button type="button" class="project-card__action" data-video="project-saberpro-rag" data-video-title="projects.saberTitle">
+                <i class="ph ph-play-circle" aria-hidden="true"></i> <span data-i18n="projects.videoBtn">Video</span>
+              </button>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="agents backend">
+            <div class="project-card__top">
+              <span class="project-card__icon"><i class="ph ph-robot"></i></span>
+              <span class="project-card__status" data-i18n="projects.jarvisStatus">In development</span>
+            </div>
+            <h3 class="project-card__title" data-i18n="projects.jarvisTitle">JARVIS — Personal AI Assistant</h3>
+            <p class="project-card__desc" data-i18n="projects.jarvisDesc">Personal AI assistant with a live dashboard: weather, Google Calendar, AI news and job offers filtered for ML/AI and Java Backend roles in Colombia, plus multi-LLM chat. Migrating to Spring Boot microservices.</p>
+            <div class="project-card__metrics">
+              <div class="project-metric">
+                <span class="project-metric__val">FastAPI</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricBackend">Backend</span>
+              </div>
+              <div class="project-metric">
+                <span class="project-metric__val">React</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricFrontend">Frontend</span>
+              </div>
+              <div class="project-metric">
+                <span class="project-metric__val">Docker</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricDeploy">Deploy</span>
+              </div>
+            </div>
+            <div class="project-card__tags"><span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">LLMs</span><span class="tag">RAG</span><span class="tag">Redis</span><span class="tag">Docker</span></div>
+            <div class="project-card__footer">
+              <span class="project-card__link project-card__link--muted">
+                <i class="ph ph-lock-key"></i> <span data-i18n="projects.privateRepo">Private repository</span>
+              </span>
+              <button type="button" class="project-card__action" data-video="project-jarvis" data-video-title="projects.jarvisTitle">
+                <i class="ph ph-play-circle" aria-hidden="true"></i> <span data-i18n="projects.videoBtn">Video</span>
+              </button>
+            </div>
+          </article>
+
+          <article class="project-card reveal reveal--delay-1" data-category="web backend">
+            <div class="project-card__top">
+              <span class="project-card__icon"><i class="ph ph-shopping-cart"></i></span>
+              <span class="project-card__status" data-i18n="projects.novaStatus">In development</span>
+            </div>
+            <h3 class="project-card__title" data-i18n="projects.novaTitle">Nova E-commerce</h3>
+            <p class="project-card__desc" data-i18n="projects.novaDesc">E-commerce platform designed as Spring Boot microservices (users, products, orders, payments) communicating over REST, with a React frontend and MySQL. Early-stage base: user roles, product catalog and cart.</p>
+            <div class="project-card__metrics">
+              <div class="project-metric">
+                <span class="project-metric__val">Spring</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricBackend">Backend</span>
+              </div>
+              <div class="project-metric">
+                <span class="project-metric__val">React</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricFrontend">Frontend</span>
+              </div>
+              <div class="project-metric">
+                <span class="project-metric__val">REST</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricAPI">API</span>
+              </div>
+            </div>
+            <div class="project-card__tags"><span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">React</span><span class="tag">MySQL</span><span class="tag">REST APIs</span></div>
+            <div class="project-card__footer">
+              <a href="https://github.com/PandoraRiot/Nova_Ecommerce" class="project-card__link" target="_blank" rel="noopener noreferrer">
+                <i class="ph ph-github-logo"></i> <span data-i18n="projects.viewRepo">View repository</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card reveal reveal--delay-2" data-category="web">
+            <!-- TODO(Alexa): confirm the business name, live URL, stack (metricStack + tags) and the sections listed in landingDesc. Duplicate this card for more landing pages. -->
+            <div class="project-card__top">
+              <span class="project-card__icon"><i class="ph ph-paint-roller"></i></span>
+              <span class="project-card__status" data-i18n="projects.landingStatus">Coming soon</span>
+            </div>
+            <div class="project-card__shot" aria-hidden="true">
+              <!-- TODO(Alexa): replace this placeholder with a real screenshot: <img src="assets/img/projects/landing-reformas.webp" alt="…" loading="lazy" width="1200" height="750"> -->
+              <i class="ph ph-browser"></i>
+              <span data-i18n="projects.shotPlaceholder">Screenshot pending</span>
+            </div>
+            <h3 class="project-card__title" data-i18n="projects.landingTitle">Landing page — home-renovation business</h3>
+            <p class="project-card__desc" data-i18n="projects.landingDesc">Landing page for a home-renovation business: services, work gallery and contact.</p>
+            <div class="project-card__metrics">
+              <div class="project-metric">
+                <span class="project-metric__val">Web</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricType">Type</span>
+              </div>
+              <div class="project-metric">
+                <span class="project-metric__val">Landing</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricFormat">Format</span>
+              </div>
+              <div class="project-metric">
+                <span class="project-metric__val">—</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricStack">Stack</span>
+              </div>
+            </div>
+            <div class="project-card__footer">
+              <span class="project-card__link project-card__link--muted">
+                <i class="ph ph-image"></i> <span data-i18n="projects.shotPending">Screenshot and link coming soon</span>
+              </span>
+              <button type="button" class="project-card__action" data-video="project-web-landing" data-video-title="projects.landingTitle">
+                <i class="ph ph-play-circle" aria-hidden="true"></i> <span data-i18n="projects.videoBtn">Video</span>
+              </button>
             </div>
           </article>
 
@@ -497,10 +615,7 @@
               <span class="project-card__status" data-i18n="projects.p4Status">Research</span>
             </div>
             <h3 class="project-card__title" data-i18n="projects.p4Title">CNN Fruit Classification</h3>
-            <p class="project-card__desc" data-i18n="projects.p4Desc">
-              Image classification system using Convolutional Neural Networks. Multi-architecture evaluation
-              with overfitting analysis, generalization metrics, and real-project folder structure.
-            </p>
+            <p class="project-card__desc" data-i18n="projects.p4Desc">Image classification system using Convolutional Neural Networks. Multi-architecture evaluation with overfitting analysis, generalization metrics, and real-project folder structure.</p>
             <div class="project-card__metrics">
               <div class="project-metric">
                 <span class="project-metric__val">CNN</span>
@@ -515,15 +630,14 @@
                 <span class="project-metric__lbl" data-i18n="projects.metricProgram">Program</span>
               </div>
             </div>
-            <div class="project-card__tags">
-              <span class="tag">CNN</span>
-              <span class="tag">Deep Learning</span>
-              <span class="tag">Computer Vision</span>
-            </div>
+            <div class="project-card__tags"><span class="tag">CNN</span><span class="tag">Deep Learning</span><span class="tag">Computer Vision</span></div>
             <div class="project-card__footer">
-              <span class="project-card__link project-card__link--muted">
-                <i class="ph ph-folder"></i> <span data-i18n="projects.p4Link">AI Diploma · UdeA</span>
-              </span>
+              <a href="https://github.com/PandoraRiot/Clasificaciondefrutas.udea.novateam" class="project-card__link" target="_blank" rel="noopener noreferrer">
+                <i class="ph ph-github-logo"></i> <span data-i18n="projects.viewRepo">View repository</span>
+              </a>
+              <button type="button" class="project-card__action" data-video="project-fruits-cnn" data-video-title="projects.p4Title">
+                <i class="ph ph-play-circle" aria-hidden="true"></i> <span data-i18n="projects.videoBtn">Video</span>
+              </button>
             </div>
           </article>
 
@@ -533,10 +647,7 @@
               <span class="project-card__status" data-i18n="projects.p5Status">Experiment</span>
             </div>
             <h3 class="project-card__title" data-i18n="projects.p5Title">Classical ML Model Benchmark</h3>
-            <p class="project-card__desc" data-i18n="projects.p5Desc">
-              Comparative evaluation of SVM, KNN, and Random Forest classifiers with rigorous metrics
-              (AUC, precision, recall) and kernel experimentation.
-            </p>
+            <p class="project-card__desc" data-i18n="projects.p5Desc">Comparative evaluation of SVM, KNN, and Random Forest classifiers with rigorous metrics (AUC, precision, recall) and kernel experimentation.</p>
             <div class="project-card__metrics">
               <div class="project-metric">
                 <span class="project-metric__val">3</span>
@@ -551,15 +662,14 @@
                 <span class="project-metric__lbl" data-i18n="projects.metricLibrary">Library</span>
               </div>
             </div>
-            <div class="project-card__tags">
-              <span class="tag">Scikit-learn</span>
-              <span class="tag">SVM</span>
-              <span class="tag">Random Forest</span>
-            </div>
+            <div class="project-card__tags"><span class="tag">Scikit-learn</span><span class="tag">SVM</span><span class="tag">Random Forest</span></div>
             <div class="project-card__footer">
               <span class="project-card__link project-card__link--muted">
                 <i class="ph ph-flask"></i> <span data-i18n="projects.p5Link">ML experiments</span>
               </span>
+              <button type="button" class="project-card__action" data-video="project-ml-benchmark" data-video-title="projects.p5Title">
+                <i class="ph ph-play-circle" aria-hidden="true"></i> <span data-i18n="projects.videoBtn">Video</span>
+              </button>
             </div>
           </article>
 
@@ -569,10 +679,7 @@
               <span class="project-card__status" data-i18n="projects.p6Status">Analytics</span>
             </div>
             <h3 class="project-card__title" data-i18n="projects.p6Title">Customer Segmentation Engine</h3>
-            <p class="project-card__desc" data-i18n="projects.p6Desc">
-              Unsupervised learning pipeline using K-Means clustering to discover customer patterns
-              and drive data-informed business decisions.
-            </p>
+            <p class="project-card__desc" data-i18n="projects.p6Desc">Unsupervised learning pipeline using K-Means clustering to discover customer patterns and drive data-informed business decisions.</p>
             <div class="project-card__metrics">
               <div class="project-metric">
                 <span class="project-metric__val">K-Means</span>
@@ -587,15 +694,14 @@
                 <span class="project-metric__lbl" data-i18n="projects.metricAnalysis">Analysis</span>
               </div>
             </div>
-            <div class="project-card__tags">
-              <span class="tag">K-Means</span>
-              <span class="tag">Clustering</span>
-              <span class="tag">Data Science</span>
-            </div>
+            <div class="project-card__tags"><span class="tag">K-Means</span><span class="tag">Clustering</span><span class="tag">Data Science</span></div>
             <div class="project-card__footer">
               <span class="project-card__link project-card__link--muted">
                 <i class="ph ph-chart-donut"></i> <span data-i18n="projects.p6Link">Data analysis</span>
               </span>
+              <button type="button" class="project-card__action" data-video="project-segmentation" data-video-title="projects.p6Title">
+                <i class="ph ph-play-circle" aria-hidden="true"></i> <span data-i18n="projects.videoBtn">Video</span>
+              </button>
             </div>
           </article>
 
