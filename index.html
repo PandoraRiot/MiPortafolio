@@ -1207,20 +1207,44 @@
           </a>
         </div>
 
-        <div class="github__stats reveal">
+        <div class="github__stats github__stats--4 reveal">
           <div class="github-stat">
             <span class="github-stat__value" id="ghRepos">—</span>
             <span class="github-stat__label" data-i18n="github.repos">Public repos</span>
+          </div>
+          <div class="github-stat">
+            <span class="github-stat__value" id="ghOriginal">—</span>
+            <span class="github-stat__label" data-i18n="github.original">Original projects</span>
           </div>
           <div class="github-stat">
             <span class="github-stat__value" id="ghFollowers">—</span>
             <span class="github-stat__label" data-i18n="github.followers">Followers</span>
           </div>
           <div class="github-stat">
-            <span class="github-stat__value">Python</span>
+            <span class="github-stat__value" id="ghLanguage">Python</span>
             <span class="github-stat__label" data-i18n="github.language">Primary language</span>
           </div>
         </div>
+
+        <!-- Third-party stat cards. Checked 2026-09-24: github-readme-stats.vercel.app
+             is paused (HTTP 503), so these use services that responded 200. -->
+        <div class="gh-cards reveal" id="ghCards">
+          <figure class="gh-card">
+            <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=PandoraRiot&amp;theme=transparent" alt="GitHub stats — PandoraRiot" data-i18n-alt="github.altStats" loading="lazy" width="340" height="200" />
+          </figure>
+          <figure class="gh-card">
+            <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=PandoraRiot&amp;theme=transparent" alt="Top languages by repository — PandoraRiot" data-i18n-alt="github.altLangs" loading="lazy" width="340" height="200" />
+          </figure>
+          <figure class="gh-card">
+            <img src="https://streak-stats.demolab.com/?user=PandoraRiot&amp;background=00000000&amp;hide_border=true&amp;stroke=6366f1&amp;ring=6366f1&amp;fire=22d3ee&amp;currStreakNum=e2e8f0&amp;sideNums=e2e8f0&amp;currStreakLabel=818cf8&amp;sideLabels=94a3b8&amp;dates=64748b" alt="Contribution streak — PandoraRiot" data-i18n-alt="github.altStreak" loading="lazy" width="495" height="195" />
+          </figure>
+          <figure class="gh-card gh-card--wide">
+            <figcaption data-i18n="github.contribTitle">Contributions · last 12 months</figcaption>
+            <img class="gh-card__chart" src="https://ghchart.rshah.org/6366f1/PandoraRiot" alt="Contribution graph — PandoraRiot" data-i18n-alt="github.altChart" loading="lazy" width="663" height="104" />
+          </figure>
+        </div>
+
+        <p class="github__note" id="ghNote" hidden></p>
 
         <div class="github__repos" id="githubRepos">
           <div class="github__loading">

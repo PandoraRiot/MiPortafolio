@@ -2921,3 +2921,49 @@ html.modal-open { overflow: hidden; }
 @media (max-width: 768px) { .stack__web { grid-template-columns: 1fr; } }
 
 .research-card--wide { grid-column: 1 / -1; }
+
+/* ─── GITHUB · v2 ────────────────────────────────────────── */
+.github__stats--4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 900px) { .github__stats--4 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .github__stats--4 { grid-template-columns: repeat(2, 1fr); } .github-stat { padding: var(--space-lg) var(--space-md); } .github-stat__value { font-size: var(--text-xl); } }
+
+.gh-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.4fr;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-2xl);
+}
+.gh-card {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  min-width: 0;
+}
+.gh-card img { width: 100%; height: auto; max-width: 495px; }
+.gh-card--wide { grid-column: 1 / -1; padding: var(--space-lg) var(--space-xl); align-items: stretch; }
+.gh-card--wide figcaption {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+}
+.gh-card--wide img { max-width: none; }
+.gh-card[hidden], .gh-cards[hidden] { display: none; }
+
+/* ghchart draws empty days as #EEEEEE; invert + rotate hue keeps the
+   indigo scale but turns the empty cells dark in the dark theme. */
+[data-theme="dark"] .gh-card__chart { filter: invert(1) hue-rotate(180deg) brightness(0.9); }
+
+.github__note { margin: calc(-1 * var(--space-lg)) 0 var(--space-lg); font-size: var(--text-xs); color: var(--color-text-faint); }
+.gh-repo--more { display: flex; align-items: center; justify-content: center; min-height: 140px; }
+
+@media (max-width: 900px) { .gh-cards { grid-template-columns: 1fr 1fr; } .gh-cards .gh-card:nth-child(3) { grid-column: 1 / -1; } }
+@media (max-width: 560px) { .gh-cards { grid-template-columns: 1fr; } .gh-card--wide { padding: var(--space-md); overflow-x: auto; } .gh-card--wide img { min-width: 560px; } }
