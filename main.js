@@ -159,7 +159,14 @@ const RevealModule = (() => {
   return { init };
 })();
 
+/**
+ * Metric counters. The static HTML already holds the FINAL value (so a
+ * JS failure or reduced motion never shows "0"); only when JS runs and
+ * motion is allowed do we reset to 0 and count up on first view.
+ */
 const CounterModule = (() => {
+  const finalText = (el) => `${parseInt(el.dataset.count, 10)}${el.dataset.suffix || ''}`;
+
   const animate = (el) => {
     const target   = parseInt(el.dataset.count, 10);
     const suffix   = el.dataset.suffix || '';
@@ -169,24 +176,28 @@ const CounterModule = (() => {
     const step = (now) => {
       const progress = Math.min((now - start) / duration, 1);
       const eased    = 1 - Math.pow(1 - progress, 3);
-      el.textContent = Math.floor(eased * target) + suffix;
+      el.textContent = (progress < 1 ? Math.floor(eased * target) : target) + suffix;
       if (progress < 1) requestAnimationFrame(step);
     };
 
     requestAnimationFrame(step);
   };
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        animate(entry.target);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.5 });
-
   const init = () => {
-    document.querySelectorAll('.metric-card__value[data-count]').forEach(el => observer.observe(el));
+    const els = document.querySelectorAll('.metric-card__value[data-count]');
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
+      els.forEach(el => { el.textContent = finalText(el); });
+      return;
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animate(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    els.forEach(el => { el.textContent = `0${el.dataset.suffix || ''}`; observer.observe(el); });
   };
 
   return { init };

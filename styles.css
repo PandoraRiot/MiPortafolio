@@ -2235,3 +2235,69 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .projects-carousel .lab-carousel__nav { display: none; }
   .projects-carousel .project-card { flex-basis: 82vw; }
 }
+
+/* ============================================================
+   PORTFOLIO V2 — additions on top of the original design system.
+   Everything below reuses the existing tokens; nothing above was
+   restyled.
+   ============================================================ */
+
+/* ─── LIVE / IN-PROGRESS INDICATOR ───────────────────────── */
+.live-dot {
+  display: inline-block;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--color-success);
+  animation: pulse 2s ease-in-out infinite;
+  flex: none;
+}
+
+.edu-card__status { display: inline-flex; align-items: center; gap: 0.45rem; }
+
+.edu-card--live { border-color: var(--color-border-glow); }
+
+.edu-card--brand .edu-card__inst { color: var(--color-cyan); }
+[data-theme="light"] .edu-card--brand .edu-card__inst { color: #0e7490; }
+
+.edu-card--english { grid-column: 1 / -1; }
+
+/* Timeline: date + badge row, live and upcoming states */
+.timeline__meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-sm) var(--space-md);
+  margin-bottom: var(--space-sm);
+}
+.timeline__meta .timeline__date { margin-bottom: 0; }
+
+.timeline__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-success);
+  padding: 0.15rem 0.55rem;
+  border-radius: var(--radius-full);
+  background: rgba(52, 211, 153, 0.1);
+}
+.timeline__badge--upcoming { color: var(--color-accent-light); background: var(--color-accent-dim); }
+
+.timeline__item.is-live .timeline__marker {
+  border-color: var(--color-success);
+  background: var(--color-success);
+  animation: pulse 2s ease-in-out infinite;
+}
+.timeline__item.is-upcoming .timeline__marker { border-style: dashed; }
+.timeline__item.is-live .timeline__content { border-color: rgba(52, 211, 153, 0.25); }
+
+@media (prefers-reduced-motion: reduce) {
+  .live-dot,
+  .timeline__item.is-live .timeline__marker,
+  .hero__badge-dot,
+  .status-pill span,
+  .arch-node { animation: none; }
+}

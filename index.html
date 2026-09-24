@@ -173,20 +173,20 @@
       <div class="container">
         <div class="metrics__grid">
           <div class="metric-card reveal">
-            <span class="metric-card__value" data-count="8" data-suffix="+">0</span>
+            <span class="metric-card__value" data-count="8" data-suffix="+">8+</span>
             <span class="metric-card__label" data-i18n="metrics.label1">Years building with code</span>
           </div>
           <div class="metric-card reveal reveal--delay-1">
-            <span class="metric-card__value" data-count="5" data-suffix="">0</span>
+            <span class="metric-card__value" data-count="5" data-suffix="">5</span>
             <span class="metric-card__label" data-i18n="metrics.label2">Academic programs completed</span>
           </div>
           <div class="metric-card reveal reveal--delay-2">
-            <span class="metric-card__value" data-count="4" data-suffix="">0</span>
+            <span class="metric-card__value" data-count="4" data-suffix="">4</span>
             <span class="metric-card__label" data-i18n="metrics.label3">System layers engineered</span>
             <small class="metric-card__sub" data-i18n="metrics.sub3">Data · ML · API · Infra</small>
           </div>
           <div class="metric-card reveal reveal--delay-3">
-            <span class="metric-card__value" data-count="176" data-suffix="">0</span>
+            <span class="metric-card__value" data-count="176" data-suffix="">176</span>
             <span class="metric-card__label" data-i18n="metrics.label4">Homologated credits (SW Eng.)</span>
           </div>
         </div>
@@ -716,13 +716,69 @@
         <div class="education__grid">
           <article class="edu-card edu-card--featured reveal">
             <div class="edu-card__top">
-              <span class="edu-card__status edu-card__status--active" data-i18n="education.statusFinishing">Finalizing academic credits</span>
-              <time data-i18n="education.engDate">Feb 2025 — Jun 2026</time>
+              <span class="edu-card__status edu-card__status--active"><span class="live-dot" aria-hidden="true"></span><span data-i18n="education.statusGraduating">Graduating Dec 2026</span></span>
+              <time data-i18n="education.engDate">Feb 2025 — Dec 2026</time>
             </div>
             <h3 data-i18n="education.engTitle">Software Engineering</h3>
             <p class="edu-card__inst" data-i18n="education.engInst">Institución Universitaria Pascual Bravo</p>
             <p class="edu-card__desc" data-i18n="education.engDesc">Continuation via propaedeutic cycle from Software Development Technology. 176 credits completed: dual degree — Technology in Software Development and Software Engineering.</p>
             <div class="edu-card__tags" data-i18n-tags="education.engTags"></div>
+          </article>
+
+          <article class="edu-card edu-card--live reveal">
+            <div class="edu-card__top">
+              <span class="edu-card__status edu-card__status--active"><span class="live-dot" aria-hidden="true"></span><span data-i18n="education.statusInProgress">In progress</span></span>
+              <time data-i18n="education.autoDate">Sep 21 — Nov 2, 2026</time>
+            </div>
+            <h3 data-i18n="education.autoTitle">Specialization in Process Automation</h3>
+            <p class="edu-card__inst" data-i18n="education.autoInst">Nodo</p>
+            <!-- TODO(Alexa): add the specialization syllabus/modules to autoDesc (i18n.js) if you want more detail. -->
+            <p class="edu-card__desc" data-i18n="education.autoDesc">Currently enrolled — active, ongoing training in process automation.</p>
+            <div class="edu-card__tags" data-i18n-tags="education.autoTags"></div>
+          </article>
+
+          <article class="edu-card edu-card--brand reveal reveal--delay-1">
+            <div class="edu-card__top">
+              <span class="edu-card__status" data-i18n="education.statusCertified">Certified</span>
+              <time data-i18n="education.nodoDate">2026 · G3 cohort</time>
+            </div>
+            <h3 data-i18n="education.nodoTitle">Digital Transformation with AI and Automation</h3>
+            <p class="edu-card__inst" data-i18n="education.nodoInst">Nodo + Accenture scholarship</p>
+            <p class="edu-card__desc" data-i18n="education.nodoDesc">AI and automation applied to digital transformation: process analysis and identification of automation opportunities.</p>
+            <div class="edu-card__tags" data-i18n-tags="education.nodoTags"></div>
+          </article>
+
+          <article class="edu-card reveal">
+            <div class="edu-card__top">
+              <span class="edu-card__status" data-i18n="education.statusCompleted">Completed</span>
+              <time data-i18n="education.aiDate">Feb 2026 — Apr 2026</time>
+            </div>
+            <h3 data-i18n="education.aiTitle">Artificial Intelligence Diploma</h3>
+            <p class="edu-card__inst" data-i18n="education.aiInst">Universidad de Antioquia + Talento Tech</p>
+            <p class="edu-card__desc" data-i18n="education.aiDesc">Deep Learning, CNNs, Computer Vision, image classification, ML benchmarking.</p>
+            <div class="edu-card__tags" data-i18n-tags="education.aiTags"></div>
+          </article>
+
+          <article class="edu-card reveal reveal--delay-1">
+            <div class="edu-card__top">
+              <span class="edu-card__status" data-i18n="education.statusCompleted">Completed</span>
+              <time data-i18n="education.cloudDate">Oct 2024 — Dec 2024</time>
+            </div>
+            <h3 data-i18n="education.cloudTitle">Cloud Architecture Diploma</h3>
+            <p class="edu-card__inst" data-i18n="education.cloudInst">ESUMER</p>
+            <p class="edu-card__desc" data-i18n="education.cloudDesc">AWS, cloud computing, deployment, cloud-native infrastructure.</p>
+            <div class="edu-card__tags" data-i18n-tags="education.cloudTags"></div>
+          </article>
+
+          <article class="edu-card reveal">
+            <div class="edu-card__top">
+              <span class="edu-card__status" data-i18n="education.statusCompleted">Completed</span>
+              <time data-i18n="education.dataDate">Aug 2022 — Oct 2022</time>
+            </div>
+            <h3 data-i18n="education.dataTitle">Data Science Diploma</h3>
+            <p class="edu-card__inst" data-i18n="education.dataInst">ESAP</p>
+            <p class="edu-card__desc" data-i18n="education.dataDesc">Data analysis, statistics, ML fundamentals, visualization.</p>
+            <div class="edu-card__tags" data-i18n-tags="education.dataTags"></div>
           </article>
 
           <article class="edu-card reveal reveal--delay-1">
@@ -736,43 +792,10 @@
             <div class="edu-card__tags" data-i18n-tags="education.techTags"></div>
           </article>
 
-          <article class="edu-card reveal reveal--delay-2">
-            <div class="edu-card__top">
-              <span class="edu-card__status" data-i18n="education.statusInProgress">In progress</span>
-              <time data-i18n="education.aiDate">Feb 2026 — Jun 2026</time>
-            </div>
-            <h3 data-i18n="education.aiTitle">Artificial Intelligence Diploma</h3>
-            <p class="edu-card__inst" data-i18n="education.aiInst">Universidad de Antioquia + Talento Tech</p>
-            <p class="edu-card__desc" data-i18n="education.aiDesc">Deep Learning, CNNs, Computer Vision, image classification, ML benchmarking.</p>
-            <div class="edu-card__tags" data-i18n-tags="education.aiTags"></div>
-          </article>
-
-          <article class="edu-card reveal">
-            <div class="edu-card__top">
-              <span class="edu-card__status" data-i18n="education.statusCompleted">Completed</span>
-              <time data-i18n="education.cloudDate">Oct 2024 — Dec 2024</time>
-            </div>
-            <h3 data-i18n="education.cloudTitle">Cloud Architecture Diploma</h3>
-            <p class="edu-card__inst" data-i18n="education.cloudInst">ESUMER</p>
-            <p class="edu-card__desc" data-i18n="education.cloudDesc">AWS, cloud computing, deployment, cloud-native infrastructure.</p>
-            <div class="edu-card__tags" data-i18n-tags="education.cloudTags"></div>
-          </article>
-
-          <article class="edu-card reveal reveal--delay-1">
-            <div class="edu-card__top">
-              <span class="edu-card__status" data-i18n="education.statusCompleted">Completed</span>
-              <time data-i18n="education.dataDate">Aug 2022 — Oct 2022</time>
-            </div>
-            <h3 data-i18n="education.dataTitle">Data Science Diploma</h3>
-            <p class="edu-card__inst" data-i18n="education.dataInst">ESAP</p>
-            <p class="edu-card__desc" data-i18n="education.dataDesc">Data analysis, statistics, ML fundamentals, visualization.</p>
-            <div class="edu-card__tags" data-i18n-tags="education.dataTags"></div>
-          </article>
-
-          <article class="edu-card edu-card--english reveal reveal--delay-2">
+          <article class="edu-card edu-card--english reveal">
             <div class="edu-card__icon"><i class="ph ph-translate"></i></div>
-            <h3 data-i18n="education.englishTitle">English — Technical proficiency</h3>
-            <p class="edu-card__desc" data-i18n="education.englishDesc">B1 certified (TyT exam). Advancing through higher levels. Self-directed technical learning.</p>
+            <h3 data-i18n="education.englishTitle">English B1+ · continuously improving</h3>
+            <p class="edu-card__desc" data-i18n="education.englishDesc">Upper-intermediate technical English, strengthened every day through documentation, technical content and hands-on engineering work.</p>
             <div class="edu-card__tags" data-i18n-tags="education.englishTags"></div>
           </article>
         </div>
@@ -966,13 +989,17 @@
         </div>
 
         <div class="timeline">
-          <article class="timeline__item reveal"><div class="timeline__marker"></div><div class="timeline__content"><time class="timeline__date" data-i18n="timeline.t1Date">Feb 2026 — Jun 2026</time><h3 data-i18n="timeline.t1Title">AI Diploma · UdeA + Talento Tech</h3><p data-i18n="timeline.t1Desc">Deep Learning, CNNs, Computer Vision.</p><div class="timeline__tags"><span>CNN</span><span>PyTorch</span><span>CV</span></div></div></article>
-          <article class="timeline__item reveal reveal--delay-1"><div class="timeline__marker"></div><div class="timeline__content"><time class="timeline__date" data-i18n="timeline.t2Date">Feb 2025 — Jun 2026</time><h3 data-i18n="timeline.t2Title">Software Engineering · Pascual Bravo</h3><p data-i18n="timeline.t2Desc">Finalizing credits. Backend, ML, intelligent systems.</p><div class="timeline__tags"><span>Java</span><span>Architecture</span><span>ML</span></div></div></article>
-          <article class="timeline__item reveal reveal--delay-2"><div class="timeline__marker"></div><div class="timeline__content"><time class="timeline__date" data-i18n="timeline.t3Date">2025 — Present</time><h3 data-i18n="timeline.t3Title">AI Systems Engineering</h3><p data-i18n="timeline.t3Desc">Thesis DCE-MRI, Career Ops agents, Docker/K8s/AWS.</p><div class="timeline__tags"><span>Docker</span><span>MLOps</span><span>Agents</span></div></div></article>
-          <article class="timeline__item reveal reveal--delay-3"><div class="timeline__marker"></div><div class="timeline__content"><time class="timeline__date" data-i18n="timeline.t4Date">Oct — Dec 2024</time><h3 data-i18n="timeline.t4Title">Cloud Architecture · ESUMER</h3><p data-i18n="timeline.t4Desc">AWS, cloud-native infrastructure.</p><div class="timeline__tags"><span>AWS</span><span>Cloud</span></div></div></article>
-          <article class="timeline__item reveal"><div class="timeline__marker"></div><div class="timeline__content"><time class="timeline__date" data-i18n="timeline.t5Date">2024 — 2025</time><h3 data-i18n="timeline.t5Title">Thesis · DCE-MRI Deep Learning</h3><p data-i18n="timeline.t5Desc">Breast cancer classification with PyTorch and Docker.</p><div class="timeline__tags"><span>PyTorch</span><span>Healthcare</span></div></div></article>
-          <article class="timeline__item reveal reveal--delay-1"><div class="timeline__marker"></div><div class="timeline__content"><time class="timeline__date" data-i18n="timeline.t6Date">Aug — Oct 2022</time><h3 data-i18n="timeline.t6Title">Data Science · ESAP</h3><p data-i18n="timeline.t6Desc">Statistics, ML fundamentals, visualization.</p><div class="timeline__tags"><span>Pandas</span><span>ML</span></div></div></article>
-          <article class="timeline__item reveal reveal--delay-2"><div class="timeline__marker"></div><div class="timeline__content"><time class="timeline__date" data-i18n="timeline.t7Date">Aug 2017 — Jan 2022</time><h3 data-i18n="timeline.t7Title">Software Development Technology</h3><p data-i18n="timeline.t7Desc">Backend, C#, SQL Server, MATLAB, IoT, security.</p><div class="timeline__tags"><span>C#</span><span>SQL Server</span><span>IoT</span></div></div></article>
+          <article class="timeline__item reveal is-upcoming"><div class="timeline__marker"></div><div class="timeline__content"><div class="timeline__meta"><time class="timeline__date" data-i18n="timeline.t1Date">Dec 2026</time><span class="timeline__badge timeline__badge--upcoming" data-i18n="timeline.upcoming">Upcoming</span></div><h3 data-i18n="timeline.t1Title">Graduation · Software Engineering</h3><p data-i18n="timeline.t1Desc">Expected graduation — Institución Universitaria Pascual Bravo.</p><div class="timeline__tags"><span>Software Engineering</span><span>Pascual Bravo</span></div></div></article>
+          <article class="timeline__item reveal reveal--delay-1 is-live"><div class="timeline__marker"></div><div class="timeline__content"><div class="timeline__meta"><time class="timeline__date" data-i18n="timeline.t2Date">Sep 21 — Nov 2, 2026</time><span class="timeline__badge"><span class="live-dot" aria-hidden="true"></span><span data-i18n="timeline.live">In progress</span></span></div><h3 data-i18n="timeline.t2Title">Specialization in Process Automation · Nodo</h3><p data-i18n="timeline.t2Desc">In progress.</p><div class="timeline__tags"><span>Automation</span><span>Nodo</span></div></div></article>
+          <article class="timeline__item reveal reveal--delay-2 is-live"><div class="timeline__marker"></div><div class="timeline__content"><div class="timeline__meta"><time class="timeline__date" data-i18n="timeline.t3Date">Sep 2026 — Present</time><span class="timeline__badge"><span class="live-dot" aria-hidden="true"></span><span data-i18n="timeline.live">In progress</span></span></div><h3 data-i18n="timeline.t3Title">Scientific article · DCE-MRI thesis</h3><p data-i18n="timeline.t3Desc">Converting the approved thesis into a scientific article for publication.</p><div class="timeline__tags"><span>Research</span><span>DCE-MRI</span></div></div></article>
+          <article class="timeline__item reveal"><div class="timeline__marker"></div><div class="timeline__content"><div class="timeline__meta"><time class="timeline__date" data-i18n="timeline.t4Date">Oct 2025 — Sep 2026</time></div><h3 data-i18n="timeline.t4Title">Thesis approved · DCE-MRI Deep Learning</h3><p data-i18n="timeline.t4Desc">Breast-lesion classification on DCE-MRI. Completed, approved and evaluated in September 2026.</p><div class="timeline__tags"><span>PyTorch</span><span>MobileViT-S</span><span>Grad-CAM</span></div></div></article>
+          <article class="timeline__item reveal reveal--delay-1"><div class="timeline__marker"></div><div class="timeline__content"><div class="timeline__meta"><time class="timeline__date" data-i18n="timeline.t5Date">2026 · G3 cohort</time></div><h3 data-i18n="timeline.t5Title">Certification · Digital Transformation with AI and Automation</h3><p data-i18n="timeline.t5Desc">Nodo + Accenture scholarship.</p><div class="timeline__tags"><span>AI</span><span>Automation</span><span>Accenture</span></div></div></article>
+          <article class="timeline__item reveal reveal--delay-2 is-live"><div class="timeline__marker"></div><div class="timeline__content"><div class="timeline__meta"><time class="timeline__date" data-i18n="timeline.t6Date">Mar 2026 — Present</time><span class="timeline__badge"><span class="live-dot" aria-hidden="true"></span><span data-i18n="timeline.live">In progress</span></span></div><h3 data-i18n="timeline.t6Title">AI Systems & Automation Engineer · Independent projects</h3><p data-i18n="timeline.t6Desc">JARVIS, Umbrella AI, SaberPro-RAG.</p><div class="timeline__tags"><span>FastAPI</span><span>React</span><span>LLMs</span><span>Docker</span></div></div></article>
+          <article class="timeline__item reveal"><div class="timeline__marker"></div><div class="timeline__content"><div class="timeline__meta"><time class="timeline__date" data-i18n="timeline.t7Date">Feb 2026 — Apr 2026</time></div><h3 data-i18n="timeline.t7Title">AI Diploma · UdeA + Talento Tech</h3><p data-i18n="timeline.t7Desc">Deep Learning, CNNs, Computer Vision.</p><div class="timeline__tags"><span>CNN</span><span>PyTorch</span><span>CV</span></div></div></article>
+          <article class="timeline__item reveal reveal--delay-1"><div class="timeline__marker"></div><div class="timeline__content"><div class="timeline__meta"><time class="timeline__date" data-i18n="timeline.t8Date">Oct — Dec 2024</time></div><h3 data-i18n="timeline.t8Title">Cloud Architecture · ESUMER</h3><p data-i18n="timeline.t8Desc">AWS, cloud-native infrastructure.</p><div class="timeline__tags"><span>AWS</span><span>Cloud</span></div></div></article>
+          <article class="timeline__item reveal reveal--delay-2"><div class="timeline__marker"></div><div class="timeline__content"><div class="timeline__meta"><time class="timeline__date" data-i18n="timeline.t9Date">Jun 2023 — Sep 2024</time></div><h3 data-i18n="timeline.t9Title">Junior Full Stack Developer — Backend · Servisoft S.A.</h3><p data-i18n="timeline.t9Desc">Java backend for public-sector clients.</p><div class="timeline__tags"><span>Java</span><span>REST</span><span>SOAP</span><span>Oracle</span></div></div></article>
+          <article class="timeline__item reveal"><div class="timeline__marker"></div><div class="timeline__content"><div class="timeline__meta"><time class="timeline__date" data-i18n="timeline.t10Date">Aug — Oct 2022</time></div><h3 data-i18n="timeline.t10Title">Data Science · ESAP</h3><p data-i18n="timeline.t10Desc">Statistics, ML fundamentals, visualization.</p><div class="timeline__tags"><span>Pandas</span><span>ML</span></div></div></article>
+          <article class="timeline__item reveal reveal--delay-1"><div class="timeline__marker"></div><div class="timeline__content"><div class="timeline__meta"><time class="timeline__date" data-i18n="timeline.t11Date">Aug 2017 — Jan 2022</time></div><h3 data-i18n="timeline.t11Title">Software Development Technology</h3><p data-i18n="timeline.t11Desc">Backend, C#, SQL Server, MATLAB, IoT, security.</p><div class="timeline__tags"><span>C#</span><span>SQL Server</span><span>IoT</span></div></div></article>
         </div>
       </div>
     </section>
@@ -1024,9 +1051,9 @@
             <span class="section__label" data-i18n="contact.label">Get in touch</span>
             <h2 class="contact__title" data-i18n="contact.title">Let's build production AI together</h2>
             <p class="contact__desc" data-i18n-html="contact.desc">
-              Open to roles as <strong>AI Systems Engineer</strong>, <strong>ML Engineer</strong>,
-              or <strong>Backend AI Developer</strong> — building intelligent systems that scale in production,
-              especially in healthcare and enterprise AI.
+              Open to <strong>AI/ML Software Engineer</strong>, <strong>Backend Developer (Java/Spring Boot)</strong> and
+              <strong>Full Stack Developer</strong> roles — building intelligent systems that scale in production.
+
             </p>
           </div>
 
