@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" id="metaDescription" content="Alexandra García — AI Systems Engineer & ML Engineer. Building production-grade AI systems: models, APIs, cloud infrastructure, and MLOps pipelines." />
-  <meta name="theme-color" content="#030712" id="themeColorMeta" />
+  <meta name="theme-color" content="#000000" id="themeColorMeta" />
   <meta property="og:title" content="Alexandra García · AI Systems Engineer" />
   <meta property="og:description" content="I don't just train models — I build systems where AI lives in production." />
   <meta property="og:type" content="website" />
@@ -319,6 +319,11 @@
           <button class="projects__filter" data-filter="agents" role="tab" aria-selected="false" data-i18n="projects.filterAgents">AI Agents</button>
         </div>
 
+        <div class="projects-carousel reveal" id="projectsCarousel">
+          <button type="button" class="lab-carousel__nav lab-carousel__nav--prev" id="projPrev" data-i18n-aria="projects.prev" aria-label="Previous project">
+            <i class="ph ph-caret-left"></i>
+          </button>
+          <div class="lab-carousel__viewport" id="projViewport">
         <div class="projects__grid" id="projectsGrid">
 
           <article class="project-card reveal" data-category="dl mlops">
@@ -540,6 +545,12 @@
           </article>
 
         </div>
+          </div>
+          <button type="button" class="lab-carousel__nav lab-carousel__nav--next" id="projNext" data-i18n-aria="projects.next" aria-label="Next project">
+            <i class="ph ph-caret-right"></i>
+          </button>
+        </div>
+        <div class="lab-carousel__dots" id="projDots" role="group" aria-label="Project slides"></div>
       </div>
     </section>
 

@@ -27,10 +27,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 /* ─── TOKENS ─────────────────────────────────────────────── */
 :root {
-  --color-bg:           #030712;
-  --color-bg-alt:       #0a0f1a;
-  --color-bg-card:      rgba(15, 23, 42, 0.6);
-  --color-bg-card-solid:#0f172a;
+  --color-bg:           #000000;
+  --color-bg-alt:       #0a0a0a;
+  --color-bg-card:      rgba(20, 20, 20, 0.6);
+  --color-bg-card-solid:#141414;
   --color-border:       rgba(255, 255, 255, 0.06);
   --color-border-hover: rgba(255, 255, 255, 0.12);
   --color-border-glow:  rgba(99, 102, 241, 0.3);
@@ -2107,3 +2107,26 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .metric-table th, .metric-table td { text-align: left; padding: 0.55rem 0.9rem 0.55rem 0; border-bottom: 1px dashed var(--color-border); }
 .metric-table th { color: var(--color-text-muted); font-weight: 500; text-transform: uppercase; font-size: var(--text-xs); letter-spacing: 0.04em; }
 .metric-table td { color: var(--color-text); }
+
+/* ─── PROJECTS CAROUSEL ──────────────────────────────────────
+   Same carousel mechanics as the Model Lab (.lab-carousel__nav/
+   viewport/dots), applied to the existing .project-card markup —
+   the grid becomes a horizontal scroll-snap track instead of a
+   static grid, without changing card content or the filter logic. */
+.projects-carousel { display: flex; align-items: stretch; gap: 0.75rem; }
+
+.projects-carousel .projects__grid {
+  display: flex;
+  gap: var(--space-lg);
+  padding: 0.25rem 0.1rem 1rem;
+}
+
+.projects-carousel .project-card {
+  flex: 0 0 clamp(300px, 30vw, 360px);
+  scroll-snap-align: start;
+}
+
+@media (max-width: 640px) {
+  .projects-carousel .lab-carousel__nav { display: none; }
+  .projects-carousel .project-card { flex-basis: 82vw; }
+}

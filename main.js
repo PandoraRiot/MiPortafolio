@@ -79,7 +79,7 @@ const I18nModule = (() => {
 })();
 
 const ThemeModule = (() => {
-  const META_COLORS = { dark: '#030712', light: '#e8ecf3' };
+  const META_COLORS = { dark: '#000000', light: '#e8ecf3' };
   let theme = localStorage.getItem('theme') || 'dark';
 
   const apply = (t) => {
@@ -201,6 +201,7 @@ const ProjectFilterModule = (() => {
       const cats = card.dataset.category.split(' ');
       card.classList.toggle('is-hidden', category !== 'all' && !cats.includes(category));
     });
+    document.dispatchEvent(new CustomEvent('projectsfilterchange'));
   };
 
   const init = () => {
@@ -215,6 +216,120 @@ const ProjectFilterModule = (() => {
         filter(btn.dataset.filter);
       });
     });
+  };
+
+  return { init };
+})();
+
+/**
+ * Projects carousel — same auto-advance/pause/nav/dots mechanics as the
+ * Model Lab carousel, applied to the existing static .project-card markup.
+ * Rebuilds its dots/position whenever ProjectFilterModule changes which
+ * cards are visible (listens for 'projectsfilterchange').
+ */
+const ProjectCarouselModule = (() => {
+  const AUTOPLAY_MS = 5000;
+  let viewport, track, dotsEl, prevBtn, nextBtn;
+  let autoplayTimer = null;
+  let paused = false;
+  let resumeTimer = null;
+
+  const prefersReduced = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const visibleCards = () => [...track.querySelectorAll('.project-card')].filter(c => !c.classList.contains('is-hidden'));
+
+  const cardStep = () => {
+    const first = visibleCards()[0];
+    if (!first) return 0;
+    const style = getComputedStyle(track);
+    const gap = parseFloat(style.columnGap || style.gap || '0');
+    return first.getBoundingClientRect().width + gap;
+  };
+
+  const updateActiveDot = () => {
+    const step = cardStep();
+    if (!step) return;
+    const idx = Math.round(viewport.scrollLeft / step);
+    dotsEl?.querySelectorAll('.lab-carousel__dot').forEach((d, i) => d.classList.toggle('is-active', i === idx));
+    if (prevBtn) prevBtn.disabled = viewport.scrollLeft < 8;
+    if (nextBtn) nextBtn.disabled = viewport.scrollLeft + viewport.clientWidth >= viewport.scrollWidth - 8;
+  };
+
+  const goTo = (index) => {
+    const step = cardStep();
+    viewport.scrollTo({ left: step * index, behavior: prefersReduced() ? 'auto' : 'smooth' });
+  };
+
+  const advance = (dir) => {
+    const step = cardStep();
+    if (!step) return;
+    const atEnd = viewport.scrollLeft + viewport.clientWidth >= viewport.scrollWidth - 8;
+    const atStart = viewport.scrollLeft < 8;
+    if (dir > 0 && atEnd) { viewport.scrollTo({ left: 0, behavior: prefersReduced() ? 'auto' : 'smooth' }); return; }
+    if (dir < 0 && atStart) { viewport.scrollTo({ left: viewport.scrollWidth, behavior: prefersReduced() ? 'auto' : 'smooth' }); return; }
+    viewport.scrollBy({ left: dir * step, behavior: prefersReduced() ? 'auto' : 'smooth' });
+  };
+
+  const renderDots = () => {
+    if (!dotsEl) return;
+    const cards = visibleCards();
+    dotsEl.innerHTML = cards.map((c, i) => {
+      const label = c.querySelector('.project-card__title')?.textContent?.trim() || `Project ${i + 1}`;
+      return `<button type="button" class="lab-carousel__dot${i === 0 ? ' is-active' : ''}" data-index="${i}" aria-label="${label}"></button>`;
+    }).join('');
+    dotsEl.querySelectorAll('.lab-carousel__dot').forEach(dot => {
+      dot.addEventListener('click', () => goTo(parseInt(dot.dataset.index, 10)));
+    });
+  };
+
+  const refresh = () => {
+    viewport.scrollLeft = 0;
+    renderDots();
+    requestAnimationFrame(updateActiveDot);
+  };
+
+  const stopAutoplay = () => { if (autoplayTimer) clearInterval(autoplayTimer); autoplayTimer = null; };
+  const startAutoplay = () => {
+    stopAutoplay();
+    if (prefersReduced()) return;
+    autoplayTimer = setInterval(() => { if (!paused) advance(1); }, AUTOPLAY_MS);
+  };
+
+  const pause = () => { paused = true; clearTimeout(resumeTimer); };
+  const resume = () => { clearTimeout(resumeTimer); resumeTimer = setTimeout(() => { paused = false; }, 1200); };
+
+  const bindInteraction = () => {
+    [viewport, prevBtn, nextBtn].forEach(el => {
+      el?.addEventListener('pointerenter', pause);
+      el?.addEventListener('pointerleave', resume);
+      el?.addEventListener('focusin', pause);
+      el?.addEventListener('focusout', resume);
+      el?.addEventListener('touchstart', pause, { passive: true });
+      el?.addEventListener('touchend', resume, { passive: true });
+    });
+    prevBtn?.addEventListener('click', () => advance(-1));
+    nextBtn?.addEventListener('click', () => advance(1));
+    viewport?.addEventListener('scroll', () => requestAnimationFrame(updateActiveDot), { passive: true });
+    viewport?.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); advance(1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); advance(-1); }
+    });
+  };
+
+  const init = () => {
+    viewport = document.getElementById('projViewport');
+    track = document.getElementById('projectsGrid');
+    dotsEl = document.getElementById('projDots');
+    prevBtn = document.getElementById('projPrev');
+    nextBtn = document.getElementById('projNext');
+    if (!viewport || !track) return;
+
+    refresh();
+    bindInteraction();
+    startAutoplay();
+
+    document.addEventListener('projectsfilterchange', refresh);
+    window.addEventListener('resize', () => requestAnimationFrame(updateActiveDot));
   };
 
   return { init };
@@ -625,6 +740,7 @@ document.addEventListener('DOMContentLoaded', () => {
   RevealModule.init();
   CounterModule.init();
   ProjectFilterModule.init();
+  ProjectCarouselModule.init();
   ModelLabModule.init();
   ModelLabDetailModule.init();
   GitHubModule.init();
