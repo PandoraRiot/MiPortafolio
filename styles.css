@@ -2904,3 +2904,20 @@ html.modal-open { overflow: hidden; }
   .tarch__seg { width: 100%; border-radius: var(--radius-md); }
   .tarch__seg-btn { flex: 1 1 auto; border-radius: var(--radius-sm); }
 }
+
+/* ─── LLM chips as buttons, STACK web block, RESEARCH #10 ─── */
+.llm-tech-group__items .chip-video { --chip-bg: var(--color-bg-card-solid); }
+
+.stack__group--web { grid-column: 1 / -1; }
+.stack__web { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); }
+.stack__web h4 {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+  margin-bottom: var(--space-sm);
+}
+@media (max-width: 768px) { .stack__web { grid-template-columns: 1fr; } }
+
+.research-card--wide { grid-column: 1 / -1; }

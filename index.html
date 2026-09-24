@@ -997,21 +997,21 @@
             <div class="llm__tech-groups">
               <div class="llm-tech-group">
                 <h4 data-i18n="llm.modelsTitle">Models &amp; APIs</h4>
-                <div class="llm-tech-group__items">
-                  <span>GPT-4</span><span>Claude</span><span>Gemini</span><span>DeepSeek</span><span>OpenRouter</span>
-                </div>
+                <ul class="llm-tech-group__items">
+                  <li><button type="button" class="chip-video" data-video="gpt-4">GPT-4</button></li><li><button type="button" class="chip-video" data-video="claude">Claude</button></li><li><button type="button" class="chip-video" data-video="gemini">Gemini</button></li><li><button type="button" class="chip-video" data-video="deepseek">DeepSeek</button></li><li><button type="button" class="chip-video" data-video="openrouter">OpenRouter</button></li>
+                </ul>
               </div>
               <div class="llm-tech-group">
                 <h4 data-i18n="llm.toolsTitle">Orchestration &amp; Tools</h4>
-                <div class="llm-tech-group__items">
-                  <span>LangChain</span><span>Cursor AI</span><span>Ollama</span><span>RAG</span><span>AI Agents</span>
-                </div>
+                <ul class="llm-tech-group__items">
+                  <li><button type="button" class="chip-video" data-video="langchain">LangChain</button></li><li><button type="button" class="chip-video" data-video="cursor-ai">Cursor AI</button></li><li><button type="button" class="chip-video" data-video="ollama">Ollama</button></li><li><button type="button" class="chip-video" data-video="rag">RAG</button></li><li><button type="button" class="chip-video" data-video="ai-agents">AI Agents</button></li>
+                </ul>
               </div>
               <div class="llm-tech-group">
                 <h4 data-i18n="llm.patternsTitle">Engineering Patterns</h4>
-                <div class="llm-tech-group__items">
-                  <span>Prompt Engineering</span><span>Retrieval Systems</span><span>Multi-Agent</span><span>Vector DBs</span>
-                </div>
+                <ul class="llm-tech-group__items">
+                  <li><button type="button" class="chip-video" data-video="prompt-engineering">Prompt Engineering</button></li><li><button type="button" class="chip-video" data-video="retrieval-systems">Retrieval Systems</button></li><li><button type="button" class="chip-video" data-video="multi-agent">Multi-Agent</button></li><li><button type="button" class="chip-video" data-video="vector-dbs">Vector DBs</button></li>
+                </ul>
               </div>
             </div>
           </div>
@@ -1031,7 +1031,7 @@
           <div class="stack__marquee-track">
             <span>Python</span><span>Java</span><span>Spring Boot</span><span>FastAPI</span><span>Flask</span>
             <span>PyTorch</span><span>Scikit-learn</span><span>Docker</span><span>Kubernetes</span><span>AWS</span>
-            <span>Apache Spark</span><span>PostgreSQL</span><span>CNN</span><span>SVM</span><span>RAG</span><span>AI Agents</span>
+            <span>Apache Spark</span><span>PostgreSQL</span><span>CNN</span><span>SVM</span><span>RAG</span><span>AI Agents</span><span>React</span><span>JavaScript</span>
             <span>Python</span><span>Java</span><span>Spring Boot</span><span>FastAPI</span><span>Flask</span>
             <span>PyTorch</span><span>Scikit-learn</span><span>Docker</span><span>Kubernetes</span><span>AWS</span>
           </div>
@@ -1102,6 +1102,45 @@
               <span class="stack__item">Git</span>
             </div>
           </div>
+          <div class="stack__group stack__group--web reveal">
+            <h3><i class="ph ph-browsers"></i> <span data-i18n="stack.web">Web · Frontend / Backend / Full Stack</span></h3>
+            <div class="stack__web">
+              <div>
+                <h4 data-i18n="stack.webFront">Frontend</h4>
+                <div class="stack__items">
+                  <span class="stack__item">JavaScript</span>
+                  <span class="stack__item">React</span>
+                  <span class="stack__item">HTML5</span>
+                  <span class="stack__item">CSS</span>
+                  <span class="stack__item">Bootstrap</span>
+                  <span class="stack__item" data-i18n="stack.webComponents">Component-based UI</span>
+                </div>
+              </div>
+              <div>
+                <h4 data-i18n="stack.webBack">Backend</h4>
+                <div class="stack__items">
+                  <span class="stack__item">Java 8/12</span>
+                  <span class="stack__item">Spring Boot</span>
+                  <span class="stack__item">REST APIs</span>
+                  <span class="stack__item">SOAP APIs</span>
+                  <span class="stack__item">FastAPI</span>
+                  <span class="stack__item">Flask</span>
+                  <span class="stack__item">Apache Tomcat</span>
+                </div>
+              </div>
+              <div>
+                <h4 data-i18n="stack.webFull">Full Stack &amp; delivery</h4>
+                <div class="stack__items">
+                  <span class="stack__item">MySQL</span>
+                  <span class="stack__item">Oracle</span>
+                  <span class="stack__item">MSSQL</span>
+                  <span class="stack__item">Postman</span>
+                  <span class="stack__item">WordPress</span>
+                  <span class="stack__item">Vercel</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1125,6 +1164,7 @@
           <article class="research-card reveal"><span class="research-card__num">07</span><h3 data-i18n="research.r7Title">Deep Learning</h3><p data-i18n="research.r7Desc">CNNs and advanced neural architecture evaluation.</p></article>
           <article class="research-card reveal reveal--delay-1"><span class="research-card__num">08</span><h3 data-i18n="research.r8Title">Cloud AI Systems</h3><p data-i18n="research.r8Desc">AWS-native AI and distributed data processing.</p></article>
           <article class="research-card reveal reveal--delay-2"><span class="research-card__num">09</span><h3 data-i18n="research.r9Title">Computer Vision</h3><p data-i18n="research.r9Desc">Image classification and architecture benchmarking.</p></article>
+          <article class="research-card research-card--wide reveal"><span class="research-card__num">10</span><h3 data-i18n="research.r10Title">Web Development</h3><p data-i18n="research.r10Desc">Backend, business logic and web application architecture.</p></article>
         </div>
       </div>
     </section>

@@ -273,6 +273,11 @@ window.I18N = {
       cloudInfra: 'Cloud & Infrastructure',
       aiSystems: 'AI Systems',
       languages: 'Languages & Data',
+      web: 'Web · Frontend / Backend / Full Stack',
+      webFront: 'Frontend',
+      webBack: 'Backend',
+      webFull: 'Full Stack & delivery',
+      webComponents: 'Component-based UI',
     },
     research: {
       label: 'Research Interests',
@@ -296,6 +301,8 @@ window.I18N = {
       r8Desc: 'AWS-native AI deployments, distributed data processing, and cloud-native patterns.',
       r9Title: 'Computer Vision',
       r9Desc: 'Image classification, architecture benchmarking, and generalization analysis.',
+      r10Title: 'Web Development',
+      r10Desc: 'Backend, business logic and web application architecture — from REST APIs in Java/Spring Boot to full stack JavaScript.',
     },
     timeline: {
       label: 'Career Timeline',
@@ -678,6 +685,11 @@ window.I18N = {
       cloudInfra: 'Cloud & Infraestructura',
       aiSystems: 'Sistemas IA',
       languages: 'Lenguajes & Datos',
+      web: 'Web · Frontend / Backend / Full Stack',
+      webFront: 'Frontend',
+      webBack: 'Backend',
+      webFull: 'Full Stack y entrega',
+      webComponents: 'UI basada en componentes',
     },
     research: {
       label: 'Intereses de Investigación',
@@ -701,6 +713,8 @@ window.I18N = {
       r8Desc: 'Despliegues IA en AWS, procesamiento distribuido y patrones cloud-native.',
       r9Title: 'Computer Vision',
       r9Desc: 'Clasificación de imágenes, benchmarking de arquitecturas y análisis de generalización.',
+      r10Title: 'Desarrollo Web',
+      r10Desc: 'Backend, lógica de negocio y arquitectura de aplicaciones web — desde APIs REST en Java/Spring Boot hasta full stack JavaScript.',
     },
     timeline: {
       label: 'Trayectoria Profesional',
