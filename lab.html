@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Model Lab — architectures trained, evaluated, and eventually deployed by Alexandra García." />
+  <meta name="theme-color" content="#faf8f4" id="themeColorMeta" />
+  <title id="pageTitle">Model Lab · Alexandra García</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+  <script>
+    (function () {
+      var t = localStorage.getItem('theme') || 'light';
+      var l = localStorage.getItem('lang') || 'en';
+      document.documentElement.setAttribute('data-theme', t);
+      document.documentElement.setAttribute('lang', l);
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="nav" id="nav">
+    <div class="nav__container container container--wide">
+      <a href="index.html#home" class="nav__logo" aria-label="Alexandra García — home">
+        <span class="nav__logo-mark">AG</span>
+        <span class="nav__logo-text">Software Engineer · ML / AI Systems</span>
+      </a>
+      <nav class="nav__links" id="navLinks" aria-label="Main navigation">
+        <a href="index.html#work" class="nav__link">Selected Work</a>
+        <a href="index.html#lab" class="nav__link is-active">Model Lab</a>
+        <a href="index.html#ai-systems" class="nav__link">AI Systems</a>
+        <a href="index.html#research" class="nav__link">Research</a>
+        <a href="index.html#education" class="nav__link">Education</a>
+        <a href="index.html#contact" class="nav__cta btn btn--primary btn--sm">Contact</a>
+      </nav>
+      <div class="nav__controls">
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" class="lang-switch__btn" data-lang="es">ES</button>
+          <button type="button" class="lang-switch__btn is-active" data-lang="en">EN</button>
+        </div>
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <svg class="theme-toggle__icon theme-toggle__icon--light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2.5 12h2M19.5 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" stroke-linecap="round"/></svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <button class="nav__burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section" style="padding-top: calc(var(--nav-h) + var(--space-xl));">
+      <div class="container container--wide" id="labRoot">
+        <!-- rendered by main.js / ModelLabDetailModule -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container container--wide footer__inner">
+      <p class="footer__copy">&copy; <span id="footerYear"></span> Alexandra García · Software Engineer, ML &amp; AI Systems</p>
+      <p class="footer__tagline">Built as a static site — no framework, no glow, no filler.</p>
+    </div>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="models-data.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

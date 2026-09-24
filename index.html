@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" id="metaDescription" content="Alexandra García — AI Systems Engineer & ML Engineer. Building production-grade AI systems: models, APIs, cloud infrastructure, and MLOps pipelines." />
-  <meta name="theme-color" content="#030712" id="themeColorMeta" />
-  <meta property="og:title" content="Alexandra García · AI Systems Engineer" />
-  <meta property="og:description" content="I don't just train models — I build systems where AI lives in production." />
+  <meta name="description" id="metaDescription" content="Alexandra García — Software Engineer specializing in Machine Learning and AI Systems. Computer vision, ML infrastructure, LLM engineering, and applied research." />
+  <meta name="theme-color" content="#faf8f4" id="themeColorMeta" />
+  <meta property="og:title" content="Alexandra García · Software Engineer, ML & AI Systems" />
+  <meta property="og:description" content="Computer vision, ML infrastructure, and AI systems engineering — built and documented in the open." />
   <meta property="og:type" content="website" />
-  <title id="pageTitle">Alexandra García · AI Systems Engineer</title>
+  <title id="pageTitle">Alexandra García · Software Engineer, ML &amp; AI Systems</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 
   <script>
     (function () {
-      var t = localStorage.getItem('theme') || 'dark';
+      var t = localStorage.getItem('theme') || 'light';
       var l = localStorage.getItem('lang') || 'en';
       document.documentElement.setAttribute('data-theme', t);
       document.documentElement.setAttribute('lang', l);
@@ -21,27 +22,26 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
-  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <div class="noise" aria-hidden="true"></div>
+  <a href="#main" class="skip-link" data-i18n="a11y.skip">Skip to content</a>
 
   <header class="nav" id="nav">
-    <div class="nav__container container">
+    <div class="nav__container container container--wide">
       <a href="#home" class="nav__logo" id="navLogoLabel" aria-label="Alexandra García — home">
         <span class="nav__logo-mark">AG</span>
-        <span class="nav__logo-text">Alexandra García</span>
+        <span class="nav__logo-text">Software Engineer · ML / AI Systems</span>
       </a>
 
       <nav class="nav__links" id="navLinks" aria-label="Main navigation">
-        <a href="#systems" class="nav__link" data-i18n="nav.systems">Systems</a>
-        <a href="#projects" class="nav__link" data-i18n="nav.projects">Projects</a>
-        <a href="#education" class="nav__link" data-i18n="nav.education">Education</a>
-        <a href="#llm" class="nav__link" data-i18n="nav.llm">LLM Engineering</a>
+        <a href="#work" class="nav__link" data-i18n="nav.work">Selected Work</a>
+        <a href="#lab" class="nav__link" data-i18n="nav.lab">Model Lab</a>
+        <a href="#ai-systems" class="nav__link" data-i18n="nav.ai">AI Systems</a>
         <a href="#research" class="nav__link" data-i18n="nav.research">Research</a>
+        <a href="#education" class="nav__link" data-i18n="nav.education">Education</a>
         <a href="#contact" class="nav__cta btn btn--primary btn--sm" data-i18n="nav.contact">Contact</a>
       </nav>
 
@@ -51,896 +51,571 @@
           <button type="button" class="lang-switch__btn is-active" data-lang="en">EN</button>
         </div>
         <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-          <i class="ph ph-sun theme-toggle__icon theme-toggle__icon--light"></i>
-          <i class="ph ph-moon theme-toggle__icon theme-toggle__icon--dark"></i>
+          <svg class="theme-toggle__icon theme-toggle__icon--light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2.5 12h2M19.5 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" stroke-linecap="round"/></svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z" stroke-linejoin="round"/></svg>
         </button>
       </div>
 
-      <button class="nav__burger" id="navBurger" data-i18n-aria="nav.openMenu" aria-label="Open menu" aria-expanded="false">
+      <button class="nav__burger" id="navBurger" data-i18n-aria="a11y.openMenu" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
-  <main>
+  <main id="main">
 
-    <!-- HERO -->
+    <!-- ============ HERO ============ -->
     <section class="hero" id="home">
-      <div class="hero__bg" aria-hidden="true">
-        <div class="hero__grid"></div>
-        <div class="hero__orb hero__orb--1"></div>
-        <div class="hero__orb hero__orb--2"></div>
-        <div class="hero__orb hero__orb--3"></div>
-      </div>
-
-      <div class="hero__container container">
-        <div class="hero__content">
-          <div class="hero__badge reveal">
-            <span class="hero__badge-dot"></span>
-            <span data-i18n="hero.badge">Open to opportunities · AI Systems Engineer</span>
-          </div>
-
-          <h1 class="hero__title reveal reveal--delay-1" data-i18n-html="hero.title">
-            Production AI systems,<br />
-            <span class="gradient-text">end to end.</span>
-          </h1>
-
-          <p class="hero__subtitle reveal reveal--delay-2" data-i18n-html="hero.subtitle">
-            Software Engineer specializing in <strong>AI Systems Engineering</strong> and
-            <strong>Machine Learning</strong>. I design, build, and deploy complete intelligent
-            systems — from data pipelines and model training to REST APIs, containerization,
-            and cloud-native infrastructure.
-          </p>
-
-          <div class="hero__actions reveal reveal--delay-3">
-            <a href="#projects" class="btn btn--primary btn--lg">
-              <span data-i18n="hero.ctaProjects">View systems</span>
-              <i class="ph ph-arrow-right"></i>
-            </a>
-            <a href="#education" class="btn btn--ghost btn--lg">
-              <span data-i18n="hero.ctaEducation">My path</span>
-            </a>
-            <a href="https://github.com/PandoraRiot" class="btn btn--ghost btn--lg" target="_blank" rel="noopener noreferrer">
-              <i class="ph ph-github-logo"></i>
-              GitHub
-            </a>
-            <a href="https://www.linkedin.com/in/alexandragarciabarrioseng/" class="btn btn--ghost btn--lg" target="_blank" rel="noopener noreferrer">
-              <i class="ph ph-linkedin-logo"></i>
-              LinkedIn
-            </a>
-          </div>
-        </div>
-
-        <div class="hero__arch reveal reveal--delay-2" aria-hidden="true">
-          <div class="arch-diagram">
-            <div class="arch-diagram__header">
-              <span class="arch-diagram__dot arch-diagram__dot--red"></span>
-              <span class="arch-diagram__dot arch-diagram__dot--yellow"></span>
-              <span class="arch-diagram__dot arch-diagram__dot--green"></span>
-              <span class="arch-diagram__title">ai-system-architecture.yaml</span>
-            </div>
-            <div class="arch-diagram__body">
-              <div class="arch-node arch-node--1">
-                <i class="ph ph-database"></i>
-                <span data-i18n="hero.archData">Data Layer</span>
-                <small>Spark · PostgreSQL</small>
-              </div>
-              <div class="arch-flow"></div>
-              <div class="arch-node arch-node--2">
-                <i class="ph ph-brain"></i>
-                <span data-i18n="hero.archML">ML Pipeline</span>
-                <small>PyTorch · Scikit-learn</small>
-              </div>
-              <div class="arch-flow"></div>
-              <div class="arch-node arch-node--3">
-                <i class="ph ph-plugs-connected"></i>
-                <span data-i18n="hero.archAPI">API Gateway</span>
-                <small>Spring Boot · FastAPI</small>
-              </div>
-              <div class="arch-flow"></div>
-              <div class="arch-node arch-node--4">
-                <i class="ph ph-cloud"></i>
-                <span data-i18n="hero.archProd">Production</span>
-                <small>Docker · K8s · AWS</small>
-              </div>
-            </div>
-            <div class="arch-diagram__status">
-              <span class="status-pill status-pill--live"><span></span> <span data-i18n="hero.archStatus">production-ready</span></span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- METRICS -->
-    <section class="metrics" aria-label="Key metrics">
-      <div class="container">
-        <div class="metrics__grid">
-          <div class="metric-card reveal">
-            <span class="metric-card__value" data-count="8" data-suffix="+">0</span>
-            <span class="metric-card__label" data-i18n="metrics.label1">Years building with code</span>
-          </div>
-          <div class="metric-card reveal reveal--delay-1">
-            <span class="metric-card__value" data-count="5" data-suffix="">0</span>
-            <span class="metric-card__label" data-i18n="metrics.label2">Academic programs completed</span>
-          </div>
-          <div class="metric-card reveal reveal--delay-2">
-            <span class="metric-card__value" data-count="4" data-suffix="">0</span>
-            <span class="metric-card__label" data-i18n="metrics.label3">System layers engineered</span>
-            <small class="metric-card__sub" data-i18n="metrics.sub3">Data · ML · API · Infra</small>
-          </div>
-          <div class="metric-card reveal reveal--delay-3">
-            <span class="metric-card__value" data-count="76" data-suffix="">0</span>
-            <span class="metric-card__label" data-i18n="metrics.label4">Homologated credits (SW Eng.)</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- MINDSET -->
-    <section class="mindset section" id="mindset">
-      <div class="container">
-        <div class="section__header section__header--center reveal">
-          <span class="section__label" data-i18n="mindset.label">Engineering Identity</span>
-          <h2 class="section__title" data-i18n="mindset.title">Systemic thinking. Real engineering.</h2>
-          <p class="section__desc section__desc--center" data-i18n="mindset.desc">Self-taught mindset, applied research, and end-to-end product building — from backend foundations to ML pipelines in production.</p>
-        </div>
-        <div class="mindset__grid">
-          <article class="mindset-card reveal">
-            <div class="mindset-card__icon"><i class="ph ph-stack"></i></div>
-            <h3 data-i18n="mindset.card1Title">End-to-end builder</h3>
-            <p data-i18n="mindset.card1Desc">I connect data, models, APIs, and infrastructure into complete systems — not isolated notebooks.</p>
-          </article>
-          <article class="mindset-card reveal reveal--delay-1">
-            <div class="mindset-card__icon"><i class="ph ph-git-branch"></i></div>
-            <h3 data-i18n="mindset.card2Title">Backend + ML hybrid</h3>
-            <p data-i18n="mindset.card2Desc">Java/Spring Boot and Python/FastAPI to expose models as scalable services with modular architecture.</p>
-          </article>
-          <article class="mindset-card reveal reveal--delay-2">
-            <div class="mindset-card__icon"><i class="ph ph-microscope"></i></div>
-            <h3 data-i18n="mindset.card3Title">Applied research</h3>
-            <p data-i18n="mindset.card3Desc">Healthcare AI with DCE-MRI, reproducible experiments, and engineering rigor in every pipeline.</p>
-          </article>
-          <article class="mindset-card reveal reveal--delay-3">
-            <div class="mindset-card__icon"><i class="ph ph-lightning"></i></div>
-            <h3 data-i18n="mindset.card4Title">Autodidact engineer</h3>
-            <p data-i18n="mindset.card4Desc">Continuous learning through projects, technical content, cloud labs, and hands-on infrastructure work.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- SYSTEMS PHILOSOPHY -->
-    <section class="systems section" id="systems">
-      <div class="container">
-        <div class="section__header section__header--center reveal">
-          <span class="section__label" data-i18n="systems.label">Engineering Philosophy</span>
-          <h2 class="section__title" data-i18n="systems.title">I build systems, not notebooks</h2>
-          <p class="section__desc section__desc--center" data-i18n="systems.desc">
-            My work spans the full AI lifecycle — from experimentation to production deployment.
-            Every project follows reproducible engineering practices with modular architecture.
-          </p>
-        </div>
-
-        <div class="systems__grid">
-          <article class="system-card reveal">
-            <div class="system-card__icon"><i class="ph ph-flow-arrow"></i></div>
-            <h3 data-i18n="systems.card1Title">System Architecture</h3>
-            <p data-i18n="systems.card1Desc">Modular, layered designs separating data ingestion, model serving, API layers, and infrastructure concerns.</p>
-            <ul class="system-card__tags">
-              <li>Microservices</li>
-              <li>REST APIs</li>
-              <li>Event-driven</li>
-            </ul>
-          </article>
-
-          <article class="system-card reveal reveal--delay-1">
-            <div class="system-card__icon"><i class="ph ph-rocket-launch"></i></div>
-            <h3 data-i18n="systems.card2Title">Production Deployment</h3>
-            <p data-i18n="systems.card2Desc">Containerized ML pipelines with Docker, orchestrated on Kubernetes, deployed to AWS cloud environments.</p>
-            <ul class="system-card__tags">
-              <li>Docker</li>
-              <li>Kubernetes</li>
-              <li>AWS</li>
-            </ul>
-          </article>
-
-          <article class="system-card reveal reveal--delay-2">
-            <div class="system-card__icon"><i class="ph ph-flask"></i></div>
-            <h3 data-i18n="systems.card3Title">Reproducible Experiments</h3>
-            <p data-i18n="systems.card3Desc">Structured project layouts (data/, src/, notebooks/) with version control, metrics tracking, and documented pipelines.</p>
-            <ul class="system-card__tags">
-              <li>MLOps</li>
-              <li>Git</li>
-              <li>CI-ready</li>
-            </ul>
-          </article>
-
-          <article class="system-card reveal reveal--delay-3">
-            <div class="system-card__icon"><i class="ph ph-circuitry"></i></div>
-            <h3 data-i18n="systems.card4Title">AI Infrastructure</h3>
-            <p data-i18n="systems.card4Desc">Backend services in Java/Spring Boot and Python/FastAPI to expose models as scalable, production-grade APIs.</p>
-            <ul class="system-card__tags">
-              <li>Spring Boot</li>
-              <li>FastAPI</li>
-              <li>Flask</li>
-            </ul>
-          </article>
-        </div>
-
-        <div class="pipeline reveal">
-          <h3 class="pipeline__title" data-i18n="systems.pipelineTitle">End-to-end AI pipeline</h3>
-          <div class="pipeline__track">
-            <div class="pipeline__step">
-              <div class="pipeline__dot"><i class="ph ph-database"></i></div>
-              <span data-i18n="systems.step1">Raw Data</span>
-            </div>
-            <div class="pipeline__line"></div>
-            <div class="pipeline__step">
-              <div class="pipeline__dot"><i class="ph ph-funnel"></i></div>
-              <span data-i18n="systems.step2">ETL / Spark</span>
-            </div>
-            <div class="pipeline__line"></div>
-            <div class="pipeline__step">
-              <div class="pipeline__dot"><i class="ph ph-brain"></i></div>
-              <span data-i18n="systems.step3">Train & Evaluate</span>
-            </div>
-            <div class="pipeline__line"></div>
-            <div class="pipeline__step">
-              <div class="pipeline__dot"><i class="ph ph-package"></i></div>
-              <span data-i18n="systems.step4">Containerize</span>
-            </div>
-            <div class="pipeline__line"></div>
-            <div class="pipeline__step">
-              <div class="pipeline__dot"><i class="ph ph-cloud-arrow-up"></i></div>
-              <span data-i18n="systems.step5">Deploy & Monitor</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section class="projects section" id="projects">
-      <div class="container">
-        <div class="section__header reveal">
-          <span class="section__label" data-i18n="projects.label">Selected Work</span>
-          <h2 class="section__title" data-i18n="projects.title">Systems &amp; projects</h2>
-          <p class="section__desc" data-i18n="projects.desc">Real engineering work with reproducible structure, clear architecture, and production intent.</p>
-        </div>
-
-        <div class="projects__filters reveal" role="tablist" aria-label="Filter projects">
-          <button class="projects__filter is-active" data-filter="all" role="tab" aria-selected="true" data-i18n="projects.filterAll">All</button>
-          <button class="projects__filter" data-filter="mlops" role="tab" aria-selected="false" data-i18n="projects.filterMLOps">MLOps</button>
-          <button class="projects__filter" data-filter="dl" role="tab" aria-selected="false" data-i18n="projects.filterDL">Deep Learning</button>
-          <button class="projects__filter" data-filter="backend" role="tab" aria-selected="false" data-i18n="projects.filterBackend">Backend</button>
-          <button class="projects__filter" data-filter="agents" role="tab" aria-selected="false" data-i18n="projects.filterAgents">AI Agents</button>
-        </div>
-
-        <div class="projects__grid" id="projectsGrid">
-
-          <article class="project-card reveal" data-category="dl mlops">
-            <div class="project-card__top">
-              <span class="project-card__icon"><i class="ph ph-heartbeat"></i></span>
-              <span class="project-card__status" data-i18n="projects.p1Status">Thesis · Production</span>
-            </div>
-            <h3 class="project-card__title" data-i18n="projects.p1Title">Breast Cancer DCE-MRI Classification System</h3>
-            <p class="project-card__desc" data-i18n="projects.p1Desc">
-              Full Deep Learning pipeline for medical image classification using Dynamic Contrast-Enhanced MRI.
-              Modular architecture with Docker containerization for reproducible deployment.
+      <div class="container container--wide">
+        <div class="hero__grid">
+          <div>
+            <p class="hero__kicker reveal">
+              <span class="hero__kicker-dot" aria-hidden="true"></span>
+              <span data-i18n="hero.kicker">Open to Software Engineer / ML &amp; AI Systems roles</span>
             </p>
-            <div class="project-card__metrics">
-              <div class="project-metric">
-                <span class="project-metric__val">PyTorch</span>
-                <span class="project-metric__lbl" data-i18n="projects.metricFramework">Framework</span>
-              </div>
-              <div class="project-metric">
-                <span class="project-metric__val">Docker</span>
-                <span class="project-metric__lbl" data-i18n="projects.metricDeploy">Deploy</span>
-              </div>
-              <div class="project-metric">
-                <span class="project-metric__val">Modular</span>
-                <span class="project-metric__lbl" data-i18n="projects.metricArch">Architecture</span>
-              </div>
-            </div>
-            <div class="project-card__tags">
-              <span class="tag">PyTorch</span>
-              <span class="tag">DCE-MRI</span>
-              <span class="tag">Docker</span>
-              <span class="tag">Healthcare</span>
-            </div>
-            <div class="project-card__footer">
-              <a href="https://github.com/PandoraRiot/breast-cancer-dce-mri-classification" class="project-card__link" target="_blank" rel="noopener noreferrer">
-                <i class="ph ph-github-logo"></i> <span data-i18n="projects.p1Link">View repository</span>
+
+            <h1 class="hero__name reveal reveal--delay-1">Alexandra García</h1>
+            <p class="hero__role reveal reveal--delay-1" data-i18n="hero.role">Software Engineer — Machine Learning &amp; AI Systems</p>
+
+            <p class="hero__statement reveal reveal--delay-2" data-i18n="hero.statement">I build the engineering underneath models — from a trained checkpoint to a system someone can rely on.</p>
+
+            <p class="hero__focus reveal reveal--delay-2">
+              <span data-i18n="hero.focusLabel">Focus</span> — <b>Computer Vision</b> · <b>Medical AI</b> · <b>ML Systems</b> · <b>MLOps</b> · <b>LLM Engineering</b>
+            </p>
+
+            <div class="hero__actions reveal reveal--delay-3">
+              <a href="#work" class="btn btn--primary btn--lg">
+                <span data-i18n="hero.ctaWork">Selected work</span>
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12L12 4M6 4h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <a href="#lab" class="btn btn--ghost btn--lg" data-i18n="hero.ctaLab">Model Lab</a>
+              <a href="https://github.com/PandoraRiot" class="btn btn--ghost btn--lg" target="_blank" rel="noopener noreferrer">
+                GitHub
+              </a>
+              <a href="https://www.linkedin.com/in/alexandragarciabarrioseng/" class="btn btn--ghost btn--lg" target="_blank" rel="noopener noreferrer">
+                LinkedIn
               </a>
             </div>
-          </article>
+          </div>
 
-          <article class="project-card reveal reveal--delay-1" data-category="mlops backend">
-            <div class="project-card__top">
-              <span class="project-card__icon"><i class="ph ph-docker-logo"></i></span>
-              <span class="project-card__status" data-i18n="projects.p2Status">MLOps</span>
+          <aside class="hero__panel reveal reveal--delay-2" aria-hidden="true">
+            <div class="hero__panel-head">system.status</div>
+            <div class="hero__panel-body">
+              <div class="hero__panel-row"><span data-i18n="hero.panelData">Data layer</span><span>Spark · PostgreSQL</span></div>
+              <div class="hero__panel-row"><span data-i18n="hero.panelML">ML pipeline</span><span>PyTorch · scikit-learn</span></div>
+              <div class="hero__panel-row"><span data-i18n="hero.panelAPI">Service layer</span><span>Spring Boot · FastAPI</span></div>
+              <div class="hero__panel-row"><span data-i18n="hero.panelInfra">Infrastructure</span><span>Docker · AWS</span></div>
             </div>
-            <h3 class="project-card__title" data-i18n="projects.p2Title">Containerized ML Thesis Pipeline</h3>
-            <p class="project-card__desc" data-i18n="projects.p2Desc">
-              End-to-end containerized infrastructure integrating ML model, REST API, and runtime environment.
-              Designed for reproducibility and cloud deployment readiness.
-            </p>
-            <div class="project-card__metrics">
-              <div class="project-metric">
-                <span class="project-metric__val">Docker</span>
-                <span class="project-metric__lbl" data-i18n="projects.metricContainer">Container</span>
-              </div>
-              <div class="project-metric">
-                <span class="project-metric__val">REST</span>
-                <span class="project-metric__lbl" data-i18n="projects.metricAPI">API</span>
-              </div>
-              <div class="project-metric">
-                <span class="project-metric__val">E2E</span>
-                <span class="project-metric__lbl" data-i18n="projects.metricPipeline">Pipeline</span>
-              </div>
-            </div>
-            <div class="project-card__tags">
-              <span class="tag">Docker</span>
-              <span class="tag">MLOps</span>
-              <span class="tag">API</span>
-            </div>
-            <div class="project-card__footer">
-              <span class="project-card__link project-card__link--muted">
-                <i class="ph ph-graduation-cap"></i> <span data-i18n="projects.p2Link">Thesis project</span>
-              </span>
-            </div>
-          </article>
-
-          <article class="project-card reveal reveal--delay-2" data-category="agents backend">
-            <div class="project-card__top">
-              <span class="project-card__icon"><i class="ph ph-robot"></i></span>
-              <span class="project-card__status" data-i18n="projects.p3Status">In development</span>
-            </div>
-            <h3 class="project-card__title" data-i18n="projects.p3Title">Career Ops — AI Agent System</h3>
-            <p class="project-card__desc" data-i18n="projects.p3Desc">
-              Intelligent career pipeline with LLM-powered agents for job analysis, ML/AI role scoring,
-              and automated opportunity prioritization. Flask backend with AI dashboards.
-            </p>
-            <div class="project-card__metrics">
-              <div class="project-metric">
-                <span class="project-metric__val">LLMs</span>
-                <span class="project-metric__lbl" data-i18n="projects.metricCore">Core</span>
-              </div>
-              <div class="project-metric">
-                <span class="project-metric__val">Flask</span>
-                <span class="project-metric__lbl" data-i18n="projects.metricBackend">Backend</span>
-              </div>
-              <div class="project-metric">
-                <span class="project-metric__val">RAG</span>
-                <span class="project-metric__lbl" data-i18n="projects.metricPattern">Pattern</span>
-              </div>
-            </div>
-            <div class="project-card__tags">
-              <span class="tag">AI Agents</span>
-              <span class="tag">LLMs</span>
-              <span class="tag">Flask</span>
-              <span class="tag">RAG</span>
-            </div>
-            <div class="project-card__footer">
-              <span class="project-card__link project-card__link--muted">
-                <i class="ph ph-briefcase"></i> <span data-i18n="projects.p3Link">Private repository</span>
-              </span>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-category="dl">
-            <div class="project-card__top">
-              <span class="project-card__icon"><i class="ph ph-image"></i></span>
-              <span class="project-card__status" data-i18n="projects.p4Status">Research</span>
-            </div>
-            <h3 class="project-card__title" data-i18n="projects.p4Title">CNN Fruit Classification</h3>
-            <p class="project-card__desc" data-i18n="projects.p4Desc">
-              Image classification system using Convolutional Neural Networks. Multi-architecture evaluation
-              with overfitting analysis, generalization metrics, and real-project folder structure.
-            </p>
-            <div class="project-card__metrics">
-              <div class="project-metric">
-                <span class="project-metric__val">CNN</span>
-                <span class="project-metric__lbl" data-i18n="projects.metricModel">Model</span>
-              </div>
-              <div class="project-metric">
-                <span class="project-metric__val">3+</span>
-                <span class="project-metric__lbl" data-i18n="projects.metricArchitectures">Architectures</span>
-              </div>
-              <div class="project-metric">
-                <span class="project-metric__val">UdeA</span>
-                <span class="project-metric__lbl" data-i18n="projects.metricProgram">Program</span>
-              </div>
-            </div>
-            <div class="project-card__tags">
-              <span class="tag">CNN</span>
-              <span class="tag">Deep Learning</span>
-              <span class="tag">Computer Vision</span>
-            </div>
-            <div class="project-card__footer">
-              <span class="project-card__link project-card__link--muted">
-                <i class="ph ph-folder"></i> <span data-i18n="projects.p4Link">AI Diploma · UdeA</span>
-              </span>
-            </div>
-          </article>
-
-          <article class="project-card reveal reveal--delay-1" data-category="ml">
-            <div class="project-card__top">
-              <span class="project-card__icon"><i class="ph ph-chart-line-up"></i></span>
-              <span class="project-card__status" data-i18n="projects.p5Status">Experiment</span>
-            </div>
-            <h3 class="project-card__title" data-i18n="projects.p5Title">Classical ML Model Benchmark</h3>
-            <p class="project-card__desc" data-i18n="projects.p5Desc">
-              Comparative evaluation of SVM, KNN, and Random Forest classifiers with rigorous metrics
-              (AUC, precision, recall) and kernel experimentation.
-            </p>
-            <div class="project-card__metrics">
-              <div class="project-metric">
-                <span class="project-metric__val">3</span>
-                <span class="project-metric__lbl" data-i18n="projects.metricModels">Models</span>
-              </div>
-              <div class="project-metric">
-                <span class="project-metric__val">AUC</span>
-                <span class="project-metric__lbl" data-i18n="projects.metricMetric">Metric</span>
-              </div>
-              <div class="project-metric">
-                <span class="project-metric__val">Sklearn</span>
-                <span class="project-metric__lbl" data-i18n="projects.metricLibrary">Library</span>
-              </div>
-            </div>
-            <div class="project-card__tags">
-              <span class="tag">Scikit-learn</span>
-              <span class="tag">SVM</span>
-              <span class="tag">Random Forest</span>
-            </div>
-            <div class="project-card__footer">
-              <span class="project-card__link project-card__link--muted">
-                <i class="ph ph-flask"></i> <span data-i18n="projects.p5Link">ML experiments</span>
-              </span>
-            </div>
-          </article>
-
-          <article class="project-card reveal reveal--delay-2" data-category="ml">
-            <div class="project-card__top">
-              <span class="project-card__icon"><i class="ph ph-users-three"></i></span>
-              <span class="project-card__status" data-i18n="projects.p6Status">Analytics</span>
-            </div>
-            <h3 class="project-card__title" data-i18n="projects.p6Title">Customer Segmentation Engine</h3>
-            <p class="project-card__desc" data-i18n="projects.p6Desc">
-              Unsupervised learning pipeline using K-Means clustering to discover customer patterns
-              and drive data-informed business decisions.
-            </p>
-            <div class="project-card__metrics">
-              <div class="project-metric">
-                <span class="project-metric__val">K-Means</span>
-                <span class="project-metric__lbl" data-i18n="projects.metricAlgorithm">Algorithm</span>
-              </div>
-              <div class="project-metric">
-                <span class="project-metric__val">Unsup.</span>
-                <span class="project-metric__lbl" data-i18n="projects.metricLearning">Learning</span>
-              </div>
-              <div class="project-metric">
-                <span class="project-metric__val">EDA</span>
-                <span class="project-metric__lbl" data-i18n="projects.metricAnalysis">Analysis</span>
-              </div>
-            </div>
-            <div class="project-card__tags">
-              <span class="tag">K-Means</span>
-              <span class="tag">Clustering</span>
-              <span class="tag">Data Science</span>
-            </div>
-            <div class="project-card__footer">
-              <span class="project-card__link project-card__link--muted">
-                <i class="ph ph-chart-donut"></i> <span data-i18n="projects.p6Link">Data analysis</span>
-              </span>
-            </div>
-          </article>
-
+          </aside>
         </div>
       </div>
     </section>
 
-    <!-- CLOUD & BIG DATA -->
-    <section class="cloud section" id="cloud">
-      <div class="container">
-        <div class="cloud__layout">
-          <div class="cloud__intro reveal">
-            <span class="section__label" data-i18n="cloud.label">Cloud &amp; Big Data</span>
-            <h2 class="section__title" data-i18n="cloud.title">Cloud-native AI infrastructure</h2>
-            <p class="section__desc" data-i18n="cloud.desc">
-              Building scalable data and ML systems on cloud platforms with distributed processing,
-              container orchestration, and managed services.
-            </p>
+    <!-- ============ STATS ============ -->
+    <section class="stats" aria-label="Key facts">
+      <div class="container container--wide">
+        <div class="stats__row">
+          <div class="stat reveal">
+            <span class="stat__value" data-count="8" data-suffix="+">0</span>
+            <span class="stat__label" data-i18n="stats.label1">Years building with code</span>
           </div>
-
-          <div class="cloud__grid">
-            <article class="cloud-card reveal">
-              <div class="cloud-card__header">
-                <i class="ph ph-cloud"></i>
-                <h3 data-i18n="cloud.awsTitle">AWS Cloud</h3>
-              </div>
-              <p data-i18n="cloud.awsDesc">Cloud deployment patterns for ML services, storage, and compute resources on AWS infrastructure.</p>
-              <div class="cloud-card__items">
-                <span>EC2</span>
-                <span>S3</span>
-                <span>Lambda</span>
-                <span>Cloud-native</span>
-              </div>
-            </article>
-
-            <article class="cloud-card reveal reveal--delay-1">
-              <div class="cloud-card__header">
-                <i class="ph ph-fire"></i>
-                <h3 data-i18n="cloud.sparkTitle">Apache Spark</h3>
-              </div>
-              <p data-i18n="cloud.sparkDesc">Distributed data processing for large-scale ETL pipelines and feature engineering at scale.</p>
-              <div class="cloud-card__items">
-                <span>PySpark</span>
-                <span>ETL</span>
-                <span>Batch processing</span>
-              </div>
-            </article>
-
-            <article class="cloud-card reveal reveal--delay-2">
-              <div class="cloud-card__header">
-                <i class="ph ph-docker-logo"></i>
-                <h3 data-i18n="cloud.dockerTitle">Containerization</h3>
-              </div>
-              <p data-i18n="cloud.dockerDesc">Docker-based ML pipeline packaging with reproducible environments and CI/CD readiness.</p>
-              <div class="cloud-card__items">
-                <span>Docker</span>
-                <span>Compose</span>
-                <span>Images</span>
-              </div>
-            </article>
-
-            <article class="cloud-card reveal reveal--delay-3">
-              <div class="cloud-card__header">
-                <i class="ph ph-kubernetes-logo"></i>
-                <h3 data-i18n="cloud.k8sTitle">Kubernetes</h3>
-              </div>
-              <p data-i18n="cloud.k8sDesc">Container orchestration for scalable model serving, auto-scaling, and production workloads.</p>
-              <div class="cloud-card__items">
-                <span>Pods</span>
-                <span>Services</span>
-                <span>Helm</span>
-              </div>
-            </article>
-
-            <article class="cloud-card reveal">
-              <div class="cloud-card__header">
-                <i class="ph ph-database"></i>
-                <h3 data-i18n="cloud.dataTitle">Data Stores</h3>
-              </div>
-              <p data-i18n="cloud.dataDesc">Relational and structured data management with PostgreSQL for ML feature stores and application data.</p>
-              <div class="cloud-card__items">
-                <span>PostgreSQL</span>
-                <span>SQL</span>
-                <span>Supabase</span>
-              </div>
-            </article>
-
-            <article class="cloud-card reveal reveal--delay-1">
-              <div class="cloud-card__header">
-                <i class="ph ph-git-branch"></i>
-                <h3 data-i18n="cloud.mlopsTitle">MLOps Practices</h3>
-              </div>
-              <p data-i18n="cloud.mlopsDesc">Version control, experiment tracking, reproducible pipelines, and deployment automation.</p>
-              <div class="cloud-card__items">
-                <span>Git</span>
-                <span>CI/CD</span>
-                <span>Monitoring</span>
-              </div>
-            </article>
+          <div class="stat reveal reveal--delay-1">
+            <span class="stat__value" data-count="5" data-suffix="">0</span>
+            <span class="stat__label" data-i18n="stats.label2">Academic programs completed</span>
+          </div>
+          <div class="stat reveal reveal--delay-2">
+            <span class="stat__value" data-count="76" data-suffix="">0</span>
+            <span class="stat__label" data-i18n="stats.label3">Homologated credits, Software Eng.</span>
+          </div>
+          <div class="stat reveal reveal--delay-3">
+            <span class="stat__value" data-count="9" data-suffix="">0</span>
+            <span class="stat__label" data-i18n="stats.label4">Architectures scaffolded in the Model Lab</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- EDUCATION -->
-    <section class="education section" id="education">
-      <div class="container">
-        <div class="section__header reveal">
-          <span class="section__label" data-i18n="education.label">Education</span>
-          <h2 class="section__title" data-i18n="education.title">Academic &amp; technical formation</h2>
-          <p class="section__desc" data-i18n="education.desc">A progressive path from software development foundations to AI systems engineering.</p>
-        </div>
-
-        <div class="education__grid">
-          <article class="edu-card edu-card--featured reveal">
-            <div class="edu-card__top">
-              <span class="edu-card__status edu-card__status--active" data-i18n="education.statusFinishing">Finalizing academic credits</span>
-              <time data-i18n="education.engDate">Feb 2025 — Jun 2026</time>
-            </div>
-            <h3 data-i18n="education.engTitle">Software Engineering</h3>
-            <p class="edu-card__inst" data-i18n="education.engInst">Institución Universitaria Pascual Bravo</p>
-            <p class="edu-card__desc" data-i18n="education.engDesc">Continuation via propaedeutic cycle from Software Development Technology. ~76 homologated credits.</p>
-            <div class="edu-card__tags" data-i18n-tags="education.engTags"></div>
-          </article>
-
-          <article class="edu-card reveal reveal--delay-1">
-            <div class="edu-card__top">
-              <span class="edu-card__status" data-i18n="education.statusCompleted">Completed</span>
-              <time data-i18n="education.techDate">Aug 2017 — Jan 2022</time>
-            </div>
-            <h3 data-i18n="education.techTitle">Software Development Technology</h3>
-            <p class="edu-card__inst" data-i18n="education.techInst">Institución Universitaria Pascual Bravo</p>
-            <p class="edu-card__desc" data-i18n="education.techDesc">Backend, C#, SQL Server, MATLAB neural networks, IoT, network security, Scrum.</p>
-            <div class="edu-card__tags" data-i18n-tags="education.techTags"></div>
-          </article>
-
-          <article class="edu-card reveal reveal--delay-2">
-            <div class="edu-card__top">
-              <span class="edu-card__status" data-i18n="education.statusInProgress">In progress</span>
-              <time data-i18n="education.aiDate">Feb 2026 — Jun 2026</time>
-            </div>
-            <h3 data-i18n="education.aiTitle">Artificial Intelligence Diploma</h3>
-            <p class="edu-card__inst" data-i18n="education.aiInst">Universidad de Antioquia + Talento Tech</p>
-            <p class="edu-card__desc" data-i18n="education.aiDesc">Deep Learning, CNNs, Computer Vision, image classification, ML benchmarking.</p>
-            <div class="edu-card__tags" data-i18n-tags="education.aiTags"></div>
-          </article>
-
-          <article class="edu-card reveal">
-            <div class="edu-card__top">
-              <span class="edu-card__status" data-i18n="education.statusCompleted">Completed</span>
-              <time data-i18n="education.cloudDate">Oct 2024 — Dec 2024</time>
-            </div>
-            <h3 data-i18n="education.cloudTitle">Cloud Architecture Diploma</h3>
-            <p class="edu-card__inst" data-i18n="education.cloudInst">ESUMER</p>
-            <p class="edu-card__desc" data-i18n="education.cloudDesc">AWS, cloud computing, deployment, cloud-native infrastructure.</p>
-            <div class="edu-card__tags" data-i18n-tags="education.cloudTags"></div>
-          </article>
-
-          <article class="edu-card reveal reveal--delay-1">
-            <div class="edu-card__top">
-              <span class="edu-card__status" data-i18n="education.statusCompleted">Completed</span>
-              <time data-i18n="education.dataDate">Aug 2022 — Oct 2022</time>
-            </div>
-            <h3 data-i18n="education.dataTitle">Data Science Diploma</h3>
-            <p class="edu-card__inst" data-i18n="education.dataInst">ESAP</p>
-            <p class="edu-card__desc" data-i18n="education.dataDesc">Data analysis, statistics, ML fundamentals, visualization.</p>
-            <div class="edu-card__tags" data-i18n-tags="education.dataTags"></div>
-          </article>
-
-          <article class="edu-card edu-card--english reveal reveal--delay-2">
-            <div class="edu-card__icon"><i class="ph ph-translate"></i></div>
-            <h3 data-i18n="education.englishTitle">English — Technical proficiency</h3>
-            <p class="edu-card__desc" data-i18n="education.englishDesc">B1 certified (TyT exam). Advancing through higher levels. Self-directed technical learning.</p>
-            <div class="edu-card__tags" data-i18n-tags="education.englishTags"></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- LLM ENGINEERING -->
-    <section class="llm section" id="llm">
-      <div class="container">
-        <div class="llm__layout">
-          <div class="llm__intro reveal">
-            <span class="section__label" data-i18n="llm.label">LLM Engineering</span>
-            <h2 class="section__title" data-i18n="llm.title">Applied LLM &amp; agent systems</h2>
-            <p class="section__desc" data-i18n="llm.desc">Engineering with large language models — intelligent pipelines, retrieval systems, and multi-agent automation.</p>
-
-            <div class="llm__cards">
-              <div class="llm-mini-card reveal">
-                <h4 data-i18n="llm.card1">LLM integration</h4>
-                <p data-i18n="llm.card1d">GPT-4, Claude, Gemini, DeepSeek via OpenRouter.</p>
-              </div>
-              <div class="llm-mini-card reveal reveal--delay-1">
-                <h4 data-i18n="llm.card2">RAG systems</h4>
-                <p data-i18n="llm.card2d">LangChain, vector retrieval, context-aware pipelines.</p>
-              </div>
-              <div class="llm-mini-card reveal reveal--delay-2">
-                <h4 data-i18n="llm.card3">AI agents</h4>
-                <p data-i18n="llm.card3d">Workflow automation and multi-step reasoning.</p>
-              </div>
-              <div class="llm-mini-card reveal reveal--delay-3">
-                <h4 data-i18n="llm.card4">Local inference</h4>
-                <p data-i18n="llm.card4d">Ollama for local experimentation.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="llm__terminal reveal reveal--delay-1">
-            <div class="terminal">
-              <div class="terminal__header">
-                <span class="terminal__dot terminal__dot--red"></span>
-                <span class="terminal__dot terminal__dot--yellow"></span>
-                <span class="terminal__dot terminal__dot--green"></span>
-                <span class="terminal__title">llm_pipeline.py</span>
-              </div>
-              <pre class="terminal__body"><code><span class="code-comment" data-i18n="llm.terminalComment"># LLM orchestration pipeline</span>
-<span class="code-line" data-i18n="llm.terminalLine1">agent = CareerOpsAgent(llm="claude", retriever=RAG())</span>
-<span class="code-line" data-i18n="llm.terminalLine2">pipeline.run(task="score_ml_roles", context=jobs)</span>
-<span class="code-comment" data-i18n="llm.terminalLine3"># → structured output · auditable · reproducible</span></code></pre>
-            </div>
-
-            <div class="llm__tech-groups">
-              <div class="llm-tech-group">
-                <h4 data-i18n="llm.modelsTitle">Models &amp; APIs</h4>
-                <div class="llm-tech-group__items">
-                  <span>GPT-4</span><span>Claude</span><span>Gemini</span><span>DeepSeek</span><span>OpenRouter</span>
-                </div>
-              </div>
-              <div class="llm-tech-group">
-                <h4 data-i18n="llm.toolsTitle">Orchestration &amp; Tools</h4>
-                <div class="llm-tech-group__items">
-                  <span>LangChain</span><span>Cursor AI</span><span>Ollama</span><span>RAG</span><span>AI Agents</span>
-                </div>
-              </div>
-              <div class="llm-tech-group">
-                <h4 data-i18n="llm.patternsTitle">Engineering Patterns</h4>
-                <div class="llm-tech-group__items">
-                  <span>Prompt Engineering</span><span>Retrieval Systems</span><span>Multi-Agent</span><span>Vector DBs</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- STACK -->
-    <section class="stack section" id="stack">
-      <div class="container">
-        <div class="section__header section__header--center reveal">
-          <span class="section__label" data-i18n="stack.label">Tech Stack</span>
-          <h2 class="section__title" data-i18n="stack.title">Tools &amp; technologies</h2>
-        </div>
-
-        <div class="stack__marquee" aria-hidden="true">
-          <div class="stack__marquee-track">
-            <span>Python</span><span>Java</span><span>Spring Boot</span><span>FastAPI</span><span>Flask</span>
-            <span>PyTorch</span><span>Scikit-learn</span><span>Docker</span><span>Kubernetes</span><span>AWS</span>
-            <span>Apache Spark</span><span>PostgreSQL</span><span>CNN</span><span>SVM</span><span>RAG</span><span>AI Agents</span>
-            <span>Python</span><span>Java</span><span>Spring Boot</span><span>FastAPI</span><span>Flask</span>
-            <span>PyTorch</span><span>Scikit-learn</span><span>Docker</span><span>Kubernetes</span><span>AWS</span>
-          </div>
-        </div>
-
-        <div class="stack__grid stack__grid--wide">
-          <div class="stack__group reveal">
-            <h3><i class="ph ph-server"></i> <span data-i18n="stack.backend">Backend Engineering</span></h3>
-            <div class="stack__items">
-              <span class="stack__item">Java</span>
-              <span class="stack__item">Spring Boot</span>
-              <span class="stack__item">REST APIs</span>
-              <span class="stack__item">Flask</span>
-              <span class="stack__item">FastAPI</span>
-              <span class="stack__item">PostgreSQL</span>
-              <span class="stack__item">Microservices</span>
-              <span class="stack__item">C#</span>
-              <span class="stack__item">ASP.NET</span>
-            </div>
-          </div>
-          <div class="stack__group reveal reveal--delay-1">
-            <h3><i class="ph ph-brain"></i> <span data-i18n="stack.dataMl">Data &amp; ML</span></h3>
-            <div class="stack__items">
-              <span class="stack__item">Python</span>
-              <span class="stack__item">Pandas</span>
-              <span class="stack__item">NumPy</span>
-              <span class="stack__item">Scikit-learn</span>
-              <span class="stack__item">PyTorch</span>
-              <span class="stack__item">CNN</span>
-              <span class="stack__item">SVM</span>
-              <span class="stack__item">Random Forest</span>
-              <span class="stack__item">K-Means</span>
-            </div>
-          </div>
-          <div class="stack__group reveal reveal--delay-2">
-            <h3><i class="ph ph-cloud"></i> <span data-i18n="stack.cloudInfra">Cloud &amp; Infrastructure</span></h3>
-            <div class="stack__items">
-              <span class="stack__item">Docker</span>
-              <span class="stack__item">Kubernetes</span>
-              <span class="stack__item">AWS</span>
-              <span class="stack__item">Apache Spark</span>
-              <span class="stack__item">Linux</span>
-              <span class="stack__item">Bash</span>
-              <span class="stack__item">GitHub Actions</span>
-              <span class="stack__item">CI/CD</span>
-              <span class="stack__item">Supabase</span>
-            </div>
-          </div>
-          <div class="stack__group reveal reveal--delay-3">
-            <h3><i class="ph ph-robot"></i> <span data-i18n="stack.aiSystems">AI Systems</span></h3>
-            <div class="stack__items">
-              <span class="stack__item stack__item--accent">RAG</span>
-              <span class="stack__item stack__item--accent">AI Agents</span>
-              <span class="stack__item stack__item--accent">LLM Orchestration</span>
-              <span class="stack__item stack__item--accent">LangChain</span>
-              <span class="stack__item stack__item--accent">Retrieval Systems</span>
-              <span class="stack__item stack__item--accent">Prompt Engineering</span>
-              <span class="stack__item stack__item--accent">MLOps</span>
-            </div>
-          </div>
-          <div class="stack__group reveal">
-            <h3><i class="ph ph-database"></i> <span data-i18n="stack.languages">Languages &amp; Data</span></h3>
-            <div class="stack__items">
-              <span class="stack__item">SQL</span>
-              <span class="stack__item">SQL Server</span>
-              <span class="stack__item">MATLAB</span>
-              <span class="stack__item">Jupyter</span>
-              <span class="stack__item">Git</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- RESEARCH -->
-    <section class="research section" id="research">
-      <div class="container">
-        <div class="section__header reveal">
-          <span class="section__label" data-i18n="research.label">Research Interests</span>
-          <h2 class="section__title" data-i18n="research.title">Areas of exploration</h2>
-          <p class="section__desc" data-i18n="research.desc">Active research directions at the intersection of AI, systems engineering, and production deployment.</p>
-        </div>
-
-        <div class="research__grid research__grid--3">
-          <article class="research-card reveal"><span class="research-card__num">01</span><h3 data-i18n="research.r1Title">AI for Healthcare</h3><p data-i18n="research.r1Desc">Medical imaging, DCE-MRI analysis, and clinical ML pipelines.</p></article>
-          <article class="research-card reveal reveal--delay-1"><span class="research-card__num">02</span><h3 data-i18n="research.r2Title">Medical Imaging &amp; CV</h3><p data-i18n="research.r2Desc">Computer vision for diagnostic support and temporal MRI.</p></article>
-          <article class="research-card reveal reveal--delay-2"><span class="research-card__num">03</span><h3 data-i18n="research.r3Title">AI Infrastructure</h3><p data-i18n="research.r3Desc">Scalable systems for serving and deploying ML in production.</p></article>
-          <article class="research-card reveal"><span class="research-card__num">04</span><h3 data-i18n="research.r4Title">MLOps</h3><p data-i18n="research.r4Desc">Reproducible pipelines, versioning, and CI/CD for ML.</p></article>
-          <article class="research-card reveal reveal--delay-1"><span class="research-card__num">05</span><h3 data-i18n="research.r5Title">LLM Systems</h3><p data-i18n="research.r5Desc">RAG, LLM orchestration, and retrieval at scale.</p></article>
-          <article class="research-card reveal reveal--delay-2"><span class="research-card__num">06</span><h3 data-i18n="research.r6Title">Multi-Agent Systems</h3><p data-i18n="research.r6Desc">Autonomous agents and intelligent task orchestration.</p></article>
-          <article class="research-card reveal"><span class="research-card__num">07</span><h3 data-i18n="research.r7Title">Deep Learning</h3><p data-i18n="research.r7Desc">CNNs and advanced neural architecture evaluation.</p></article>
-          <article class="research-card reveal reveal--delay-1"><span class="research-card__num">08</span><h3 data-i18n="research.r8Title">Cloud AI Systems</h3><p data-i18n="research.r8Desc">AWS-native AI and distributed data processing.</p></article>
-          <article class="research-card reveal reveal--delay-2"><span class="research-card__num">09</span><h3 data-i18n="research.r9Title">Computer Vision</h3><p data-i18n="research.r9Desc">Image classification and architecture benchmarking.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <!-- TIMELINE -->
-    <section class="timeline-section section" id="timeline">
-      <div class="container">
-        <div class="section__header reveal">
-          <span class="section__label" data-i18n="timeline.label">Career Timeline</span>
-          <h2 class="section__title" data-i18n="timeline.title">Professional journey</h2>
-        </div>
-
-        <div class="timeline">
-          <article class="timeline__item reveal"><div class="timeline__marker"></div><div class="timeline__content"><time class="timeline__date" data-i18n="timeline.t1Date">Feb 2026 — Jun 2026</time><h3 data-i18n="timeline.t1Title">AI Diploma · UdeA + Talento Tech</h3><p data-i18n="timeline.t1Desc">Deep Learning, CNNs, Computer Vision.</p><div class="timeline__tags"><span>CNN</span><span>PyTorch</span><span>CV</span></div></div></article>
-          <article class="timeline__item reveal reveal--delay-1"><div class="timeline__marker"></div><div class="timeline__content"><time class="timeline__date" data-i18n="timeline.t2Date">Feb 2025 — Jun 2026</time><h3 data-i18n="timeline.t2Title">Software Engineering · Pascual Bravo</h3><p data-i18n="timeline.t2Desc">Finalizing credits. Backend, ML, intelligent systems.</p><div class="timeline__tags"><span>Java</span><span>Architecture</span><span>ML</span></div></div></article>
-          <article class="timeline__item reveal reveal--delay-2"><div class="timeline__marker"></div><div class="timeline__content"><time class="timeline__date" data-i18n="timeline.t3Date">2025 — Present</time><h3 data-i18n="timeline.t3Title">AI Systems Engineering</h3><p data-i18n="timeline.t3Desc">Thesis DCE-MRI, Career Ops agents, Docker/K8s/AWS.</p><div class="timeline__tags"><span>Docker</span><span>MLOps</span><span>Agents</span></div></div></article>
-          <article class="timeline__item reveal reveal--delay-3"><div class="timeline__marker"></div><div class="timeline__content"><time class="timeline__date" data-i18n="timeline.t4Date">Oct — Dec 2024</time><h3 data-i18n="timeline.t4Title">Cloud Architecture · ESUMER</h3><p data-i18n="timeline.t4Desc">AWS, cloud-native infrastructure.</p><div class="timeline__tags"><span>AWS</span><span>Cloud</span></div></div></article>
-          <article class="timeline__item reveal"><div class="timeline__marker"></div><div class="timeline__content"><time class="timeline__date" data-i18n="timeline.t5Date">2024 — 2025</time><h3 data-i18n="timeline.t5Title">Thesis · DCE-MRI Deep Learning</h3><p data-i18n="timeline.t5Desc">Breast cancer classification with PyTorch and Docker.</p><div class="timeline__tags"><span>PyTorch</span><span>Healthcare</span></div></div></article>
-          <article class="timeline__item reveal reveal--delay-1"><div class="timeline__marker"></div><div class="timeline__content"><time class="timeline__date" data-i18n="timeline.t6Date">Aug — Oct 2022</time><h3 data-i18n="timeline.t6Title">Data Science · ESAP</h3><p data-i18n="timeline.t6Desc">Statistics, ML fundamentals, visualization.</p><div class="timeline__tags"><span>Pandas</span><span>ML</span></div></div></article>
-          <article class="timeline__item reveal reveal--delay-2"><div class="timeline__marker"></div><div class="timeline__content"><time class="timeline__date" data-i18n="timeline.t7Date">Aug 2017 — Jan 2022</time><h3 data-i18n="timeline.t7Title">Software Development Technology</h3><p data-i18n="timeline.t7Desc">Backend, C#, SQL Server, MATLAB, IoT, security.</p><div class="timeline__tags"><span>C#</span><span>SQL Server</span><span>IoT</span></div></div></article>
-        </div>
-      </div>
-    </section>
-
-    <!-- GITHUB -->
-    <section class="github section" id="github">
-      <div class="container">
-        <div class="github__header reveal">
+    <!-- ============ IDENTITY ============ -->
+    <section class="section" id="identity">
+      <div class="container container--wide">
+        <div class="section__head reveal">
           <div>
-            <span class="section__label" data-i18n="github.label">Open Source</span>
-            <h2 class="section__title" data-i18n="github.title">GitHub activity</h2>
-            <p class="section__desc" data-i18n="github.desc">Recent repositories and engineering work.</p>
+            <span class="section__eyebrow" data-i18n="identity.eyebrow">Engineering identity</span>
+            <h2 class="section__title" data-i18n="identity.title">Systems, not notebooks</h2>
           </div>
-          <a href="https://github.com/PandoraRiot" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">
-            <i class="ph ph-github-logo"></i> @PandoraRiot
+          <p class="section__desc" data-i18n="identity.desc">Self-taught foundations, applied research, and end-to-end product building — from backend services to ML pipelines carried through to deployment.</p>
+        </div>
+
+        <div class="identity__list reveal">
+          <article class="identity__item">
+            <span class="identity__num">01</span>
+            <h3 data-i18n="identity.i1Title">End-to-end builder</h3>
+            <p data-i18n="identity.i1Desc">I connect data, models, APIs, and infrastructure into complete systems — not isolated notebooks.</p>
+          </article>
+          <article class="identity__item">
+            <span class="identity__num">02</span>
+            <h3 data-i18n="identity.i2Title">Backend + ML hybrid</h3>
+            <p data-i18n="identity.i2Desc">Java/Spring Boot and Python/FastAPI to expose models as scalable, modular services.</p>
+          </article>
+          <article class="identity__item">
+            <span class="identity__num">03</span>
+            <h3 data-i18n="identity.i3Title">Applied research</h3>
+            <p data-i18n="identity.i3Desc">Healthcare AI with DCE-MRI, reproducible experiments, and engineering rigor in every pipeline.</p>
+          </article>
+          <article class="identity__item">
+            <span class="identity__num">04</span>
+            <h3 data-i18n="identity.i4Title">Reproducible experiments</h3>
+            <p data-i18n="identity.i4Desc">Structured layouts (data/, src/, notebooks/), version control, and documented, repeatable pipelines.</p>
+          </article>
+          <article class="identity__item">
+            <span class="identity__num">05</span>
+            <h3 data-i18n="identity.i5Title">Cloud-native by default</h3>
+            <p data-i18n="identity.i5Desc">Docker containerization, Spark for distributed data, and AWS-native deployment patterns.</p>
+          </article>
+          <article class="identity__item">
+            <span class="identity__num">06</span>
+            <h3 data-i18n="identity.i6Title">Autodidact engineer</h3>
+            <p data-i18n="identity.i6Desc">Continuous learning through projects, cloud labs, and hands-on infrastructure work.</p>
+          </article>
+        </div>
+
+        <div class="pipeline reveal" role="list" aria-label="End-to-end AI pipeline">
+          <span class="pipeline__step" role="listitem"><b data-i18n="identity.p1">Raw data</b></span><span class="pipeline__sep" aria-hidden="true">→</span>
+          <span class="pipeline__step" role="listitem"><b data-i18n="identity.p2">ETL / Spark</b></span><span class="pipeline__sep" aria-hidden="true">→</span>
+          <span class="pipeline__step" role="listitem"><b data-i18n="identity.p3">Train &amp; evaluate</b></span><span class="pipeline__sep" aria-hidden="true">→</span>
+          <span class="pipeline__step" role="listitem"><b data-i18n="identity.p4">Containerize</b></span><span class="pipeline__sep" aria-hidden="true">→</span>
+          <span class="pipeline__step" role="listitem"><b data-i18n="identity.p5">Deploy &amp; monitor</b></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SELECTED WORK ============ -->
+    <section class="section section--divider" id="work">
+      <div class="container container--wide">
+        <div class="section__head reveal">
+          <div>
+            <span class="section__eyebrow" data-i18n="work.eyebrow">Selected work</span>
+            <h2 class="section__title" data-i18n="work.title">Three systems, end to end</h2>
+          </div>
+          <p class="section__desc" data-i18n="work.desc">Real engineering with reproducible structure, honest evaluation, and production intent — not just notebooks.</p>
+        </div>
+
+        <!-- CASE 01 — DCE-MRI -->
+        <article class="case reveal">
+          <div class="case__index">01</div>
+          <div>
+            <div class="case__head">
+              <div>
+                <span class="case__status" data-i18n="cases.dce.status">Thesis · Research</span>
+                <h3 class="case__title" data-i18n="cases.dce.title">DCE-MRI Breast Cancer Classification</h3>
+              </div>
+              <div class="case__meta" data-i18n-html="cases.dce.meta">Medical AI<br/>Computer Vision · PyTorch</div>
+            </div>
+            <p class="case__summary" data-i18n="cases.dce.summary">A Deep Learning pipeline for breast-lesion classification from Dynamic Contrast-Enhanced MRI, built with a patient-level-safe methodology: stratified splits, cross-validated architecture comparison, and a fully isolated holdout test.</p>
+            <p class="case__tags" data-i18n-html="cases.dce.tagsLine"><b>Stack</b> — PyTorch · ResNet / EfficientNet / MobileViT · Docker · scikit-learn metrics</p>
+
+            <div class="case__tabs" role="tablist" aria-label="DCE-MRI case study sections">
+              <button class="case__tab is-active" role="tab" aria-selected="true" data-tab="overview" data-i18n="cases.tabOverview">Overview</button>
+              <button class="case__tab" role="tab" aria-selected="false" data-tab="architecture" data-i18n="cases.tabArchitecture">Architecture</button>
+              <button class="case__tab" role="tab" aria-selected="false" data-tab="dataset" data-i18n="cases.tabDataset">Dataset</button>
+              <button class="case__tab" role="tab" aria-selected="false" data-tab="evaluation" data-i18n="cases.tabEvaluation">Evaluation</button>
+              <button class="case__tab" role="tab" aria-selected="false" data-tab="deployment" data-i18n="cases.tabDeployment">Deployment</button>
+            </div>
+
+            <div class="case__panel is-active" data-panel="overview">
+              <h4 data-i18n="cases.dce.ovWhatH">What it does</h4>
+              <p data-i18n="cases.dce.ovWhatP">Processes temporal DCE-MRI sequences (PRE / EARLY / LATE contrast phases) to identify malignancy biomarkers in breast lesions, as an undergraduate thesis in applied medical imaging.</p>
+              <h4 data-i18n="cases.dce.ovPrinciplesH">Engineering principles</h4>
+              <p data-i18n-html="cases.dce.ovPrinciplesP"><strong>Leakage-safe</strong> patient-level splitting, <strong>reproducible</strong> stratified partitioning, and a strict separation between model-selection data and the final holdout — the same discipline a clinical ML pipeline needs before it can be trusted.</p>
+            </div>
+
+            <div class="case__panel" data-panel="architecture">
+              <h4 data-i18n="cases.dce.archH">Pipeline</h4>
+              <pre data-i18n="cases.dce.archPre">ROI dataset (BREAST_ROI_FULL.csv)
+  → DCE-MRI clinical validation (PRE / EARLY / LATE + patient-level check)
+  → Stratified split 70 / 15 / 15 (train / validation / test)
+  → 5-fold cross-validation on TRAIN only
+      · candidate backbones: ResNet50 · EfficientNet · MobileViT
+      · fold-wise AUC (mean, std), threshold selection
+  → Best architecture selected on CV stability
+  → Global retrain on TRAIN + VALIDATION (85%)
+  → Final holdout TEST (15%) — fully isolated until this step</pre>
+              <p data-i18n="cases.dce.archP">Model artifacts are exported in a recovery-safe format together with their decision thresholds and consolidated metrics.</p>
+            </div>
+
+            <div class="case__panel" data-panel="dataset">
+              <h4 data-i18n="cases.dce.dataH">Data &amp; split</h4>
+              <p data-i18n="cases.dce.dataP">Breast DCE-MRI regions of interest, indexed with patient-level identifiers to guarantee no patient appears in more than one split. Stratified 70/15/15 partitioning keeps class balance consistent across train, validation, and the final holdout test.</p>
+            </div>
+
+            <div class="case__panel" data-panel="evaluation">
+              <h4 data-i18n="cases.dce.evalH">Holdout test result</h4>
+              <table class="metric-table">
+                <thead><tr><th data-i18n="cases.evalMetricCol">Metric</th><th data-i18n="cases.evalValueCol">Value</th></tr></thead>
+                <tbody>
+                  <tr><td>AUC-ROC</td><td>0.629 <span style="color:var(--color-fg-faint)">(95% CI 0.42–0.83)</span></td></tr>
+                  <tr><td>PR-AUC</td><td>0.709</td></tr>
+                  <tr><td data-i18n="cases.dce.metBalAcc">Balanced accuracy</td><td>0.629</td></tr>
+                  <tr><td data-i18n="cases.dce.metSens">Sensitivity (recall)</td><td>0.818</td></tr>
+                  <tr><td data-i18n="cases.dce.metSpec">Specificity</td><td>0.308</td></tr>
+                  <tr><td>F1-score</td><td>0.735</td></tr>
+                </tbody>
+              </table>
+              <p class="metric-note" data-i18n="cases.dce.evalNote">Preliminary result on a small holdout cohort (n=35 patients) from an early backbone (ResNet18) — reported with its confidence interval intentionally, not as a final clinical claim. Sensitivity is prioritized over specificity, and the target recall threshold has not yet been met, which is exactly what the next iteration of cross-validated architecture comparison is for.</p>
+              <p data-i18n="cases.dce.evalP2">Full evaluation protocol also produces ROC and PR curves, a confusion matrix, a calibration curve, and Grad-CAM visualizations for qualitative review — standard practice for a pipeline meant to be clinically interpretable, not just accurate on paper.</p>
+            </div>
+
+            <div class="case__panel" data-panel="deployment">
+              <h4 data-i18n="cases.dce.depH">Packaging</h4>
+              <p data-i18n-html="cases.dce.depP1">Containerized with <strong>Docker</strong> and deployed to a university-provided server (on loan from a faculty advisor) for testing and thesis demonstration — not a commercial production environment, but a real, running deployment outside the training notebook.</p>
+              <p data-i18n-html="cases.dce.depP2">Experiment tracking runs through local <strong>MLflow</strong> and TensorBoard logs generated during training.</p>
+            </div>
+
+            <div class="case__links">
+              <a href="https://github.com/PandoraRiot/breast-cancer-dce-mri-classification" class="eyebrow-link" target="_blank" rel="noopener noreferrer">
+                <span data-i18n="cases.repository">Repository</span> <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12L12 4M6 4h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CASE 02 — CAREER OPS -->
+        <article class="case reveal">
+          <div class="case__index">02</div>
+          <div>
+            <div class="case__head">
+              <div>
+                <span class="case__status" data-i18n="cases.career.status">In development</span>
+                <h3 class="case__title" data-i18n="cases.career.title">Career Ops — Multi-Agent AI System</h3>
+              </div>
+              <div class="case__meta" data-i18n-html="cases.career.meta">AI Systems<br/>LLM Agents · Flask</div>
+            </div>
+            <p class="case__summary" data-i18n="cases.career.summary">An intelligent career pipeline: LLM-powered agents read and score job postings against a configurable profile, prioritizing ML/AI-relevant opportunities and filtering out generic listings — with the scoring logic itself defined as auditable configuration, not a hidden prompt.</p>
+            <p class="case__tags" data-i18n-html="cases.career.tagsLine"><b>Stack</b> — LLM orchestration (GPT-4 / Claude / Gemini / DeepSeek via OpenRouter) · RAG · Flask backend</p>
+
+            <div class="case__tabs" role="tablist" aria-label="Career Ops case study sections">
+              <button class="case__tab is-active" role="tab" aria-selected="true" data-tab="overview2" data-i18n="cases.tabOverview">Overview</button>
+              <button class="case__tab" role="tab" aria-selected="false" data-tab="architecture2" data-i18n="cases.tabArchitecture">Architecture</button>
+              <button class="case__tab" role="tab" aria-selected="false" data-tab="patterns2" data-i18n="cases.tabPatterns">Patterns</button>
+            </div>
+
+            <div class="case__panel is-active" data-panel="overview2">
+              <h4 data-i18n="cases.career.ovWhatH">What it does</h4>
+              <p data-i18n="cases.career.ovWhatP">Agents analyze incoming job postings, score them for ML/AI/backend relevance, and surface prioritized opportunities on an internal dashboard — reducing manual triage during a job search to a review step.</p>
+              <h4 data-i18n="cases.career.ovConfigH">Configuration, not a black box</h4>
+              <p data-i18n="cases.career.ovConfigP">Priorities and exclusions are declared explicitly (what to prioritize, what to penalize) so the agent's behavior stays legible and adjustable, rather than buried inside an opaque prompt.</p>
+            </div>
+
+            <div class="case__panel" data-panel="architecture2">
+              <h4 data-i18n="cases.career.archH">Pipeline</h4>
+              <pre data-i18n="cases.career.archPre">Job postings (ingested)
+  → Retrieval-augmented context assembly (RAG)
+  → LLM agent scoring (role relevance, ML/AI signal)
+  → Structured output (auditable, reproducible)
+  → Flask API → dashboard</pre>
+            </div>
+
+            <div class="case__panel" data-panel="patterns2">
+              <h4 data-i18n="cases.career.patternsH">Engineering patterns</h4>
+              <p data-i18n-html="cases.career.patternsP"><strong>Prompt engineering</strong> for structured, parseable agent output · <strong>retrieval-augmented context</strong> instead of relying purely on model memory · <strong>multi-model routing</strong> across providers via OpenRouter · local experimentation with <strong>Ollama</strong>.</p>
+            </div>
+
+            <div class="case__links">
+              <span class="taglist" data-i18n-html="cases.career.repoNote"><b>Private repository</b> — code not public while in active development</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- CASE 03 — ML SYSTEMS & INFRA -->
+        <article class="case reveal">
+          <div class="case__index">03</div>
+          <div>
+            <div class="case__head">
+              <div>
+                <span class="case__status" data-i18n="cases.mlsys.status">Ongoing practice</span>
+                <h3 class="case__title" data-i18n="cases.mlsys.title">ML Systems &amp; Cloud Infrastructure</h3>
+              </div>
+              <div class="case__meta" data-i18n-html="cases.mlsys.meta">MLOps<br/>Docker · Spark · AWS</div>
+            </div>
+            <p class="case__summary" data-i18n="cases.mlsys.summary">The infrastructure layer underneath every project above: how data, training, and services are structured so a model can survive contact with a real deployment — not a single product, but a consistent practice applied across projects.</p>
+            <p class="case__tags" data-i18n-html="cases.mlsys.tagsLine"><b>Stack</b> — Docker · Kubernetes · AWS · Apache Spark · PostgreSQL · CI-ready Git structure</p>
+
+            <div class="case__tabs" role="tablist" aria-label="ML Systems case study sections">
+              <button class="case__tab is-active" role="tab" aria-selected="true" data-tab="overview3" data-i18n="cases.tabOverview">Overview</button>
+              <button class="case__tab" role="tab" aria-selected="false" data-tab="practices3" data-i18n="cases.tabPractices">Practices</button>
+            </div>
+
+            <div class="case__panel is-active" data-panel="overview3">
+              <p data-i18n-html="cases.mlsys.ovP">Every project on this site follows the same structural discipline: a <code>data/</code> · <code>src/</code> · <code>notebooks/</code> layout, version-controlled experiments, and a clear boundary between exploration code and anything meant to run outside a notebook.</p>
+            </div>
+            <div class="case__panel" data-panel="practices3">
+              <h4 data-i18n="cases.mlsys.practicesH">What this looks like in practice</h4>
+              <p data-i18n-html="cases.mlsys.practicesP"><strong>Containerization</strong> with Docker for reproducible environments · <strong>distributed processing</strong> with Apache Spark for larger ETL workloads · <strong>relational persistence</strong> with PostgreSQL / Supabase for feature stores and application data · <strong>cloud-native</strong> patterns on AWS for compute and storage.</p>
+            </div>
+          </div>
+        </article>
+
+        <div class="also reveal">
+          <p class="also__title" data-i18n="work.alsoTitle">Also built</p>
+          <div class="also__row">
+            <div>
+              <p class="also__name" data-i18n="cases.also1Name">Classical ML Model Benchmark</p>
+              <p class="also__desc" data-i18n="cases.also1Desc">Comparative evaluation of SVM, KNN, and Random Forest classifiers with AUC, precision, recall, and kernel experimentation.</p>
+            </div>
+            <span class="also__tags">scikit-learn · SVM · Random Forest</span>
+          </div>
+          <div class="also__row">
+            <div>
+              <p class="also__name" data-i18n="cases.also2Name">Customer Segmentation Engine</p>
+              <p class="also__desc" data-i18n="cases.also2Desc">Unsupervised K-Means pipeline for customer-pattern discovery and data-informed decisions.</p>
+            </div>
+            <span class="also__tags">K-Means · Clustering · EDA</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MODEL LAB ============ -->
+    <section class="section section--divider" id="lab">
+      <div class="container container--wide">
+        <div class="section__head reveal">
+          <div>
+            <span class="section__eyebrow" data-i18n="lab.eyebrow">Model Lab</span>
+            <h2 class="section__title" data-i18n="lab.title">Models trained, evaluated, deployed</h2>
+          </div>
+          <p class="section__desc lab-intro" data-i18n="lab.desc">A growing registry of architectures — from classic feed-forward networks to graph learning — each with its own status, honestly reported. Nothing here is marked trained or deployed unless a real artifact backs it.</p>
+        </div>
+
+        <div class="lab-list reveal" id="labList" role="list" aria-label="Model registry"></div>
+      </div>
+    </section>
+
+    <!-- ============ AI SYSTEMS ============ -->
+    <section class="section section--divider" id="ai-systems">
+      <div class="container container--wide">
+        <div class="ai-systems__layout">
+          <div class="reveal">
+            <span class="section__eyebrow" data-i18n="ai.eyebrow">AI Systems</span>
+            <h2 class="section__title" data-i18n="ai.title">Generative AI &amp; agent engineering</h2>
+            <p class="section__desc" data-i18n="ai.desc">Separate from the Model Lab's architectures: applied engineering with large language models — orchestration, retrieval, and multi-agent automation.</p>
+
+            <div class="ai-systems__list">
+              <div class="ai-row">
+                <h4 data-i18n="ai.card1">LLM integration</h4>
+                <p data-i18n="ai.card1d">GPT-4, Claude, Gemini, and DeepSeek, routed through OpenRouter.</p>
+              </div>
+              <div class="ai-row">
+                <h4 data-i18n="ai.card2">RAG systems</h4>
+                <p data-i18n="ai.card2d">LangChain-based retrieval and context-aware pipelines.</p>
+              </div>
+              <div class="ai-row">
+                <h4 data-i18n="ai.card3">AI agents</h4>
+                <p data-i18n="ai.card3d">Workflow automation and multi-step reasoning, as in Career Ops.</p>
+              </div>
+              <div class="ai-row">
+                <h4 data-i18n="ai.card4">Local inference</h4>
+                <p data-i18n="ai.card4d">Ollama for local, offline experimentation.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal reveal--delay-1">
+            <div class="code-panel">
+              <div class="code-panel__head">llm_pipeline.py</div>
+              <pre><code><span class="code-comment" data-i18n="ai.terminalComment"># LLM orchestration pipeline</span>
+<span class="code-line" data-i18n="ai.terminalLine1">agent = CareerOpsAgent(llm="claude", retriever=RAG())</span>
+<span class="code-line" data-i18n="ai.terminalLine2">pipeline.run(task="score_ml_roles", context=jobs)</span>
+<span class="code-comment" data-i18n="ai.terminalLine3"># → structured output · auditable · reproducible</span></code></pre>
+            </div>
+
+            <div class="tech-groups">
+              <div class="tech-group">
+                <h4 data-i18n="ai.modelsTitle">Models &amp; APIs</h4>
+                <p>GPT-4<span>·</span>Claude<span>·</span>Gemini<span>·</span>DeepSeek<span>·</span>OpenRouter</p>
+              </div>
+              <div class="tech-group">
+                <h4 data-i18n="ai.toolsTitle">Orchestration &amp; tools</h4>
+                <p>LangChain<span>·</span>Ollama<span>·</span>RAG<span>·</span>Vector retrieval</p>
+              </div>
+              <div class="tech-group">
+                <h4 data-i18n="ai.patternsTitle">Engineering patterns</h4>
+                <p>Prompt engineering<span>·</span>Multi-agent orchestration<span>·</span>Structured outputs</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RESEARCH ============ -->
+    <section class="section section--divider" id="research">
+      <div class="container container--wide">
+        <div class="section__head reveal">
+          <div>
+            <span class="section__eyebrow" data-i18n="research.eyebrow">Research</span>
+            <h2 class="section__title" data-i18n="research.title">Where I go deep</h2>
+          </div>
+          <p class="section__desc" data-i18n="research.desc">Three directions, not nine disconnected topics — the areas where applied work and open questions overlap.</p>
+        </div>
+
+        <div class="research__list reveal">
+          <article class="research-row">
+            <span class="research-row__num">01</span>
+            <div>
+              <h3 data-i18n="research.g1Title">Medical AI</h3>
+              <p data-i18n="research.g1Desc">Medical imaging and clinical ML pipelines — DCE-MRI analysis, temporal MRI sequences, and the interpretability work (Grad-CAM, calibration) a diagnostic-support system needs before it can be trusted.</p>
+              <p class="taglist">Computer Vision <span>·</span> Deep Learning <span>·</span> DCE-MRI</p>
+            </div>
+          </article>
+          <article class="research-row">
+            <span class="research-row__num">02</span>
+            <div>
+              <h3 data-i18n="research.g2Title">Machine Learning Systems</h3>
+              <p data-i18n="research.g2Desc">The infrastructure question underneath every model: reproducible pipelines, versioning, distributed data processing, and cloud-native, AWS-based deployment for serving ML in production.</p>
+              <p class="taglist">MLOps <span>·</span> Cloud AI <span>·</span> CI/CD</p>
+            </div>
+          </article>
+          <article class="research-row">
+            <span class="research-row__num">03</span>
+            <div>
+              <h3 data-i18n="research.g3Title">Intelligent Systems</h3>
+              <p data-i18n="research.g3Desc">Where generative AI becomes a system rather than a demo — RAG, LLM orchestration at scale, and autonomous agents coordinating multi-step tasks.</p>
+              <p class="taglist">RAG <span>·</span> LLMs <span>·</span> Multi-Agent</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TECHNOLOGIES ============ -->
+    <section class="section section--divider" id="technologies">
+      <div class="container container--wide">
+        <div class="section__head reveal">
+          <div>
+            <span class="section__eyebrow" data-i18n="stack.eyebrow">Engineering</span>
+            <h2 class="section__title" data-i18n="stack.title">Tools &amp; technologies</h2>
+          </div>
+          <p class="section__desc" data-i18n="stack.desc">Ordered by where the weight of my current work actually sits — ML and computer vision first, backend and infrastructure underneath.</p>
+        </div>
+
+        <div class="stack__list reveal">
+          <div class="stack-row stack-row--accent">
+            <div class="stack-row__cat" data-i18n="stack.mlTitle">Machine Learning<small data-i18n="stack.mlSub">Primary focus</small></div>
+            <div class="stack-row__items"><b>Python</b> · PyTorch · scikit-learn · Pandas · NumPy</div>
+          </div>
+          <div class="stack-row stack-row--accent">
+            <div class="stack-row__cat" data-i18n="stack.cvTitle">Deep Learning &amp; Computer Vision</div>
+            <div class="stack-row__items">CNN · Vision Transformers (MobileViT) · ResNet / EfficientNet · Grad-CAM</div>
+          </div>
+          <div class="stack-row stack-row--accent">
+            <div class="stack-row__cat" data-i18n="stack.aiTitle">AI Systems</div>
+            <div class="stack-row__items">LLMs · RAG · Agents · LangChain · Vector retrieval</div>
+          </div>
+          <div class="stack-row">
+            <div class="stack-row__cat" data-i18n="stack.mlopsTitle">MLOps &amp; Infrastructure</div>
+            <div class="stack-row__items">Docker · Kubernetes · AWS · Apache Spark · CI/CD · Git</div>
+          </div>
+          <div class="stack-row">
+            <div class="stack-row__cat" data-i18n="stack.backendTitle">Backend</div>
+            <div class="stack-row__items">Java · Spring Boot · FastAPI · Flask · REST APIs · C# / ASP.NET</div>
+          </div>
+          <div class="stack-row">
+            <div class="stack-row__cat" data-i18n="stack.dataTitle">Data</div>
+            <div class="stack-row__items">SQL · PostgreSQL · SQL Server · Supabase · Jupyter</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EDUCATION ============ -->
+    <section class="section section--divider" id="education">
+      <div class="container container--wide">
+        <div class="section__head reveal">
+          <div>
+            <span class="section__eyebrow" data-i18n="education.eyebrow">Education &amp; trajectory</span>
+            <h2 class="section__title" data-i18n="education.title">A progressive path</h2>
+          </div>
+          <p class="section__desc" data-i18n="education.desc">From software-development foundations to AI systems engineering — each program building on the last.</p>
+        </div>
+
+        <div class="timeline reveal">
+          <article class="timeline__row timeline__row--active">
+            <time class="timeline__date">Feb 2025 — Jun 2026</time>
+            <div class="timeline__rail"><span class="timeline__dot"></span></div>
+            <div>
+              <h3 class="timeline__title" data-i18n="education.engTitle">Software Engineering</h3>
+              <p class="timeline__inst" data-i18n="education.engInst">Institución Universitaria Pascual Bravo</p>
+              <p class="timeline__desc" data-i18n="education.engDesc">Continuation via propaedeutic cycle from Software Development Technology — ~76 homologated credits.</p>
+              <span class="timeline__status" data-i18n="education.statusFinishing">Finalizing academic credits</span>
+            </div>
+          </article>
+
+          <article class="timeline__row timeline__row--active">
+            <time class="timeline__date">Feb 2026 — Jun 2026</time>
+            <div class="timeline__rail"><span class="timeline__dot"></span></div>
+            <div>
+              <h3 class="timeline__title" data-i18n="education.aiTitle">Artificial Intelligence Diploma</h3>
+              <p class="timeline__inst" data-i18n="education.aiInst">Universidad de Antioquia + Talento Tech</p>
+              <p class="timeline__desc" data-i18n="education.aiDesc">Deep Learning, CNNs, computer vision, image classification, ML benchmarking.</p>
+              <span class="timeline__status" data-i18n="education.statusInProgress">In progress</span>
+            </div>
+          </article>
+
+          <article class="timeline__row">
+            <time class="timeline__date">Oct — Dec 2024</time>
+            <div class="timeline__rail"><span class="timeline__dot"></span></div>
+            <div>
+              <h3 class="timeline__title" data-i18n="education.cloudTitle">Cloud Architecture Diploma</h3>
+              <p class="timeline__inst" data-i18n="education.cloudInst">ESUMER</p>
+              <p class="timeline__desc" data-i18n="education.cloudDesc">AWS, cloud computing, deployment, cloud-native infrastructure.</p>
+            </div>
+          </article>
+
+          <article class="timeline__row">
+            <time class="timeline__date">Aug — Oct 2022</time>
+            <div class="timeline__rail"><span class="timeline__dot"></span></div>
+            <div>
+              <h3 class="timeline__title" data-i18n="education.dataTitle">Data Science Diploma</h3>
+              <p class="timeline__inst" data-i18n="education.dataInst">ESAP</p>
+              <p class="timeline__desc" data-i18n="education.dataDesc">Data analysis, statistics, ML fundamentals, visualization.</p>
+            </div>
+          </article>
+
+          <article class="timeline__row">
+            <time class="timeline__date">Aug 2017 — Jan 2022</time>
+            <div class="timeline__rail"><span class="timeline__dot"></span></div>
+            <div>
+              <h3 class="timeline__title" data-i18n="education.techTitle">Software Development Technology</h3>
+              <p class="timeline__inst" data-i18n="education.techInst">Institución Universitaria Pascual Bravo</p>
+              <p class="timeline__desc" data-i18n="education.techDesc">Backend, C#, SQL Server, MATLAB neural networks, IoT, network security, Scrum.</p>
+            </div>
+          </article>
+
+          <article class="timeline__row">
+            <time class="timeline__date" data-i18n="education.englishTitle">English — Technical proficiency</time>
+            <div class="timeline__rail"><span class="timeline__dot"></span></div>
+            <div>
+              <p class="timeline__desc" data-i18n="education.englishDesc">B1 certified (TyT exam). Advancing through higher levels via self-directed technical learning.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GITHUB ============ -->
+    <section class="section section--divider" id="github">
+      <div class="container container--wide">
+        <div class="section__head reveal">
+          <div>
+            <span class="section__eyebrow" data-i18n="github.eyebrow">Selected open source</span>
+            <h2 class="section__title" data-i18n="github.title">GitHub</h2>
+          </div>
+          <a href="https://github.com/PandoraRiot" class="eyebrow-link" target="_blank" rel="noopener noreferrer">
+            @PandoraRiot <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12L12 4M6 4h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </div>
 
-        <div class="github__stats reveal">
-          <div class="github-stat">
-            <span class="github-stat__value" id="ghRepos">—</span>
-            <span class="github-stat__label" data-i18n="github.repos">Public repos</span>
-          </div>
-          <div class="github-stat">
-            <span class="github-stat__value" id="ghFollowers">—</span>
-            <span class="github-stat__label" data-i18n="github.followers">Followers</span>
-          </div>
-          <div class="github-stat">
-            <span class="github-stat__value">Python</span>
-            <span class="github-stat__label" data-i18n="github.language">Primary language</span>
-          </div>
-        </div>
-
-        <div class="github__repos" id="githubRepos">
+        <div class="gh-list reveal" id="githubRepos">
           <div class="github__loading">
             <div class="spinner"></div>
             <span data-i18n="github.loading">Loading repositories…</span>
@@ -949,35 +624,25 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section class="contact section" id="contact">
-      <div class="container">
-        <div class="contact__inner reveal">
-          <div class="contact__glow" aria-hidden="true"></div>
-          <div class="contact__content">
-            <span class="section__label" data-i18n="contact.label">Get in touch</span>
-            <h2 class="contact__title" data-i18n="contact.title">Let's build production AI together</h2>
-            <p class="contact__desc" data-i18n-html="contact.desc">
-              Open to roles as <strong>AI Systems Engineer</strong>, <strong>ML Engineer</strong>,
-              or <strong>Backend AI Developer</strong> — building intelligent systems that scale in production,
-              especially in healthcare and enterprise AI.
-            </p>
-          </div>
+    <!-- ============ CONTACT ============ -->
+    <section class="section contact" id="contact">
+      <div class="container container--wide">
+        <p class="contact__statement reveal" data-i18n="contact.statement">Let's build something useful.</p>
+        <p class="contact__desc reveal" data-i18n-html="contact.desc">Open to roles as <strong>Software Engineer</strong>, <strong>ML Engineer</strong>, or <strong>AI Systems Engineer</strong> — building intelligent systems that hold up outside the notebook, especially in healthcare and applied research contexts.</p>
 
-          <div class="contact__actions">
-            <a href="mailto:alexandra.software.engineer@gmail.com" class="contact__link">
-              <i class="ph ph-envelope-simple"></i>
-              <span><small data-i18n="contact.email">Email</small>alexandra.software.engineer@gmail.com</span>
-            </a>
-            <a href="https://www.linkedin.com/in/alexandragarciabarrioseng/" class="contact__link" target="_blank" rel="noopener noreferrer">
-              <i class="ph ph-linkedin-logo"></i>
-              <span><small data-i18n="contact.linkedin">LinkedIn</small>alexandragarciabarrioseng</span>
-            </a>
-            <a href="https://github.com/PandoraRiot" class="contact__link" target="_blank" rel="noopener noreferrer">
-              <i class="ph ph-github-logo"></i>
-              <span><small data-i18n="contact.github">GitHub</small>PandoraRiot</span>
-            </a>
-          </div>
+        <div class="contact__links reveal">
+          <a href="mailto:alexandra.software.engineer@gmail.com" class="contact__link">
+            <span><small data-i18n="contact.email">Email</small>alexandra.software.engineer@gmail.com</span>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12L12 4M6 4h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/alexandragarciabarrioseng/" class="contact__link" target="_blank" rel="noopener noreferrer">
+            <span><small data-i18n="contact.linkedin">LinkedIn</small>alexandragarciabarrioseng</span>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12L12 4M6 4h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="https://github.com/PandoraRiot" class="contact__link" target="_blank" rel="noopener noreferrer">
+            <span><small data-i18n="contact.github">GitHub</small>PandoraRiot</span>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12L12 4M6 4h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
         </div>
       </div>
     </section>
@@ -985,13 +650,14 @@
   </main>
 
   <footer class="footer">
-    <div class="container footer__inner">
-      <p class="footer__copy">&copy; <span id="footerYear"></span> Alexandra García · <span data-i18n="footer.role">AI Systems Engineer</span></p>
-      <p class="footer__tagline" data-i18n="footer.tagline">I don't just train models — I build systems where AI lives in production.</p>
+    <div class="container container--wide footer__inner">
+      <p class="footer__copy">&copy; <span id="footerYear"></span> Alexandra García · <span data-i18n="footer.role">Software Engineer, ML &amp; AI Systems</span></p>
+      <p class="footer__tagline" data-i18n="footer.tagline">Built as a static site — no framework, no glow, no filler.</p>
     </div>
   </footer>
 
   <script src="i18n.js"></script>
+  <script src="models-data.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
