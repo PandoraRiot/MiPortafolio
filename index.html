@@ -96,15 +96,24 @@
 
           <div class="hero__actions reveal reveal--delay-3">
             <a href="#projects" class="btn btn--primary btn--lg">
-              <span data-i18n="hero.ctaProjects">View systems</span>
+              <span data-i18n="hero.ctaProjects">View projects</span>
               <i class="ph ph-arrow-right"></i>
-            </a>
-            <a href="#education" class="btn btn--ghost btn--lg">
-              <span data-i18n="hero.ctaEducation">My path</span>
             </a>
             <a href="https://github.com/PandoraRiot" class="btn btn--ghost btn--lg" target="_blank" rel="noopener noreferrer">
               <i class="ph ph-github-logo"></i>
               GitHub
+            </a>
+            <!-- TODO(Alexa): Add final CV PDF — set the path in data/cv.js; this button stays hidden until then. -->
+            <a href="#" class="btn btn--ghost btn--lg" id="heroCv" hidden target="_blank" rel="noopener">
+              <i class="ph ph-file-arrow-down"></i>
+              <span data-i18n="hero.ctaCv">CV</span>
+            </a>
+            <a href="#contact" class="btn btn--ghost btn--lg">
+              <i class="ph ph-envelope-simple"></i>
+              <span data-i18n="hero.ctaContact">Contact</span>
+            </a>
+            <a href="#education" class="btn btn--ghost btn--lg">
+              <span data-i18n="hero.ctaEducation">My path</span>
             </a>
             <a href="https://www.linkedin.com/in/alexandragarciabarrioseng/" class="btn btn--ghost btn--lg" target="_blank" rel="noopener noreferrer">
               <i class="ph ph-linkedin-logo"></i>
@@ -163,6 +172,7 @@
           <figcaption class="portrait__caption">
             <span class="portrait__name">Erika Alexandra García</span>
             <span class="portrait__role">Software Engineer · ML / AI</span>
+            <span class="portrait__bio" data-i18n="hero.aboutBio">Self-taught first, then formal: I went from a technical program in systems to a Technology degree in Software Development, and then on to Software Engineering (dual degree), completing an AI diploma alongside it. I care about the parts of AI most portfolios skip — reproducibility, honest evaluation, and what happens after the notebook.</span>
           </figcaption>
         </figure>
       </div>
@@ -1317,6 +1327,7 @@
 
   <script src="i18n.js"></script>
   <script src="models-data.js"></script>
+  <script src="data/cv.js"></script>
   <script src="data/videos.js"></script>
   <script src="data/diagrams.js"></script>
   <script src="data/thesis-architecture.js"></script>

@@ -2967,3 +2967,22 @@ html.modal-open { overflow: hidden; }
 
 @media (max-width: 900px) { .gh-cards { grid-template-columns: 1fr 1fr; } .gh-cards .gh-card:nth-child(3) { grid-column: 1 / -1; } }
 @media (max-width: 560px) { .gh-cards { grid-template-columns: 1fr; } .gh-card--wide { padding: var(--space-md); overflow-x: auto; } .gh-card--wide img { min-width: 560px; } }
+
+/* Short bio under the hero portrait (restores the about.md text) */
+.portrait__bio {
+  margin-top: var(--space-sm);
+  font-size: var(--text-sm);
+  line-height: 1.65;
+  color: var(--color-text-muted);
+}
+
+/* [hidden] must win over .btn's display:inline-flex (hero CV button) */
+.btn[hidden] { display: none; }
+
+/* The 6px dot rule was also hitting the translated label span inside the pill */
+.status-pill span:not(:first-child) {
+  width: auto; height: auto;
+  background: none;
+  border-radius: 0;
+  animation: none;
+}

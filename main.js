@@ -1183,6 +1183,24 @@ const ThesisArchModule = (() => {
   return { init };
 })();
 
+/**
+ * Hero CV button — only shown when data/cv.js points to a real file.
+ * Picks the file for the current language, falling back to the other one.
+ */
+const CvModule = (() => {
+  const update = () => {
+    const btn = document.getElementById('heroCv');
+    const cv = window.PORTFOLIO_CV || {};
+    if (!btn) return;
+    const lang = I18nModule.getLang();
+    const href = (cv[lang] || cv[lang === 'es' ? 'en' : 'es'] || '').trim();
+    btn.hidden = !href;
+    if (href) btn.setAttribute('href', href);
+  };
+  const init = () => { update(); document.addEventListener('langchange', update); };
+  return { init };
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
   I18nModule.init();
   ThemeModule.init();
@@ -1194,6 +1212,7 @@ document.addEventListener('DOMContentLoaded', () => {
   ModelLabModule.init();
   ModelLabDetailModule.init();
   GitHubModule.init();
+  CvModule.init();
   MediaModalModule.init();
   VideoModule.init();
   DiagramModule.init();
