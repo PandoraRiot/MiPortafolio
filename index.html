@@ -257,9 +257,9 @@
             <h3 data-i18n="systems.card1Title">System Architecture</h3>
             <p data-i18n="systems.card1Desc">Modular, layered designs separating data ingestion, model serving, API layers, and infrastructure concerns.</p>
             <ul class="system-card__tags">
-              <li>Microservices</li>
-              <li>REST APIs</li>
-              <li>Event-driven</li>
+              <li><button type="button" class="chip-video" data-video="microservices">Microservices</button></li>
+              <li><button type="button" class="chip-video" data-video="rest-apis">REST APIs</button></li>
+              <li><button type="button" class="chip-video" data-video="event-driven">Event-driven</button></li>
             </ul>
           </article>
 
@@ -268,9 +268,9 @@
             <h3 data-i18n="systems.card2Title">Production Deployment</h3>
             <p data-i18n="systems.card2Desc">Containerized ML pipelines with Docker, orchestrated on Kubernetes, deployed to AWS cloud environments.</p>
             <ul class="system-card__tags">
-              <li>Docker</li>
-              <li>Kubernetes</li>
-              <li>AWS</li>
+              <li><button type="button" class="chip-video" data-video="docker">Docker</button></li>
+              <li><button type="button" class="chip-video" data-video="kubernetes">Kubernetes</button></li>
+              <li><button type="button" class="chip-video" data-video="aws">AWS</button></li>
             </ul>
           </article>
 
@@ -279,9 +279,9 @@
             <h3 data-i18n="systems.card3Title">Reproducible Experiments</h3>
             <p data-i18n="systems.card3Desc">Structured project layouts (data/, src/, notebooks/) with version control, metrics tracking, and documented pipelines.</p>
             <ul class="system-card__tags">
-              <li>MLOps</li>
-              <li>Git</li>
-              <li>CI-ready</li>
+              <li><button type="button" class="chip-video" data-video="mlops">MLOps</button></li>
+              <li><button type="button" class="chip-video" data-video="git">Git</button></li>
+              <li><button type="button" class="chip-video" data-video="ci-ready">CI-ready</button></li>
             </ul>
           </article>
 
@@ -290,39 +290,67 @@
             <h3 data-i18n="systems.card4Title">AI Infrastructure</h3>
             <p data-i18n="systems.card4Desc">Backend services in Java/Spring Boot and Python/FastAPI to expose models as scalable, production-grade APIs.</p>
             <ul class="system-card__tags">
-              <li>Spring Boot</li>
-              <li>FastAPI</li>
-              <li>Flask</li>
+              <li><button type="button" class="chip-video" data-video="spring-boot">Spring Boot</button></li>
+              <li><button type="button" class="chip-video" data-video="fastapi">FastAPI</button></li>
+              <li><button type="button" class="chip-video" data-video="flask">Flask</button></li>
             </ul>
           </article>
-        </div>
 
-        <div class="pipeline reveal">
-          <h3 class="pipeline__title" data-i18n="systems.pipelineTitle">End-to-end AI pipeline</h3>
-          <div class="pipeline__track">
-            <div class="pipeline__step">
-              <div class="pipeline__dot"><i class="ph ph-database"></i></div>
+          <article class="system-card system-card--web reveal">
+            <div class="system-card__icon"><i class="ph ph-browsers"></i></div>
+            <h3 data-i18n="systems.card5Title">Web Development</h3>
+            <p data-i18n="systems.card5Desc">Full stack profile: Java + Spring Boot backends and JavaScript/React frontends — REST APIs, business logic and component-based UI.</p>
+            <ul class="system-card__tags">
+              <li><button type="button" class="chip-video" data-video="java">Java</button></li>
+              <li><button type="button" class="chip-video" data-video="spring-boot">Spring Boot</button></li>
+              <li><button type="button" class="chip-video" data-video="javascript">JavaScript</button></li>
+              <li><button type="button" class="chip-video" data-video="react">React</button></li>
+              <li><button type="button" class="chip-video" data-video="html-css">HTML5 / CSS</button></li>
+              <li><button type="button" class="chip-video" data-video="bootstrap">Bootstrap</button></li>
+            </ul>
+          </article>
+
+        </div>
+        <div class="pipeline reveal" id="pipeline">
+          <h3 class="pipeline__title" id="pipelineTitle" data-i18n="systems.pipelineTitle">End-to-end AI pipeline</h3>
+          <p class="pipeline__hint" data-i18n="systems.pipelineHint">Select a stage to see the tools and projects behind it.</p>
+          <div class="pipeline__track" role="tablist" aria-labelledby="pipelineTitle">
+            <button type="button" class="pipeline__step is-active" role="tab" id="pipeStep1" aria-selected="true" aria-controls="pipelineDetail" tabindex="0" data-step="1">
+              <span class="pipeline__dot"><i class="ph ph-database"></i></span>
               <span data-i18n="systems.step1">Raw Data</span>
-            </div>
-            <div class="pipeline__line"></div>
-            <div class="pipeline__step">
-              <div class="pipeline__dot"><i class="ph ph-funnel"></i></div>
+            </button>
+            <div class="pipeline__line" aria-hidden="true"><span class="pipeline__pulse"></span></div>
+            <button type="button" class="pipeline__step" role="tab" id="pipeStep2" aria-selected="false" aria-controls="pipelineDetail" tabindex="-1" data-step="2">
+              <span class="pipeline__dot"><i class="ph ph-funnel"></i></span>
               <span data-i18n="systems.step2">ETL / Spark</span>
-            </div>
-            <div class="pipeline__line"></div>
-            <div class="pipeline__step">
-              <div class="pipeline__dot"><i class="ph ph-brain"></i></div>
+            </button>
+            <div class="pipeline__line" aria-hidden="true"><span class="pipeline__pulse"></span></div>
+            <button type="button" class="pipeline__step" role="tab" id="pipeStep3" aria-selected="false" aria-controls="pipelineDetail" tabindex="-1" data-step="3">
+              <span class="pipeline__dot"><i class="ph ph-brain"></i></span>
               <span data-i18n="systems.step3">Train & Evaluate</span>
-            </div>
-            <div class="pipeline__line"></div>
-            <div class="pipeline__step">
-              <div class="pipeline__dot"><i class="ph ph-package"></i></div>
+            </button>
+            <div class="pipeline__line" aria-hidden="true"><span class="pipeline__pulse"></span></div>
+            <button type="button" class="pipeline__step" role="tab" id="pipeStep4" aria-selected="false" aria-controls="pipelineDetail" tabindex="-1" data-step="4">
+              <span class="pipeline__dot"><i class="ph ph-package"></i></span>
               <span data-i18n="systems.step4">Containerize</span>
-            </div>
-            <div class="pipeline__line"></div>
-            <div class="pipeline__step">
-              <div class="pipeline__dot"><i class="ph ph-cloud-arrow-up"></i></div>
+            </button>
+            <div class="pipeline__line" aria-hidden="true"><span class="pipeline__pulse"></span></div>
+            <button type="button" class="pipeline__step" role="tab" id="pipeStep5" aria-selected="false" aria-controls="pipelineDetail" tabindex="-1" data-step="5">
+              <span class="pipeline__dot"><i class="ph ph-cloud-arrow-up"></i></span>
               <span data-i18n="systems.step5">Deploy & Monitor</span>
+            </button>
+          </div>
+          <div class="pipeline__detail" id="pipelineDetail" role="tabpanel" aria-labelledby="pipeStep1" aria-live="polite">
+            <p class="pipeline__detail-desc" data-pipe="desc"></p>
+            <div class="pipeline__detail-grid">
+              <div>
+                <h4 data-i18n="systems.pipeTools">Tools</h4>
+                <div class="pipeline__detail-tools" data-pipe="tools"></div>
+              </div>
+              <div>
+                <h4 data-i18n="systems.pipeProjects">Where I used it</h4>
+                <p class="pipeline__detail-project" data-pipe="project"></p>
+              </div>
             </div>
           </div>
         </div>
@@ -1084,8 +1112,28 @@
     </div>
   </footer>
 
+  <!-- Shared media modal: YouTube videos, architecture diagrams, thesis explorer -->
+  <dialog class="media-modal" id="mediaModal" aria-labelledby="mediaModalTitle">
+    <div class="media-modal__panel">
+      <header class="media-modal__header">
+        <span class="media-modal__dots" aria-hidden="true">
+          <span class="arch-diagram__dot arch-diagram__dot--red"></span>
+          <span class="arch-diagram__dot arch-diagram__dot--yellow"></span>
+          <span class="arch-diagram__dot arch-diagram__dot--green"></span>
+        </span>
+        <h2 class="media-modal__title" id="mediaModalTitle"></h2>
+        <button type="button" class="media-modal__close" id="mediaModalClose" data-i18n-aria="modal.close" aria-label="Close">
+          <i class="ph ph-x" aria-hidden="true"></i>
+        </button>
+      </header>
+      <div class="media-modal__body" id="mediaModalBody"></div>
+    </div>
+  </dialog>
+
   <script src="i18n.js"></script>
   <script src="models-data.js"></script>
+  <script src="data/videos.js"></script>
+  <script src="data/thesis-architecture.js"></script>
   <script src="main.js"></script>
 </body>
 </html>

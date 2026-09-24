@@ -744,6 +744,206 @@ const ModelLabDetailModule = (() => {
   return { init };
 })();
 
+/**
+ * Shared media modal (<dialog id="mediaModal">). One modal for every
+ * YouTube video, architecture diagram and the thesis explorer.
+ * - Esc closes (native dialog `cancel`), so do the × button and a click
+ *   on the backdrop.
+ * - Closing empties the body, which unloads the iframe and stops playback.
+ * - Focus returns to the element that opened it.
+ * - Content is re-rendered on language change while open.
+ */
+const MediaModalModule = (() => {
+  let dialog, titleEl, bodyEl, current = null, lastTrigger = null;
+
+  const render = () => {
+    if (!current) return;
+    titleEl.textContent = typeof current.title === 'function' ? current.title() : current.title;
+    bodyEl.innerHTML = '';
+    current.render(bodyEl);
+  };
+
+  const open = ({ title, render: renderFn, trigger, wide = false }) => {
+    if (!dialog) return;
+    current = { title, render: renderFn };
+    lastTrigger = trigger || document.activeElement;
+    dialog.classList.toggle('media-modal--wide', wide);
+    render();
+    if (!dialog.open) dialog.showModal();
+    document.documentElement.classList.add('modal-open');
+  };
+
+  const close = () => { if (dialog?.open) dialog.close(); };
+
+  const onClosed = () => {
+    bodyEl.innerHTML = '';           // unloads the iframe → video stops
+    current = null;
+    document.documentElement.classList.remove('modal-open');
+    if (lastTrigger && document.contains(lastTrigger)) lastTrigger.focus({ preventScroll: true });
+    lastTrigger = null;
+  };
+
+  const init = () => {
+    dialog  = document.getElementById('mediaModal');
+    titleEl = document.getElementById('mediaModalTitle');
+    bodyEl  = document.getElementById('mediaModalBody');
+    if (!dialog || typeof dialog.showModal !== 'function') { dialog = null; return; }
+
+    document.getElementById('mediaModalClose')?.addEventListener('click', close);
+    dialog.addEventListener('close', onClosed);
+    // A click whose target is the <dialog> itself landed on the backdrop.
+    dialog.addEventListener('click', (e) => { if (e.target === dialog) close(); });
+    document.addEventListener('langchange', () => { if (dialog.open) render(); });
+  };
+
+  return { init, open, close, isReady: () => !!dialog };
+})();
+
+/**
+ * YouTube videos. Links live in data/videos.js (window.PORTFOLIO_VIDEOS).
+ * Any element with data-video="<key>" opens the modal; an empty link shows
+ * the "coming soon" state; a list of links shows a clip switcher.
+ */
+const VideoModule = (() => {
+  const parseId = (raw) => {
+    if (!raw || typeof raw !== 'string') return null;
+    const s = raw.trim();
+    if (/^[\w-]{11}$/.test(s)) return s;
+    try {
+      const u = new URL(s);
+      if (u.hostname.endsWith('youtu.be')) return u.pathname.slice(1).split('/')[0] || null;
+      if (u.searchParams.get('v')) return u.searchParams.get('v');
+      const m = u.pathname.match(/\/(embed|shorts|live)\/([\w-]{11})/);
+      if (m) return m[2];
+    } catch { /* not a URL */ }
+    return null;
+  };
+
+  const idsFor = (key) => {
+    const v = (window.PORTFOLIO_VIDEOS || {})[key];
+    const list = Array.isArray(v) ? v : [v];
+    return list.map(parseId).filter(Boolean);
+  };
+
+  const iframe = (id, title) => `
+    <div class="video-frame">
+      <iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}?autoplay=1&rel=0"
+        title="${title.replace(/"/g, '&quot;')}" loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>`;
+
+  const comingSoon = () => `
+    <div class="video-frame video-frame--empty">
+      <div class="video-soon">
+        <span class="video-soon__icon" aria-hidden="true"><i class="ph ph-video-camera"></i></span>
+        <p class="video-soon__title">${I18nModule.get('modal.comingSoon')}</p>
+        <p class="video-soon__desc">${I18nModule.get('modal.comingSoonDesc')}</p>
+      </div>
+    </div>`;
+
+  const renderVideo = (key, title) => (body) => {
+    const ids = idsFor(key);
+    if (!ids.length) { body.innerHTML = comingSoon(); return; }
+    body.innerHTML = `<div class="video-player">${iframe(ids[0], title)}</div>` + (ids.length > 1 ? `
+      <div class="video-clips" role="group" aria-label="${I18nModule.get('modal.clip')}">
+        ${ids.map((id, i) => `<button type="button" class="video-clips__btn${i === 0 ? ' is-active' : ''}" data-clip="${id}" aria-pressed="${i === 0}">${I18nModule.get('modal.clip')} ${i + 1}</button>`).join('')}
+      </div>` : '');
+    body.querySelectorAll('.video-clips__btn').forEach(btn => btn.addEventListener('click', () => {
+      body.querySelector('.video-player').innerHTML = iframe(btn.dataset.clip, title);
+      body.querySelectorAll('.video-clips__btn').forEach(b => {
+        b.classList.toggle('is-active', b === btn);
+        b.setAttribute('aria-pressed', String(b === btn));
+      });
+    }));
+  };
+
+  const openVideo = (key, trigger) => {
+    const titleKey = trigger?.dataset.videoTitle;
+    const title = () => (titleKey && I18nModule.get(titleKey)) || trigger?.textContent.trim() || I18nModule.get('modal.video');
+    MediaModalModule.open({ title, render: (body) => renderVideo(key, title())(body), trigger, wide: true });
+  };
+
+  const init = () => {
+    document.addEventListener('click', (e) => {
+      const trigger = e.target.closest('[data-video]');
+      if (!trigger || !MediaModalModule.isReady()) return;
+      e.preventDefault();
+      openVideo(trigger.dataset.video, trigger);
+    });
+  };
+
+  return { init, parseId };
+})();
+
+/**
+ * "End-to-end AI pipeline" — each stage is a tab; selecting (click, hover,
+ * arrow keys) shows the tools and projects behind it. Auto-advances while
+ * visible until the user interacts; never under prefers-reduced-motion.
+ */
+const PipelineModule = (() => {
+  const STEPS = 5;
+  const AUTOPLAY_MS = 3800;
+  let root, steps, detail, active = 1, timer = null, touched = false;
+
+  const prefersReduced = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const renderDetail = () => {
+    const g = (k) => I18nModule.get(`systems.pipe${active}${k}`) || '';
+    detail.querySelector('[data-pipe="desc"]').textContent = g('Desc');
+    detail.querySelector('[data-pipe="project"]').textContent = g('Project');
+    detail.querySelector('[data-pipe="tools"]').innerHTML =
+      g('Tools').split(',').map(t => `<span>${t.trim()}</span>`).join('');
+    detail.setAttribute('aria-labelledby', `pipeStep${active}`);
+  };
+
+  const select = (n, { focus = false } = {}) => {
+    active = ((n - 1 + STEPS) % STEPS) + 1;
+    steps.forEach(btn => {
+      const on = Number(btn.dataset.step) === active;
+      btn.classList.toggle('is-active', on);
+      btn.setAttribute('aria-selected', String(on));
+      btn.tabIndex = on ? 0 : -1;
+      if (on && focus) btn.focus();
+    });
+    root.style.setProperty('--pipe-progress', String((active - 1) / (STEPS - 1)));
+    root.querySelectorAll('.pipeline__line').forEach((line, i) => line.classList.toggle('is-done', i < active - 1));
+    renderDetail();
+  };
+
+  const stop = () => { touched = true; clearInterval(timer); timer = null; };
+
+  const init = () => {
+    root = document.getElementById('pipeline');
+    if (!root) return;
+    steps = [...root.querySelectorAll('.pipeline__step')];
+    detail = document.getElementById('pipelineDetail');
+
+    steps.forEach(btn => {
+      btn.addEventListener('click', () => { stop(); select(Number(btn.dataset.step)); });
+      btn.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') { stop(); select(Number(btn.dataset.step)); } });
+      btn.addEventListener('keydown', (e) => {
+        const map = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 };
+        if (map[e.key]) { e.preventDefault(); stop(); select(active + map[e.key], { focus: true }); }
+        if (e.key === 'Home') { e.preventDefault(); stop(); select(1, { focus: true }); }
+        if (e.key === 'End') { e.preventDefault(); stop(); select(STEPS, { focus: true }); }
+      });
+    });
+
+    select(1);
+    document.addEventListener('langchange', renderDetail);
+
+    if (prefersReduced() || !('IntersectionObserver' in window)) return;
+    new IntersectionObserver(([entry]) => {
+      if (touched) return;
+      if (entry.isIntersecting && !timer) timer = setInterval(() => select(active + 1), AUTOPLAY_MS);
+      if (!entry.isIntersecting && timer) { clearInterval(timer); timer = null; }
+    }, { threshold: 0.4 }).observe(root);
+  };
+
+  return { init };
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
   I18nModule.init();
   ThemeModule.init();
@@ -755,6 +955,9 @@ document.addEventListener('DOMContentLoaded', () => {
   ModelLabModule.init();
   ModelLabDetailModule.init();
   GitHubModule.init();
+  MediaModalModule.init();
+  VideoModule.init();
+  PipelineModule.init();
   SmoothScrollModule.init();
   FooterYearModule.init();
 });
