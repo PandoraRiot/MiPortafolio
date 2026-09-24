@@ -2968,13 +2968,6 @@ html.modal-open { overflow: hidden; }
 @media (max-width: 900px) { .gh-cards { grid-template-columns: 1fr 1fr; } .gh-cards .gh-card:nth-child(3) { grid-column: 1 / -1; } }
 @media (max-width: 560px) { .gh-cards { grid-template-columns: 1fr; } .gh-card--wide { padding: var(--space-md); overflow-x: auto; } .gh-card--wide img { min-width: 560px; } }
 
-/* Short bio under the hero portrait (restores the about.md text) */
-.portrait__bio {
-  margin-top: var(--space-sm);
-  font-size: var(--text-sm);
-  line-height: 1.65;
-  color: var(--color-text-muted);
-}
 
 /* [hidden] must win over .btn's display:inline-flex (hero CV button) */
 .btn[hidden] { display: none; }
@@ -2985,4 +2978,31 @@ html.modal-open { overflow: hidden; }
   background: none;
   border-radius: 0;
   animation: none;
+}
+
+/* ─── ABOUT ──────────────────────────────────────────────── */
+.about__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: var(--space-3xl);
+  align-items: start;
+}
+.about__intro .section__title { margin-bottom: 0; }
+.about__body p {
+  font-size: var(--text-md);
+  line-height: 1.75;
+  color: var(--color-text-muted);
+  max-width: 68ch;
+}
+.about__body p + p { margin-top: var(--space-md); }
+.about__body strong { color: var(--color-heading); font-weight: 600; }
+.about__body .about__lead {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--color-heading);
+}
+@media (max-width: 860px) {
+  .about__layout { grid-template-columns: 1fr; gap: var(--space-lg); }
 }

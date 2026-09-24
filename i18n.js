@@ -32,7 +32,14 @@ window.I18N = {
       archProd: 'Production',
       archStatus: 'production-ready',
       aboutRole: 'AI Systems Engineer',
-      aboutBio: 'Self-taught first, then formal: I started with a technical program in systems, moved on to a Technology degree in Software Development and reached Software Engineering (dual degree), while completing an AI diploma. I focus on the parts of AI most portfolios skip: reproducibility, honest evaluation and what happens after the notebook.',
+    },
+    about: {
+      title: 'About me',
+      p1: 'I\'m a Software Engineer focused on Machine Learning, Deep Learning and Computer Vision.',
+      p2: 'My background combines software development, artificial intelligence and systems architecture. My work today centers on building reproducible ML solutions — from data processing and model training to evaluation, integration and deployment.',
+      p3: 'My main line of work is <strong>Computer Vision applied to healthcare</strong>. My thesis studies breast-lesion classification on DCE-MRI images, comparing Deep Learning architectures and using patient-level evaluation, cross-validation and interpretability techniques.',
+      p4: 'I also build AI systems, APIs and applications focused on automation, MLOps and intelligent agents.',
+      p5: 'My career goal is to keep growing as an <strong>ML Engineer / Computer Vision Engineer</strong>, combining software engineering with applied research in artificial intelligence.',
     },
     metrics: {
       label1: 'Years building with code',
@@ -454,7 +461,14 @@ window.I18N = {
       archProd: 'Producción',
       archStatus: 'listo para producción',
       aboutRole: 'AI Systems Engineer',
-      aboutBio: 'Autodidacta primero, formal después: empecé con una técnica en sistemas, seguí con la Tecnología en Desarrollo de Software y llegué a Ingeniería de Software (doble titulación), mientras completaba un diplomado en IA. Me enfoco en las partes de la IA que la mayoría de portafolios omite: reproducibilidad, evaluación honesta y lo que pasa después del notebook.',
+    },
+    about: {
+      title: 'Sobre mí',
+      p1: 'Soy Ingeniera de Software enfocada en Machine Learning, Deep Learning y Computer Vision.',
+      p2: 'Mi formación combina desarrollo de software, inteligencia artificial y arquitectura de sistemas. Actualmente centro mi trabajo en construir soluciones de ML reproducibles, desde el procesamiento de datos y el entrenamiento de modelos hasta su evaluación, integración y despliegue.',
+      p3: 'Mi principal línea de trabajo es <strong>Computer Vision aplicada a salud</strong>. Mi proyecto de grado estudia la clasificación de lesiones mamarias mediante imágenes DCE-MRI, comparando arquitecturas de Deep Learning y utilizando evaluación a nivel de paciente, validación cruzada y técnicas de interpretabilidad.',
+      p4: 'También desarrollo sistemas de IA, APIs y aplicaciones orientadas a automatización, MLOps y agentes inteligentes.',
+      p5: 'Mi objetivo profesional es seguir creciendo como <strong>ML Engineer / Computer Vision Engineer</strong>, combinando ingeniería de software con investigación aplicada en inteligencia artificial.',
     },
     metrics: {
       label1: 'Años construyendo con código',
