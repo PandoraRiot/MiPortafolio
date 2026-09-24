@@ -29,6 +29,8 @@ window.I18N = {
       archAPI: 'API Gateway',
       archProd: 'Production',
       archStatus: 'production-ready',
+      aboutRole: 'AI Systems Engineer',
+      aboutBio: 'Self-taught first, then formal: from a Software Development Technology diploma into a dual degree in Software Engineering, with an AI diploma finishing alongside it. I care about the parts of AI most portfolios skip — reproducibility, honest evaluation, and what happens after the notebook.',
     },
     metrics: {
       label1: 'Years building with code',
@@ -327,6 +329,8 @@ window.I18N = {
       archAPI: 'API Gateway',
       archProd: 'Producción',
       archStatus: 'listo para producción',
+      aboutRole: 'AI Systems Engineer',
+      aboutBio: 'Autodidacta primero, formal después: pasé de un diplomado en Tecnología en Desarrollo de Software a una doble titulación en Ingeniería de Software, terminando en paralelo un diplomado en IA. Me importan las partes de la IA que la mayoría de portafolios se saltan — reproducibilidad, evaluación honesta, y lo que pasa después del notebook.',
     },
     metrics: {
       label1: 'Años construyendo con código',
