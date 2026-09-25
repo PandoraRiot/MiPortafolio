@@ -3298,3 +3298,67 @@ html.modal-open { overflow: hidden; }
 @media (min-width: 901px) {
   .portrait__img { aspect-ratio: 800 / 1132; }
 }
+
+/* ─── MOBILE PASS ────────────────────────────────────────────
+   Phones: chip rows scroll sideways in one line instead of wrapping
+   into 5–6 rows; experience details collapse; code wraps; bigger taps. */
+.xp-card__more > summary { display: none; }
+.xp-card__more > .xp-card__block:first-of-type { margin-top: var(--space-md); }
+.xp-card__side .xp-card__more > .xp-card__block:first-of-type { margin-top: 0; padding-top: 0; border-top: 0; }
+
+@media (max-width: 640px) {
+  .xp__filters,
+  .xp__evolution-list,
+  .projects__filters,
+  .lab-filters {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    margin-inline: calc(-1 * var(--container-pad));
+    padding-inline: var(--container-pad);
+    padding-block: 2px;
+    scroll-padding-inline: var(--container-pad);
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 var(--container-pad), #000 calc(100% - 2rem), transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0, #000 var(--container-pad), #000 calc(100% - 2rem), transparent 100%);
+  }
+  .xp__filters::-webkit-scrollbar,
+  .xp__evolution-list::-webkit-scrollbar,
+  .projects__filters::-webkit-scrollbar,
+  .lab-filters::-webkit-scrollbar { display: none; }
+  .xp__filters > *, .projects__filters > *, .lab-filters > *, .xp__evolution-list > li { flex: none; white-space: nowrap; }
+
+  /* Experience: collapsible "Details and technologies" */
+  .xp-card__more > summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 44px;
+    margin-top: var(--space-md);
+    padding: 0 var(--space-md);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm);
+    color: var(--color-accent-light);
+    cursor: pointer;
+    list-style: none;
+  }
+  .xp-card__more > summary::-webkit-details-marker { display: none; }
+  .xp-card__more > summary::after { content: '+'; font-size: var(--text-lg); line-height: 1; }
+  .xp-card__more[open] > summary::after { content: '−'; }
+  .xp-card__more > summary:focus-visible { outline: 2px solid var(--color-accent-light); outline-offset: 2px; }
+
+  /* LLM terminal: wrap long lines instead of cutting them off */
+  .terminal__body { white-space: pre-wrap; overflow-wrap: break-word; padding: var(--space-lg); font-size: var(--text-xs); }
+
+  /* Contact: icon above the text so the email fits */
+  .contact__link { flex-direction: column; align-items: flex-start; gap: var(--space-sm); }
+  /* break only at the <wbr> points (after "software." and before "@") */
+  .contact__link span:not(small) { word-break: normal; overflow-wrap: break-word; }
+
+  /* Small mono labels a touch larger on phones */
+  .project-metric__lbl, .arch-node small, .evidence__label { font-size: 11px; }
+}
+
+@media (pointer: coarse) {
+  .xp-card__link { min-height: 40px; }
+}

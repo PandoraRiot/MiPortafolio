@@ -271,6 +271,8 @@ const ProjectFilterModule = (() => {
  */
 const ProjectCarouselModule = (() => {
   const DRIFT_PX_PER_S = 18;
+  const STEP_MS = 5000; // phones (≈1 card in view): move one whole card at a time
+  let lastStep = 0;
   const END_HOLD_MS = 2500;
   const REWIND_MS = 1500;
   let viewport, track, dotsEl, prevBtn, nextBtn;
@@ -345,9 +347,19 @@ const ProjectCarouselModule = (() => {
     rafId = requestAnimationFrame(tick);
     const dt = lastTs ? Math.min(ts - lastTs, 100) : 0;
     lastTs = ts;
-    if (paused || !inView || document.hidden || ts < holdUntil) { pos = viewport.scrollLeft; return; }
+    if (paused || !inView || document.hidden || ts < holdUntil) { pos = viewport.scrollLeft; lastStep = ts; return; }
     const max = viewport.scrollWidth - viewport.clientWidth;
     if (max <= 0) return;
+    const step = cardStep();
+    if (step && viewport.clientWidth / step < 1.5) {
+      // Continuous drift would always show a half card here — step instead.
+      viewport.classList.remove('is-drifting');
+      if (!lastStep) lastStep = ts;
+      if (ts - lastStep >= STEP_MS) { lastStep = ts; advance(1); }
+      pos = viewport.scrollLeft;
+      return;
+    }
+    viewport.classList.add('is-drifting');
     // Something else moved it (dot click, filter, resize) — follow it.
     if (Math.abs(viewport.scrollLeft - pos) > 2) pos = viewport.scrollLeft;
     if (rewindPending) {
@@ -1279,6 +1291,10 @@ const ExperienceModule = (() => {
   const tr = (f) => (f ? (typeof f === 'string' ? f : (f[I18nModule.getLang()] || f.en || '')) : '');
   const esc = (v) => String(v).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const matches = (item) => active === 'all' || item.cats.includes(active);
+  // Phones: contributions + technologies start collapsed so the section
+  // stays scannable; tablets/desktop always show them.
+  const compactMq = window.matchMedia('(max-width: 640px)');
+  const compact = () => compactMq.matches;
 
   const card = (item, ui, kind) => {
     const links = [];
@@ -1307,6 +1323,8 @@ const ExperienceModule = (() => {
         <p class="xp-card__desc">${esc(tr(item.desc))}</p>
         ${wide && links.length ? `<div class="xp-card__links">${links.join('')}</div>` : ''}
         ${wide ? '</div><div class="xp-card__side">' : ''}
+        <details class="xp-card__more"${compact() ? '' : ' open'}>
+        <summary class="xp-card__more-toggle">${esc(tr(ui.more))}</summary>
         <div class="xp-card__block">
           <h5 class="xp-card__block-title">${esc(tr(kind === 'professional' ? ui.contributions : ui.highlights))}</h5>
           <ul class="xp-card__points">${item.points.map(p => `<li>${esc(tr(p))}</li>`).join('')}</ul>
@@ -1315,6 +1333,7 @@ const ExperienceModule = (() => {
           <h5 class="xp-card__block-title">${esc(tr(ui.tech))}</h5>
           <div class="xp-card__tech">${item.tech.map(t => `<span>${esc(tr(t))}</span>`).join('')}</div>
         </div>
+        </details>
         ${wide ? '</div>' : (links.length ? `<div class="xp-card__links">${links.join('')}</div>` : '')}
       </article>`;
   };
@@ -1377,6 +1396,7 @@ const ExperienceModule = (() => {
     });
     render();
     document.addEventListener('langchange', render);
+    compactMq.addEventListener?.('change', render);
   };
 
   return { init };

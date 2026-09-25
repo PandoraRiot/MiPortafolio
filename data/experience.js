@@ -46,6 +46,7 @@ window.EXPERIENCE = {
     caseStudy:     { en: 'View in Projects',  es: 'Ver en Proyectos' },
     video:         { en: 'Video',             es: 'Video' },
     empty:         { en: 'Nothing matches this filter.', es: 'Nada coincide con este filtro.' },
+    more:          { en: 'Details and technologies', es: 'Detalles y tecnologías' },
   },
 
   groups: [
