@@ -1,113 +1,143 @@
-# Alexandra García — Portfolio
+<div align="center">
 
-Static site, no framework, no build step. Vanilla HTML/CSS/JS, deployed on GitHub Pages.
+# Alexandra García
 
-Live: https://pandorariot.github.io/MiPortafolio/
+### De cuadernos a producción: sistemas de IA que escalan
+
+Ingeniera de Software enfocada en **aprendizaje automático, visión por computador y sistemas de IA**,
+con base sólida en desarrollo de servidor en Java.
+
+[![Ver el portafolio](https://img.shields.io/badge/🌐_Ver_portafolio-en_vivo-6366f1?style=for-the-badge)](https://pandorariot.github.io/MiPortafolio/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-alexandragarciabarrioseng-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/alexandragarciabarrioseng)
+[![Correo](https://img.shields.io/badge/Correo-escríbeme-22d3ee?style=for-the-badge&logo=gmail&logoColor=white)](mailto:alexandra.software.engineer@gmail.com)
+
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript_vanilla-F7DF1E?logo=javascript&logoColor=black)
+![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-222222?logo=githubpages&logoColor=white)
+![Bilingüe](https://img.shields.io/badge/idiomas-ES_·_EN-34d399)
+![Sin build](https://img.shields.io/badge/build-ninguno-8b5cf6)
+
+<img src="assets/readme/hero.jpg" alt="Portada del portafolio: De cuadernos a producción, sistemas de IA que escalan" width="100%">
+
+</div>
 
 ---
 
-## Status (2026-09-24)
+## ✨ Lo más destacado
 
-This site briefly went through a full editorial redesign (new palette, new
-typography, consolidated sections, case studies instead of project cards).
-**That redesign was reverted at the user's explicit request** — she wanted
-the original navy/glass-card design back, section by section, exactly as it
-was. What's live now is the **original design**, with one real addition on
-top: the **Model Lab** (see below), restyled to match the original visual
-language instead of introducing a second design system.
+| | |
+|---|---|
+| 🧠 **Tesis DCE-MRI · aprobada (sep 2026)** | Clasificación de lesiones mamarias con ResNet50, EfficientNet-B3 y MobileViT-S en PyTorch. Validación cruzada de 5 particiones, evaluación a nivel de paciente y Grad-CAM. **Modelo final ResNet50: AUC 0,951 · sensibilidad clínica 0,909.** |
+| 🔬 **Semillero CognIA** | Modelos predictivos sobre Breast Cancer Wisconsin Diagnostic con Scikit-learn. |
+| 🤖 **Sistemas con LLM** | JARVIS (asistente personal de IA), Umbrella AI (sistema multiagente) y SaberPro-RAG (asistente de estudio con RAG). |
+| ☕ **Servidor en Java** | Servisoft S.A.: APIs REST y SOAP, MSSQL, Oracle y MongoDB para clientes institucionales y del sector público. |
+| 🎓 **Formación** | Ingeniería de Software (grado en dic 2026) y diplomados en Ciencia de Datos, Arquitectura en la Nube e IA. |
 
-If you're looking for the editorial-redesign version for reference, it's in
-git history (commit `61d0abf`..`8e7ffd2`, before this revert).
-
-## Files
+## 🗺️ Qué vas a encontrar en el sitio
 
 ```
-index.html         Main page — original section order: Hero, Metrics, Mindset,
-                    Systems Philosophy, Projects (with filters), Model Lab,
-                    Cloud & Big Data, Education, LLM Engineering, Stack,
-                    Research, Timeline, GitHub, Contact
-lab.html            Model Lab detail page — reads location.hash (#/slug) and
-                    renders one model's page from models-data.js
-styles.css          Original design system (indigo/navy, glass cards, Plus
-                    Jakarta Sans + Inter + JetBrains Mono) plus the Model Lab
-                    carousel/detail styles appended at the end, reusing the
-                    same tokens so it doesn't look like a bolted-on section
-main.js             All behavior: i18n, theme, nav, reveal-on-scroll, project
-                    filters, GitHub API fetch, Model Lab carousel + detail
-i18n.js             EN/ES strings — original content plus a `lab` namespace
-                    for the Model Lab UI
-models-data.js      The Model Lab registry (see below) — bilingual per field
-favicon.svg         Monogram favicon (indigo on navy, matches the site)
-data/videos.js      ALL YouTube links (one key per data-video="…" trigger)
-data/diagrams.js    Sanitized architecture diagrams for the evidence blocks
-data/thesis-architecture.js  Thesis explorer data (unfrozen layers from the repo)
-docs/private/       Local CV copy + change report (CAMBIOS-portfolio-v2.md) — git-ignored, never published
+Portada ─ Métricas ─ Sobre mí ─ Experiencia ─ Filosofía de sistemas ─ Flujo de IA
+   │
+   ├─ Proyectos (con filtros)          ├─ Laboratorio de modelos (carrusel + fichas)
+   ├─ Nube y datos masivos             ├─ Educación
+   ├─ Ingeniería de LLM                ├─ Tecnologías
+   ├─ Intereses de investigación       ├─ Recorrido e hitos (2026 → 2017)
+   └─ Actividad en GitHub (en vivo)    └─ Contacto
 ```
 
-No `package.json`, no bundler. `<script>` tags load in order:
-`i18n.js` → `models-data.js` → `data/*.js` → `main.js`.
+- 🌎 **Bilingüe de verdad:** el español es 100 % español y el inglés 100 % inglés. Solo se comparten nombres de productos y siglas.
+- 🌗 **Tema claro y oscuro**, con animaciones que respetan `prefers-reduced-motion`.
+- 📱 **Adaptable:** probado a 375, 768, 1024 y 1440 px.
+- 🧪 **Laboratorio de modelos honesto:** nada se marca como entrenado o desplegado si no hay un artefacto real detrás.
 
-## Model Lab
+## 📸 Capturas
 
-The one genuinely new feature: a data-driven registry of ML/DL architectures,
-shown as an **auto-advancing, filterable carousel** on `index.html` (`#lab`),
-with a detail page per model on `lab.html`.
+<table>
+  <tr>
+    <td width="68%"><img src="assets/readme/projects.jpg" alt="Sección Sistemas y proyectos"></td>
+    <td rowspan="2" width="32%"><img src="assets/readme/mobile.jpg" alt="Vista en celular"></td>
+  </tr>
+  <tr>
+    <td><img src="assets/readme/timeline.jpg" alt="Línea de tiempo Recorrido e hitos"></td>
+  </tr>
+</table>
 
-- Auto-advances every ~4.2s, pauses on hover/focus/touch, skips autoplay
-  under `prefers-reduced-motion: reduce` (manual prev/next/dots/arrow-keys
-  still work).
-- Filter chips are generated from the models' `type` field — not hardcoded.
-  Adding a model with a new type adds a new filter chip automatically.
-- Each card has a cover image slot: an auto-generated placeholder (model
-  name + type, labeled "cover pending" — "imagen pendiente" in Spanish)
-  until a real image is set.
-- Every entry has an honest `status`: `planned | research | development |
-  trained | deployed`. Only `cnn` (trained) and `transformer` (research) have
-  real backing right now — the rest are `planned`, on purpose. No fabricated
-  results.
+---
 
-### How to add a model
+## 🛠️ Cómo está hecho
 
-Everything lives in **`models-data.js`** as one array, `window.MODEL_LAB`.
+Sitio estático **sin framework y sin paso de compilación**: HTML, CSS y JavaScript puros, publicado en GitHub Pages.
 
-1. Copy an existing object and fill in every field, in **both** languages
-   (`{ en, es }`) for any text field.
-2. `status`: only use `trained`/`deployed` when a real artifact or metric
-   backs it.
-3. `architecture`: ordered list of `{ en, es }` stage strings, rendered as a
-   flow diagram on the detail page.
-4. `metrics`: `null` until there's a real, reportable result — then
-   `[{ label: {en, es}, value: '0.xx' }, …]` with a `metricsNote` caveat
-   (sample size, confidence interval, etc.).
-5. `inference`: `{ input: {en,es}, output: {en,es} }` describes the *shape*
-   of a future demo even before one exists.
-6. `order`: sort position (zero-padded string, e.g. `'10'`).
-7. `cover`: `null` for the auto-generated placeholder, or a path like
-   `assets/model-covers/<slug>.jpg` once a real screenshot exists (create
-   that folder — it doesn't exist yet). The carousel switches automatically.
+```mermaid
+flowchart LR
+    A[i18n.js<br/>textos ES / EN] --> B[models-data.js<br/>registro del laboratorio]
+    B --> C[data/*.js<br/>experiencia, videos,<br/>diagramas, tesis]
+    C --> D[main.js<br/>todo el comportamiento]
+    D --> E((index.html<br/>lab.html))
+```
 
-### Connecting a real inference API later
+No hay `package.json` ni empaquetador: las etiquetas `<script>` cargan en ese orden.
 
-`ModelLabDetailModule` in `main.js` renders an `api` field if present
-(`model.api`, e.g. `/predict`) as a `POST` line in the inference panel. To go
-from stub to real demo: stand up the endpoint, set `api` (and `demo`) on that
-model's entry, then extend `ModelLabDetailModule.render()` to render a real
-form/upload widget instead of the static `.inference-stub` panel when
-`model.demo` is set. No other file needs to change.
+### Archivos
 
-## Content notes (still accurate after the revert)
+```
+index.html                   Página principal
+lab.html                     Ficha de cada modelo del laboratorio: lee location.hash (#/slug)
+                             y renderiza el modelo desde models-data.js
+styles.css                   Sistema de diseño original (índigo/azul marino, tarjetas de vidrio,
+                             Plus Jakarta Sans + Inter + JetBrains Mono) y, al final, los estilos
+                             del carrusel y la ficha del laboratorio con los mismos tokens
+main.js                      Comportamiento: idioma, tema, navegación, aparición al hacer scroll,
+                             filtros de proyectos, API de GitHub, carrusel y ficha del laboratorio
+i18n.js                      Textos EN/ES, incluido el espacio `lab` del laboratorio y el
+                             glosario window.I18N_TERMS para etiquetas sin clave
+models-data.js               Registro del laboratorio de modelos, bilingüe campo por campo
+favicon.svg                  Monograma (índigo sobre azul marino)
+data/experience.js           Experiencia laboral e investigación (fuente de la sección Experiencia)
+data/cv.js                   Ruta del PDF para el botón «CV» de la portada (pendiente de agregar)
+data/videos.js               TODOS los enlaces de YouTube (una clave por cada data-video="…")
+data/diagrams.js             Diagramas de arquitectura depurados para los bloques de evidencia
+data/thesis-architecture.js  Datos del explorador de la tesis (capas descongeladas, según el repo)
+assets/img/                  Fotos del perfil (nunca se recortan: proporción natural)
+assets/readme/               Capturas usadas en este README
+docs/private/                Copia local del CV y reportes de cambios — ignorado por git, nunca se publica
+```
 
-- The DCE-MRI project's Docker deployment is real but runs on a server on
-  loan from a faculty advisor — not committed to the repo. The site's
-  existing "Thesis · Production" framing predates this note and wasn't
-  changed as part of the revert (that copy lives in `i18n.js` under
-  `projects.p1Status` / `p1Desc` if you want to revisit the wording).
-- No employer names, clients, certifications, metrics, or dates were
-  invented at any point in this process.
+## 🧪 Laboratorio de modelos
 
-## Running locally
+Registro de arquitecturas de ML/DL basado en datos. En `index.html` (`#lab`) se muestra como un **carrusel filtrable que avanza solo**, y cada modelo tiene su ficha en `lab.html`.
 
-No build step. Any static file server works:
+- Avanza cada ~4,2 s y se pausa al pasar el mouse, al enfocar o al tocar. Con `prefers-reduced-motion: reduce` no avanza solo; las flechas, los puntos y el teclado siguen funcionando.
+- Los filtros se generan a partir del campo `type` de los modelos, no están escritos a mano. Si agregas un modelo con un tipo nuevo, aparece un filtro nuevo automáticamente.
+- Cada tarjeta tiene espacio para una portada. Mientras no haya imagen real, se genera una provisional con el nombre y el tipo del modelo ("imagen pendiente").
+- Cada modelo tiene un `status` honesto: `planned | research | development | trained | deployed`. Hoy `cnn` y `transformer` (MobileViT-S) están entrenados; el resto está `planned` a propósito. No hay resultados inventados.
+
+### Cómo agregar un modelo
+
+Todo vive en **`models-data.js`**, en un solo arreglo: `window.MODEL_LAB`.
+
+1. Copia un objeto existente y llena todos los campos, en **los dos** idiomas (`{ en, es }`) para cualquier texto.
+2. `status`: usa `trained` o `deployed` solo si hay un artefacto o una métrica real que lo respalde.
+3. `architecture`: lista ordenada de etapas `{ en, es }`; en la ficha se dibuja como un diagrama de flujo.
+4. `metrics`: `null` hasta que haya un resultado real reportable. Después: `[{ label: {en, es}, value: '0.xx' }, …]`, con una advertencia en `metricsNote` (tamaño de muestra, intervalo de confianza, etc.).
+5. `inference`: `{ input: {en,es}, output: {en,es} }` describe la *forma* de una demostración futura, aunque todavía no exista.
+6. `order`: posición de orden (texto con ceros a la izquierda, por ejemplo `'10'`).
+7. `cover`: `null` para la portada provisional, o una ruta como `assets/model-covers/<slug>.jpg` cuando exista una captura real (esa carpeta todavía no existe; hay que crearla). El carrusel cambia solo.
+
+### Conectar una API de inferencia real
+
+`ModelLabDetailModule`, en `main.js`, muestra el campo `api` si existe (`model.api`, por ejemplo `/predict`) como una línea `POST` en el panel de inferencia. Para pasar del esqueleto a una demostración real:
+
+1. Levanta el servicio.
+2. Define `api` (y `demo`) en la entrada de ese modelo.
+3. Extiende `ModelLabDetailModule.render()` para que, cuando `model.demo` exista, muestre un formulario o un campo para subir archivos en lugar del panel estático `.inference-stub`.
+
+No hace falta tocar ningún otro archivo.
+
+## 🚀 Ejecutar en local
+
+No hay paso de compilación; sirve cualquier servidor de archivos estáticos:
 
 ```bash
 cd portfolio
@@ -115,14 +145,42 @@ python3 -m http.server 8765
 # → http://localhost:8765/
 ```
 
-## Deploying
+## 📦 Publicar
 
-GitHub Pages, deployed from the `main` branch root
-(`https://pandorariot.github.io/MiPortafolio/`). Pushing to `main`
-redeploys automatically.
+GitHub Pages publica desde la raíz de la rama `main` (https://pandorariot.github.io/MiPortafolio/). Cada push a `main` vuelve a publicar el sitio.
+
+> [!IMPORTANT]
+> Cada vez que cambies un `.css` o `.js`, sube el parámetro `?v=` en `index.html` y `lab.html`. Si no lo haces, el navegador puede seguir mostrando la versión vieja desde la caché.
 
 ```bash
 git add -A
 git commit -m "…"
 git push origin main
 ```
+
+## 📝 Notas de contenido
+
+- El despliegue en Docker del proyecto DCE-MRI es real, pero corre en un servidor prestado por un asesor de la facultad y no está en el repositorio.
+- En ningún momento se inventaron empleadores, clientes, certificaciones, métricas ni fechas. Las fuentes de verdad son el perfil de LinkedIn y el CV.
+- Los proyectos se presentan como proyectos, nunca como empleo.
+
+<details>
+<summary><b>Historial del diseño</b></summary>
+
+<br>
+
+El sitio pasó brevemente por un rediseño editorial completo (paleta y tipografía nuevas, secciones consolidadas, casos de estudio en lugar de tarjetas de proyectos). **Ese rediseño se revirtió a pedido explícito de la autora**, que quería recuperar el diseño original azul marino con tarjetas de vidrio, sección por sección, tal como era. Lo que está publicado es el **diseño original**, con una sola novedad real encima: el **laboratorio de modelos**, adaptado al lenguaje visual original en lugar de introducir un segundo sistema de diseño.
+
+La versión del rediseño editorial sigue en el historial de git (commits `61d0abf`..`8e7ffd2`, antes de la reversión).
+
+</details>
+
+---
+
+<div align="center">
+
+**Construyamos IA en producción y hagamos equipo** · [Portafolio](https://pandorariot.github.io/MiPortafolio/) · [LinkedIn](https://www.linkedin.com/in/alexandragarciabarrioseng) · [alexandra.software.engineer@gmail.com](mailto:alexandra.software.engineer@gmail.com)
+
+<sub>© 2026 Alexandra García · Ingeniera de Sistemas de IA</sub>
+
+</div>
