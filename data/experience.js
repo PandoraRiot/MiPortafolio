@@ -202,7 +202,7 @@ window.EXPERIENCE = {
       id: 'research',
       kind: 'research',
       title: { en: 'Research & applied AI', es: 'Investigación e IA aplicada' },
-      sub:   { en: 'Research and applied technical work — not presented as employment.', es: 'Investigación y trabajo técnico aplicado — no se presentan como empleo.' },
+      sub:   { en: 'Research and applied technical work.', es: 'Investigación y trabajo técnico aplicado.' },
       items: [
         {
           id: 'cognia',
@@ -251,10 +251,10 @@ window.EXPERIENCE = {
         {
           id: 'ai-systems',
           cats: ['aiml', 'llm', 'backend', 'fullstack'],
-          type: { en: 'Independent technical work', es: 'Trabajo técnico independiente' },
+          type: { en: 'Independent · Freelance', es: 'Independiente · Freelance' },
           status: { en: 'In progress', es: 'En curso' },
           title: { en: 'AI Systems & Automation', es: 'Sistemas de IA y automatización' },
-          context: { en: 'Independent projects — not employment', es: 'Proyectos independientes — no es un empleo' },
+          context: { en: 'Independent / freelance work', es: 'Trabajo independiente / freelance' },
           date: { en: '2026 — Present', es: '2026 — Actualidad' },
           desc: {
             en: 'Design and construction of AI systems with LLMs, RAG and agents, integrated through APIs, web interfaces and containers. Technical details live in Projects.',
