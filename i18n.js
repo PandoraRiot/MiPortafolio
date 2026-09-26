@@ -43,6 +43,15 @@ window.I18N = {
       p5: 'My goal is to combine software engineering, applied AI and digital product development, working both on Machine Learning and Computer Vision projects and on web and automation solutions for companies and startups.',
       p6: 'ML Engineering · Computer Vision · AI Systems · Web Development · APIs · Automation',
     },
+    credential: {
+      label: 'Professional license · COPNIA',
+      title: 'Software Development Technologist',
+      desc: "Registered in Colombia's National Professional Registry with a Professional Registration Certificate — Auxiliary.",
+      sectorsLabel: 'Experience in',
+      public: 'Public sector',
+      private: 'Private sector',
+      numberLabel: 'No.',
+    },
     metrics: {
       label1: 'Years building with code',
       label2: 'Academic programs completed',
@@ -563,6 +572,15 @@ window.I18N = {
       p4: 'Paralelamente, desarrollo aplicaciones web, landing pages, sitios corporativos, APIs, sistemas de automatización y soluciones digitales para pequeñas y medianas empresas, adaptando la tecnología a las necesidades concretas de cada negocio. También desarrollo sistemas basados en LLMs, RAG y agentes inteligentes.',
       p5: 'Mi objetivo es combinar ingeniería de software, IA aplicada y desarrollo de productos digitales, trabajando tanto en proyectos de Machine Learning y Computer Vision como en soluciones web y de automatización para empresas y emprendimientos.',
       p6: 'ML Engineering · Computer Vision · AI Systems · Web Development · APIs · Automation',
+    },
+    credential: {
+      label: 'Tarjeta profesional · COPNIA',
+      title: 'Tecnóloga en Desarrollo de Software',
+      desc: 'Inscrita en el Registro Profesional Nacional con Certificado de Inscripción Profesional — Auxiliar.',
+      sectorsLabel: 'Experiencia en',
+      public: 'Sector público',
+      private: 'Sector privado',
+      numberLabel: 'N.º',
     },
     metrics: {
       label1: 'Años construyendo con código',
