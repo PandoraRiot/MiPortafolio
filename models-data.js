@@ -39,8 +39,8 @@ window.MODEL_LAB = [
     tags: [{ en: 'Computer Vision', es: 'Visión por Computador' }, { en: 'PyTorch', es: 'PyTorch' }, { en: 'Transfer Learning', es: 'Transferencia de Aprendizaje' }],
     cover: null,
     summary: {
-      en: 'Multi-architecture image classifiers trained and evaluated across two applied projects: a fruit-image benchmark and the convolutional backbone family explored for the DCE-MRI thesis (ResNet18/50, EfficientNet).',
-      es: 'Clasificadores de imágenes de varias arquitecturas entrenados y evaluados en dos proyectos aplicados: una comparativa con imágenes de frutas y la familia de redes base convolucionales explorada para la tesis DCE-MRI (ResNet18/50, EfficientNet).',
+      en: 'Multi-architecture image classifiers trained and evaluated across two applied projects: a fruit-image benchmark and the convolutional backbone family explored for the DCE-MRI thesis (ResNet50, EfficientNet-B3).',
+      es: 'Clasificadores de imágenes de varias arquitecturas entrenados y evaluados en dos proyectos aplicados: una comparativa con imágenes de frutas y la familia de redes base convolucionales explorada para la tesis DCE-MRI (ResNet50, EfficientNet-B3).',
     },
     architecture: [
       { en: 'Input image (RGB, resized + normalized)', es: 'Imagen de entrada (RGB, redimensionada y normalizada)' },
@@ -76,16 +76,16 @@ window.MODEL_LAB = [
     slug: 'transformer',
     order: '08',
     shortName: 'Transformer',
-    fullName: { en: 'Vision Transformer', es: 'Transformador de Visión (ViT)' },
+    fullName: { en: 'Vision Transformer (MobileViT-S, hybrid CNN-Transformer)', es: 'Transformador de visión (MobileViT-S, híbrido CNN-Transformer)' },
     type: { en: 'Computer Vision', es: 'Visión por Computador' },
     framework: 'PyTorch (timm)',
     task: { en: 'Image classification (candidate backbone)', es: 'Clasificación de imágenes (red base candidata)' },
-    status: 'research',
+    status: 'trained',
     tags: [{ en: 'Vision Transformer', es: 'Transformador de Visión' }, { en: 'PyTorch', es: 'PyTorch' }, { en: 'Medical AI', es: 'IA Médica' }],
     cover: null,
     summary: {
-      en: 'MobileViT explored as a candidate backbone in the DCE-MRI architecture comparison alongside the CNN family — evaluated, not yet selected as the final production model.',
-      es: 'MobileViT explorado como red base candidata en la comparación de arquitecturas de DCE-MRI junto con la familia CNN — evaluado, aún no seleccionado como modelo final de producción.',
+      en: 'MobileViT-S (hybrid CNN-Transformer) trained and evaluated as a candidate backbone in the DCE-MRI architecture comparison alongside the CNN family — not selected; the thesis final model was ResNet50.',
+      es: 'MobileViT-S (híbrido CNN-Transformer) entrenado y evaluado como red base candidata en la comparación de arquitecturas de DCE-MRI junto con la familia CNN — no seleccionado; el modelo final de la tesis fue ResNet50.',
     },
     architecture: [
       { en: 'Patch embedding (image → token sequence)', es: 'Incrustación de parches (imagen → secuencia de vectores)' },
@@ -104,8 +104,8 @@ window.MODEL_LAB = [
     },
     metrics: null,
     metricsNote: {
-      en: 'Still in the comparison stage — no consolidated result is being published until the architecture selection is finalized.',
-      es: 'Todavía en etapa de comparación — no se publica un resultado consolidado hasta finalizar la selección de arquitectura.',
+      en: 'The architecture comparison is closed (thesis approved, Sep 2026). Comparative results are reported under the DCE-MRI case study, not duplicated here.',
+      es: 'La comparación de arquitecturas está cerrada (tesis aprobada, sep 2026). Los resultados comparativos se reportan en el caso de estudio DCE-MRI, no se duplican aquí.',
     },
     repo: 'https://github.com/PandoraRiot/MRI_BreastCancer_Classification',
     repoLabel: { en: 'DCE-MRI backbone experiments', es: 'Experimentos de backbones DCE-MRI' },
