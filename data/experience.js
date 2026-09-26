@@ -255,7 +255,7 @@ window.EXPERIENCE = {
           status: { en: 'In progress', es: 'En curso' },
           title: { en: 'AI Systems & Automation', es: 'Sistemas de IA y automatización' },
           context: { en: 'Independent projects — not employment', es: 'Proyectos independientes — no es un empleo' },
-          date: { en: '2026 — Present', es: '2026 — Presente' },
+          date: { en: '2026 — Present', es: '2026 — Actualidad' },
           desc: {
             en: 'Design and construction of AI systems with LLMs, RAG and agents, integrated through APIs, web interfaces and containers. Technical details live in Projects.',
             es: 'Diseño y construcción de sistemas de IA con LLM, RAG y agentes, integrados mediante APIs, interfaces web y contenedores. Los detalles técnicos están en Proyectos.',
