@@ -3562,9 +3562,9 @@ html.modal-open { overflow: hidden; }
 /* ─── Photos shown whole ─────────────────────────────────────
    The portrait keeps its natural proportions — no crop. The width/height
    attributes on the <img> only reserve space; height follows the width. */
-.portrait__img { height: auto; object-fit: contain; aspect-ratio: 1 / 1; }
+.portrait__img { height: auto; object-fit: contain; aspect-ratio: 820 / 802; }
 @media (min-width: 901px) {
-  .portrait__img { aspect-ratio: 1 / 1; }
+  .portrait__img { aspect-ratio: 820 / 802; }
 }
 
 /* ─── MOBILE PASS ────────────────────────────────────────────
