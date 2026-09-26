@@ -24,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
   <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js" defer></script>
-  <link rel="stylesheet" href="styles.css?v=20260924n" />
+  <link rel="stylesheet" href="styles.css?v=20260925e" />
 </head>
 <body>
 
@@ -33,7 +33,7 @@
   <header class="nav" id="nav">
     <div class="nav__container container">
       <a href="#home" class="nav__logo" id="navLogoLabel" aria-label="Alexandra García — home">
-        <span class="nav__logo-mark">AG</span>
+        <span class="nav__logo-mark"><img src="assets/img/logo-ag.webp?v=20260925d" alt="" width="40" height="40" decoding="async"></span>
         <span class="nav__logo-text">Alexandra García</span>
       </a>
 
@@ -191,14 +191,55 @@
             <span class="metric-card__label" data-i18n="metrics.label2">Academic programs completed</span>
           </div>
           <div class="metric-card reveal reveal--delay-2">
-            <span class="metric-card__value" data-count="4" data-suffix="">4</span>
-            <span class="metric-card__label" data-i18n="metrics.label3">System layers engineered</span>
-            <small class="metric-card__sub" data-i18n="metrics.sub3">Data · ML · API · Infra</small>
+            <span class="metric-card__value" data-count="5" data-suffix="">5</span>
+            <span class="metric-card__label" data-i18n="metrics.label3">Stack layers</span>
+            <small class="metric-card__sub metric-card__sub--layers" data-i18n="metrics.sub3">DATA · AI/ML · BACKEND · CLOUD · PRODUCT</small>
           </div>
           <div class="metric-card reveal reveal--delay-3">
             <span class="metric-card__value" data-count="4" data-suffix="+">4+</span>
             <span class="metric-card__label" data-i18n="metrics.label4">Years of training in Data &amp; AI</span>
           </div>
+        </div>
+
+        <div class="stack-flow reveal">
+          <p class="stack-flow__title" id="stackFlowTitle" data-i18n="metrics.flowTitle">From data to product: complete systems, end to end</p>
+          <ol class="stack-flow__list" aria-labelledby="stackFlowTitle">
+            <li class="stack-flow__layer">
+              <span class="stack-flow__node" aria-hidden="true"></span>
+              <span class="stack-flow__index" aria-hidden="true">01</span>
+              <strong class="stack-flow__name">DATA</strong>
+              <span class="stack-flow__role" data-i18n="metrics.l1Role">Data</span>
+              <p class="stack-flow__items" data-i18n="metrics.l1Items">SQL · ETL/ELT · Data processing · Data pipelines</p>
+            </li>
+            <li class="stack-flow__layer">
+              <span class="stack-flow__node" aria-hidden="true"></span>
+              <span class="stack-flow__index" aria-hidden="true">02</span>
+              <strong class="stack-flow__name">AI / ML</strong>
+              <span class="stack-flow__role" data-i18n="metrics.l2Role">Intelligence</span>
+              <p class="stack-flow__items" data-i18n="metrics.l2Items">Machine Learning · Deep Learning · Computer Vision · LLM/RAG</p>
+            </li>
+            <li class="stack-flow__layer">
+              <span class="stack-flow__node" aria-hidden="true"></span>
+              <span class="stack-flow__index" aria-hidden="true">03</span>
+              <strong class="stack-flow__name">BACKEND</strong>
+              <span class="stack-flow__role" data-i18n="metrics.l3Role">Backend</span>
+              <p class="stack-flow__items" data-i18n="metrics.l3Items">Java · Spring Boot · REST APIs · Microservices · Integrations</p>
+            </li>
+            <li class="stack-flow__layer">
+              <span class="stack-flow__node" aria-hidden="true"></span>
+              <span class="stack-flow__index" aria-hidden="true">04</span>
+              <strong class="stack-flow__name">CLOUD / INFRA</strong>
+              <span class="stack-flow__role" data-i18n="metrics.l4Role">Infrastructure</span>
+              <p class="stack-flow__items" data-i18n="metrics.l4Items">Docker · AWS · Terraform · CI/CD · Deployment</p>
+            </li>
+            <li class="stack-flow__layer">
+              <span class="stack-flow__node" aria-hidden="true"></span>
+              <span class="stack-flow__index" aria-hidden="true">05</span>
+              <strong class="stack-flow__name">PRODUCT</strong>
+              <span class="stack-flow__role" data-i18n="metrics.l5Role">Product</span>
+              <p class="stack-flow__items" data-i18n="metrics.l5Items">Web applications · Frontend · UX · End-to-end integration</p>
+            </li>
+          </ol>
         </div>
       </div>
     </section>
@@ -1372,7 +1413,7 @@
     </div>
   </dialog>
 
-  <script src="i18n.js?v=20260925c"></script>
+  <script src="i18n.js?v=20260925e"></script>
   <script src="models-data.js?v=20260925c"></script>
   <script src="data/cv.js?v=20260924n"></script>
   <script src="data/videos.js?v=20260924n"></script>
