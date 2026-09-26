@@ -234,8 +234,8 @@ window.EXPERIENCE = {
           context: { en: 'Undergraduate thesis · Institución Universitaria Pascual Bravo', es: 'Proyecto de grado · Institución Universitaria Pascual Bravo' },
           date: { en: 'Sep 2025 — Jun 2026', es: 'Sep 2025 — Jun 2026' },
           desc: {
-            en: 'Applied Deep Learning research for classification of benign and malignant breast lesions from DCE-MRI, combining patient-level evaluation, cross-validation, model comparison and interpretability. Evaluated in September 2026; continues as a scientific article.',
-            es: 'Investigación aplicada en aprendizaje profundo para clasificar lesiones mamarias benignas y malignas a partir de DCE-MRI, combinando evaluación a nivel de paciente, validación cruzada, comparación de modelos e interpretabilidad. Evaluada en septiembre de 2026; continúa como artículo científico.',
+            en: 'Applied Deep Learning research for classification of benign and malignant breast lesions from DCE-MRI, combining patient-level evaluation, cross-validation, model comparison and interpretability. Evaluated in September 2026; continues as a scientific article mentored by Dr. Rubén Darío Fonnegra Tarazona, who recommended its continuation.',
+            es: 'Investigación aplicada en aprendizaje profundo para clasificar lesiones mamarias benignas y malignas a partir de DCE-MRI, combinando evaluación a nivel de paciente, validación cruzada, comparación de modelos e interpretabilidad. Evaluada en septiembre de 2026; continúa como artículo científico con el acompañamiento del Dr. Rubén Darío Fonnegra Tarazona, quien recomendó su continuidad.',
           },
           points: [
             { en: 'Medical-image pipelines in Python and PyTorch over the PRE, EARLY and LATE DCE-MRI phases', es: 'Flujos de imágenes médicas en Python y PyTorch sobre las fases pre-contraste, temprana y tardía del DCE-MRI' },
