@@ -517,7 +517,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .nav__burger.is-open span:nth-child(2) { opacity: 0; }
 .nav__burger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-@media (max-width: 900px) {
+@media (max-width: 1040px) {
   .nav__controls { order: 2; }
   .nav__burger { order: 3; }
   .nav__logo { order: 0; flex: 1; }
@@ -2544,8 +2544,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .edu-card--brand .edu-card__inst { color: var(--color-cyan); }
 [data-theme="light"] .edu-card--brand .edu-card__inst { color: #0e7490; }
 
-/* English sits in one column, next to the last program card (odd count). */
-.edu-card--english { grid-column: auto; }
+.edu-card--english { grid-column: 1 / -1; }
 
 /* Timeline: date + badge row, live and upcoming states */
 .timeline__meta {
@@ -3497,7 +3496,7 @@ html.modal-open { overflow: hidden; }
 
 /* Desktop nav with the extra "Experience" link: tighten spacing between
    the burger breakpoint and wide screens so links never wrap or overflow. */
-@media (min-width: 901px) and (max-width: 1240px) {
+@media (min-width: 1041px) and (max-width: 1240px) {
   .nav__links { gap: 0.1rem; margin-left: var(--space-sm); }
   .nav__link { font-size: var(--text-sm); white-space: nowrap; padding: 0.3rem 0.45rem; }
 }
