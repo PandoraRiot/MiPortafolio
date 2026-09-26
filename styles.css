@@ -1947,10 +1947,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
    full width underneath so no column is left half empty. */
 .mindset__layout {
   display: grid;
-  grid-template-columns: 1fr 300px;
+  grid-template-columns: 1fr;
   grid-template-areas:
-    "content photo"
-    "cards   cards";
+    "content"
+    "cards";
   column-gap: var(--space-3xl);
   row-gap: var(--space-2xl);
   align-items: center;
@@ -2031,7 +2031,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     grid-template-columns: 1fr;
     grid-template-areas:
       "content"
-      "photo"
       "cards";
     row-gap: var(--space-xl);
   }
@@ -3561,14 +3560,11 @@ html.modal-open { overflow: hidden; }
 .gh-repo__name { min-width: 0; overflow-wrap: anywhere; }
 
 /* ─── Photos shown whole ─────────────────────────────────────
-   Both photos keep their natural proportions — no crop. The width/height
+   The portrait keeps its natural proportions — no crop. The width/height
    attributes on the <img> only reserve space; height follows the width. */
-.portrait__img,
-.mindset__photo img { height: auto; object-fit: contain; }
-.portrait__img { aspect-ratio: 800 / 1132; }
-.mindset__photo img { aspect-ratio: 700 / 699; }
+.portrait__img { height: auto; object-fit: contain; aspect-ratio: 1 / 1; }
 @media (min-width: 901px) {
-  .portrait__img { aspect-ratio: 800 / 1132; }
+  .portrait__img { aspect-ratio: 1 / 1; }
 }
 
 /* ─── MOBILE PASS ────────────────────────────────────────────
