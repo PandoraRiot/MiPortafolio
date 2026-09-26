@@ -328,8 +328,6 @@ window.I18N = {
       webBack: 'Backend',
       webFull: 'Full Stack & delivery',
       webComponents: 'Component-based UI',
-      aiTools: 'AI-assisted development',
-      aiToolsDesc: 'I use AI assistants to boost my productivity responsibly: I review and validate everything they produce, and I follow security and data-protection practices — no credentials, personal data or confidential information is shared with these tools.',
     },
     research: {
       label: 'Research Interests',
@@ -851,8 +849,6 @@ window.I18N = {
       webBack: 'Servidor',
       webFull: 'Desarrollo integral y entrega',
       webComponents: 'UI basada en componentes',
-      aiTools: 'Desarrollo asistido por IA',
-      aiToolsDesc: 'Uso asistentes de IA para impulsar mi productividad de forma responsable: reviso y valido todo lo que generan, y sigo prácticas de seguridad y protección de datos — no comparto credenciales, datos personales ni información confidencial con estas herramientas.',
     },
     research: {
       label: 'Intereses de Investigación',

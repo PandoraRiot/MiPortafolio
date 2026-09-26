@@ -3193,14 +3193,6 @@ html.modal-open { overflow: hidden; }
 .llm-tech-group__items .chip-video { --chip-bg: var(--color-bg-card-solid); }
 
 .stack__group--web { grid-column: 1 / -1; }
-.stack__group--ai-tools { grid-column: 1 / -1; }
-.stack__group-note {
-  margin-top: var(--space-lg);
-  font-size: var(--text-sm);
-  line-height: 1.7;
-  color: var(--color-text-muted);
-  max-width: 72ch;
-}
 .stack__web { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); }
 .stack__web h4 {
   font-family: var(--font-mono);
