@@ -223,7 +223,7 @@ window.EXPERIENCE = {
             { en: 'K-Fold cross-validation, hyperparameter tuning and stratified train/test splits', es: 'Validación cruzada K-Fold, optimización de hiperparámetros y partición estratificada' },
             { en: 'Confusion matrices and metrics: accuracy, precision, recall, specificity, F1, ROC and AUC', es: 'Matrices de confusión y métricas: exactitud, precisión, sensibilidad, especificidad, F1, ROC y AUC' },
           ],
-          tech: ['Python', 'Scikit-learn', 'Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'LLMs', 'Transformers', 'CNN'],
+          tech: ['LLMs', 'Transformers', 'CNN', 'SVM', 'Python', 'Scikit-learn', 'Pandas', 'NumPy', 'Matplotlib', 'Seaborn'],
         },
         {
           id: 'dce-mri',

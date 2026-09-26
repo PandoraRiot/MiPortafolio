@@ -165,6 +165,29 @@ const NavModule = (() => {
       if (links.classList.contains('is-open') && !nav.contains(e.target)) closeMenu();
     });
     handleScroll();
+    initScrollSpy();
+  };
+
+  // Scroll spy: the nav link of the section crossing the reading line
+  // (≈40% down the viewport) gets .is-active. Sections without a nav link
+  // (cloud, stack, timeline, GitHub…) clear the highlight instead of
+  // pointing at the wrong item.
+  const initScrollSpy = () => {
+    if (!('IntersectionObserver' in window)) return;
+    const navLinks = [...links.querySelectorAll('a[href^="#"]')];
+    const byId = new Map(navLinks.map(a => [a.getAttribute('href').slice(1), a]));
+    const sections = [...document.querySelectorAll('main section[id], section[id]')];
+    const setActive = (id) => {
+      navLinks.forEach(a => {
+        const on = a === byId.get(id);
+        a.classList.toggle('is-active', on);
+        if (on) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+      });
+    };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) setActive(entry.target.id); });
+    }, { rootMargin: '-40% 0px -59% 0px' });
+    [...new Set(sections)].forEach(s => observer.observe(s));
   };
 
   return { init };

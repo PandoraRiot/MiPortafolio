@@ -33,7 +33,7 @@ con base sólida en desarrollo de servidor en Java.
 | 🤖 **Sistemas con LLM** | JARVIS (asistente personal de IA), Umbrella AI (sistema multiagente) y SaberPro-RAG (asistente de estudio con RAG). |
 | ☕ **Servidor en Java** | Servisoft S.A.: APIs REST y SOAP, MSSQL, Oracle y MongoDB para clientes institucionales y del sector público. |
 | 🏆 **3.er lugar · Hackatón ESUMER (dic 2024)** | Hackatón de Arquitectura en la Nube avanzada del Diplomado en Arquitectura en la Nube: infraestructura en AWS con Terraform. |
-| 🎓 **Formación** | Ingeniería de Software (grado en dic 2026) y diplomados en Ciencia de Datos, Arquitectura en la Nube e IA — **toda mi formación ha sido con becas por excelencia**. |
+| 🎓 **Formación** | Ingeniería de Software (grado en dic 2026) y diplomados en Ciencia de Datos, Arquitectura en la Nube e IA — **toda mi formación ha sido con becas por excelencia** (Sapiencia, Presupuesto Participativo, Matrícula Cero y Nodo con Accenture). |
 
 ## 🗺️ Qué vas a encontrar en el sitio
 
