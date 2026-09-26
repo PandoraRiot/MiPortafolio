@@ -1925,20 +1925,26 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border-block: 1px solid var(--color-border);
 }
 
-/* Text column + editorial photo, offset down and right — a visual
-   interruption, not a card in the grid. */
+/* Text + editorial photo side by side on top; the four cards run the
+   full width underneath so no column is left half empty. */
 .mindset__layout {
   display: grid;
   grid-template-columns: 1fr 300px;
-  gap: var(--space-2xl);
-  align-items: start;
+  grid-template-areas:
+    "content photo"
+    "cards   cards";
+  column-gap: var(--space-3xl);
+  row-gap: var(--space-2xl);
+  align-items: center;
 }
 
-.mindset__content { min-width: 0; }
+.mindset__content { grid-area: content; min-width: 0; }
+.mindset__content .section__header { margin-bottom: 0; }
 
 .mindset__photo {
+  grid-area: photo;
   min-width: 0;
-  margin-top: var(--space-3xl);
+  margin: 0;
 }
 
 .mindset__photo img {
@@ -1955,9 +1961,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .mindset__grid {
+  grid-area: cards;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: var(--space-lg);
+}
+
+@media (max-width: 1099px) {
+  .mindset__grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 .mindset-card {
@@ -2000,11 +2011,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 @media (max-width: 860px) {
   .mindset__layout {
     grid-template-columns: 1fr;
+    grid-template-areas:
+      "content"
+      "photo"
+      "cards";
+    row-gap: var(--space-xl);
   }
-  .mindset__photo {
-    margin-top: var(--space-xl);
-    max-width: 380px;
-  }
+  .mindset__photo { max-width: 380px; }
 }
 @media (max-width: 560px)  { .mindset__grid { grid-template-columns: 1fr; } }
 
@@ -2081,6 +2094,45 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-weight: 700;
   margin-bottom: var(--space-xs);
 }
+
+/* Excellence scholarships — one note under the section title and a small
+   medal line on every program card. Amber is used only for the medal. */
+.edu-scholarship {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--color-border-glow);
+  border-radius: var(--radius-md);
+  background: var(--color-accent-dim);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+.edu-scholarship strong { color: var(--color-heading); font-weight: 600; }
+
+.edu-scholarship .ph,
+.edu-card__scholarship .ph {
+  flex-shrink: 0;
+  font-size: 1.15em;
+  color: #fbbf24;
+}
+
+.edu-card__scholarship {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: var(--space-xs) 0 var(--space-sm);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.02em;
+  color: var(--color-text);
+}
+
+[data-theme="light"] .edu-scholarship .ph,
+[data-theme="light"] .edu-card__scholarship .ph { color: #b45309; }
 
 .edu-card__inst {
   font-size: var(--text-sm);

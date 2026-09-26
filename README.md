@@ -32,7 +32,7 @@ con base sólida en desarrollo de servidor en Java.
 | 🔬 **Semillero CognIA** | Modelos predictivos sobre Breast Cancer Wisconsin Diagnostic con Scikit-learn. |
 | 🤖 **Sistemas con LLM** | JARVIS (asistente personal de IA), Umbrella AI (sistema multiagente) y SaberPro-RAG (asistente de estudio con RAG). |
 | ☕ **Servidor en Java** | Servisoft S.A.: APIs REST y SOAP, MSSQL, Oracle y MongoDB para clientes institucionales y del sector público. |
-| 🎓 **Formación** | Ingeniería de Software (grado en dic 2026) y diplomados en Ciencia de Datos, Arquitectura en la Nube e IA. |
+| 🎓 **Formación** | Ingeniería de Software (grado en dic 2026) y diplomados en Ciencia de Datos, Arquitectura en la Nube e IA — **toda mi formación ha sido con becas por excelencia**. |
 
 ## 🗺️ Qué vas a encontrar en el sitio
 

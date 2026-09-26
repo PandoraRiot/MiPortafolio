@@ -270,10 +270,10 @@ const ProjectFilterModule = (() => {
  * cards are visible (listens for 'projectsfilterchange').
  */
 const ProjectCarouselModule = (() => {
-  const DRIFT_PX_PER_S = 18;
-  const STEP_MS = 5000; // phones (≈1 card in view): move one whole card at a time
+  const DRIFT_PX_PER_S = 10;
+  const STEP_MS = 8000; // phones (≈1 card in view): move one whole card at a time
   let lastStep = 0;
-  const END_HOLD_MS = 2500;
+  const END_HOLD_MS = 4000;
   const REWIND_MS = 1500;
   let viewport, track, dotsEl, prevBtn, nextBtn;
   let rafId = null;
