@@ -2544,7 +2544,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .edu-card--brand .edu-card__inst { color: var(--color-cyan); }
 [data-theme="light"] .edu-card--brand .edu-card__inst { color: #0e7490; }
 
-.edu-card--english { grid-column: 1 / -1; }
+/* English sits in one column, next to the last program card (odd count). */
+.edu-card--english { grid-column: auto; }
 
 /* Timeline: date + badge row, live and upcoming states */
 .timeline__meta {
