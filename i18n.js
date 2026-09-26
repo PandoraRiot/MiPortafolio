@@ -5,7 +5,7 @@ window.I18N = {
   en: {
     meta: {
       title: 'Alexandra García · Software & ML Engineer',
-      description: 'Software Engineer specialized in AI Systems — ML, backend, cloud-native infrastructure, and production-ready intelligent systems.',
+      description: 'Software Engineer focused on AI Systems — ML, backend, cloud-native infrastructure, and production-ready intelligent systems.',
     },
     nav: {
       experience: 'Experience',
@@ -22,7 +22,7 @@ window.I18N = {
     hero: {
       badge: 'AI Systems Engineer · ML Infrastructure · Backend',
       title: 'From notebooks to production:<br /><span class="gradient-text">AI systems that scale.</span>',
-      subtitle: '<strong>Software Engineer specialized in AI Systems.</strong> I design complete intelligent systems — models, REST APIs, containers, and cloud-native infrastructure. Not just training models: building engineering where AI runs in production.',
+      subtitle: '<strong>Software Engineer focused on AI Systems.</strong> I design complete intelligent systems — models, REST APIs, containers, and cloud-native infrastructure. Not just training models: building the engineering that puts AI to work in production, as well as websites.',
       ctaProjects: 'View projects',
       ctaCv: 'CV',
       ctaContact: 'Contact',
@@ -526,7 +526,7 @@ window.I18N = {
   es: {
     meta: {
       title: 'Alexandra García · Ingeniera de Software y ML',
-      description: 'Ingeniera de Software especializada en sistemas de IA — aprendizaje automático, desarrollo de servidor, infraestructura nativa de la nube y sistemas inteligentes en producción.',
+      description: 'Ingeniera de Software enfocada en sistemas de IA — aprendizaje automático, desarrollo de servidor, infraestructura nativa de la nube y sistemas inteligentes en producción.',
     },
     nav: {
       experience: 'Experiencia',
@@ -543,7 +543,7 @@ window.I18N = {
     hero: {
       badge: 'Ingeniera de Sistemas de IA · Infraestructura de ML · Desarrollo de servidor',
       title: 'De cuadernos a producción:<br /><span class="gradient-text">sistemas de IA que escalan.</span>',
-      subtitle: '<strong>Ingeniera de Software especializada en sistemas de IA.</strong> Diseño sistemas inteligentes completos — modelos, APIs REST, contenedores e infraestructura nativa de la nube. No solo entreno modelos: construyo la ingeniería que pone la IA a funcionar en producción.',
+      subtitle: '<strong>Ingeniera de Software enfocada en sistemas de IA.</strong> Diseño sistemas inteligentes completos — modelos, APIs REST, contenedores e infraestructura nativa de la nube. No solo entreno modelos: construyo la ingeniería que pone la IA a funcionar en producción, y también sitios web.',
       ctaProjects: 'Ver proyectos',
       ctaCv: 'Hoja de vida',
       ctaContact: 'Contacto',
