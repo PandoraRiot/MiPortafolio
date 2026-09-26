@@ -813,7 +813,7 @@ window.I18N = {
     },
     timeline: {
       label: 'Trayectoria Profesional',
-      title: 'Recorrido y hitos',
+      title: 'Recorrido e hitos',
       live: 'En curso',
       upcoming: 'Próximo',
       m1Date: 'Ago 2017',
@@ -925,7 +925,7 @@ window.I18N = {
     },
     contact: {
       label: 'Contacto',
-      title: 'Construyamos IA en producción juntas',
+      title: 'Construyamos IA en producción y hagamos equipo',
       desc: 'Abierta a roles de <strong>Ingeniera de Software en IA/ML</strong>, <strong>Desarrolladora de servidor (Java/Spring Boot)</strong> y <strong>Desarrolladora web integral</strong> — sistemas inteligentes que escalan en producción.',
       email: 'Correo',
       linkedin: 'LinkedIn',
