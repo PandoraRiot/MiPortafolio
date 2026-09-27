@@ -3054,6 +3054,17 @@ html.modal-open { overflow: hidden; }
   font-size: var(--text-xs);
 }
 .project-card__shot i { font-size: var(--text-2xl); }
+/* Real screenshot: shown whole (no crop), keeps its own proportions. */
+.project-card__shot--img {
+  display: block;
+  aspect-ratio: auto;
+  padding: 0;
+  overflow: hidden;
+  border-style: solid;
+  border-color: var(--color-border);
+  background: none;
+}
+.project-card__shot--img img { display: block; width: 100%; height: auto; }
 
 /* ─── THESIS ARCHITECTURE EXPLORER ───────────────────────── */
 .tarch { display: flex; flex-direction: column; gap: var(--space-lg); }
