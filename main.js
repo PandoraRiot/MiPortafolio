@@ -1,11 +1,10 @@
 /**
  * Alexandra García — AI Systems Engineer Portfolio
- * i18n · Theme · Nav · Reveal · Counters · GitHub
+ * i18n · Theme · Nav · Reveal · Counters
  */
 
 'use strict';
 
-const GITHUB_USER = 'PandoraRiot';
 
 const I18nModule = (() => {
   let currentLang = localStorage.getItem('lang') || 'en';
@@ -446,166 +445,6 @@ const ProjectCarouselModule = (() => {
 
     document.addEventListener('projectsfilterchange', refresh);
     window.addEventListener('resize', () => requestAnimationFrame(updateActiveDot));
-  };
-
-  return { init };
-})();
-
-/**
- * GitHub activity — public REST API (no token) with a localStorage cache
- * (1 h) so repeat visits and language switches don't burn the 60 req/h
- * anonymous limit. If the API fails: stale cache → curated fallback.
- * Forks and empty repos are filtered out so only original work is shown.
- * Third-party stat cards (images) hide themselves if their service fails.
- */
-const GitHubModule = (() => {
-  const CACHE_KEY = 'gh-cache-v2';
-  const TTL_MS = 60 * 60 * 1000;
-  const LANG_COLORS = {
-    Python: '#3572A5', Java: '#b07219', JavaScript: '#f1e05a',
-    TypeScript: '#3178c6', HTML: '#e34c26', CSS: '#563d7c',
-    'Jupyter Notebook': '#DA5B0B', Shell: '#89e051', 'C#': '#178600',
-  };
-  // Shown only when the API and the cache both fail. Public, original repos.
-  const FALLBACK = [
-    { name: 'MRI_BreastCancer_Classification', language: 'Jupyter Notebook', description: { en: 'DCE-MRI breast-lesion classification — thesis experiments (ResNet50, EfficientNet-B3, MobileViT-S).', es: 'Clasificación de lesiones mamarias en DCE-MRI — experimentos de la tesis (ResNet50, EfficientNet-B3, MobileViT-S).' } },
-    { name: 'fintech_NovaAI', language: 'Python', description: { en: 'Fintech solution that segments users by banking activity (DATAHACKA 2026, Pascual Bravo).', es: 'Solución de tecnología financiera que segmenta usuarios por movimientos bancarios (DATAHACKA 2026, Pascual Bravo).' } },
-    { name: 'Clasificaciondefrutas.udea.novateam', language: 'Jupyter Notebook', description: { en: 'CNN fruit classification — AI Diploma, UdeA + Talento Tech.', es: 'Clasificación de frutas con CNN — Diplomado IA, UdeA + Talento Tech.' } },
-    { name: 'Nova_Ecommerce', language: 'Java', description: { en: 'E-commerce with Spring Boot, MySQL and React.', es: 'Comercio electrónico con Spring Boot, MySQL y React.' } },
-  ];
-
-  let data = null;     // { user, repos, source: 'live' | 'cache' | 'fallback' }
-
-  const locale = () => I18nModule.getLang() === 'es' ? 'es-ES' : 'en-US';
-  const esc = (v) => String(v ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-
-  const readCache = () => {
-    try { return JSON.parse(localStorage.getItem(CACHE_KEY) || 'null'); } catch { return null; }
-  };
-  const writeCache = (payload) => {
-    try { localStorage.setItem(CACHE_KEY, JSON.stringify({ t: Date.now(), ...payload })); } catch { /* storage blocked */ }
-  };
-
-  const fetchJSON = async (url) => {
-    const ctrl = new AbortController();
-    const timer = setTimeout(() => ctrl.abort(), 8000);
-    try {
-      const res = await fetch(url, { signal: ctrl.signal, headers: { Accept: 'application/vnd.github+json' } });
-      if (!res.ok) throw new Error(`GitHub ${res.status}`);
-      return await res.json();
-    } finally { clearTimeout(timer); }
-  };
-
-  const original = (repos) => repos.filter(r => !r.fork && !r.archived && r.size > 0);
-
-  const primaryLanguage = (repos) => {
-    const count = {};
-    original(repos).forEach(r => { if (r.language) count[r.language] = (count[r.language] || 0) + 1; });
-    return Object.entries(count).sort((a, b) => b[1] - a[1])[0]?.[0] || null;
-  };
-
-  const repoCard = (repo) => {
-    const lang  = repo.language || 'Other';
-    const color = LANG_COLORS[lang] || '#6366f1';
-    const rawDesc = repo.description;
-    const desc  = (rawDesc && typeof rawDesc === 'object') ? (rawDesc[I18nModule.getLang()] || rawDesc.en) : (rawDesc || I18nModule.get('github.noDesc'));
-    const stars = repo.stargazers_count || 0;
-    const date  = repo.pushed_at
-      ? `<span>${I18nModule.get('github.updated')} ${new Date(repo.pushed_at).toLocaleDateString(locale(), { month: 'short', year: 'numeric' })}</span>`
-      : '';
-    const url = repo.html_url || `https://github.com/${GITHUB_USER}/${repo.name}`;
-    return `
-      <a href="${esc(url)}" class="gh-repo" target="_blank" rel="noopener noreferrer">
-        <div class="gh-repo__header">
-          <i class="ph ph-book-bookmark"></i>
-          <span class="gh-repo__name">${esc(repo.name)}</span>
-        </div>
-        <p class="gh-repo__desc">${esc(desc)}</p>
-        <div class="gh-repo__meta">
-          <span class="gh-repo__lang"><span class="gh-repo__lang-dot" style="background:${color}"></span>${esc(lang)}</span>
-          ${stars > 0 ? `<span><i class="ph ph-star"></i> ${stars}</span>` : ''}
-          ${date}
-        </div>
-      </a>`;
-  };
-
-  const setStat = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val ?? '—'; };
-
-  const render = () => {
-    const container = document.getElementById('githubRepos');
-    const note = document.getElementById('ghNote');
-    if (!container || !data) return;
-
-    if (data.source === 'fallback') {
-      setStat('ghRepos', '—'); setStat('ghOriginal', '—'); setStat('ghFollowers', '—'); setStat('ghLanguage', 'Python');
-      container.innerHTML = FALLBACK.map(repoCard).join('') + `
-        <div class="gh-repo gh-repo--more">
-          <a href="https://github.com/${GITHUB_USER}" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">
-            <i class="ph ph-github-logo"></i> ${I18nModule.get('github.viewAll')}
-          </a>
-        </div>`;
-      if (note) { note.textContent = I18nModule.get('github.offline'); note.hidden = false; }
-      return;
-    }
-
-    const own = original(data.repos)
-      .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at))
-      .slice(0, 6);
-    setStat('ghRepos', data.user.public_repos);
-    setStat('ghOriginal', original(data.repos).length);
-    setStat('ghFollowers', data.user.followers);
-    setStat('ghLanguage', primaryLanguage(data.repos) || '—');
-    container.innerHTML = own.map(repoCard).join('');
-    if (note) {
-      note.hidden = data.source !== 'cache';
-      if (data.source === 'cache') note.textContent = I18nModule.get('github.cached');
-    }
-  };
-
-  const load = async () => {
-    const cached = readCache();
-    if (cached && Date.now() - cached.t < TTL_MS) {
-      data = { user: cached.user, repos: cached.repos, source: 'live' };
-      render();
-      return;
-    }
-    try {
-      const [user, repos] = await Promise.all([
-        fetchJSON(`https://api.github.com/users/${GITHUB_USER}`),
-        fetchJSON(`https://api.github.com/users/${GITHUB_USER}/repos?sort=pushed&per_page=100&type=owner`),
-      ]);
-      // Keep only what we render — smaller cache, nothing sensitive (public data)
-      const slim = repos.map(({ name, html_url, description, language, stargazers_count, pushed_at, fork, archived, size }) =>
-        ({ name, html_url, description, language, stargazers_count, pushed_at, fork, archived, size }));
-      const slimUser = { public_repos: user.public_repos, followers: user.followers };
-      writeCache({ user: slimUser, repos: slim });
-      data = { user: slimUser, repos: slim, source: 'live' };
-    } catch {
-      data = cached ? { user: cached.user, repos: cached.repos, source: 'cache' } : { source: 'fallback' };
-    }
-    render();
-  };
-
-  /* Third-party stat cards: hide any card whose image fails; hide the
-     whole block if all of them fail. */
-  const initCards = () => {
-    const wrap = document.getElementById('ghCards');
-    if (!wrap) return;
-    const cards = [...wrap.querySelectorAll('.gh-card')];
-    const check = () => { if (cards.every(c => c.hidden)) wrap.hidden = true; };
-    cards.forEach(card => {
-      const img = card.querySelector('img');
-      if (!img) return;
-      const fail = () => { card.hidden = true; check(); };
-      img.addEventListener('error', fail);
-      if (img.complete && img.naturalWidth === 0 && img.currentSrc) fail();
-    });
-  };
-
-  const init = () => {
-    initCards();
-    load();
-    document.addEventListener('langchange', render);   // re-render text only, no refetch
   };
 
   return { init };
@@ -1436,7 +1275,6 @@ document.addEventListener('DOMContentLoaded', () => {
   ProjectCarouselModule.init();
   ModelLabModule.init();
   ModelLabDetailModule.init();
-  GitHubModule.init();
   CvModule.init();
   MediaModalModule.init();
   VideoModule.init();
