@@ -477,6 +477,124 @@
           <div class="lab-carousel__viewport" id="projViewport">
         <div class="projects__grid" id="projectsGrid">
 
+          <article class="project-card reveal" data-category="web">
+            <div class="project-card__top">
+              <span class="project-card__icon"><i class="ph ph-paint-roller"></i></span>
+              <span class="project-card__status project-card__status--done" data-i18n="projects.landingStatus">Live</span>
+            </div>
+            <figure class="project-card__shot project-card__shot--img">
+              <img src="assets/img/projects/montajes-garcia.webp?v=20260928a" alt="Montajes y Servicios García landing page: renovation and professional cleaning in Madrid, with a WhatsApp quote button" data-i18n-alt="projects.landingShotAlt" loading="lazy" width="1200" height="750" />
+            </figure>
+            <h3 class="project-card__title" data-i18n="projects.landingTitle">Montajes y Servicios García — renovation landing page</h3>
+            <p class="project-card__desc" data-i18n="projects.landingDesc">Landing page for a renovation and professional-cleaning business in Madrid: bathrooms, tiling, flooring, doors, plumbing and electrical work, plus cleaning for residences, common areas and windows. Every contact goes to WhatsApp.</p>
+            <div class="project-card__metrics">
+              <div class="project-metric">
+                <span class="project-metric__val">Web</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricType">Type</span>
+              </div>
+              <div class="project-metric">
+                <span class="project-metric__val">Landing</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricFormat">Format</span>
+              </div>
+              <div class="project-metric">
+                <span class="project-metric__val">Vanilla JS</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricStack">Stack</span>
+              </div>
+            </div>
+            <div class="project-card__tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">SEO</span><span class="tag">i18n</span></div>
+            <div class="project-card__features">
+              <h4 data-i18n="projects.featuresTitle">Key features</h4>
+              <ul>
+                <li data-i18n="projects.landingF1">Spanish/English and light/dark theme, remembered for each visitor</li>
+                <li data-i18n="projects.landingF2">Quote form that prepares the WhatsApp message with the service and location</li>
+                <li data-i18n="projects.landingF3">Scroll-reveal animations and a layout that works from mobile to desktop</li>
+                <li data-i18n="projects.landingF4">Link previews for WhatsApp and social media, plus structured data for search engines</li>
+              </ul>
+            </div>
+            <div class="project-card__footer">
+              <a href="https://montajesgarcia.vercel.app/" class="project-card__link" target="_blank" rel="noopener noreferrer">
+                <i class="ph ph-arrow-square-out"></i> <span data-i18n="projects.viewSite">View website</span>
+              </a>
+              <button type="button" class="project-card__action" data-video="project-web-landing" data-video-title="projects.landingTitle">
+                <i class="ph ph-play-circle" aria-hidden="true"></i> <span data-i18n="projects.videoBtn">Video</span>
+              </button>
+            </div>
+          </article>
+
+          <article class="project-card reveal reveal--delay-1" data-category="web backend">
+            <div class="project-card__top">
+              <span class="project-card__icon"><i class="ph ph-storefront"></i></span>
+              <span class="project-card__status" data-i18n="projects.aureaStatus">MVP complete · Launch pending</span>
+            </div>
+            <figure class="project-card__shot project-card__shot--img">
+              <img src="assets/img/projects/vella-perfumeria.webp?v=20260927d" alt="Vella Perfumería store: perfume catalog with brand, gender and price filters" data-i18n-alt="projects.aureaShotAlt" loading="lazy" width="1200" height="750" />
+            </figure>
+            <h3 class="project-card__title" data-i18n="projects.aureaTitle">Vella Perfumería — custom e-commerce</h3>
+            <p class="project-card__desc" data-i18n="projects.aureaDesc">Online store built to order for Vella Perfumería in Colombia: real catalog of 62 perfumes with brand, gender and price filters, cart, online payments and an admin panel for products, orders, inventory and customers. Private repository.</p>
+            <div class="project-card__metrics">
+              <div class="project-metric">
+                <span class="project-metric__val">Spring Boot 4</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricBackend">Backend</span>
+              </div>
+              <div class="project-metric">
+                <span class="project-metric__val">Next.js 16</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricFrontend">Frontend</span>
+              </div>
+              <div class="project-metric">
+                <span class="project-metric__val">Stripe</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricPayments">Payments</span>
+              </div>
+            </div>
+            <div class="project-card__tags"><span class="tag">Java 21</span><span class="tag">Spring Boot</span><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Tailwind CSS</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span></div>
+            <div class="project-card__features">
+              <h4 data-i18n="projects.featuresTitle">Key features</h4>
+              <ul>
+                <li data-i18n="projects.aureaF1">Catalog with search and brand, gender and price filters (faceted API)</li>
+                <li data-i18n="projects.aureaF2">Server-side cart totals; Stripe checkout with signed, idempotent webhooks</li>
+                <li data-i18n="projects.aureaF3">Admin panel with JWT and rotating refresh tokens</li>
+                <li data-i18n="projects.aureaF4">Orders, inventory, customers and sales dashboard</li>
+                <li data-i18n="projects.aureaF5">Prices in Colombian pesos, SEO, security headers and integration/E2E tests</li>
+              </ul>
+            </div>
+            <div class="project-card__footer">
+              <span class="project-card__link project-card__link--muted">
+                <i class="ph ph-lock-key"></i> <span data-i18n="projects.privateRepo">Private repository</span>
+              </span>
+            </div>
+          </article>
+
+          <article class="project-card reveal reveal--delay-2" data-category="agents backend">
+            <div class="project-card__top">
+              <span class="project-card__icon"><i class="ph ph-robot"></i></span>
+              <span class="project-card__status" data-i18n="projects.jarvisStatus">In development</span>
+            </div>
+            <h3 class="project-card__title" data-i18n="projects.jarvisTitle">JARVIS — Personal AI Assistant</h3>
+            <p class="project-card__desc" data-i18n="projects.jarvisDesc">Personal AI assistant with a live dashboard: weather, Google Calendar, AI news and job offers filtered for ML/AI and Java Backend roles in Colombia, plus multi-LLM chat. Migrating to Spring Boot microservices.</p>
+            <div class="project-card__metrics">
+              <div class="project-metric">
+                <span class="project-metric__val">FastAPI</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricBackend">Backend</span>
+              </div>
+              <div class="project-metric">
+                <span class="project-metric__val">React</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricFrontend">Frontend</span>
+              </div>
+              <div class="project-metric">
+                <span class="project-metric__val">Docker</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricDeploy">Deploy</span>
+              </div>
+            </div>
+            <div class="project-card__tags"><span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">LLMs</span><span class="tag">RAG</span><span class="tag">Redis</span><span class="tag">Docker</span></div>
+            <div class="project-card__footer">
+              <span class="project-card__link project-card__link--muted">
+                <i class="ph ph-lock-key"></i> <span data-i18n="projects.privateRepo">Private repository</span>
+              </span>
+              <button type="button" class="project-card__action" data-video="project-jarvis" data-video-title="projects.jarvisTitle">
+                <i class="ph ph-play-circle" aria-hidden="true"></i> <span data-i18n="projects.videoBtn">Video</span>
+              </button>
+            </div>
+          </article>
+
           <article class="project-card reveal" data-category="dl mlops">
             <!-- TODO(Alexa): add the article link / DOI here once it is submitted or published. -->
             <div class="project-card__top">
@@ -517,6 +635,112 @@
               </button>
               <button type="button" class="project-card__action project-card__action--accent" data-arch-explorer>
                 <i class="ph ph-tree-structure" aria-hidden="true"></i> <span data-i18n="projects.archBtn">Explore architecture</span>
+              </button>
+            </div>
+          </article>
+
+          <article class="project-card reveal reveal--delay-1" data-category="agents backend">
+            <!-- TODO(Alexa): github.com/PandoraRiot/SaberPro-RAG is public but still empty — link it once code is pushed, and confirm the exact status (projects.saberStatus). -->
+            <div class="project-card__top">
+              <span class="project-card__icon"><i class="ph ph-exam"></i></span>
+              <span class="project-card__status" data-i18n="projects.saberStatus">RAG · EdTech</span>
+            </div>
+            <h3 class="project-card__title" data-i18n="projects.saberTitle">SaberPro-RAG — Exam Prep Assistant</h3>
+            <p class="project-card__desc" data-i18n="projects.saberDesc">RAG system covering the five official modules of Colombia’s Saber Pro exam, with a learning engine on top. Documented with ADRs.</p>
+            <div class="project-card__metrics">
+              <div class="project-metric">
+                <span class="project-metric__val">RAG</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricPattern">Pattern</span>
+              </div>
+              <div class="project-metric">
+                <span class="project-metric__val">FastAPI</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricBackend">Backend</span>
+              </div>
+              <div class="project-metric">
+                <span class="project-metric__val">React</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricFrontend">Frontend</span>
+              </div>
+            </div>
+            <div class="project-card__tags"><span class="tag">FastAPI</span><span class="tag">Qdrant</span><span class="tag">Docker</span><span class="tag">sentence-transformers</span><span class="tag">Ollama / Mistral</span><span class="tag">SQLite</span><span class="tag">React</span></div>
+            <div class="project-card__features">
+              <h4 data-i18n="projects.featuresTitle">Key features</h4>
+              <ul>
+                <li data-i18n="projects.saberF1">Retrieval over the 5 official Saber Pro modules (Qdrant in Docker + sentence-transformers)</li>
+                <li data-i18n="projects.saberF2">Local LLM answers with Ollama / Mistral</li>
+                <li data-i18n="projects.saberF3">Learning engine: flashcards, quizzes and weakness detection</li>
+                <li data-i18n="projects.saberF4">Architecture decisions documented as ADRs</li>
+              </ul>
+            </div>
+            <div class="project-card__footer">
+              <span class="project-card__link project-card__link--muted">
+                <i class="ph ph-hourglass"></i> <span data-i18n="projects.repoSoon">Repository in preparation</span>
+              </span>
+              <button type="button" class="project-card__action" data-video="project-saberpro-rag" data-video-title="projects.saberTitle">
+                <i class="ph ph-play-circle" aria-hidden="true"></i> <span data-i18n="projects.videoBtn">Video</span>
+              </button>
+            </div>
+          </article>
+
+          <article class="project-card reveal reveal--delay-2" data-category="dl">
+            <div class="project-card__top">
+              <span class="project-card__icon"><i class="ph ph-image"></i></span>
+              <span class="project-card__status" data-i18n="projects.p4Status">Research</span>
+            </div>
+            <h3 class="project-card__title" data-i18n="projects.p4Title">CNN Fruit Classification</h3>
+            <p class="project-card__desc" data-i18n="projects.p4Desc">Image classification system using Convolutional Neural Networks. Multi-architecture evaluation with overfitting analysis, generalization metrics, and real-project folder structure.</p>
+            <div class="project-card__metrics">
+              <div class="project-metric">
+                <span class="project-metric__val">CNN</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricModel">Model</span>
+              </div>
+              <div class="project-metric">
+                <span class="project-metric__val">3+</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricArchitectures">Architectures</span>
+              </div>
+              <div class="project-metric">
+                <span class="project-metric__val">UdeA</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricProgram">Program</span>
+              </div>
+            </div>
+            <div class="project-card__tags"><span class="tag">CNN</span><span class="tag">Deep Learning</span><span class="tag">Computer Vision</span></div>
+            <div class="project-card__footer">
+              <a href="https://github.com/PandoraRiot/Clasificaciondefrutas.udea.novateam" class="project-card__link" target="_blank" rel="noopener noreferrer">
+                <i class="ph ph-github-logo"></i> <span data-i18n="projects.viewRepo">View repository</span>
+              </a>
+              <button type="button" class="project-card__action" data-video="project-fruits-cnn" data-video-title="projects.p4Title">
+                <i class="ph ph-play-circle" aria-hidden="true"></i> <span data-i18n="projects.videoBtn">Video</span>
+              </button>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="ml">
+            <div class="project-card__top">
+              <span class="project-card__icon"><i class="ph ph-chart-line-up"></i></span>
+              <span class="project-card__status" data-i18n="projects.p5Status">Experiment</span>
+            </div>
+            <h3 class="project-card__title" data-i18n="projects.p5Title">Classical ML Model Benchmark</h3>
+            <p class="project-card__desc" data-i18n="projects.p5Desc">Comparative evaluation of SVM, KNN, and Random Forest classifiers with rigorous metrics (AUC, precision, recall) and kernel experimentation.</p>
+            <div class="project-card__metrics">
+              <div class="project-metric">
+                <span class="project-metric__val">3</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricModels">Models</span>
+              </div>
+              <div class="project-metric">
+                <span class="project-metric__val">AUC</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricMetric">Metric</span>
+              </div>
+              <div class="project-metric">
+                <span class="project-metric__val">Sklearn</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricLibrary">Library</span>
+              </div>
+            </div>
+            <div class="project-card__tags"><span class="tag">Scikit-learn</span><span class="tag">SVM</span><span class="tag">Random Forest</span></div>
+            <div class="project-card__footer">
+              <span class="project-card__link project-card__link--muted">
+                <i class="ph ph-flask"></i> <span data-i18n="projects.p5Link">ML experiments</span>
+              </span>
+              <button type="button" class="project-card__action" data-video="project-ml-benchmark" data-video-title="projects.p5Title">
+                <i class="ph ph-play-circle" aria-hidden="true"></i> <span data-i18n="projects.videoBtn">Video</span>
               </button>
             </div>
           </article>
@@ -564,81 +788,7 @@
             </div>
           </article>
 
-          <article class="project-card reveal reveal--delay-2" data-category="agents backend">
-            <!-- TODO(Alexa): github.com/PandoraRiot/SaberPro-RAG is public but still empty — link it once code is pushed, and confirm the exact status (projects.saberStatus). -->
-            <div class="project-card__top">
-              <span class="project-card__icon"><i class="ph ph-exam"></i></span>
-              <span class="project-card__status" data-i18n="projects.saberStatus">RAG · EdTech</span>
-            </div>
-            <h3 class="project-card__title" data-i18n="projects.saberTitle">SaberPro-RAG — Exam Prep Assistant</h3>
-            <p class="project-card__desc" data-i18n="projects.saberDesc">RAG system covering the five official modules of Colombia’s Saber Pro exam, with a learning engine on top. Documented with ADRs.</p>
-            <div class="project-card__metrics">
-              <div class="project-metric">
-                <span class="project-metric__val">RAG</span>
-                <span class="project-metric__lbl" data-i18n="projects.metricPattern">Pattern</span>
-              </div>
-              <div class="project-metric">
-                <span class="project-metric__val">FastAPI</span>
-                <span class="project-metric__lbl" data-i18n="projects.metricBackend">Backend</span>
-              </div>
-              <div class="project-metric">
-                <span class="project-metric__val">React</span>
-                <span class="project-metric__lbl" data-i18n="projects.metricFrontend">Frontend</span>
-              </div>
-            </div>
-            <div class="project-card__tags"><span class="tag">FastAPI</span><span class="tag">Qdrant</span><span class="tag">Docker</span><span class="tag">sentence-transformers</span><span class="tag">Ollama / Mistral</span><span class="tag">SQLite</span><span class="tag">React</span></div>
-            <div class="project-card__features">
-              <h4 data-i18n="projects.featuresTitle">Key features</h4>
-              <ul>
-                <li data-i18n="projects.saberF1">Retrieval over the 5 official Saber Pro modules (Qdrant in Docker + sentence-transformers)</li>
-                <li data-i18n="projects.saberF2">Local LLM answers with Ollama / Mistral</li>
-                <li data-i18n="projects.saberF3">Learning engine: flashcards, quizzes and weakness detection</li>
-                <li data-i18n="projects.saberF4">Architecture decisions documented as ADRs</li>
-              </ul>
-            </div>
-            <div class="project-card__footer">
-              <span class="project-card__link project-card__link--muted">
-                <i class="ph ph-hourglass"></i> <span data-i18n="projects.repoSoon">Repository in preparation</span>
-              </span>
-              <button type="button" class="project-card__action" data-video="project-saberpro-rag" data-video-title="projects.saberTitle">
-                <i class="ph ph-play-circle" aria-hidden="true"></i> <span data-i18n="projects.videoBtn">Video</span>
-              </button>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-category="agents backend">
-            <div class="project-card__top">
-              <span class="project-card__icon"><i class="ph ph-robot"></i></span>
-              <span class="project-card__status" data-i18n="projects.jarvisStatus">In development</span>
-            </div>
-            <h3 class="project-card__title" data-i18n="projects.jarvisTitle">JARVIS — Personal AI Assistant</h3>
-            <p class="project-card__desc" data-i18n="projects.jarvisDesc">Personal AI assistant with a live dashboard: weather, Google Calendar, AI news and job offers filtered for ML/AI and Java Backend roles in Colombia, plus multi-LLM chat. Migrating to Spring Boot microservices.</p>
-            <div class="project-card__metrics">
-              <div class="project-metric">
-                <span class="project-metric__val">FastAPI</span>
-                <span class="project-metric__lbl" data-i18n="projects.metricBackend">Backend</span>
-              </div>
-              <div class="project-metric">
-                <span class="project-metric__val">React</span>
-                <span class="project-metric__lbl" data-i18n="projects.metricFrontend">Frontend</span>
-              </div>
-              <div class="project-metric">
-                <span class="project-metric__val">Docker</span>
-                <span class="project-metric__lbl" data-i18n="projects.metricDeploy">Deploy</span>
-              </div>
-            </div>
-            <div class="project-card__tags"><span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">LLMs</span><span class="tag">RAG</span><span class="tag">Redis</span><span class="tag">Docker</span></div>
-            <div class="project-card__footer">
-              <span class="project-card__link project-card__link--muted">
-                <i class="ph ph-lock-key"></i> <span data-i18n="projects.privateRepo">Private repository</span>
-              </span>
-              <button type="button" class="project-card__action" data-video="project-jarvis" data-video-title="projects.jarvisTitle">
-                <i class="ph ph-play-circle" aria-hidden="true"></i> <span data-i18n="projects.videoBtn">Video</span>
-              </button>
-            </div>
-          </article>
-
-          <article class="project-card reveal reveal--delay-1" data-category="web backend">
+          <article class="project-card reveal reveal--delay-2" data-category="web backend">
             <div class="project-card__top">
               <span class="project-card__icon"><i class="ph ph-shopping-cart"></i></span>
               <span class="project-card__status" data-i18n="projects.novaStatus">In development</span>
@@ -667,150 +817,7 @@
             </div>
           </article>
 
-          <article class="project-card reveal" data-category="web backend">
-            <div class="project-card__top">
-              <span class="project-card__icon"><i class="ph ph-storefront"></i></span>
-              <span class="project-card__status" data-i18n="projects.aureaStatus">MVP complete · Launch pending</span>
-            </div>
-            <figure class="project-card__shot project-card__shot--img">
-              <img src="assets/img/projects/vella-perfumeria.webp?v=20260927d" alt="Vella Perfumería store: perfume catalog with brand, gender and price filters" data-i18n-alt="projects.aureaShotAlt" loading="lazy" width="1200" height="750" />
-            </figure>
-            <h3 class="project-card__title" data-i18n="projects.aureaTitle">Vella Perfumería — custom e-commerce</h3>
-            <p class="project-card__desc" data-i18n="projects.aureaDesc">Online store built to order for Vella Perfumería in Colombia: real catalog of 62 perfumes with brand, gender and price filters, cart, online payments and an admin panel for products, orders, inventory and customers. Private repository.</p>
-            <div class="project-card__metrics">
-              <div class="project-metric">
-                <span class="project-metric__val">Spring Boot 4</span>
-                <span class="project-metric__lbl" data-i18n="projects.metricBackend">Backend</span>
-              </div>
-              <div class="project-metric">
-                <span class="project-metric__val">Next.js 16</span>
-                <span class="project-metric__lbl" data-i18n="projects.metricFrontend">Frontend</span>
-              </div>
-              <div class="project-metric">
-                <span class="project-metric__val">Stripe</span>
-                <span class="project-metric__lbl" data-i18n="projects.metricPayments">Payments</span>
-              </div>
-            </div>
-            <div class="project-card__tags"><span class="tag">Java 21</span><span class="tag">Spring Boot</span><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Tailwind CSS</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span></div>
-            <div class="project-card__features">
-              <h4 data-i18n="projects.featuresTitle">Key features</h4>
-              <ul>
-                <li data-i18n="projects.aureaF1">Catalog with search and brand, gender and price filters (faceted API)</li>
-                <li data-i18n="projects.aureaF2">Server-side cart totals; Stripe checkout with signed, idempotent webhooks</li>
-                <li data-i18n="projects.aureaF3">Admin panel with JWT and rotating refresh tokens</li>
-                <li data-i18n="projects.aureaF4">Orders, inventory, customers and sales dashboard</li>
-                <li data-i18n="projects.aureaF5">Prices in Colombian pesos, SEO, security headers and integration/E2E tests</li>
-              </ul>
-            </div>
-            <div class="project-card__footer">
-              <span class="project-card__link project-card__link--muted">
-                <i class="ph ph-lock-key"></i> <span data-i18n="projects.privateRepo">Private repository</span>
-              </span>
-            </div>
-          </article>
-
-          <article class="project-card reveal reveal--delay-2" data-category="web">
-            <!-- TODO(Alexa): confirm the business name, live URL, stack (metricStack + tags) and the sections listed in landingDesc. Duplicate this card for more landing pages. -->
-            <div class="project-card__top">
-              <span class="project-card__icon"><i class="ph ph-paint-roller"></i></span>
-              <span class="project-card__status" data-i18n="projects.landingStatus">Coming soon</span>
-            </div>
-            <div class="project-card__shot" aria-hidden="true">
-              <!-- TODO(Alexa): replace this placeholder with a real screenshot: <img src="assets/img/projects/landing-reformas.webp" alt="…" loading="lazy" width="1200" height="750"> -->
-              <i class="ph ph-browser"></i>
-              <span data-i18n="projects.shotPlaceholder">Screenshot pending</span>
-            </div>
-            <h3 class="project-card__title" data-i18n="projects.landingTitle">Landing page — home-renovation business</h3>
-            <p class="project-card__desc" data-i18n="projects.landingDesc">Landing page for a home-renovation business: services, work gallery and contact.</p>
-            <div class="project-card__metrics">
-              <div class="project-metric">
-                <span class="project-metric__val">Web</span>
-                <span class="project-metric__lbl" data-i18n="projects.metricType">Type</span>
-              </div>
-              <div class="project-metric">
-                <span class="project-metric__val">Landing</span>
-                <span class="project-metric__lbl" data-i18n="projects.metricFormat">Format</span>
-              </div>
-              <div class="project-metric">
-                <span class="project-metric__val">—</span>
-                <span class="project-metric__lbl" data-i18n="projects.metricStack">Stack</span>
-              </div>
-            </div>
-            <div class="project-card__footer">
-              <span class="project-card__link project-card__link--muted">
-                <i class="ph ph-image"></i> <span data-i18n="projects.shotPending">Screenshot and link coming soon</span>
-              </span>
-              <button type="button" class="project-card__action" data-video="project-web-landing" data-video-title="projects.landingTitle">
-                <i class="ph ph-play-circle" aria-hidden="true"></i> <span data-i18n="projects.videoBtn">Video</span>
-              </button>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-category="dl">
-            <div class="project-card__top">
-              <span class="project-card__icon"><i class="ph ph-image"></i></span>
-              <span class="project-card__status" data-i18n="projects.p4Status">Research</span>
-            </div>
-            <h3 class="project-card__title" data-i18n="projects.p4Title">CNN Fruit Classification</h3>
-            <p class="project-card__desc" data-i18n="projects.p4Desc">Image classification system using Convolutional Neural Networks. Multi-architecture evaluation with overfitting analysis, generalization metrics, and real-project folder structure.</p>
-            <div class="project-card__metrics">
-              <div class="project-metric">
-                <span class="project-metric__val">CNN</span>
-                <span class="project-metric__lbl" data-i18n="projects.metricModel">Model</span>
-              </div>
-              <div class="project-metric">
-                <span class="project-metric__val">3+</span>
-                <span class="project-metric__lbl" data-i18n="projects.metricArchitectures">Architectures</span>
-              </div>
-              <div class="project-metric">
-                <span class="project-metric__val">UdeA</span>
-                <span class="project-metric__lbl" data-i18n="projects.metricProgram">Program</span>
-              </div>
-            </div>
-            <div class="project-card__tags"><span class="tag">CNN</span><span class="tag">Deep Learning</span><span class="tag">Computer Vision</span></div>
-            <div class="project-card__footer">
-              <a href="https://github.com/PandoraRiot/Clasificaciondefrutas.udea.novateam" class="project-card__link" target="_blank" rel="noopener noreferrer">
-                <i class="ph ph-github-logo"></i> <span data-i18n="projects.viewRepo">View repository</span>
-              </a>
-              <button type="button" class="project-card__action" data-video="project-fruits-cnn" data-video-title="projects.p4Title">
-                <i class="ph ph-play-circle" aria-hidden="true"></i> <span data-i18n="projects.videoBtn">Video</span>
-              </button>
-            </div>
-          </article>
-
-          <article class="project-card reveal reveal--delay-1" data-category="ml">
-            <div class="project-card__top">
-              <span class="project-card__icon"><i class="ph ph-chart-line-up"></i></span>
-              <span class="project-card__status" data-i18n="projects.p5Status">Experiment</span>
-            </div>
-            <h3 class="project-card__title" data-i18n="projects.p5Title">Classical ML Model Benchmark</h3>
-            <p class="project-card__desc" data-i18n="projects.p5Desc">Comparative evaluation of SVM, KNN, and Random Forest classifiers with rigorous metrics (AUC, precision, recall) and kernel experimentation.</p>
-            <div class="project-card__metrics">
-              <div class="project-metric">
-                <span class="project-metric__val">3</span>
-                <span class="project-metric__lbl" data-i18n="projects.metricModels">Models</span>
-              </div>
-              <div class="project-metric">
-                <span class="project-metric__val">AUC</span>
-                <span class="project-metric__lbl" data-i18n="projects.metricMetric">Metric</span>
-              </div>
-              <div class="project-metric">
-                <span class="project-metric__val">Sklearn</span>
-                <span class="project-metric__lbl" data-i18n="projects.metricLibrary">Library</span>
-              </div>
-            </div>
-            <div class="project-card__tags"><span class="tag">Scikit-learn</span><span class="tag">SVM</span><span class="tag">Random Forest</span></div>
-            <div class="project-card__footer">
-              <span class="project-card__link project-card__link--muted">
-                <i class="ph ph-flask"></i> <span data-i18n="projects.p5Link">ML experiments</span>
-              </span>
-              <button type="button" class="project-card__action" data-video="project-ml-benchmark" data-video-title="projects.p5Title">
-                <i class="ph ph-play-circle" aria-hidden="true"></i> <span data-i18n="projects.videoBtn">Video</span>
-              </button>
-            </div>
-          </article>
-
-          <article class="project-card reveal reveal--delay-2" data-category="ml">
+          <article class="project-card reveal" data-category="ml">
             <div class="project-card__top">
               <span class="project-card__icon"><i class="ph ph-users-three"></i></span>
               <span class="project-card__status" data-i18n="projects.p6Status">Analytics</span>
@@ -1448,7 +1455,7 @@
     </div>
   </dialog>
 
-  <script src="i18n.js?v=20260927c"></script>
+  <script src="i18n.js?v=20260928a"></script>
   <script src="models-data.js?v=20260925c"></script>
   <script src="data/cv.js?v=20260924n"></script>
   <script src="data/videos.js?v=20260924n"></script>
