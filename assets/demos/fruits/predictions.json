@@ -1,0 +1,426 @@
+{
+  "modelo": "FRUITS-CNN3-EXP002",
+  "mlflow_run_id": "f452a1e8ce924f6bbcaca412da020921",
+  "git_commit_entrenamiento": "b36be37e73a77c23eae4648b317e931fba617622",
+  "model_sha256": "9fcc7810d40f8eee897f5c09e261ca4c0804a6f4793ad08eef24cb38dbbdb8d1",
+  "test_accuracy_run": 1.0,
+  "n_test_run": 1638,
+  "exportado": "2026-10-02T00:50:19-05:00",
+  "muestra": "2 imágenes por clase del set de prueba, semilla 7",
+  "advertencia": "Split image-level sobre fotogramas de la misma fruta girando: estas predicciones no prueban generalización a fotos nuevas. / Image-level split over frames of the same rotating fruit: these predictions do not prove generalization to new photos.",
+  "atribucion": "Imágenes: Fruits-360, Mihai Oltean (github.com/fruits-360), licencia CC BY-SA 4.0. Images: Fruits-360 by Mihai Oltean, CC BY-SA 4.0.",
+  "clases": [
+    "Apple Golden 1",
+    "Apple Red 1",
+    "Banana 1",
+    "Grape White 1",
+    "Lemon 1",
+    "Mango 1",
+    "Orange 1",
+    "Peach 1",
+    "Pear 1",
+    "Strawberry 1"
+  ],
+  "predicciones": [
+    {
+      "imagen": "img/Apple_Golden_1_r_325_100.jpg",
+      "real": "Apple Golden 1",
+      "prediccion": "Apple Golden 1",
+      "acierto": true,
+      "top3": [
+        {
+          "clase": "Apple Golden 1",
+          "probabilidad": 1.0
+        },
+        {
+          "clase": "Pear 1",
+          "probabilidad": 0.0
+        },
+        {
+          "clase": "Banana 1",
+          "probabilidad": 0.0
+        }
+      ]
+    },
+    {
+      "imagen": "img/Apple_Golden_1_138_100.jpg",
+      "real": "Apple Golden 1",
+      "prediccion": "Apple Golden 1",
+      "acierto": true,
+      "top3": [
+        {
+          "clase": "Apple Golden 1",
+          "probabilidad": 1.0
+        },
+        {
+          "clase": "Pear 1",
+          "probabilidad": 0.0
+        },
+        {
+          "clase": "Mango 1",
+          "probabilidad": 0.0
+        }
+      ]
+    },
+    {
+      "imagen": "img/Apple_Red_1_r_43_100.jpg",
+      "real": "Apple Red 1",
+      "prediccion": "Apple Red 1",
+      "acierto": true,
+      "top3": [
+        {
+          "clase": "Apple Red 1",
+          "probabilidad": 1.0
+        },
+        {
+          "clase": "Peach 1",
+          "probabilidad": 0.0
+        },
+        {
+          "clase": "Apple Golden 1",
+          "probabilidad": 0.0
+        }
+      ]
+    },
+    {
+      "imagen": "img/Apple_Red_1_37_100.jpg",
+      "real": "Apple Red 1",
+      "prediccion": "Apple Red 1",
+      "acierto": true,
+      "top3": [
+        {
+          "clase": "Apple Red 1",
+          "probabilidad": 1.0
+        },
+        {
+          "clase": "Mango 1",
+          "probabilidad": 0.0
+        },
+        {
+          "clase": "Lemon 1",
+          "probabilidad": 0.0
+        }
+      ]
+    },
+    {
+      "imagen": "img/Banana_1_159_100.jpg",
+      "real": "Banana 1",
+      "prediccion": "Banana 1",
+      "acierto": true,
+      "top3": [
+        {
+          "clase": "Banana 1",
+          "probabilidad": 1.0
+        },
+        {
+          "clase": "Lemon 1",
+          "probabilidad": 0.0
+        },
+        {
+          "clase": "Pear 1",
+          "probabilidad": 0.0
+        }
+      ]
+    },
+    {
+      "imagen": "img/Banana_1_r_39_100.jpg",
+      "real": "Banana 1",
+      "prediccion": "Banana 1",
+      "acierto": true,
+      "top3": [
+        {
+          "clase": "Banana 1",
+          "probabilidad": 1.0
+        },
+        {
+          "clase": "Strawberry 1",
+          "probabilidad": 0.0
+        },
+        {
+          "clase": "Pear 1",
+          "probabilidad": 0.0
+        }
+      ]
+    },
+    {
+      "imagen": "img/Grape_White_1_267_100.jpg",
+      "real": "Grape White 1",
+      "prediccion": "Grape White 1",
+      "acierto": true,
+      "top3": [
+        {
+          "clase": "Grape White 1",
+          "probabilidad": 1.0
+        },
+        {
+          "clase": "Lemon 1",
+          "probabilidad": 0.0
+        },
+        {
+          "clase": "Mango 1",
+          "probabilidad": 0.0
+        }
+      ]
+    },
+    {
+      "imagen": "img/Grape_White_1_r_110_100.jpg",
+      "real": "Grape White 1",
+      "prediccion": "Grape White 1",
+      "acierto": true,
+      "top3": [
+        {
+          "clase": "Grape White 1",
+          "probabilidad": 1.0
+        },
+        {
+          "clase": "Lemon 1",
+          "probabilidad": 0.0
+        },
+        {
+          "clase": "Pear 1",
+          "probabilidad": 0.0
+        }
+      ]
+    },
+    {
+      "imagen": "img/Lemon_1_r_32_100.jpg",
+      "real": "Lemon 1",
+      "prediccion": "Lemon 1",
+      "acierto": true,
+      "top3": [
+        {
+          "clase": "Lemon 1",
+          "probabilidad": 1.0
+        },
+        {
+          "clase": "Pear 1",
+          "probabilidad": 0.0
+        },
+        {
+          "clase": "Mango 1",
+          "probabilidad": 0.0
+        }
+      ]
+    },
+    {
+      "imagen": "img/Lemon_1_39_100.jpg",
+      "real": "Lemon 1",
+      "prediccion": "Lemon 1",
+      "acierto": true,
+      "top3": [
+        {
+          "clase": "Lemon 1",
+          "probabilidad": 1.0
+        },
+        {
+          "clase": "Pear 1",
+          "probabilidad": 0.0
+        },
+        {
+          "clase": "Strawberry 1",
+          "probabilidad": 0.0
+        }
+      ]
+    },
+    {
+      "imagen": "img/Mango_1_r_253_100.jpg",
+      "real": "Mango 1",
+      "prediccion": "Mango 1",
+      "acierto": true,
+      "top3": [
+        {
+          "clase": "Mango 1",
+          "probabilidad": 1.0
+        },
+        {
+          "clase": "Strawberry 1",
+          "probabilidad": 0.0
+        },
+        {
+          "clase": "Lemon 1",
+          "probabilidad": 0.0
+        }
+      ]
+    },
+    {
+      "imagen": "img/Mango_1_300_100.jpg",
+      "real": "Mango 1",
+      "prediccion": "Mango 1",
+      "acierto": true,
+      "top3": [
+        {
+          "clase": "Mango 1",
+          "probabilidad": 1.0
+        },
+        {
+          "clase": "Grape White 1",
+          "probabilidad": 0.0
+        },
+        {
+          "clase": "Lemon 1",
+          "probabilidad": 0.0
+        }
+      ]
+    },
+    {
+      "imagen": "img/Orange_1_38_100.jpg",
+      "real": "Orange 1",
+      "prediccion": "Orange 1",
+      "acierto": true,
+      "top3": [
+        {
+          "clase": "Orange 1",
+          "probabilidad": 1.0
+        },
+        {
+          "clase": "Lemon 1",
+          "probabilidad": 0.0
+        },
+        {
+          "clase": "Apple Golden 1",
+          "probabilidad": 0.0
+        }
+      ]
+    },
+    {
+      "imagen": "img/Orange_1_4_100.jpg",
+      "real": "Orange 1",
+      "prediccion": "Orange 1",
+      "acierto": true,
+      "top3": [
+        {
+          "clase": "Orange 1",
+          "probabilidad": 1.0
+        },
+        {
+          "clase": "Lemon 1",
+          "probabilidad": 0.0
+        },
+        {
+          "clase": "Apple Golden 1",
+          "probabilidad": 0.0
+        }
+      ]
+    },
+    {
+      "imagen": "img/Peach_1_r_52_100.jpg",
+      "real": "Peach 1",
+      "prediccion": "Peach 1",
+      "acierto": true,
+      "top3": [
+        {
+          "clase": "Peach 1",
+          "probabilidad": 1.0
+        },
+        {
+          "clase": "Apple Red 1",
+          "probabilidad": 0.0
+        },
+        {
+          "clase": "Mango 1",
+          "probabilidad": 0.0
+        }
+      ]
+    },
+    {
+      "imagen": "img/Peach_1_r_49_100.jpg",
+      "real": "Peach 1",
+      "prediccion": "Peach 1",
+      "acierto": true,
+      "top3": [
+        {
+          "clase": "Peach 1",
+          "probabilidad": 1.0
+        },
+        {
+          "clase": "Apple Red 1",
+          "probabilidad": 0.0
+        },
+        {
+          "clase": "Mango 1",
+          "probabilidad": 0.0
+        }
+      ]
+    },
+    {
+      "imagen": "img/Pear_1_41_100.jpg",
+      "real": "Pear 1",
+      "prediccion": "Pear 1",
+      "acierto": true,
+      "top3": [
+        {
+          "clase": "Pear 1",
+          "probabilidad": 1.0
+        },
+        {
+          "clase": "Mango 1",
+          "probabilidad": 0.0
+        },
+        {
+          "clase": "Strawberry 1",
+          "probabilidad": 0.0
+        }
+      ]
+    },
+    {
+      "imagen": "img/Pear_1_81_100.jpg",
+      "real": "Pear 1",
+      "prediccion": "Pear 1",
+      "acierto": true,
+      "top3": [
+        {
+          "clase": "Pear 1",
+          "probabilidad": 1.0
+        },
+        {
+          "clase": "Mango 1",
+          "probabilidad": 0.0
+        },
+        {
+          "clase": "Strawberry 1",
+          "probabilidad": 0.0
+        }
+      ]
+    },
+    {
+      "imagen": "img/Strawberry_1_47_100.jpg",
+      "real": "Strawberry 1",
+      "prediccion": "Strawberry 1",
+      "acierto": true,
+      "top3": [
+        {
+          "clase": "Strawberry 1",
+          "probabilidad": 1.0
+        },
+        {
+          "clase": "Peach 1",
+          "probabilidad": 0.0
+        },
+        {
+          "clase": "Banana 1",
+          "probabilidad": 0.0
+        }
+      ]
+    },
+    {
+      "imagen": "img/Strawberry_1_r_7_100.jpg",
+      "real": "Strawberry 1",
+      "prediccion": "Strawberry 1",
+      "acierto": true,
+      "top3": [
+        {
+          "clase": "Strawberry 1",
+          "probabilidad": 1.0
+        },
+        {
+          "clase": "Pear 1",
+          "probabilidad": 0.0
+        },
+        {
+          "clase": "Peach 1",
+          "probabilidad": 0.0
+        }
+      ]
+    }
+  ]
+}

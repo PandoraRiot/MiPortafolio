@@ -24,7 +24,10 @@
  *    exists, drop the file in `assets/model-covers/<slug>.jpg` (or .png/.webp)
  *    and set `cover: 'assets/model-covers/<slug>.jpg'` — the carousel switches
  *    to the real image automatically, no HTML/CSS changes needed.
- * 7. No build step needed — this file is loaded directly via <script> on both pages.
+ * 7. `demo` is optional. `{ type: 'static-predictions', src, model }` renders a
+ *    gallery of precomputed predictions from a JSON exported by the model's
+ *    repo (never a live endpoint). Anything else / null → no demo section.
+ * 8. No build step needed — this file is loaded directly via <script> on both pages.
  */
 window.MODEL_LAB = [
   {
@@ -65,7 +68,26 @@ window.MODEL_LAB = [
     },
     repo: 'https://github.com/PandoraRiot/MRI_BreastCancer_Classification',
     repoLabel: { en: 'DCE-MRI backbone experiments', es: 'Experimentos de backbones DCE-MRI' },
-    demo: null,
+    // Static demo: predictions precomputed offline from the model tracked in
+    // MLflow (no live endpoint, nothing to attack or keep online). See
+    // assets/demos/fruits/predictions.json for run id, commit and sha256.
+    demo: {
+      type: 'static-predictions',
+      src: 'assets/demos/fruits/predictions.json',
+      model: { en: 'TensorFlow/Keras CNN (3 conv blocks) · fruit benchmark', es: 'CNN TensorFlow/Keras (3 bloques convolucionales) · comparativa de frutas' },
+      labels: {
+        'Apple Golden 1': { en: 'Golden apple', es: 'Manzana amarilla' },
+        'Apple Red 1': { en: 'Red apple', es: 'Manzana roja' },
+        'Banana 1': { en: 'Banana', es: 'Banano' },
+        'Grape White 1': { en: 'White grape', es: 'Uva blanca' },
+        'Lemon 1': { en: 'Lemon', es: 'Limón' },
+        'Mango 1': { en: 'Mango', es: 'Mango' },
+        'Orange 1': { en: 'Orange', es: 'Naranja' },
+        'Peach 1': { en: 'Peach', es: 'Durazno' },
+        'Pear 1': { en: 'Pear', es: 'Pera' },
+        'Strawberry 1': { en: 'Strawberry', es: 'Fresa' },
+      },
+    },
     inference: {
       input: { en: 'Image upload (JPEG/PNG)', es: 'Carga de imagen (JPEG/PNG)' },
       output: { en: 'Class label + confidence score', es: 'Etiqueta de clase + puntaje de confianza' },

@@ -739,9 +739,63 @@ const ModelLabDetailModule = (() => {
       ${optionalSection('lab.secDataset', model.dataset ? `<p>${t(model.dataset)}</p>` : '')}
       ${optionalSection('lab.secTraining', model.training ? `<p>${t(model.training)}</p>` : '')}
       <div class="model-detail__section"><h2>${I18nModule.get('lab.secEvaluation')}</h2><div class="body">${evalBody}</div></div>
+      ${model.demo?.type === 'static-predictions' ? `<div class="model-detail__section"><h2>${I18nModule.get('lab.secDemo')}</h2><div class="body" id="labDemo"></div></div>` : ''}
       ${optionalSection('lab.secInference', inferenceBody)}
       ${model.repo ? optionalSection('lab.secSource', `<a href="${model.repo}" class="eyebrow-link" style="color:var(--color-accent-light);font-family:var(--font-mono);font-size:var(--text-sm);" target="_blank" rel="noopener noreferrer">${t(model.repoLabel) || model.repo} <i class="ph ph-arrow-up-right"></i></a>`) : ''}
     `;
+    renderDemo(model);
+  };
+
+  // Static demo (Fase 7 del AI Lab de JARVIS): the JSON comes from our own
+  // repo, but it is still rendered with textContent only — never innerHTML —
+  // and a slow/broken fetch degrades to a short notice instead of breaking
+  // the page.
+  const el = (tag, cls, text) => {
+    const node = document.createElement(tag);
+    if (cls) node.className = cls;
+    if (text != null) node.textContent = text;
+    return node;
+  };
+
+  const renderDemo = async (model) => {
+    const host = document.getElementById('labDemo');
+    if (!host || model.demo?.type !== 'static-predictions') return;
+    const base = model.demo.src.replace(/[^/]+$/, '');
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 8000);
+    try {
+      const res = await fetch(model.demo.src, { signal: controller.signal });
+      if (!res.ok) throw new Error(String(res.status));
+      const data = await res.json();
+      host.replaceChildren();
+      host.append(el('p', 'demo-note', `${t(model.demo.model)} — ${I18nModule.get('lab.demoNote')}`));
+      const label = (raw) => (model.demo.labels?.[raw] ? t(model.demo.labels[raw]) : raw);
+      const grid = el('div', 'demo-grid');
+      (data.predicciones || []).forEach((p) => {
+        const card = el('figure', `demo-card${p.acierto ? '' : ' demo-card--miss'}`);
+        const img = el('img');
+        img.src = base + p.imagen;
+        img.alt = label(p.real);
+        img.loading = 'lazy';
+        img.width = 100;
+        img.height = 100;
+        const cap = el('figcaption');
+        cap.append(
+          el('span', 'demo-card__row', `${I18nModule.get('lab.demoReal')}: ${label(p.real)}`),
+          el('span', 'demo-card__row demo-card__pred', `${I18nModule.get('lab.demoPred')}: ${label(p.prediccion)} · ${Math.round((p.top3?.[0]?.probabilidad || 0) * 100)}% ${I18nModule.get('lab.demoConfidence')}`),
+        );
+        card.append(img, cap);
+        grid.append(card);
+      });
+      host.append(grid);
+      host.append(el('p', 'metric-note', I18nModule.get('lab.demoCaveat')));
+      host.append(el('p', 'demo-trace', `${I18nModule.get('lab.demoTrace')} ${String(data.mlflow_run_id || '').slice(0, 8)} · commit ${String(data.git_commit_entrenamiento || '').slice(0, 7)} · sha256 ${String(data.model_sha256 || '').slice(0, 12)}`));
+      host.append(el('p', 'demo-trace', I18nModule.get('lab.demoAttribution')));
+    } catch {
+      host.replaceChildren(el('p', 'metric-note', I18nModule.get('lab.demoUnavailable')));
+    } finally {
+      clearTimeout(timer);
+    }
   };
 
   const init = () => {
