@@ -1181,14 +1181,21 @@ const ThesisArchModule = (() => {
  * Picks the file for the current language, falling back to the other one.
  */
 const CvModule = (() => {
-  const update = () => {
-    const btn = document.getElementById('heroCv');
-    const cv = window.PORTFOLIO_CV || {};
+  const setLink = (btn, href) => {
     if (!btn) return;
-    const lang = I18nModule.getLang();
-    const href = (cv[lang] || cv[lang === 'es' ? 'en' : 'es'] || '').trim();
     btn.hidden = !href;
     if (href) btn.setAttribute('href', href);
+  };
+  const update = () => {
+    const cv = window.PORTFOLIO_CV || {};
+    const lang = I18nModule.getLang();
+    const other = lang === 'es' ? 'en' : 'es';
+    const own = (cv[lang] || '').trim();
+    const alt = (cv[other] || '').trim();
+    // Botón principal: el CV del idioma actual (o el otro si falta).
+    // Botón secundario: la versión en el otro idioma, solo si existen ambas.
+    setLink(document.getElementById('heroCv'), own || alt);
+    setLink(document.getElementById('heroCvAlt'), own && alt ? alt : '');
   };
   const init = () => { update(); document.addEventListener('langchange', update); };
   return { init };

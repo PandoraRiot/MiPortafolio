@@ -10,6 +10,6 @@
  * invented URL.
  */
 window.PORTFOLIO_CV = {
-  en: '',
-  es: '',
+  en: 'assets/cv/CV_Erika_Alexandra_Garcia_Barrios_EN.pdf',
+  es: 'assets/cv/CV_Erika_Alexandra_Garcia_Barrios_ES.pdf',
 };

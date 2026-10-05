@@ -103,10 +103,14 @@
               <i class="ph ph-github-logo"></i>
               GitHub
             </a>
-            <!-- TODO(Alexa): Add final CV PDF — set the path in data/cv.js; this button stays hidden until then. -->
-            <a href="#" class="btn btn--ghost btn--lg" id="heroCv" hidden target="_blank" rel="noopener">
+            <!-- CV: rutas en data/cv.js; cada botón se oculta si su archivo no está configurado. -->
+            <a href="#" class="btn btn--ghost btn--lg" id="heroCv" hidden download>
               <i class="ph ph-file-arrow-down"></i>
-              <span data-i18n="hero.ctaCv">CV</span>
+              <span data-i18n="hero.ctaCv">Download résumé</span>
+            </a>
+            <a href="#" class="btn btn--ghost btn--lg" id="heroCvAlt" hidden download>
+              <i class="ph ph-translate"></i>
+              <span data-i18n="hero.ctaCvAlt">Spanish version</span>
             </a>
             <a href="#contact" class="btn btn--ghost btn--lg">
               <i class="ph ph-envelope-simple"></i>
@@ -1449,13 +1453,13 @@
     </div>
   </dialog>
 
-  <script src="i18n.js?v=20261004b"></script>
+  <script src="i18n.js?v=20261004c"></script>
   <script src="models-data.js?v=20261002a"></script>
-  <script src="data/cv.js?v=20260924n"></script>
+  <script src="data/cv.js?v=20261004a"></script>
   <script src="data/videos.js?v=20260924n"></script>
   <script src="data/diagrams.js?v=20260924n"></script>
   <script src="data/thesis-architecture.js?v=20260924n"></script>
   <script src="data/experience.js?v=20261004a"></script>
-  <script src="main.js?v=20261002a"></script>
+  <script src="main.js?v=20261004a"></script>
 </body>
 </html>
