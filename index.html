@@ -24,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
   <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js" defer></script>
-  <link rel="stylesheet" href="styles.css?v=20261002a" />
+  <link rel="stylesheet" href="styles.css?v=20261005a" />
 </head>
 <body>
 
@@ -491,6 +491,15 @@
             </figure>
             <h3 class="project-card__title" data-i18n="projects.landingTitle">Montajes y Servicios García — renovation landing page</h3>
             <p class="project-card__desc" data-i18n="projects.landingDesc">Landing page for a renovation and professional-cleaning business in Madrid: bathrooms, tiling, flooring, doors, plumbing and electrical work, plus cleaning for residences, common areas and windows. Every contact goes to WhatsApp.</p>
+            <div class="project-card__flow">
+              <span class="project-card__flow-label" data-i18n="projects.flowLabel">How it works</span>
+              <ol class="project-card__flow-steps">
+                <li><span data-i18n="projects.landingFlow1">The visitor picks a service</span></li>
+                <li><span data-i18n="projects.landingFlow2">Quote form with service and location</span></li>
+                <li><span data-i18n="projects.landingFlow3">Message ready to send on WhatsApp</span></li>
+                <li><span data-i18n="projects.landingFlow4">Direct follow-up from the business</span></li>
+              </ol>
+            </div>
             <div class="project-card__metrics">
               <div class="project-metric">
                 <span class="project-metric__val">Web</span>
@@ -535,6 +544,15 @@
             </figure>
             <h3 class="project-card__title" data-i18n="projects.aureaTitle">Vella Perfumería — custom e-commerce</h3>
             <p class="project-card__desc" data-i18n="projects.aureaDesc">Online store built to order for Vella Perfumería in Colombia: real catalog of 62 perfumes with brand, gender and price filters, cart, online payments and an admin panel for products, orders, inventory and customers. Private repository.</p>
+            <div class="project-card__flow">
+              <span class="project-card__flow-label" data-i18n="projects.flowLabel">How it works</span>
+              <ol class="project-card__flow-steps">
+                <li><span data-i18n="projects.aureaFlow1">Catalog with search and filters by brand, gender and price</span></li>
+                <li><span data-i18n="projects.aureaFlow2">Cart with totals calculated on the server</span></li>
+                <li><span data-i18n="projects.aureaFlow3">Online payment with Stripe and signed webhooks</span></li>
+                <li><span data-i18n="projects.aureaFlow4">Admin panel: orders, inventory and customers</span></li>
+              </ol>
+            </div>
             <div class="project-card__metrics">
               <div class="project-metric">
                 <span class="project-metric__val">Spring Boot 4</span>
@@ -577,6 +595,15 @@
             </figure>
             <h3 class="project-card__title" data-i18n="projects.jarvisTitle">JARVIS — Personal AI Assistant</h3>
             <p class="project-card__desc" data-i18n="projects.jarvisDesc">Personal AI assistant with a live dashboard: weather, Google Calendar, AI news and job offers filtered for ML/AI and Java Backend roles in Colombia, plus multi-LLM chat. Migrating to Spring Boot microservices.</p>
+            <div class="project-card__flow">
+              <span class="project-card__flow-label" data-i18n="projects.flowLabel">How it works</span>
+              <ol class="project-card__flow-steps">
+                <li><span data-i18n="projects.jarvisFlow1">React dashboard</span></li>
+                <li><span data-i18n="projects.jarvisFlow2">FastAPI backend</span></li>
+                <li><span data-i18n="projects.jarvisFlow3">Agents and LLMs with automatic fallback</span></li>
+                <li><span data-i18n="projects.jarvisFlow4">Pinecone memory and observability</span></li>
+              </ol>
+            </div>
             <div class="project-card__metrics">
               <div class="project-metric">
                 <span class="project-metric__val">FastAPI</span>
@@ -592,6 +619,16 @@
               </div>
             </div>
             <div class="project-card__tags"><span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">LLMs</span><span class="tag">RAG</span><span class="tag">Redis</span><span class="tag">Docker</span></div>
+            <div class="project-card__features">
+              <h4 data-i18n="projects.featuresTitle">Key features</h4>
+              <ul>
+                <li data-i18n="projects.jarvisFeat1">Chat with several LLMs and automatic fallback (Claude, Groq, Ollama)</li>
+                <li data-i18n="projects.jarvisFeat2">Orchestrator with 4 specialized agents and human approval</li>
+                <li data-i18n="projects.jarvisFeat3">RAG on Pinecone validated with its own evaluation set</li>
+                <li data-i18n="projects.jarvisFeat4">Career Ops: job postings scored against the CV</li>
+                <li data-i18n="projects.jarvisFeat5">Observability with Prometheus, Grafana, Loki and Jaeger</li>
+              </ul>
+            </div>
             <div class="project-card__footer">
               <span class="project-card__link project-card__link--muted">
                 <i class="ph ph-lock-key"></i> <span data-i18n="projects.privateRepo">Private repository</span>
@@ -610,6 +647,15 @@
             </div>
             <h3 class="project-card__title" data-i18n="projects.thesisTitle">Breast Cancer DCE-MRI Classification System</h3>
             <p class="project-card__desc" data-i18n="projects.thesisDesc">Deep learning for benign vs. malignant breast-lesion classification on DCE-MRI. Approved in Sep 2026; now being turned into a scientific article.</p>
+            <div class="project-card__flow">
+              <span class="project-card__flow-label" data-i18n="projects.flowLabel">How it works</span>
+              <ol class="project-card__flow-steps">
+                <li><span data-i18n="projects.thesisFlow1">DCE-MRI sequences: pre-contrast, early and late phases</span></li>
+                <li><span data-i18n="projects.thesisFlow2">Lesion crops (ROI) per phase</span></li>
+                <li><span data-i18n="projects.thesisFlow3">ResNet50, EfficientNet-B3 and MobileViT-S with K-Fold cross-validation</span></li>
+                <li><span data-i18n="projects.thesisFlow4">Patient-level evaluation and Grad-CAM · AUC 0.951</span></li>
+              </ol>
+            </div>
             <div class="project-card__metrics">
               <div class="project-metric">
                 <span class="project-metric__val">3</span>
@@ -654,6 +700,15 @@
             </div>
             <h3 class="project-card__title" data-i18n="projects.saberTitle">SaberPro-RAG — Exam Prep Assistant</h3>
             <p class="project-card__desc" data-i18n="projects.saberDesc">RAG system covering the five official modules of Colombia’s Saber Pro exam, with a learning engine on top. Documented with ADRs.</p>
+            <div class="project-card__flow">
+              <span class="project-card__flow-label" data-i18n="projects.flowLabel">How it works</span>
+              <ol class="project-card__flow-steps">
+                <li><span data-i18n="projects.saberFlow1">Official material for the 5 Saber Pro modules</span></li>
+                <li><span data-i18n="projects.saberFlow2">Chunks with embeddings (sentence-transformers) in Qdrant</span></li>
+                <li><span data-i18n="projects.saberFlow3">Answers with a local LLM (Ollama / Mistral)</span></li>
+                <li><span data-i18n="projects.saberFlow4">Flashcards, quizzes and weakness detection</span></li>
+              </ol>
+            </div>
             <div class="project-card__metrics">
               <div class="project-metric">
                 <span class="project-metric__val">RAG</span>
@@ -695,6 +750,15 @@
             </div>
             <h3 class="project-card__title" data-i18n="projects.p4Title">CNN Fruit Classification</h3>
             <p class="project-card__desc" data-i18n="projects.p4Desc">Image classification system using Convolutional Neural Networks. Multi-architecture evaluation with overfitting analysis, generalization metrics, and real-project folder structure.</p>
+            <div class="project-card__flow">
+              <span class="project-card__flow-label" data-i18n="projects.flowLabel">How it works</span>
+              <ol class="project-card__flow-steps">
+                <li><span data-i18n="projects.p4Flow1">Fruit images · AI Diploma benchmark (UdeA)</span></li>
+                <li><span data-i18n="projects.p4Flow2">TensorFlow/Keras CNNs with several architectures</span></li>
+                <li><span data-i18n="projects.p4Flow3">Training curves and overfitting analysis</span></li>
+                <li><span data-i18n="projects.p4Flow4">MLflow tracking and a demo in the lab</span></li>
+              </ol>
+            </div>
             <div class="project-card__metrics">
               <div class="project-metric">
                 <span class="project-metric__val">CNN</span>
@@ -710,6 +774,15 @@
               </div>
             </div>
             <div class="project-card__tags"><span class="tag">CNN</span><span class="tag">Deep Learning</span><span class="tag">Computer Vision</span></div>
+            <div class="project-card__features">
+              <h4 data-i18n="projects.featuresTitle">Key features</h4>
+              <ul>
+                <li data-i18n="projects.p4Feat1">TensorFlow/Keras CNN with 3 convolutional blocks</li>
+                <li data-i18n="projects.p4Feat2">Comparison of several architectures</li>
+                <li data-i18n="projects.p4Feat3">Overfitting analysis with training curves</li>
+                <li data-i18n="projects.p4Feat4">Predictions exported from MLflow to a static demo</li>
+              </ul>
+            </div>
             <div class="project-card__footer">
               <a href="https://github.com/PandoraRiot/Clasificaciondefrutas.udea.novateam" class="project-card__link" target="_blank" rel="noopener noreferrer">
                 <i class="ph ph-github-logo"></i> <span data-i18n="projects.viewRepo">View repository</span>
@@ -727,6 +800,15 @@
             </div>
             <h3 class="project-card__title" data-i18n="projects.p5Title">Classical ML Model Benchmark</h3>
             <p class="project-card__desc" data-i18n="projects.p5Desc">Comparative evaluation of SVM, KNN, and Random Forest classifiers with rigorous metrics (AUC, precision, recall) and kernel experimentation.</p>
+            <div class="project-card__flow">
+              <span class="project-card__flow-label" data-i18n="projects.flowLabel">How it works</span>
+              <ol class="project-card__flow-steps">
+                <li><span data-i18n="projects.p5Flow1">Data preparation and splitting</span></li>
+                <li><span data-i18n="projects.p5Flow2">SVM with different kernels, KNN and Random Forest</span></li>
+                <li><span data-i18n="projects.p5Flow3">Metrics: AUC, precision and recall</span></li>
+                <li><span data-i18n="projects.p5Flow4">Model comparison and conclusions</span></li>
+              </ol>
+            </div>
             <div class="project-card__metrics">
               <div class="project-metric">
                 <span class="project-metric__val">3</span>
@@ -742,6 +824,14 @@
               </div>
             </div>
             <div class="project-card__tags"><span class="tag">Scikit-learn</span><span class="tag">SVM</span><span class="tag">Random Forest</span></div>
+            <div class="project-card__features">
+              <h4 data-i18n="projects.featuresTitle">Key features</h4>
+              <ul>
+                <li data-i18n="projects.p5Feat1">SVM, KNN and Random Forest on the same data</li>
+                <li data-i18n="projects.p5Feat2">Experiments with different SVM kernels</li>
+                <li data-i18n="projects.p5Feat3">Evaluation with AUC, precision and recall</li>
+              </ul>
+            </div>
             <div class="project-card__footer">
               <span class="project-card__link project-card__link--muted">
                 <i class="ph ph-flask"></i> <span data-i18n="projects.p5Link">ML experiments</span>
@@ -760,6 +850,15 @@
             </div>
             <h3 class="project-card__title" data-i18n="projects.umbrellaTitle">Umbrella AI — Multi-Agent LLM System</h3>
             <p class="project-card__desc" data-i18n="projects.umbrellaDesc">LLM-powered multi-agent system for the job search: analyses offers, scores ML/AI roles and prioritises opportunities automatically. Private repository — shown through description and video only.</p>
+            <div class="project-card__flow">
+              <span class="project-card__flow-label" data-i18n="projects.flowLabel">How it works</span>
+              <ol class="project-card__flow-steps">
+                <li><span data-i18n="projects.umbrellaFlow1">Job postings as input</span></li>
+                <li><span data-i18n="projects.umbrellaFlow2">LLM agents analyze each posting with RAG</span></li>
+                <li><span data-i18n="projects.umbrellaFlow3">ML/AI role scoring</span></li>
+                <li><span data-i18n="projects.umbrellaFlow4">Prioritization and Flask dashboards</span></li>
+              </ol>
+            </div>
             <div class="project-card__metrics">
               <div class="project-metric">
                 <span class="project-metric__val">LLMs</span>
@@ -802,6 +901,15 @@
             </div>
             <h3 class="project-card__title" data-i18n="projects.novaTitle">Nova E-commerce</h3>
             <p class="project-card__desc" data-i18n="projects.novaDesc">E-commerce platform designed as Spring Boot microservices (users, products, orders, payments) communicating over REST, with a React frontend and MySQL. Early-stage base: user roles, product catalog and cart.</p>
+            <div class="project-card__flow">
+              <span class="project-card__flow-label" data-i18n="projects.flowLabel">How it works</span>
+              <ol class="project-card__flow-steps">
+                <li><span data-i18n="projects.novaFlow1">React frontend</span></li>
+                <li><span data-i18n="projects.novaFlow2">REST API communication</span></li>
+                <li><span data-i18n="projects.novaFlow3">Spring Boot microservices: users, products, orders and payments</span></li>
+                <li><span data-i18n="projects.novaFlow4">MySQL persistence</span></li>
+              </ol>
+            </div>
             <div class="project-card__metrics">
               <div class="project-metric">
                 <span class="project-metric__val">Spring</span>
@@ -817,6 +925,15 @@
               </div>
             </div>
             <div class="project-card__tags"><span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">React</span><span class="tag">MySQL</span><span class="tag">REST APIs</span></div>
+            <div class="project-card__features">
+              <h4 data-i18n="projects.featuresTitle">Key features</h4>
+              <ul>
+                <li data-i18n="projects.novaFeat1">Users, products, orders and payments microservices</li>
+                <li data-i18n="projects.novaFeat2">User roles and product catalog</li>
+                <li data-i18n="projects.novaFeat3">Shopping cart</li>
+                <li data-i18n="projects.novaFeat4">React frontend and MySQL database</li>
+              </ul>
+            </div>
             <div class="project-card__footer">
               <a href="https://github.com/PandoraRiot/Nova_Ecommerce" class="project-card__link" target="_blank" rel="noopener noreferrer">
                 <i class="ph ph-github-logo"></i> <span data-i18n="projects.viewRepo">View repository</span>
@@ -831,6 +948,15 @@
             </div>
             <h3 class="project-card__title" data-i18n="projects.p6Title">Customer Segmentation Engine</h3>
             <p class="project-card__desc" data-i18n="projects.p6Desc">Unsupervised learning pipeline using K-Means clustering to discover customer patterns and drive data-informed business decisions.</p>
+            <div class="project-card__flow">
+              <span class="project-card__flow-label" data-i18n="projects.flowLabel">How it works</span>
+              <ol class="project-card__flow-steps">
+                <li><span data-i18n="projects.p6Flow1">Customer data</span></li>
+                <li><span data-i18n="projects.p6Flow2">Feature preparation</span></li>
+                <li><span data-i18n="projects.p6Flow3">Unsupervised clustering with K-Means</span></li>
+                <li><span data-i18n="projects.p6Flow4">Customer profiles for data-driven decisions</span></li>
+              </ol>
+            </div>
             <div class="project-card__metrics">
               <div class="project-metric">
                 <span class="project-metric__val">K-Means</span>
@@ -846,6 +972,14 @@
               </div>
             </div>
             <div class="project-card__tags"><span class="tag">K-Means</span><span class="tag">Clustering</span><span class="tag">Data Science</span></div>
+            <div class="project-card__features">
+              <h4 data-i18n="projects.featuresTitle">Key features</h4>
+              <ul>
+                <li data-i18n="projects.p6Feat1">Unsupervised clustering with K-Means</li>
+                <li data-i18n="projects.p6Feat2">Customer pattern identification</li>
+                <li data-i18n="projects.p6Feat3">Groundwork for data-driven decisions</li>
+              </ul>
+            </div>
             <div class="project-card__footer">
               <span class="project-card__link project-card__link--muted">
                 <i class="ph ph-chart-donut"></i> <span data-i18n="projects.p6Link">Data analysis</span>
@@ -1459,7 +1593,7 @@
     </div>
   </dialog>
 
-  <script src="i18n.js?v=20261004d"></script>
+  <script src="i18n.js?v=20261005a"></script>
   <script src="models-data.js?v=20261002a"></script>
   <script src="data/cv.js?v=20261004b"></script>
   <script src="data/videos.js?v=20260924n"></script>
