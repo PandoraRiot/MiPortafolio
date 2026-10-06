@@ -639,6 +639,114 @@
             </div>
           </article>
 
+          <article class="project-card reveal" data-category="agents backend">
+            <div class="project-card__top">
+              <span class="project-card__icon"><i class="ph ph-flask"></i></span>
+              <span class="project-card__status" data-i18n="projects.jresearchStatus">JARVIS module · Active</span>
+            </div>
+            <figure class="project-card__shot project-card__shot--img">
+              <img src="assets/img/projects/jarvis-research.webp?v=20261006a" alt="JARVIS Research Intelligence: library of 282 scientific articles on breast cancer and DCE-MRI, with weekly monitoring and its own Pinecone index" data-i18n-alt="projects.jresearchShotAlt" loading="lazy" width="1200" height="617" />
+            </figure>
+            <h3 class="project-card__title" data-i18n="projects.jresearchTitle">JARVIS — Research Intelligence</h3>
+            <p class="project-card__desc" data-i18n="projects.jresearchDesc">Scientific-literature monitoring module inside JARVIS, built for my breast-cancer DCE-MRI thesis: its own Pinecone index — separate from JARVIS's general memory —, weekly scans across 4 real sources, relevance scoring and citation-hallucination checks.</p>
+            <div class="project-card__flow">
+              <span class="project-card__flow-label" data-i18n="projects.flowLabel">How it works</span>
+              <ol class="project-card__flow-steps">
+                <li><span data-i18n="projects.jresearchFlow1">Weekly scan: PubMed, Europe PMC, IEEE Xplore, ScienceDirect</span></li>
+                <li><span data-i18n="projects.jresearchFlow2">Classification and relevance scoring against the thesis</span></li>
+                <li><span data-i18n="projects.jresearchFlow3">Dedicated Pinecone index, separate from JARVIS's general memory</span></li>
+                <li><span data-i18n="projects.jresearchFlow4">Chat with citations, exact DOI lookup and hallucination checks</span></li>
+              </ol>
+            </div>
+            <div class="project-card__metrics">
+              <div class="project-metric">
+                <span class="project-metric__val">4</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricSources">Sources</span>
+              </div>
+              <div class="project-metric">
+                <span class="project-metric__val">Pinecone</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricIndex">Own index</span>
+              </div>
+              <div class="project-metric">
+                <span class="project-metric__val">React</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricFrontend">Frontend</span>
+              </div>
+            </div>
+            <div class="project-card__tags"><span class="tag">FastAPI</span><span class="tag">Pinecone</span><span class="tag">React</span><span class="tag">RAG</span><span class="tag">PubMed</span><span class="tag">Europe PMC</span></div>
+            <div class="project-card__features">
+              <h4 data-i18n="projects.featuresTitle">Key features</h4>
+              <ul>
+                <li data-i18n="projects.jresearchFeat1">Weekly automatic scan across 4 real academic sources (PubMed, Europe PMC, IEEE Xplore, ScienceDirect)</li>
+                <li data-i18n="projects.jresearchFeat2">Own Pinecone index, fully separate from JARVIS's general memory</li>
+                <li data-i18n="projects.jresearchFeat3">Citation verification to catch hallucinated DOIs or references</li>
+                <li data-i18n="projects.jresearchFeat4">On-demand deep-dive per article: methodology, dataset, metrics, limitations, reproducibility</li>
+                <li data-i18n="projects.jresearchFeat5">Its own galaxy in the 3D Knowledge Universe (UMAP)</li>
+              </ul>
+            </div>
+            <div class="project-card__footer">
+              <span class="project-card__link project-card__link--muted">
+                <i class="ph ph-lock-key"></i> <span data-i18n="projects.privateRepo">Private repository</span>
+              </span>
+              <button type="button" class="project-card__action" data-video="project-jarvis-research" data-video-title="projects.jresearchTitle">
+                <i class="ph ph-play-circle" aria-hidden="true"></i> <span data-i18n="projects.videoBtn">Video</span>
+              </button>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="agents backend">
+            <div class="project-card__top">
+              <span class="project-card__icon"><i class="ph ph-target"></i></span>
+              <span class="project-card__status" data-i18n="projects.jinterviewStatus">JARVIS module · Active</span>
+            </div>
+            <figure class="project-card__shot project-card__shot--img">
+              <img src="assets/img/projects/jarvis-interview.webp?v=20261006a" alt="JARVIS Interview Prep: daily STAR practice, streak tracking and recruiter-perspective feedback" data-i18n-alt="projects.jinterviewShotAlt" loading="lazy" width="1200" height="617" />
+            </figure>
+            <h3 class="project-card__title" data-i18n="projects.jinterviewTitle">JARVIS — AI Interview &amp; Saber Pro Coach</h3>
+            <p class="project-card__desc" data-i18n="projects.jinterviewDesc">Interview-prep module inside JARVIS: spaced-repetition question bank for 9 roles, deterministic mock interviews, and recruiter-perspective feedback plus STAR coaching after every answer. The same engine also powers a 68-question ICFES Saber Pro practice track, used locally only.</p>
+            <div class="project-card__flow">
+              <span class="project-card__flow-label" data-i18n="projects.flowLabel">How it works</span>
+              <ol class="project-card__flow-steps">
+                <li><span data-i18n="projects.jinterviewFlow1">Role-specific question bank with spaced repetition (FSRS)</span></li>
+                <li><span data-i18n="projects.jinterviewFlow2">Deterministic mock-interview sessions, not left to the LLM's memory</span></li>
+                <li><span data-i18n="projects.jinterviewFlow3">Grading: exact match for multiple choice, LLM-as-judge or keyword estimate for open answers</span></li>
+                <li><span data-i18n="projects.jinterviewFlow4">Recruiter-lens feedback and STAR coaching after every answer</span></li>
+              </ol>
+            </div>
+            <div class="project-card__metrics">
+              <div class="project-metric">
+                <span class="project-metric__val">9</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricRoles">Roles</span>
+              </div>
+              <div class="project-metric">
+                <span class="project-metric__val">FSRS</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricAlgorithm">Algorithm</span>
+              </div>
+              <div class="project-metric">
+                <span class="project-metric__val">124</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricQuestions">Questions</span>
+              </div>
+            </div>
+            <div class="project-card__tags"><span class="tag">FastAPI</span><span class="tag">FSRS</span><span class="tag">Pinecone</span><span class="tag">LLM-as-judge</span><span class="tag">Spaced Repetition</span></div>
+            <div class="project-card__features">
+              <h4 data-i18n="projects.featuresTitle">Key features</h4>
+              <ul>
+                <li data-i18n="projects.jinterviewFeat1">FSRS spaced repetition across 9 roles and 124 real, sourced questions</li>
+                <li data-i18n="projects.jinterviewFeat2">Mock-interview sessions tracked server-side — not dependent on the LLM "remembering" the conversation</li>
+                <li data-i18n="projects.jinterviewFeat3">Feedback from a recruiter's perspective plus concrete STAR coaching after every answer, not just at the end</li>
+                <li data-i18n="projects.jinterviewFeat4">Grading combines exact match, LLM-as-judge and keyword estimation as a fallback</li>
+                <li data-i18n="projects.jinterviewFeat5">Shares its engine with a 68-question ICFES Saber Pro practice track (local use only)</li>
+              </ul>
+            </div>
+            <div class="project-card__footer">
+              <span class="project-card__link project-card__link--muted">
+                <i class="ph ph-lock-key"></i> <span data-i18n="projects.privateRepo">Private repository</span>
+              </span>
+              <button type="button" class="project-card__action" data-video="project-jarvis-interview" data-video-title="projects.jinterviewTitle">
+                <i class="ph ph-play-circle" aria-hidden="true"></i> <span data-i18n="projects.videoBtn">Video</span>
+              </button>
+            </div>
+          </article>
+
           <article class="project-card reveal" data-category="dl mlops">
             <!-- TODO(Alexa): add the article link / DOI here once it is submitted or published. -->
             <div class="project-card__top">
@@ -1593,10 +1701,10 @@
     </div>
   </dialog>
 
-  <script src="i18n.js?v=20261005a"></script>
+  <script src="i18n.js?v=20261006b"></script>
   <script src="models-data.js?v=20261002a"></script>
   <script src="data/cv.js?v=20261004b"></script>
-  <script src="data/videos.js?v=20261006a"></script>
+  <script src="data/videos.js?v=20261006b"></script>
   <script src="data/diagrams.js?v=20260924n"></script>
   <script src="data/thesis-architecture.js?v=20260924n"></script>
   <script src="data/experience.js?v=20261004a"></script>
