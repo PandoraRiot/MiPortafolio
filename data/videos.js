@@ -45,7 +45,7 @@ window.PORTFOLIO_VIDEOS = {
   'project-thesis': '',
   'project-umbrella': [],          // short clips — list of links
   'project-saberpro-rag': '',
-  'project-jarvis': '',
+  'project-jarvis': 'https://youtu.be/cs8TNlZN_HM',
   'project-fruits-cnn': '',
   'project-ml-benchmark': '',
   'project-segmentation': '',
