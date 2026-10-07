@@ -1177,6 +1177,56 @@ const ThesisArchModule = (() => {
 })();
 
 /**
+ * Project detail (2026-10-06) — the carousel card only shows photo, name,
+ * status and a short description (see ".projects-carousel .project-card__*"
+ * in styles.css); "View details" opens everything else (how it works,
+ * metrics, tags, features, repo/video links) in the shared modal.
+ *
+ * No separate data source: the detail is a clone of the SAME card the
+ * compact view already renders, just outside `.projects-carousel` so the
+ * compact-only CSS rules don't apply. Re-cloning fresh on every render()
+ * call (MediaModalModule re-renders on language change) means it always
+ * shows the card's current language, with zero extra i18n wiring. Repo and
+ * video-button clicks inside the clone keep working as-is — those are
+ * handled by delegated listeners on `document`, which also match the clone
+ * once it is in the live DOM.
+ */
+const ProjectDetailModule = (() => {
+  let sourceCard = null;
+
+  const render = (body) => {
+    if (!sourceCard) return;
+    const clone = sourceCard.cloneNode(true);
+    clone.classList.remove('reveal', 'reveal--delay-1', 'reveal--delay-2', 'is-visible', 'is-hidden');
+    const wrap = document.createElement('div');
+    wrap.className = 'project-detail';
+    wrap.appendChild(clone);
+    body.innerHTML = '';
+    body.appendChild(wrap);
+  };
+
+  const title = () => sourceCard?.querySelector('.project-card__title')?.textContent.trim() || '';
+
+  const open = (trigger, card) => {
+    sourceCard = card;
+    MediaModalModule.open({ title, trigger, wide: true, render });
+  };
+
+  const init = () => {
+    document.addEventListener('click', (e) => {
+      const trigger = e.target.closest('[data-project-detail]');
+      if (!trigger || !MediaModalModule.isReady()) return;
+      const card = trigger.closest('.project-card');
+      if (!card) return;
+      e.preventDefault();
+      open(trigger, card);
+    });
+  };
+
+  return { init };
+})();
+
+/**
  * Hero CV button — only shown when data/cv.js points to a real file.
  * Picks the file for the current language, falling back to the other one.
  */
@@ -1341,6 +1391,7 @@ document.addEventListener('DOMContentLoaded', () => {
   VideoModule.init();
   DiagramModule.init();
   ThesisArchModule.init();
+  ProjectDetailModule.init();
   PipelineModule.init();
   SmoothScrollModule.init();
   FooterYearModule.init();

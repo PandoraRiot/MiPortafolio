@@ -2521,6 +2521,52 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .projects-carousel .lab-carousel__nav { display: none; }
 }
 
+/* Compact preview (2026-10-06): the carousel card shows only photo, name,
+   status and a short description — everything else (how it works, metrics,
+   tags, features, links) only appears in the detail modal, where the card
+   is cloned un-scoped from `.projects-carousel` so none of these rules
+   apply and it renders in full. */
+.projects-carousel .project-card__flow,
+.projects-carousel .project-card__metrics,
+.projects-carousel .project-card__tags,
+.projects-carousel .project-card__features,
+.projects-carousel .project-card__footer {
+  display: none;
+}
+
+.projects-carousel .project-card { cursor: pointer; }
+
+.projects-carousel .project-card__desc {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.project-card__detail-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  align-self: flex-start;
+  margin-top: var(--space-lg);
+}
+.project-card__detail-btn i { transition: transform var(--trans-fast); }
+.project-card:hover .project-card__detail-btn i { transform: translateX(3px); }
+
+/* Full detail rendered in the shared modal (#mediaModalBody) — a clone of
+   the card, outside `.projects-carousel`, so the compact rules above don't
+   apply and every section shows. Not a carousel card: no hover lift/cursor. */
+.project-detail .project-card {
+  cursor: default;
+  border: none;
+  padding: 0;
+  background: none;
+  backdrop-filter: none;
+}
+.project-detail .project-card:hover { transform: none; box-shadow: none; }
+.project-detail .project-card__detail-btn { display: none; }
+
 /* ============================================================
    PORTFOLIO V2 — additions on top of the original design system.
    Everything below reuses the existing tokens; nothing above was
