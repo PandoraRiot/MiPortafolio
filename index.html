@@ -481,6 +481,60 @@
           <div class="lab-carousel__viewport" id="projViewport">
         <div class="projects__grid" id="projectsGrid">
 
+          <article class="project-card reveal" data-category="web dl">
+            <div class="project-card__top">
+              <span class="project-card__icon"><i class="ph ph-headphones"></i></span>
+              <span class="project-card__status project-card__status--done" data-i18n="projects.lectorStatus">Live</span>
+            </div>
+            <figure class="project-card__shot project-card__shot--img">
+              <img src="assets/img/projects/lector-pdf.webp?v=20261015a" alt="Lector de PDF reading a book aloud: the sentence being spoken is highlighted, with chapter index and playback controls" data-i18n-alt="projects.lectorShotAlt" loading="lazy" width="1200" height="750" />
+            </figure>
+            <h3 class="project-card__title" data-i18n="projects.lectorTitle">Lector de PDF — offline audiobook reader with neural voices</h3>
+            <p class="project-card__desc" data-i18n="projects.lectorDesc">Installable web app that turns PDFs, EPUBs, Word documents and even photos of book pages into an audiobook. The neural voices run on the phone itself, so documents never leave the device: no accounts, no servers and nothing to pay.</p>
+            <button type="button" class="project-card__action project-card__action--accent project-card__detail-btn" data-project-detail>
+              <span data-i18n="projects.detailBtn">View details</span> <i class="ph ph-arrow-right" aria-hidden="true"></i>
+            </button>
+            <div class="project-card__flow">
+              <span class="project-card__flow-label" data-i18n="projects.flowLabel">How it works</span>
+              <ol class="project-card__flow-steps">
+                <li><span data-i18n="projects.lectorFlow1">Add a PDF, EPUB, Word file or a photo</span></li>
+                <li><span data-i18n="projects.lectorFlow2">The text is extracted on the device (OCR for scanned pages)</span></li>
+                <li><span data-i18n="projects.lectorFlow3">A neural voice reads it, highlighting each sentence</span></li>
+                <li><span data-i18n="projects.lectorFlow4">Keep listening with the screen off</span></li>
+              </ol>
+            </div>
+            <div class="project-card__metrics">
+              <div class="project-metric">
+                <span class="project-metric__val">PWA</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricType">Type</span>
+              </div>
+              <div class="project-metric">
+                <span class="project-metric__val">WASM</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricFormat">Format</span>
+              </div>
+              <div class="project-metric">
+                <span class="project-metric__val">TypeScript</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricStack">Stack</span>
+              </div>
+            </div>
+            <div class="project-card__tags"><span class="tag">TypeScript</span><span class="tag">Preact</span><span class="tag">ONNX Runtime Web</span><span class="tag">Piper TTS</span><span class="tag">pdf.js</span><span class="tag">tesseract.js</span><span class="tag">IndexedDB</span><span class="tag">Service Worker</span><span class="tag">Playwright</span></div>
+            <div class="project-card__features">
+              <h4 data-i18n="projects.featuresTitle">Key features</h4>
+              <ul>
+                <li data-i18n="projects.lectorF1">Neural voices (Piper) running on the phone with ONNX Runtime Web, plus the device's own voices</li>
+                <li data-i18n="projects.lectorF2">Reads PDF, EPUB, Word, LibreOffice, web pages, Markdown and photos; scanned pages are recognized automatically with OCR</li>
+                <li data-i18n="projects.lectorF3">Plays with the screen off with lock-screen controls, ±30 s, speed, sleep timer and chapter index</li>
+                <li data-i18n="projects.lectorF4">Highlights, reading history, MP3 audio export, pronunciation dictionary and backup</li>
+                <li data-i18n="projects.lectorF5">Compatibility tested on Chrome 111, 121, 133 and 156 and on Safari, with 212 unit tests and 21 end-to-end tests</li>
+              </ul>
+            </div>
+            <div class="project-card__footer">
+              <a href="https://lector-pdf-pandora.vercel.app/" class="project-card__link" target="_blank" rel="noopener noreferrer">
+                <i class="ph ph-arrow-square-out"></i> <span data-i18n="projects.tryApp">Try the app</span>
+              </a>
+            </div>
+          </article>
+
           <article class="project-card reveal" data-category="web">
             <div class="project-card__top">
               <span class="project-card__icon"><i class="ph ph-paint-roller"></i></span>
@@ -1737,7 +1791,7 @@
     </div>
   </dialog>
 
-  <script src="i18n.js?v=20261006c"></script>
+  <script src="i18n.js?v=20261015a"></script>
   <script src="models-data.js?v=20261002a"></script>
   <script src="data/cv.js?v=20261004b"></script>
   <script src="data/videos.js?v=20261006b"></script>
