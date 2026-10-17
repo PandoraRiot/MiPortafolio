@@ -3820,3 +3820,106 @@ html.modal-open { overflow: hidden; }
 .project-card__flow-steps { flex-grow: 1; display: flex; flex-direction: column; }
 /* Cada paso (menos el último) crece: la línea que los une queda continua. */
 .project-card__flow-steps li:not(:last-child) { flex-grow: 1; }
+
+/* ─── PROJECT SHOWCASE (2026-10-16) ───────────────────────────
+   Swipeable gallery of phone screenshots and short videos inside a
+   project card; only visible in the detail modal (hidden in the compact
+   carousel card below). Native scroll-snap + ShowcaseModule (main.js). */
+.projects-carousel .showcase { display: none; }
+
+.showcase {
+  margin: var(--space-lg, 1.5rem) 0;
+  padding: var(--space-md, 1rem);
+  border-radius: 20px;
+  background: radial-gradient(120% 140% at 10% 0%, rgba(99, 102, 241, 0.16), transparent 60%),
+    radial-gradient(120% 140% at 90% 100%, rgba(236, 72, 153, 0.12), transparent 55%),
+    rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--color-border-hover);
+}
+[data-theme="light"] .showcase { background: linear-gradient(135deg, #eef2ff, #fdf2f8); }
+.showcase__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+.showcase__title { margin: 0; font-size: 1.1rem; }
+.showcase__hint { margin: 0.15rem 0 0; font-size: 0.85rem; color: var(--color-text-muted); }
+.showcase__nav { display: flex; align-items: center; gap: 0.5rem; }
+.showcase__count { min-width: 3.5rem; text-align: center; font-variant-numeric: tabular-nums; color: var(--color-text-muted); font-size: 0.9rem; }
+.showcase__btn {
+  width: 44px; height: 44px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--color-border-hover);
+  background: var(--color-accent-dim);
+  color: var(--color-text);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.showcase__btn:hover:not([disabled]) { background: var(--color-accent); transform: translateY(-1px); }
+.showcase__btn[disabled] { opacity: 0.35; cursor: default; }
+.showcase__track {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 0 1rem;
+  padding: 0.5rem 0.25rem 1rem;
+  scrollbar-width: thin;
+  overscroll-behavior-x: contain;
+}
+.showcase__track:focus-visible { outline: 2px solid var(--color-accent-light); outline-offset: 4px; border-radius: 12px; }
+.showcase__slide {
+  flex: 0 0 min(250px, 72%);
+  margin: 0;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.showcase__media {
+  position: relative;
+  aspect-ratio: 9 / 18.3;
+  border-radius: 26px;
+  overflow: hidden;
+  background: #000;
+  border: 3px solid #26262b;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+.showcase__media img,
+.showcase__media video { width: 100%; height: 100%; object-fit: contain; display: block; background: #000; }
+.showcase__badge {
+  position: absolute; top: 10px; left: 10px; z-index: 1;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(236, 72, 153, 0.9);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+}
+.showcase__slide figcaption { display: flex; flex-direction: column; gap: 0.25rem; }
+.showcase__slide figcaption strong { font-size: 0.98rem; color: var(--color-text); }
+.showcase__slide figcaption span { font-size: 0.88rem; line-height: 1.45; color: var(--color-text-muted); }
+[data-theme="light"] .showcase__slide figcaption strong { color: #0f172a; }
+@media (prefers-reduced-motion: reduce) { .showcase__btn { transition: none; } }
+
+/* Marketing intro above the showcase */
+.lector-pitch {
+  margin: 0.5rem 0 0;
+  padding: 0.9rem 1rem;
+  border-left: 3px solid #ec4899;
+  border-radius: 10px;
+  background: rgba(236, 72, 153, 0.08);
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+.projects-carousel .lector-pitch { display: none; }
+.lector-pitch strong { color: #f472b6; }
+[data-theme="light"] .lector-pitch strong { color: #be185d; }

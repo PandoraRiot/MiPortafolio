@@ -1227,6 +1227,88 @@ const ProjectDetailModule = (() => {
 })();
 
 /**
+ * Project showcase (2026-10-16) — swipeable gallery of screenshots and short
+ * videos inside a project card (shown in the detail modal). Native scroll-snap
+ * does the swiping; arrows/keys move one slide; the counter follows the scroll;
+ * playing a video pauses the others. All delegated, so it also works on the
+ * card clone that ProjectDetailModule puts in the modal.
+ */
+const ShowcaseModule = (() => {
+  const slides = (track) => [...track.querySelectorAll('.showcase__slide')];
+  // Diapositiva de referencia: la primera visible a la izquierda (en escritorio se ven varias).
+  const current = (track) => {
+    const list = slides(track);
+    if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 4) {
+      // Al final: la última que asoma entera.
+      const end = track.scrollLeft + track.clientWidth;
+      const full = list.filter((sl) => sl.offsetLeft + sl.offsetWidth <= end + 4);
+      return Math.max(0, list.indexOf(full[full.length - 1] ?? list[list.length - 1]));
+    }
+    let best = 0;
+    list.forEach((sl, i) => {
+      if (Math.abs(sl.offsetLeft - track.scrollLeft) < Math.abs(list[best].offsetLeft - track.scrollLeft)) best = i;
+    });
+    return best;
+  };
+  const update = (root) => {
+    const track = root.querySelector('.showcase__track');
+    const count = root.querySelector('.showcase__count');
+    if (!track || !count) return;
+    const i = current(track), n = slides(track).length;
+    const text = `${i + 1} / ${n}`;
+    if (count.textContent !== text) count.textContent = text;
+    root.querySelector('[data-showcase-prev]')?.toggleAttribute('disabled', i === 0);
+    root.querySelector('[data-showcase-next]')?.toggleAttribute('disabled', i === n - 1);
+  };
+  const go = (root, delta) => {
+    const track = root.querySelector('.showcase__track');
+    const list = slides(track);
+    const target = list[Math.max(0, Math.min(list.length - 1, current(track) + delta))];
+    if (target) track.scrollTo({ left: target.offsetLeft - parseFloat(getComputedStyle(track).paddingLeft || '0'), behavior: 'smooth' });
+  };
+  const init = () => {
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-showcase-prev], [data-showcase-next]');
+      if (!btn) return;
+      const root = btn.closest('[data-showcase]');
+      if (root) go(root, btn.hasAttribute('data-showcase-next') ? 1 : -1);
+    });
+    document.addEventListener('keydown', (e) => {
+      const root = e.target.closest?.('[data-showcase]');
+      if (!root || !['ArrowLeft', 'ArrowRight'].includes(e.key)) return;
+      e.preventDefault();
+      go(root, e.key === 'ArrowRight' ? 1 : -1);
+    });
+    // Scroll no burbujea: se escucha en captura.
+    let raf = 0;
+    document.addEventListener('scroll', (e) => {
+      const track = e.target instanceof Element && e.target.classList.contains('showcase__track') ? e.target : null;
+      if (!track) return;
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => update(track.closest('[data-showcase]')));
+    }, true);
+    // Un solo video a la vez.
+    document.addEventListener('play', (e) => {
+      if (!(e.target instanceof HTMLVideoElement) || !e.target.closest('[data-showcase]')) return;
+      document.querySelectorAll('[data-showcase] video').forEach((v) => { if (v !== e.target) v.pause(); });
+    }, true);
+    // Contador inicial (también en el clon del modal, que aparece después).
+    let pending = false;
+    const refresh = () => {
+      if (pending) return;
+      pending = true;
+      requestAnimationFrame(() => {
+        pending = false;
+        document.querySelectorAll('[data-showcase]').forEach(update);
+      });
+    };
+    new MutationObserver(refresh).observe(document.body, { childList: true, subtree: true });
+    refresh();
+  };
+  return { init };
+})();
+
+/**
  * Hero CV button — only shown when data/cv.js points to a real file.
  * Picks the file for the current language, falling back to the other one.
  */
@@ -1392,6 +1474,7 @@ document.addEventListener('DOMContentLoaded', () => {
   DiagramModule.init();
   ThesisArchModule.init();
   ProjectDetailModule.init();
+  ShowcaseModule.init();
   PipelineModule.init();
   SmoothScrollModule.init();
   FooterYearModule.init();
