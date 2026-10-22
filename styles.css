@@ -3923,3 +3923,41 @@ html.modal-open { overflow: hidden; }
 .projects-carousel .lector-pitch { display: none; }
 .lector-pitch strong { color: #f472b6; }
 [data-theme="light"] .lector-pitch strong { color: #be185d; }
+
+/* ─── HERO · sin foto ────────────────────────────────────────
+   The portrait was removed at the owner's request. On wide screens the
+   architecture card takes its place in the right column (layers top →
+   bottom again) so the text keeps a balanced split; below 1100px the
+   card goes back under the text. The subtitle gets a longer line. */
+.hero__container {
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "content"
+    "diagram";
+}
+.hero__subtitle { max-width: 640px; }
+@media (min-width: 901px) {
+  .hero__container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "content"
+      "diagram";
+  }
+}
+@media (min-width: 1100px) {
+  .hero__container {
+    grid-template-columns: 1.15fr 0.85fr;
+    grid-template-areas: "content diagram";
+    align-items: center;
+  }
+  .hero__content { align-self: center; padding-top: 0; }
+  .hero__diagram { width: 100%; justify-self: stretch; }
+  .hero__diagram .arch-diagram__body { flex-direction: column; padding: var(--space-xl); }
+  .hero__diagram .arch-node { flex: none; justify-content: flex-start; }
+  .hero__diagram .arch-flow {
+    width: 2px;
+    height: 20px;
+    margin-inline: auto;
+    background: linear-gradient(to bottom, var(--color-accent), var(--color-cyan));
+  }
+}
