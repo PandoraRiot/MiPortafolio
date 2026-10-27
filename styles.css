@@ -3910,6 +3910,10 @@ html.modal-open { overflow: hidden; }
 [data-theme="light"] .showcase__slide figcaption strong { color: #0f172a; }
 @media (prefers-reduced-motion: reduce) { .showcase__btn { transition: none; } }
 
+/* Capturas de escritorio en el carrusel (p. ej. tiendas web): más anchas y en 16:10. */
+.showcase__slide--wide { flex-basis: min(460px, 88%); }
+.showcase__slide--wide .showcase__media { aspect-ratio: 16 / 10; border-radius: 12px; }
+
 /* Marketing intro above the showcase */
 .lector-pitch {
   margin: 0.5rem 0 0;
