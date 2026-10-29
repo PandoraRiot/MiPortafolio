@@ -64,7 +64,7 @@
   function render(lang) {
     const t = UI[lang];
     const other = lang === 'en' ? 'es' : 'en';
-    const cvFile = (l) => `../assets/cv/perfiles/CV_Erika_Alexandra_Garcia_${profile.cv}_${l.toUpperCase()}.pdf?v=20261028a`;
+    const cvFile = (l) => `../assets/cv/perfiles/CV_Erika_Alexandra_Garcia_${profile.cv}_${l.toUpperCase()}.pdf?v=20261028c`;
     document.documentElement.lang = lang;
     document.getElementById('pfLang').textContent = t.langBtn;
     document.getElementById('pfLang').setAttribute('aria-label', t.langLabel);

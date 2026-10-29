@@ -869,7 +869,7 @@
               <img src="assets/img/projects/vella/01-inicio.webp?v=20261026c" alt="Vella Perfumería store: perfume catalog with brand, gender and price filters" data-i18n-alt="projects.aureaShotAlt" loading="lazy" width="1200" height="750" />
             </figure>
             <h3 class="project-card__title" data-i18n="projects.aureaTitle">Vella Perfumería — custom e-commerce</h3>
-            <p class="project-card__desc" data-i18n="projects.aureaDesc">Online store built to order for Vella Perfumería in Colombia: real catalog of 62 perfumes with brand, gender and price filters, cart, online payments and an admin panel for products, orders, inventory and customers. Private repository.</p>
+            <p class="project-card__desc" data-i18n="projects.aureaDesc">Online store built to order for Vella Perfumería in Colombia: a catalog of 103 designer and Arabic perfumes, each with its olfactory profile and its own description, filters by gender, brand, price and notes, and advice via WhatsApp. The full store (Next.js + Spring Boot) adds cart, online payments and an admin panel for products, orders, inventory and customers. The preview is already live.</p>
             <button type="button" class="project-card__action project-card__action--accent project-card__detail-btn" data-project-detail>
               <span data-i18n="projects.detailBtn">View details</span> <i class="ph ph-arrow-right" aria-hidden="true"></i>
             </button>
@@ -1351,6 +1351,56 @@
               <button type="button" class="project-card__action" data-video="project-saberpro-rag" data-video-title="projects.saberTitle">
                 <i class="ph ph-play-circle" aria-hidden="true"></i> <span data-i18n="projects.videoBtn">Video</span>
               </button>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="dl">
+            <div class="project-card__top">
+              <span class="project-card__icon"><i class="ph ph-heartbeat"></i></span>
+              <span class="project-card__status" data-i18n="projects.wdbcStatus">Project lead · team of 5</span>
+            </div>
+            <h3 class="project-card__title" data-i18n="projects.wdbcTitle">Breast Cancer Diagnosis Support Tool (Wisconsin)</h3>
+            <p class="project-card__desc" data-i18n="projects.wdbcDesc">AI diploma project at Universidad de Antioquia that I led: 10 supervised classifiers on the Breast Cancer Wisconsin Diagnostic dataset, held to a clinical standard of recall ≥ 0.90 for malignant tumors.</p>
+            <button type="button" class="project-card__action project-card__action--accent project-card__detail-btn" data-project-detail>
+              <span data-i18n="projects.detailBtn">View details</span> <i class="ph ph-arrow-right" aria-hidden="true"></i>
+            </button>
+            <div class="project-card__flow">
+              <span class="project-card__flow-label" data-i18n="projects.flowLabel">How it works</span>
+              <ol class="project-card__flow-steps">
+                <li><span data-i18n="projects.wdbcFlow1">EDA: 6 features chosen for discriminative power and low multicollinearity</span></li>
+                <li><span data-i18n="projects.wdbcFlow2">10 models, two per team member</span></li>
+                <li><span data-i18n="projects.wdbcFlow3">Recall-first tuning: 5-fold grid search and threshold adjustment</span></li>
+                <li><span data-i18n="projects.wdbcFlow4">Shared metrics and a comparative review</span></li>
+              </ol>
+            </div>
+            <div class="project-card__metrics">
+              <div class="project-metric">
+                <span class="project-metric__val">10</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricModels">Models</span>
+              </div>
+              <div class="project-metric">
+                <span class="project-metric__val" data-i18n="projects.wdbcV2">0.95</span>
+                <span class="project-metric__lbl" data-i18n="projects.wdbcM2">Recall (test)</span>
+              </div>
+              <div class="project-metric">
+                <span class="project-metric__val" data-i18n="projects.wdbcV3">0.996</span>
+                <span class="project-metric__lbl" data-i18n="projects.wdbcM3">AUC-ROC (test)</span>
+              </div>
+            </div>
+            <div class="project-card__tags"><span class="tag">Scikit-learn</span><span class="tag">Random Forest</span><span class="tag">SVM</span><span class="tag">AWS</span><span class="tag">Docker</span></div>
+            <div class="project-card__features">
+              <h4 data-i18n="projects.featuresTitle">Key features</h4>
+              <ul>
+                <li data-i18n="projects.wdbcF1">Project lead and repository owner; author of the EDA and the comparative review</li>
+                <li data-i18n="projects.wdbcF2">My models: Random Forest and SVM with recall-optimized grid search</li>
+                <li data-i18n="projects.wdbcF3">Random Forest on 114 test cases: accuracy 0.98, recall 0.95, precision 1.00 — 2 false negatives, 0 false positives</li>
+                <li data-i18n="projects.wdbcF4">Deployed with Docker on AWS (EC2): isolated VPC network, IAM permissions and image storage on S3</li>
+              </ul>
+            </div>
+            <div class="project-card__footer">
+              <span class="project-card__link project-card__link--muted">
+                <i class="ph ph-lock-simple"></i> <span data-i18n="projects.wdbcLink">Private repository</span>
+              </span>
             </div>
           </article>
 
@@ -2009,9 +2059,9 @@
     </div>
   </dialog>
 
-  <script src="i18n.js?v=20261028a"></script>
+  <script src="i18n.js?v=20261028c"></script>
   <script src="models-data.js?v=20261002a"></script>
-  <script src="data/cv.js?v=20261028a"></script>
+  <script src="data/cv.js?v=20261028c"></script>
   <script src="data/videos.js?v=20261006b"></script>
   <script src="data/diagrams.js?v=20261028a"></script>
   <script src="data/thesis-architecture.js?v=20260924n"></script>
