@@ -10,20 +10,6 @@
  * note:   caption under the diagram (what it is / what it is not).
  */
 window.PORTFOLIO_DIAGRAMS = {
-  aws: {
-    title: { en: 'OncoClassify · AWS deployment (simplified)', es: 'OncoClassify · despliegue en AWS (simplificado)' },
-    nodes: [
-      { kind: 'data',  label: { en: 'Databricks', es: 'Databricks' }, sub: { en: 'training runs', es: 'entrenamientos' } },
-      { kind: 'store', label: { en: 'S3', es: 'S3' }, sub: { en: 'datasets · models', es: 'conjuntos de datos · modelos' } },
-      { kind: 'svc',   label: { en: 'EC2', es: 'EC2' }, sub: { en: 'app + classifier', es: 'aplicación + clasificador' } },
-      { kind: 'user',  label: { en: 'User', es: 'Usuario' }, sub: { en: 'browser', es: 'navegador' } },
-    ],
-    group: { from: 2, to: 2, label: { en: 'VPC', es: 'VPC' } },
-    note: {
-      en: 'Breast-cancer classifier (10 supervised models compared) served from EC2 inside a VPC, with S3 storage and Databricks for training orchestration. Generic view — no real resource names.',
-      es: 'Clasificador de cáncer de mama (10 modelos supervisados comparados) servido desde EC2 dentro de una VPC, con almacenamiento en S3 y Databricks para orquestar entrenamientos. Vista genérica — sin nombres reales de recursos.',
-    },
-  },
   spark: {
     title: { en: 'Batch ETL with Spark (reference pattern)', es: 'ETL por lotes con Spark (patrón de referencia)' },
     nodes: [

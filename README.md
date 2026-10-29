@@ -28,9 +28,9 @@ con base sólida en desarrollo de servidor en Java.
 
 | | |
 |---|---|
-| 🧠 **Tesis DCE-MRI · aprobada (sep 2026)** | Clasificación de lesiones mamarias con ResNet50, EfficientNet-B3 y MobileViT-S en PyTorch. Validación cruzada de 5 particiones, evaluación a nivel de paciente y Grad-CAM. **Modelo final ResNet50: AUC 0,951 · sensibilidad clínica 0,909.** |
+| 🧠 **Tesis DCE-MRI · aprobada (sep 2026)** | Clasificación de lesiones mamarias con ResNet50, EfficientNet-B3 y MobileViT-S en PyTorch. Validación cruzada de 5 particiones, evaluación a nivel de paciente y Grad-CAM. **Modelo final ResNet50 (35 pacientes de prueba): AUC-ROC 0,941 · sensibilidad 0,864.** |
 | 🔬 **Semillero CognIA** | Modelos predictivos sobre Breast Cancer Wisconsin Diagnostic con Scikit-learn. |
-| 🤖 **Sistemas con LLM** | JARVIS (asistente personal de IA), Umbrella AI (sistema multiagente) y SaberPro-RAG (asistente de estudio con RAG). |
+| 🤖 **Sistemas con LLM** | JARVIS (asistente personal de IA) y SaberPro-RAG (asistente de estudio con RAG). |
 | ☕ **Servidor en Java** | Servisoft S.A.: APIs REST y SOAP, MSSQL, Oracle y MongoDB para clientes institucionales y del sector público. |
 | 🏆 **3.er lugar · Hackatón ESUMER (dic 2024)** | Hackatón de Arquitectura en la Nube avanzada del Diplomado en Arquitectura en la Nube: infraestructura en AWS con Terraform. |
 | 🎓 **Formación** | Ingeniería de Software (egresada; grado en dic 2026), diplomados en Ciencia de Datos, Arquitectura en la Nube (avanzado) e IA, Programación Web (UPB) y Técnica en Mantenimiento de Equipos de Cómputo (SENA) — **toda mi formación ha sido becada por buen rendimiento académico** (Sapiencia, Presupuesto Participativo, Matrícula Cero y Nodo con Accenture). |

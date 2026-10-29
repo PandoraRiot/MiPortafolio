@@ -241,7 +241,7 @@ window.EXPERIENCE = {
             { en: 'Medical-image pipelines in Python and PyTorch over the PRE, EARLY and LATE DCE-MRI phases', es: 'Flujos de imágenes médicas en Python y PyTorch sobre las fases pre-contraste, temprana y tardía del DCE-MRI' },
             { en: 'ResNet50, EfficientNet-B3 and MobileViT-S compared with 5-fold cross-validation and patient-level clinical evaluation', es: 'Comparación de ResNet50, EfficientNet-B3 y MobileViT-S con validación cruzada de 5 particiones y evaluación clínica a nivel de paciente' },
             { en: 'Grad-CAM interpretability; experiment tracking with MLflow and TensorBoard', es: 'Interpretabilidad con Grad-CAM; seguimiento de experimentos con MLflow y TensorBoard' },
-            { en: 'Final ResNet50 model: AUC 0.951 and clinical recall 0.909', es: 'Modelo final ResNet50: AUC 0,951 y sensibilidad clínica 0,909' },
+            { en: 'Final ResNet50 model on 35 test patients: ROC-AUC 0.941, sensitivity 0.864 and specificity 0.846', es: 'Modelo final ResNet50 en 35 pacientes de prueba: AUC-ROC 0,941, sensibilidad 0,864 y especificidad 0,846' },
           ],
           tech: ['Python', 'PyTorch', 'OpenCV', 'ResNet50', 'EfficientNet-B3', 'MobileViT-S', 'Grad-CAM', 'MLflow', 'TensorBoard'],
           repo: 'https://github.com/PandoraRiot/MRI_BreastCancer_Classification',
@@ -262,7 +262,6 @@ window.EXPERIENCE = {
           },
           points: [
             { en: 'JARVIS — personal AI assistant: LLMs, RAG, FastAPI + React dashboard, Redis and Docker; migrating toward Spring Boot microservices', es: 'JARVIS — asistente personal de IA: LLM, RAG, panel FastAPI + React, Redis y Docker; en migración hacia microservicios Spring Boot' },
-            { en: 'Umbrella AI — multi-agent LLM system for job-offer analysis, role scoring and prioritization (RAG, Flask)', es: 'Umbrella AI — sistema multiagente con LLM para analizar ofertas, puntuar roles y priorizar oportunidades (RAG, Flask)' },
             { en: 'SaberPro-RAG — RAG learning assistant for the five Saber Pro modules (Qdrant, sentence-transformers, Ollama / Mistral)', es: 'SaberPro-RAG — asistente de aprendizaje con RAG para los cinco módulos de Saber Pro (Qdrant, sentence-transformers, Ollama / Mistral)' },
           ],
           tech: ['Python', 'FastAPI', 'React', 'Docker', 'LLMs', 'RAG', { en: 'Agents', es: 'Agentes' }, 'Redis', 'Spring Boot', { en: 'Microservices', es: 'Microservicios' }],
