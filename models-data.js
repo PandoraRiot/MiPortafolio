@@ -58,8 +58,8 @@ window.MODEL_LAB = [
       es: 'Comparativa con imágenes de frutas (Diplomado IA, UdeA + Talento Tech) para el estudio de varias arquitecturas; recortes de la región de interés (ROI) de DCE-MRI para la comparación de redes base de la tesis — ver el caso de estudio DCE-MRI para el detalle de ese conjunto de datos.',
     },
     training: {
-      en: 'Fruit classification: comparative training of 3+ CNN architectures with overfitting analysis and generalization checks. DCE-MRI: backbone candidates trained under 5-fold cross-validation on the stratified training split.',
-      es: 'Clasificación de frutas: entrenamiento comparativo de 3+ arquitecturas CNN con análisis de sobreajuste y verificación de generalización. DCE-MRI: redes base candidatas entrenadas con validación cruzada de 5 particiones sobre el subconjunto de entrenamiento estratificado.',
+      en: 'Fruit classification: comparative training of 3+ CNN architectures with overfitting analysis and generalization checks. DCE-MRI: backbone candidates trained on a stratified patient-level hold-out split (70/15/15).',
+      es: 'Clasificación de frutas: entrenamiento comparativo de 3+ arquitecturas CNN con análisis de sobreajuste y verificación de generalización. DCE-MRI: redes base candidatas entrenadas con partición hold-out estratificada por paciente (70/15/15) sobre el subconjunto de entrenamiento estratificado.',
     },
     metrics: null,
     metricsNote: {
@@ -121,8 +121,8 @@ window.MODEL_LAB = [
       es: 'Mismo conjunto de datos de ROI DCE-MRI y partición estratificada a nivel de paciente usados en toda la comparación de redes base de la tesis.',
     },
     training: {
-      en: 'Trained as one candidate within the 5-fold cross-validation architecture comparison; a best-fold checkpoint was saved for further evaluation.',
-      es: 'Entrenado como uno de los candidatos dentro de la comparación de arquitecturas con validación cruzada de 5 particiones; se guardó un punto de control de la mejor partición para evaluación posterior.',
+      en: 'Trained as one candidate within the architecture comparison on the patient-level hold-out split; the best validation checkpoint was saved for further evaluation.',
+      es: 'Entrenado como uno de los candidatos dentro de la comparación de arquitecturas con partición hold-out por paciente; se guardó el punto de control con mejor validación para evaluación posterior.',
     },
     metrics: null,
     metricsNote: {

@@ -126,6 +126,14 @@
               <i class="ph ph-translate"></i>
               <span data-i18n="hero.ctaCvAlt">Spanish version</span>
             </a>
+            <a href="assets/tesis/Tesis_Erika_Alexandra_Garcia_Barrios.pdf" class="btn btn--ghost btn--lg" download>
+              <i class="ph ph-graduation-cap"></i>
+              <span data-i18n="hero.ctaThesis">Download thesis</span>
+            </a>
+            <a href="assets/tesis/Ponencia_SIE2026_y_Anexos.pdf" class="btn btn--ghost btn--lg" download>
+              <i class="ph ph-presentation-chart"></i>
+              <span data-i18n="hero.ctaSlides">Talk slides &amp; appendices</span>
+            </a>
             <a href="#contact" class="btn btn--ghost btn--lg">
               <i class="ph ph-envelope-simple"></i>
               <span data-i18n="hero.ctaContact">Contact</span>
@@ -288,7 +296,7 @@
         <div class="about__body reveal reveal--delay-1">
           <p class="about__lead" data-i18n-html="about.p1">I’m a Software Engineer focused on Machine Learning, Deep Learning, Computer Vision and building digital solutions.</p>
           <p data-i18n-html="about.p2">My trajectory evolved from software development, backend and infrastructure to Data Science, Machine Learning, Computer Vision and AI systems. Today I combine software engineering with artificial intelligence to build reproducible solutions — from data processing and model training to evaluation, integration and deployment.</p>
-          <p data-i18n-html="about.p3">My main line of research is <strong>computer vision applied to healthcare</strong>. My thesis studies breast-lesion classification on DCE-MRI images, comparing Deep Learning architectures and using patient-level evaluation, cross-validation and interpretability techniques.</p>
+          <p data-i18n-html="about.p3">My main line of research is <strong>computer vision applied to healthcare</strong>. My thesis studies breast-lesion classification on DCE-MRI images, comparing Deep Learning architectures and using patient-level evaluation and interpretability techniques.</p>
           <p data-i18n-html="about.p4">In parallel, I build web applications, landing pages, corporate websites, APIs, automation systems and digital solutions for small and medium-sized businesses, adapting technology to the concrete needs of each business. I also build systems based on LLMs, RAG and intelligent agents.</p>
           <p data-i18n-html="about.p5">My goal is to combine software engineering, applied AI and digital product development, working both on Machine Learning and Computer Vision projects and on web and automation solutions for companies and startups.</p>
           <p class="about__focus" data-i18n="about.p6">ML Engineering · Computer Vision · AI Systems · Web Development · APIs · Automation</p>
@@ -1254,7 +1262,7 @@
               <ol class="project-card__flow-steps">
                 <li><span data-i18n="projects.thesisFlow1">DCE-MRI sequences: pre-contrast, early and late phases</span></li>
                 <li><span data-i18n="projects.thesisFlow2">Lesion crops (ROI) per phase</span></li>
-                <li><span data-i18n="projects.thesisFlow3">ResNet50, EfficientNet-B3 and MobileViT-S with K-Fold cross-validation</span></li>
+                <li><span data-i18n="projects.thesisFlow3">ResNet50, EfficientNet-B3 and MobileViT-S, patient-level hold-out split (162 / 35 / 35)</span></li>
                 <li><span data-i18n="projects.thesisFlow4">Patient-level hold-out evaluation and Grad-CAM · ROC-AUC 0.941</span></li>
               </ol>
             </div>
@@ -1277,7 +1285,7 @@
               <h4 data-i18n="projects.featuresTitle">Key features</h4>
               <ul>
                 <li data-i18n="projects.thesisF1">ResNet50, EfficientNet-B3 and MobileViT-S (hybrid CNN-Transformer) with transfer learning and two-phase fine-tuning</li>
-                <li data-i18n="projects.thesisF2">K-Fold, focal loss and patient-level clinical evaluation; Grad-CAM explainability</li>
+                <li data-i18n="projects.thesisF2">Stratified patient-level hold-out (no leakage), focal loss and isotonic calibration; Grad-CAM explainability</li>
                 <li data-i18n="projects.thesisF3">Containerized, reproducible pipeline: model + REST API + runtime in Docker</li>
               </ul>
             </div>
@@ -2059,13 +2067,13 @@
     </div>
   </dialog>
 
-  <script src="i18n.js?v=20261028c"></script>
-  <script src="models-data.js?v=20261002a"></script>
+  <script src="i18n.js?v=20261105a"></script>
+  <script src="models-data.js?v=20261105a"></script>
   <script src="data/cv.js?v=20261028c"></script>
   <script src="data/videos.js?v=20261006b"></script>
   <script src="data/diagrams.js?v=20261028a"></script>
   <script src="data/thesis-architecture.js?v=20260924n"></script>
-  <script src="data/experience.js?v=20261028a"></script>
+  <script src="data/experience.js?v=20261105a"></script>
   <script src="main.js?v=20261016b"></script>
 </body>
 </html>

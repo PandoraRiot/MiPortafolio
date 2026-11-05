@@ -18,18 +18,18 @@
         es: 'Distinguir lesiones mamarias benignas de malignas en resonancia magnética con contraste, donde no detectar un caso maligno es el error más costoso.',
       },
       solution: {
-        en: 'Compared ResNet50, EfficientNet-B3 and MobileViT-S with transfer learning and progressive fine-tuning on three contrast phases (BreastDM), focal loss, isotonic calibration and a tuned threshold. K-fold cross-validation during training and a patient-level hold-out split to avoid leakage; Grad-CAM to check that the model looks at the lesion.',
-        es: 'Comparé ResNet50, EfficientNet-B3 y MobileViT-S con transfer learning y ajuste fino progresivo sobre tres fases del contraste (BreastDM), pérdida focal, calibración isotónica y umbral ajustado. Validación cruzada K-fold durante el entrenamiento y partición hold-out a nivel de paciente para evitar fugas de información; Grad-CAM para comprobar que el modelo mira la lesión.',
+        en: 'Compared ResNet50, EfficientNet-B3 and MobileViT-S with transfer learning and progressive fine-tuning on three contrast phases (BreastDM), focal loss, isotonic calibration and a tuned threshold. Stratified patient-level hold-out split (162 / 35 / 35 patients) to avoid leakage; Grad-CAM to check that the model looks at the lesion.',
+        es: 'Comparé ResNet50, EfficientNet-B3 y MobileViT-S con transfer learning y ajuste fino progresivo sobre tres fases del contraste (BreastDM), pérdida focal, calibración isotónica y umbral ajustado. Partición hold-out estratificada por paciente (162 / 35 / 35 pacientes) para evitar fugas de información; Grad-CAM para comprobar que el modelo mira la lesión.',
       },
       results: {
         en: ['ResNet50 on 35 test patients: ROC-AUC 0.941, sensitivity 0.864 (19 of 22 malignant), specificity 0.846, F1 0.884',
           'Calibrated AUC 0.897, 95% CI [0.766, 0.992]: a small test set, so the interval is always reported',
-          'Experiments tracked with MLflow and TensorBoard; being turned into a scientific paper'],
+          'Experiments tracked with MLflow; being turned into a scientific paper'],
         es: ['ResNet50 en 35 pacientes de prueba: AUC-ROC 0,941, sensibilidad 0,864 (19 de 22 malignos), especificidad 0,846, F1 0,884',
           'AUC calibrado 0,897, IC95 % [0,766; 0,992]: el conjunto de prueba es pequeño, por eso siempre reporto el intervalo',
-          'Experimentos registrados con MLflow y TensorBoard; en conversión a artículo científico'],
+          'Experimentos registrados con MLflow; en conversión a artículo científico'],
       },
-      stack: ['PyTorch', 'timm', 'ResNet50', 'EfficientNet-B3', 'MobileViT-S', 'Grad-CAM', 'MLflow', 'TensorBoard'],
+      stack: ['PyTorch', 'timm', 'ResNet50', 'EfficientNet-B3', 'MobileViT-S', 'Grad-CAM', 'MLflow'],
       links: [{ href: '../#projects', label: { en: 'Architecture in the full portfolio', es: 'Arquitectura en el portafolio completo' } }],
     },
     jarvis: {
