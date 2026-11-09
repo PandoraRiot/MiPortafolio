@@ -226,6 +226,27 @@ window.EXPERIENCE = {
           tech: ['LLMs', 'Transformers', 'CNN', 'SVM', 'Python', 'Scikit-learn', 'Pandas', 'NumPy', 'Matplotlib', 'Seaborn'],
         },
         {
+          id: 'udea-wdbc',
+          cats: ['research', 'aiml', 'data'],
+          type: { en: 'Team project · Project lead', es: 'Proyecto en equipo · Líder del proyecto' },
+          status: { en: 'Completed', es: 'Terminado' },
+          title: { en: 'Project Lead — Breast Cancer Diagnosis from Biopsy Data', es: 'Líder del proyecto — Diagnóstico de cáncer de mama a partir de biopsias' },
+          context: { en: 'AI Diploma · Universidad de Antioquia + Talento Tech', es: 'Diplomado en IA · Universidad de Antioquia + Talento Tech' },
+          date: { en: 'Feb 2026 — Apr 2026', es: 'Feb 2026 — Abr 2026' },
+          desc: {
+            en: 'I led a five-person team end to end to build a diagnostic-support tool that classifies breast tumours as benign or malignant from fine-needle-aspiration biopsy features (Breast Cancer Wisconsin Diagnostic dataset), held to a clinical target of recall ≥ 0.90 for malignant cases.',
+            es: 'Lideré de principio a fin a un equipo de cinco personas en una herramienta de apoyo al diagnóstico que clasifica tumores mamarios benignos y malignos a partir de las características de biopsias por aspiración con aguja fina (conjunto Breast Cancer Wisconsin Diagnostic), con una meta clínica de sensibilidad ≥ 0,90 para los casos malignos.',
+          },
+          points: [
+            { en: 'Planning, task distribution (two algorithms per member), a shared experiment log with common metrics and the final comparative review', es: 'Planeación, reparto del trabajo (dos algoritmos por integrante), registro común de experimentos con las mismas métricas y la revisión comparativa final' },
+            { en: '10 algorithms and 32 training runs on the same 60/20/20 split (341 / 114 / 114 cases): Random Forest, SVM, KNN, decision trees, logistic regression, MLP, Gradient Boosting, XGBoost, AdaBoost and Naive Bayes', es: '10 algoritmos y 32 entrenamientos con la misma partición 60/20/20 (341 / 114 / 114 casos): Random Forest, SVM, KNN, árboles de decisión, regresión logística, MLP, Gradient Boosting, XGBoost, AdaBoost y Naive Bayes' },
+            { en: 'Best model of the project (my own): SVM with RBF kernel (C = 10, γ = 0.01) — on validation, recall 0.977, precision 1.00, F1 0.988, accuracy 0.991 and AUC-ROC 0.9997, with 1 false negative and 0 false positives; recall 0.952 on the test set', es: 'Mejor modelo del proyecto (mío): SVM con kernel RBF (C = 10, γ = 0,01) — en validación, sensibilidad 0,977, precisión 1,00, F1 0,988, exactitud 0,991 y AUC-ROC 0,9997, con 1 falso negativo y 0 falsos positivos; sensibilidad 0,952 en el conjunto de prueba' },
+            { en: 'Recall-first tuning with grid search, feature scaling and overfitting control from the train–validation gap', es: 'Ajuste priorizando la sensibilidad con búsqueda en rejilla, escalado de variables y control del sobreajuste según la brecha entre entrenamiento y validación' },
+          ],
+          tech: ['Python', 'Scikit-learn', 'SVM', 'Random Forest', 'XGBoost', 'Keras', 'GridSearchCV', 'Pandas', 'NumPy', 'Matplotlib'],
+          caseStudy: '#projects',
+        },
+        {
           id: 'dce-mri',
           cats: ['research', 'aiml', 'cv'],
           type: { en: 'Research · Thesis', es: 'Investigación · Tesis' },
