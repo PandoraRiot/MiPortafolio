@@ -498,12 +498,34 @@
           </button>
           <div class="lab-carousel__viewport" id="projViewport">
         <div class="projects__grid" id="projectsGrid">
+          <article class="project-card reveal" data-category="web">
+            <div class="project-card__top">
+              <span class="project-card__icon"><i class="ph ph-graduation-cap"></i></span>
+              <span class="project-card__status project-card__status--done" data-i18n="projects.academyStatus">Private (demo)</span>
+            </div>
+            <figure class="project-card__shot project-card__shot--img">
+              <img src="assets/img/projects/academy-niveles.webp" alt="Academy: English levels screen with level cards A1 to C1 and course counts" loading="lazy" width="1440" height="900">
+            </figure>
+            <h3 class="project-card__title" data-i18n="projects.academyTitle">Academy — a learning platform with schools, routes, videos and real progress</h3>
+            <p class="project-card__desc" data-i18n="projects.academyDesc">Personal learning platform built with Next.js, SQLite and a local library of about 2,700 videos.</p>
+            <div class="academy-gallery" style="display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;margin:.75rem 0">
+              <img src="assets/img/projects/academy-escuelas.webp" alt="Schools catalog" loading="lazy" style="width:100%;border-radius:10px">
+              <img src="assets/img/projects/academy-progreso.webp" alt="Progress screen" loading="lazy" style="width:100%;border-radius:10px">
+              <img src="assets/img/projects/academy-inicio.webp" alt="Home dashboard" loading="lazy" style="width:100%;border-radius:10px">
+            </div>
+            <video controls preload="none" playsinline style="width:100%;border-radius:10px" aria-label="Academy: recorrido de navegación, sin reproducir videos de las clases">
+              <source src="assets/video/academy-recorrido.mp4" type="video/mp4">
+            </video>
+          </article>
 
           <article class="project-card reveal" data-category="web dl">
             <div class="project-card__top">
               <span class="project-card__icon"><i class="ph ph-headphones"></i></span>
               <span class="project-card__status project-card__status--done" data-i18n="projects.lectorStatus">Live</span>
             </div>
+            <figure class="project-card__shot project-card__shot--img">
+              <img src="assets/img/projects/lector-inicio.webp" alt="PandoraPDF: Mis PDFs screen with the reading library and the voice setup" loading="lazy" width="1440" height="900" style="margin-bottom:.5rem">
+            </figure>
             <figure class="project-card__shot project-card__shot--img">
               <img src="assets/img/projects/lector-pdf-v2.webp?v=20261016a" alt="Four Lector de PDF screens in the AMOLED black theme: bilingual reading with the translation under the sentence being spoken, a translated sentence with words marked to save, the vocabulary with level and streak, and a practice question" data-i18n-alt="projects.lectorShotAlt" loading="lazy" width="1200" height="750" />
             </figure>
