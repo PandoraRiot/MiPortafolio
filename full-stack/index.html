@@ -27,18 +27,38 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css?v=20261028a" />
-  <link rel="stylesheet" href="../profile.css?v=20261028b" />
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js" defer></script>
+  <link rel="stylesheet" href="../styles.css?v=20261028b" />
+  <link rel="stylesheet" href="../profile.css?v=20261028d" />
 </head>
 <body data-profile="full-stack">
-  <header class="pf-bar">
-    <div class="pf-bar__inner container">
-      <a class="pf-bar__logo" href="../"><img src="../assets/img/logo-ag.webp?v=20260925d" alt="" width="32" height="32" /><span>Alexandra García</span></a>
-      <div class="pf-bar__tools">
-        <a id="pfFull" href="../">Full portfolio</a>
-        <button type="button" id="pfLang" aria-label="Cambiar a español">ES</button>
-        <button type="button" id="pfTheme" aria-label="Toggle light/dark theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg></button>
+  <div class="noise" aria-hidden="true"></div>
+  <header class="nav" id="nav">
+    <div class="nav__container container">
+      <a href="../" class="nav__logo" aria-label="Alexandra García — home">
+        <span class="nav__logo-mark"><img src="../assets/img/logo-ag.webp?v=20260925d" alt="" width="40" height="40" decoding="async"></span>
+        <span class="nav__logo-text">Alexandra García</span>
+      </a>
+      <nav class="nav__links" id="navLinks" aria-label="Main navigation">
+        <a href="#skills" class="nav__link" data-nav="skills">Skills</a>
+        <a href="#projects" class="nav__link" data-nav="projects">Projects</a>
+        <a href="#experience" class="nav__link" data-nav="experience">Experience</a>
+        <a href="../" class="nav__link" id="navFull">Full portfolio</a>
+        <a href="#contact" class="nav__cta btn btn--primary btn--sm" data-nav="contact">Contact</a>
+      </nav>
+      <div class="nav__controls">
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" class="lang-switch__btn" data-lang="es">ES</button>
+          <button type="button" class="lang-switch__btn is-active" data-lang="en">EN</button>
+        </div>
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <i class="ph ph-sun theme-toggle__icon theme-toggle__icon--light"></i>
+          <i class="ph ph-moon theme-toggle__icon theme-toggle__icon--dark"></i>
+        </button>
       </div>
+      <button class="nav__burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
   <main id="pfMain">
@@ -49,8 +69,12 @@
       <noscript><p><a class="pf-btn" href="../">Full portfolio</a></p></noscript>
     </section>
   </main>
-  <footer class="pf-footer">© 2026 Erika Alexandra García Barrios</footer>
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__copy">&copy; <span id="footerYear">2026</span> Alexandra García · <span id="footerRole">AI Systems Engineer</span></p>
+    </div>
+  </footer>
   <script src="../data/profiles.js?v=20261109a"></script>
-  <script src="../profile.js?v=20261028e"></script>
+  <script src="../profile.js?v=20261028f"></script>
 </body>
 </html>

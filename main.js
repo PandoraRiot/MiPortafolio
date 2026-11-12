@@ -285,15 +285,15 @@ const ProjectFilterModule = (() => {
 /**
  * Projects carousel — same pause/nav/dots mechanics as the Model Lab
  * carousel, applied to the existing static .project-card markup. Autoplay
- * is a slow continuous drift (not a jump every few seconds): it holds at
- * the end, rewinds to the start, and pauses on hover/focus/touch or when
+ * moves one whole card at a time (a continuous drift left cards sliced at
+ * both edges), rewinds at the end, and pauses on hover/focus/touch or when
  * the carousel is off-screen.
  * Rebuilds its dots/position whenever ProjectFilterModule changes which
  * cards are visible (listens for 'projectsfilterchange').
  */
 const ProjectCarouselModule = (() => {
   const DRIFT_PX_PER_S = 10;
-  const STEP_MS = 8000; // phones (≈1 card in view): move one whole card at a time
+  const STEP_MS = 6000; // move one whole card at a time, so cards are never cut at the edges
   let lastStep = 0;
   const END_HOLD_MS = 4000;
   const REWIND_MS = 1500;
@@ -373,8 +373,8 @@ const ProjectCarouselModule = (() => {
     const max = viewport.scrollWidth - viewport.clientWidth;
     if (max <= 0) return;
     const step = cardStep();
-    if (step && viewport.clientWidth / step < 1.5) {
-      // Continuous drift would always show a half card here — step instead.
+    if (step) {
+      // Always step by whole cards: a continuous drift stops between cards.
       viewport.classList.remove('is-drifting');
       if (!lastStep) lastStep = ts;
       if (ts - lastStep >= STEP_MS) { lastStep = ts; advance(1); }
@@ -397,7 +397,6 @@ const ProjectCarouselModule = (() => {
 
   const startAutoplay = () => {
     if (prefersReduced() || rafId) return;
-    viewport.classList.add('is-drifting');
     rafId = requestAnimationFrame(tick);
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(([entry]) => { inView = entry.isIntersecting; }, { threshold: 0.3 }).observe(viewport);

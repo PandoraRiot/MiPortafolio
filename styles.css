@@ -3976,3 +3976,36 @@ html.modal-open { overflow: hidden; }
   min-height: 36px; display: inline-flex; align-items: center;
 }
 .profiles-strip__link:hover, .profiles-strip__link:focus-visible { border-color: var(--color-accent); background: var(--color-accent-dim); }
+
+/* ── Alineación (2026-10-28): solo posiciones, el diseño no cambia ──────────
+   1. Carruseles: las flechas salen de la columna en pantallas anchas, así las
+      tarjetas empiezan en el mismo borde que el título y los filtros.
+   2. Proyectos: siempre se detiene en una tarjeta entera (snap obligatorio).
+   3. Modelos: el ancho de cada tarjeta se calcula para que quepan enteras.
+   4. Tarjetas de proyecto: etiqueta y título con alto fijo → imágenes y
+      descripciones a la misma altura en todas.
+   5. Línea de tiempo alineada con su título; menos hueco bajo los carruseles. */
+.projects-carousel .lab-carousel__viewport { scroll-snap-type: x mandatory; }
+
+@media (min-width: 1300px) {
+  .projects-carousel, .lab-carousel { position: relative; }
+  .projects-carousel > .lab-carousel__nav, .lab-carousel > .lab-carousel__nav {
+    position: absolute; top: 50%; transform: translateY(-50%); z-index: 2;
+  }
+  .projects-carousel > .lab-carousel__nav--prev, .lab-carousel > .lab-carousel__nav--prev { left: -64px; }
+  .projects-carousel > .lab-carousel__nav--next, .lab-carousel > .lab-carousel__nav--next { right: -64px; }
+}
+
+.lab-carousel .lab-carousel__viewport { container-type: inline-size; }
+.lab-carousel .lab-card { flex-basis: calc(100cqw - 0.2rem); }
+@container (min-width: 480px) { .lab-carousel .lab-card { flex-basis: calc((100cqw - 0.2rem - var(--space-lg)) / 2); } }
+@container (min-width: 760px) { .lab-carousel .lab-card { flex-basis: calc((100cqw - 0.2rem - 2 * var(--space-lg)) / 3); } }
+@container (min-width: 1040px) { .lab-carousel .lab-card { flex-basis: calc((100cqw - 0.2rem - 3 * var(--space-lg)) / 4); } }
+
+.projects-carousel .project-card__top { height: 48px; align-items: center; }
+.projects-carousel .project-card__status { line-height: 1.35; text-align: right; max-width: 78%; }
+.projects-carousel .project-card__title { min-height: 3lh; }
+
+.timeline { margin-inline: 0; max-width: 860px; }
+
+#projects.section, #lab.section { padding-bottom: var(--space-3xl); }
