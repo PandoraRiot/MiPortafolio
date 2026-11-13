@@ -504,18 +504,63 @@
               <span class="project-card__status project-card__status--done" data-i18n="projects.academyStatus">Private (demo)</span>
             </div>
             <figure class="project-card__shot project-card__shot--img">
-              <img src="assets/img/projects/academy-niveles.webp" alt="Academy: English levels screen with level cards A1 to C1 and course counts" loading="lazy" width="1440" height="900">
+              <img src="assets/img/projects/academy-niveles.webp" alt="Academy: English levels screen with level cards A1 to C1 and course counts" data-i18n-alt="projects.academyShot" loading="lazy" width="1440" height="900">
             </figure>
             <h3 class="project-card__title" data-i18n="projects.academyTitle">Academy — a learning platform with schools, routes, videos and real progress</h3>
-            <p class="project-card__desc" data-i18n="projects.academyDesc">Personal learning platform built with Next.js, SQLite and a local library of about 2,700 videos.</p>
-            <div class="academy-gallery" style="display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;margin:.75rem 0">
-              <img src="assets/img/projects/academy-escuelas.webp" alt="Schools catalog" loading="lazy" style="width:100%;border-radius:10px">
-              <img src="assets/img/projects/academy-progreso.webp" alt="Progress screen" loading="lazy" style="width:100%;border-radius:10px">
-              <img src="assets/img/projects/academy-inicio.webp" alt="Home dashboard" loading="lazy" style="width:100%;border-radius:10px">
+            <p class="project-card__desc" data-i18n="projects.academyDesc">Personal learning platform with schools, routes and a local library of about 2,700 videos, with saved progress and automatic next lesson.</p>
+            <button type="button" class="project-card__action project-card__action--accent project-card__detail-btn" data-project-detail>
+              <span data-i18n="projects.detailBtn">View details</span> <i class="ph ph-arrow-right" aria-hidden="true"></i>
+            </button>
+            <div class="project-card__metrics">
+              <div class="project-metric">
+                <span class="project-metric__val">Web</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricType">Type</span>
+              </div>
+              <div class="project-metric">
+                <span class="project-metric__val">Full Stack</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricFormat">Format</span>
+              </div>
+              <div class="project-metric">
+                <span class="project-metric__val">Next.js</span>
+                <span class="project-metric__lbl" data-i18n="projects.metricStack">Stack</span>
+              </div>
             </div>
-            <video controls preload="none" playsinline style="width:100%;border-radius:10px" aria-label="Academy: recorrido de navegación, sin reproducir videos de las clases">
-              <source src="assets/video/academy-recorrido.mp4" type="video/mp4">
-            </video>
+            <div class="project-card__tags"><span class="tag">Next.js</span><span class="tag">SQLite</span><span class="tag">Drizzle</span><span class="tag">FTS5</span><span class="tag">Auth</span></div>
+            <div class="showcase" data-showcase>
+              <div class="showcase__head">
+                <div>
+                  <h4 class="showcase__title" data-i18n="projects.showcaseTitle">See it in action</h4>
+                  <p class="showcase__hint" data-i18n="projects.academyHint">Swipe to see each screen · the recording shows navigation only, no lesson videos are played</p>
+                </div>
+                <div class="showcase__nav">
+                  <button type="button" class="showcase__btn" data-showcase-prev aria-label="Previous" data-i18n-aria="projects.showcasePrev"><i class="ph ph-caret-left" aria-hidden="true"></i></button>
+                  <span class="showcase__count" aria-live="polite">1 / 5</span>
+                  <button type="button" class="showcase__btn" data-showcase-next aria-label="Next" data-i18n-aria="projects.showcaseNext"><i class="ph ph-caret-right" aria-hidden="true"></i></button>
+                </div>
+              </div>
+              <div class="showcase__track" tabindex="0" role="region" aria-label="Academy screenshots and navigation recording" data-i18n-aria="projects.academyRegion">
+                <figure class="showcase__slide">
+                  <div class="showcase__media"><img src="assets/img/projects/academy-niveles.webp" alt="English levels" loading="lazy" width="1440" height="900" /></div>
+                  <figcaption><strong data-i18n="projects.academyS1T">English levels</strong><span data-i18n="projects.academyS1D">Five levels aligned to the MCER, each one with its own courses.</span></figcaption>
+                </figure>
+                <figure class="showcase__slide">
+                  <div class="showcase__media"><img src="assets/img/projects/academy-escuelas.webp" alt="Schools catalog" loading="lazy" width="1440" height="900" /></div>
+                  <figcaption><strong data-i18n="projects.academyS2T">Schools catalog</strong><span data-i18n="projects.academyS2D">Twelve schools built from the real folders of my local library.</span></figcaption>
+                </figure>
+                <figure class="showcase__slide">
+                  <div class="showcase__media"><img src="assets/img/projects/academy-progreso.webp" alt="Progress screen" loading="lazy" width="1440" height="900" /></div>
+                  <figcaption><strong data-i18n="projects.academyS3T">Progress</strong><span data-i18n="projects.academyS3D">Completed lessons, notes and activity saved on the device.</span></figcaption>
+                </figure>
+                <figure class="showcase__slide">
+                  <div class="showcase__media"><img src="assets/img/projects/academy-inicio.webp" alt="Home dashboard" loading="lazy" width="1440" height="900" /></div>
+                  <figcaption><strong data-i18n="projects.academyS4T">Home</strong><span data-i18n="projects.academyS4D">Continue where you left off, with the active route and recent activity.</span></figcaption>
+                </figure>
+                <figure class="showcase__slide">
+                  <div class="showcase__media"><video src="assets/video/academy-recorrido.mp4" controls playsinline preload="none" aria-label="Navigation recording (no lesson video is played)" data-i18n-aria="projects.academyVideoAria"></video></div>
+                  <figcaption><strong data-i18n="projects.academyS5T">Navigation recording</strong><span data-i18n="projects.academyS5D">Screen recording of the app moving between sections.</span></figcaption>
+                </figure>
+              </div>
+            </div>
           </article>
 
           <article class="project-card reveal" data-category="web dl">
@@ -523,9 +568,6 @@
               <span class="project-card__icon"><i class="ph ph-headphones"></i></span>
               <span class="project-card__status project-card__status--done" data-i18n="projects.lectorStatus">Live</span>
             </div>
-            <figure class="project-card__shot project-card__shot--img">
-              <img src="assets/img/projects/lector-inicio.webp" alt="PandoraPDF: Mis PDFs screen with the reading library and the voice setup" loading="lazy" width="1440" height="900" style="margin-bottom:.5rem">
-            </figure>
             <figure class="project-card__shot project-card__shot--img">
               <img src="assets/img/projects/lector-pdf-v2.webp?v=20261016a" alt="Four Lector de PDF screens in the AMOLED black theme: bilingual reading with the translation under the sentence being spoken, a translated sentence with words marked to save, the vocabulary with level and streak, and a practice question" data-i18n-alt="projects.lectorShotAlt" loading="lazy" width="1200" height="750" />
             </figure>
